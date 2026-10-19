@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{LANG}}" dir="{{DIR}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESC}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESC}}">
+<meta property="og:site_name" content="{{SITE}}">
+{{HEAD}}
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="{{HOME}}"><span class="mark" aria-hidden="true"></span>{{SITE}}</a>
+    <nav class="top"><a href="{{HOME}}">{{ALL}}</a><a href="{{SERIES_HREF}}">{{SERIES_NAV}}</a></nav>
+  </div>
+</header>
+<main class="wrap">
+{{BODY}}
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs">{{LANGS}}</nav><p>© {{YEAR}} {{AUTHOR}}</p></div>
+</footer>
+</body>
+</html>

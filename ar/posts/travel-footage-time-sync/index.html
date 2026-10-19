@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم · Cutroom Notes</title>
+<meta name="description" content="أعدت 905 مقاطع من كاميرات ساعاتها مضطربة إلى وقت تصويرها الحقيقي بمساعدة GPS والصور، ثم أنشأت تلقائيًا تسلسلات Premiere لكل يوم مع مسار مستقل لكل كاميرا.">
+<meta property="og:title" content="ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم · Cutroom Notes">
+<meta property="og:description" content="أعدت 905 مقاطع من كاميرات ساعاتها مضطربة إلى وقت تصويرها الحقيقي بمساعدة GPS والصور، ثم أنشأت تلقائيًا تسلسلات Premiere لكل يوم مع مسار مستقل لكل كاميرا.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-time-sync/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-time-sync/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/ar/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/ar/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/ar/">الكل</a><a href="/ar/series/">سلسلة</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">18 أكتوبر 2026</time><h1>ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم</h1><p class="tr-line">اقرأ أيضًا بلغة أخرى: <a href="/id/posts/travel-footage-time-sync/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/travel-footage-time-sync/" lang="hi">हिन्दी</a></p></header><aside class="series-box"><a class="series-name" href="/ar/series/video-archive-ai/">سلسلة · الأرشيف الشخصي للفيديو والذكاء الاصطناعي</a><ol><li><span>الجزء 1</span><a href="/ar/posts/travel-footage-ai-backup/">نسخ احتياطي لفيديوهات الرحلة، تركته للذكاء الاصطناعي طوال الليل واستلمت تقرير التحقق صباحًا</a></li><li class="now"><span>الجزء 2</span>ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم</li><li><span>الجزء 3</span><a href="/ar/posts/premiere-mcp-setup/">جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP</a></li><li><span>الجزء 4</span><a href="/ar/posts/travel-footage-captions/">ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي</a></li></ol></aside><div class="prose"><p>أعدت 905 مقاطع من كاميرات ساعاتها مضطربة إلى وقت تصويرها الحقيقي بمساعدة GPS والصور،
+<strong>ثم أنشأت تلقائيًا تسلسلات Premiere لكل يوم مع مسار مستقل لكل كاميرا.</strong></p>
+<p>في الجزء الأول اجتمعت كل الفيديوهات في قرص واحد. الآن جاء دور ترتيبها لتصبح جاهزة للمونتاج.
+كانت هناك خمسة أنواع من الكاميرات: Osmo Nano وGoPro وCanon 100D وCanon G7X (كاميرا زوجتي) والهاتف.</p>
+<h2>ضبط وقت التصوير: لكل كاميرا ساعة مختلفة</h2>
+<p>للمونتاج يجب وضع مقاطع عدة كاميرات بالترتيب الذي صُورت به فعلًا.
+المشكلة أن ساعة كل كاميرا كانت على أساس مختلف. التوقيت المحلي في تنزانيا هو UTC+3، أي متأخر ست ساعات عن المنطقة الزمنية في بيتي (UTC+9).</p>
+<p>استخرج الذكاء الاصطناعي وقت التصوير من الملفات الـ905 كلها وفحصه حسب كل كاميرا.</p>
+<table>
+<thead>
+<tr>
+<th>الكاميرا</th>
+<th>حال الساعة</th>
+<th>طريقة الضبط</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Osmo (412 مقطعًا)</td>
+<td>اسم الملف يحمل توقيت البيت (UTC+9)</td>
+<td>نطرح 9 ساعات من وقت الاسم لنحصل على UTC، ثم نضيف 3 ساعات للتوقيت المحلي</td>
+</tr>
+<tr>
+<td>GoPro (215 مقطعًا)</td>
+<td>فوضى</td>
+<td>مشروحة أدناه</td>
+</tr>
+<tr>
+<td>Canon 100D وG7X (276 مقطعًا)</td>
+<td>ليست بالتوقيت المحلي</td>
+<td>افترضنا خطأً أنها UTC، ثم تأكدنا في الجلسة التالية أنها بتوقيت البيت</td>
+</tr>
+<tr>
+<td>أخرى (مقطعان)</td>
+<td>ملفات مفصولة</td>
+<td>مسار خاص</td>
+</tr>
+</tbody>
+</table>
+<h3>GoPro</h3>
+<p>كاميرا GoPro تطلب ضبط الوقت كلما شُغلت، فكنت من الكسل أدخل أي وقت. ربما أدخلت أحيانًا سنة غريبة مثل 2016.
+لذلك لم يكن ممكنًا الوثوق بالوقت المسجل في الملف.</p>
+<p>الخيط الذي وجده الذكاء الاصطناعي كان بيانات GPS التي تسجلها GoPro داخل الفيديو نفسه. فيها وقت دقيق من الأقمار الصناعية.
+الملفات التي التقطت إشارة GPS أخذت ذلك الوقت مباشرة. وللملفات الأخرى استفاد من أن الساعة الخاطئة تبقى خاطئة بالمقدار نفسه.
+بحث عن نطاقات أرقام الملفات التي صُورت بإعداد الساعة نفسه، وحسب الفرق لكل نطاق، ثم صححها كلها دفعة واحدة.</p>
+<table>
+<thead>
+<tr>
+<th>نطاق أرقام الملفات</th>
+<th>مقدار خطأ الساعة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0418–0433</td>
+<td>صحيحة تقريبًا</td>
+</tr>
+<tr>
+<td>0434–0460</td>
+<td>نحو يوم واحد</td>
+</tr>
+<tr>
+<td>0461–0479</td>
+<td>نحو 3 ساعات و20 دقيقة في الاتجاه المعاكس</td>
+</tr>
+<tr>
+<td>0482–0636</td>
+<td>نحو 153 يومًا</td>
+</tr>
+<tr>
+<td>0637–0640</td>
+<td>نحو 163 يومًا</td>
+</tr>
+</tbody>
+</table>
+<p>بهذه الطريقة استعدنا 214 مقطعًا من 215. والمقطع المتبقي (GX010479) أضفت إلى اسمه وسم "وقت تقديري".
+وفي المقاطع التي صُورت في الوقت نفسه مع Osmo قارنا موجات الصوت، وكان الفرق أقل من 10 إلى 20 ثانية.</p>
+<h3>Canon</h3>
+<p>افترضنا أولًا أن Canon بتوقيت البيت، ثم بالتوقيت المحلي، وشغلنا مقارنة الصوت مرتين، وذهب الجهد سدى في المرتين.
+في النهاية حلت المسألة صورة واحدة. في الوقت نفسه كان Osmo يصور نهارًا بينما Canon تصور العشاء.
+صار واضحًا أنها ليست بالتوقيت المحلي، ولأن احتمال UTC كان الأكبر أدخلناها مؤقتًا بزيادة 3 ساعات.
+انقلب ذلك في الجلسة التالية. كل الصور التي تقول ساعة الكاميرا إنها التقطت بين الثامنة والعاشرة مساءً كانت مشاهد سفاري في عز النهار (حمار وحشي، أسد، فيل)، وعند إرجاعها 9 ساعات تطابقت أكثر ما يمكن مع GPS كاميرا GoPro ومع Osmo. <strong>تبين أن Canon 100D وG7X كلتيهما بتوقيت البيت.</strong> فقط فيديوهات G7X (MP4) كان وقتها صحيحًا أصلًا فلم نصححها.</p>
+<h2>تسلسلات Premiere لكل يوم</h2>
+<p>بعد ضبط الأوقات لم يبق إلا الترتيب حسب القواعد.
+أنشأ الذكاء الاصطناعي بسكربت ملف تسلسل لـ Premiere (XML) ثم استورده في Premiere.
+جربنا أولًا على اليوم الأول وحده، وبعد التأكد من الطريقة أنشأنا الكل مرة واحدة.</p>
+<table>
+<thead>
+<tr>
+<th>البند</th>
+<th>القاعدة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>التسلسلات</td>
+<td>16 تسلسلًا لكل يوم، 4K بمعدل 29.97 إطارًا</td>
+</tr>
+<tr>
+<td>حد اليوم</td>
+<td>الرابعة فجرًا. ما صُور بعد منتصف الليل يُحسب لليوم السابق</td>
+</tr>
+<tr>
+<td>المسارات</td>
+<td>V1 لـ Osmo، وV2 لـ GoPro، وV3 لـ Canon، وV4 للبقية. الصوت مساران لكل كاميرا</td>
+</tr>
+<tr>
+<td>التصوير المتزامن</td>
+<td>فوق بعضه في النقطة نفسها</td>
+</tr>
+<tr>
+<td>الفاصل بين المشاهد</td>
+<td>مضغوط إلى ثانيتين</td>
+</tr>
+<tr>
+<td>العلامات</td>
+<td>التوقيت المحلي عند كل مشهد</td>
+</tr>
+<tr>
+<td>اسم المقطع</td>
+<td>ينتهي بـ [التاريخ الوقت]</td>
+</tr>
+<tr>
+<td>الحجم</td>
+<td>مقاطع 2.7K مكبرة لتناسب 4K</td>
+</tr>
+<tr>
+<td>المستبعد</td>
+<td>ملفات المزامنة المؤقتة، ملفات المصغرات والبروكسي، المقاطع الأقصر من نصف ثانية، المكرر</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="تسلسل يوم 26/9 في خط زمن Premiere، ومسارات Osmo وGoPro وCanon والصور والهاتف فوق بعضها" src="/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp" />
+<em>تسلسل 26/9 عند الدقيقة المئة تقريبًا. V1 ‏Osmo، V2 ‏GoPro، V3 ‏Canon، V5 الصور، V9 الهاتف. الكاميرات التي صورت اللحظة نفسها مكدسة فوق بعضها.</em></p>
+<p>وهذا التوزيع حسب الأيام.</p>
+<table>
+<thead>
+<tr>
+<th>التاريخ</th>
+<th>المقاطع</th>
+<th>الكاميرات</th>
+<th>المدة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24/9</td>
+<td>4</td>
+<td>Osmo</td>
+<td>دقيقتان</td>
+</tr>
+<tr>
+<td>25/9</td>
+<td>54</td>
+<td>Osmo ‏41، GoPro ‏13</td>
+<td>158 دقيقة</td>
+</tr>
+<tr>
+<td>26/9</td>
+<td>130</td>
+<td>Canon ‏68، Osmo ‏36، GoPro ‏26</td>
+<td>232 دقيقة</td>
+</tr>
+<tr>
+<td>27/9</td>
+<td>182</td>
+<td>Canon ‏96، Osmo ‏66، GoPro ‏20</td>
+<td>380 دقيقة</td>
+</tr>
+<tr>
+<td>28/9</td>
+<td>42</td>
+<td>Canon ‏33، GoPro ‏6، Osmo ‏2، أخرى 1</td>
+<td>91 دقيقة</td>
+</tr>
+<tr>
+<td>29/9</td>
+<td>154</td>
+<td>Canon ‏75، Osmo ‏44، GoPro ‏35</td>
+<td>454 دقيقة</td>
+</tr>
+<tr>
+<td>30/9</td>
+<td>2</td>
+<td>GoPro</td>
+<td>دقيقتان</td>
+</tr>
+<tr>
+<td>1/10</td>
+<td>37</td>
+<td>Osmo ‏21، GoPro ‏16</td>
+<td>387 دقيقة</td>
+</tr>
+<tr>
+<td>2/10</td>
+<td>51</td>
+<td>Osmo ‏36، GoPro ‏15</td>
+<td>367 دقيقة</td>
+</tr>
+<tr>
+<td>3/10</td>
+<td>62</td>
+<td>Osmo ‏47، GoPro ‏15</td>
+<td>281 دقيقة</td>
+</tr>
+<tr>
+<td>4/10</td>
+<td>41</td>
+<td>Osmo ‏31، GoPro ‏10</td>
+<td>310 دقيقة</td>
+</tr>
+<tr>
+<td>5/10</td>
+<td>30</td>
+<td>GoPro ‏23، Osmo ‏7</td>
+<td>322 دقيقة</td>
+</tr>
+<tr>
+<td>6/10</td>
+<td>38</td>
+<td>GoPro ‏27، Osmo ‏11</td>
+<td>129 دقيقة</td>
+</tr>
+<tr>
+<td>7/10</td>
+<td>20</td>
+<td>Osmo</td>
+<td>244 دقيقة</td>
+</tr>
+<tr>
+<td>8/10</td>
+<td>13</td>
+<td>Osmo ‏9، GoPro ‏4</td>
+<td>198 دقيقة</td>
+</tr>
+<tr>
+<td>9/10</td>
+<td>15</td>
+<td>Osmo ‏13، GoPro ‏2</td>
+<td>119 دقيقة</td>
+</tr>
+</tbody>
+</table>
+<p>يوم 29/9 وحده تجاوز 450 دقيقة.
+فتح كل ملف وترتيبه حسب الكاميرا وضبط وقته هو أكثر جزء أكرهه في المونتاج، وقد اختفى بالكامل.
+وبمجرد انتهاء الاستيراد بدأ Premiere تحليل الوسائط من تلقاء نفسه.</p>
+<p>احتفظت بملفات العمل منفصلة. إذا أضيفت فيديوهات لاحقًا يكفي إعادة تشغيلها.</p>
+<table>
+<thead>
+<tr>
+<th>الملف</th>
+<th>الوظيفة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clip_times_fixed.csv</td>
+<td>وقت التصوير المصحح للمقاطع الـ905</td>
+</tr>
+<tr>
+<td>make_all.py</td>
+<td>سكربت إنشاء التسلسلات اليومية. أعدنا تشغيله عند تصحيح وقت Canon</td>
+</tr>
+<tr>
+<td>ملاحظة التسليم (.md)</td>
+<td>أماكن الملفات، تصحيح كل كاميرا، المهام المتبقية، نصائح العمل</td>
+</tr>
+</tbody>
+</table>
+<h2>تسلسلات v2 التي أعيد بناؤها في الجلسة التالية</h2>
+<p>بعد تأكيد وقت Canon أعدنا بناء التسلسلات في محادثة جديدة.</p>
+<table>
+<thead>
+<tr>
+<th>المهمة</th>
+<th>النتيجة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>وقت Canon</td>
+<td>تأكيد أن 100D وG7X بتوقيت البيت ثم التصحيح</td>
+</tr>
+<tr>
+<td>مسار الصور</td>
+<td>778 صورة (100D ‏678، G7X ‏73، GoPro ‏15، Osmo ‏12) مقاطع من 3 ثوانٍ في مسار الصور. 343 صورة بصيغة RAW ‏(CR2) فقط لم يستطع Premiere قراءتها، فاستُبعدت مؤقتًا وحُفظت قائمتها</td>
+</tr>
+<tr>
+<td>تسلسلات v2</td>
+<td>أعيد بناؤها مع الصور فصارت 17 تسلسلًا يوميًا. خمس صور التُقطت في البيت صباح السفر صارت تسلسلًا إضافيًا 0923</td>
+</tr>
+<tr>
+<td>لقطات جديدة</td>
+<td>407 مقاطع من G7X و100D لم تكن قد نُسخت احتياطيًا، مع فيديوهات الهاتف، وُضعت على مسارات جديدة. حتى لا يتأثر ترتيب المسارات القديمة ولا ملفات MP3 المستخرجة سابقًا</td>
+</tr>
+<tr>
+<td>البحث عن الملفات الناقصة</td>
+<td>تتبعناها من الفجوات في أرقام ملفات الكاميرا. الأرقام 4293–4532 في 100D، أي 240 ملفًا، تساوي تمامًا حجم اليوم الرابع، فالأرجح أنها في بيانات الحاسوب المحمول</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="لوحة المشروع في Premiere وفيها 17 تسلسل v2 للرحلة من 0923 إلى 1009" src="/images/20261018-time-sync-sequences/02-v2-sequence-list.webp" />
+<em>لوحة المشروع. في الأعلى ملفات MP3 لكل يوم، وفي الأسفل 17 تسلسل v2 بدقة 4K و29.97 إطارًا.</em></p>
+<p>في المقال القادم أشرح الوصلة التي جعلت الذكاء الاصطناعي يشغل Premiere مباشرة، أي Premiere MCP.</p></div><aside class="series-box"><a class="series-name" href="/ar/series/video-archive-ai/">سلسلة · الأرشيف الشخصي للفيديو والذكاء الاصطناعي</a><ol><li><span>الجزء 1</span><a href="/ar/posts/travel-footage-ai-backup/">نسخ احتياطي لفيديوهات الرحلة، تركته للذكاء الاصطناعي طوال الليل واستلمت تقرير التحقق صباحًا</a></li><li class="now"><span>الجزء 2</span>ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم</li><li><span>الجزء 3</span><a href="/ar/posts/premiere-mcp-setup/">جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP</a></li><li><span>الجزء 4</span><a href="/ar/posts/travel-footage-captions/">ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي</a></li></ol></aside></article><nav class="pager"><a href="/ar/posts/travel-footage-ai-backup/"><span>المقال السابق</span>نسخ احتياطي لفيديوهات الرحلة، تركته للذكاء الاصطناعي طوال الليل واستلمت تقرير التحقق صباحًا</a><a href="/ar/posts/premiere-mcp-setup/" class="r"><span>المقال التالي</span>جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar" class=on>العربية</a></nav><p>© 2026 Kelvin</p></div>
+</footer>
+</body>
+</html>

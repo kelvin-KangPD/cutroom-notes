@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI से सीधे Premiere चलवाना: Premiere MCP जोड़ने के नोट्स · Cutroom Notes</title>
+<meta name="description" content="Claude डेस्कटॉप ऐप और Premiere MCP से AI को मेरा PC और Premiere सीधे चलाने लायक़ जोड़ा, और इंस्टॉलेशन के जाल से लेकर पोर्ट की खींचतान तक एक-एक करके सुलझाया।">
+<meta property="og:title" content="AI से सीधे Premiere चलवाना: Premiere MCP जोड़ने के नोट्स · Cutroom Notes">
+<meta property="og:description" content="Claude डेस्कटॉप ऐप और Premiere MCP से AI को मेरा PC और Premiere सीधे चलाने लायक़ जोड़ा, और इंस्टॉलेशन के जाल से लेकर पोर्ट की खींचतान तक एक-एक करके सुलझाया।">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/premiere-mcp-setup/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261018-premiere-mcp-setup/01-mcp-bridge-connected.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/hi/posts/premiere-mcp-setup/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/hi/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/hi/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/hi/">सभी</a><a href="/hi/series/">सीरीज़</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">18 अक्टूबर 2026</time><h1>AI से सीधे Premiere चलवाना: Premiere MCP जोड़ने के नोट्स</h1><p class="tr-line">दूसरी भाषा में पढ़ें: <a href="/id/posts/premiere-mcp-setup/" lang="id">Bahasa Indonesia</a> · <a href="/ar/posts/premiere-mcp-setup/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/hi/series/video-archive-ai/">सीरीज़ · निजी वीडियो आर्काइव और AI</a><ol><li><span>भाग 1</span><a href="/hi/posts/travel-footage-ai-backup/">यात्रा के वीडियो का बैकअप, पूरी रात AI को सौंपा और सुबह वेरिफ़िकेशन रिपोर्ट मिली</a></li><li><span>भाग 2</span><a href="/hi/posts/travel-footage-time-sync/">पाँच कैमरों का रिकॉर्डिंग टाइम मिलाना और Premiere में तारीख़ के हिसाब से सीक्वेंस बनाना</a></li><li class="now"><span>भाग 3</span>AI से सीधे Premiere चलवाना: Premiere MCP जोड़ने के नोट्स</li><li><span>भाग 4</span><a href="/hi/posts/travel-footage-captions/">62 घंटे के यात्रा वीडियो के सबटाइटल, और AI के साथ काम की कुशलता</a></li></ol></aside><div class="prose"><p>Claude डेस्कटॉप ऐप और Premiere MCP से AI को मेरा PC और Premiere सीधे चलाने लायक़ जोड़ा,
+<strong>और इंस्टॉलेशन के जाल से लेकर पोर्ट की खींचतान तक एक-एक करके सुलझाया।</strong></p>
+<p>भाग 1 और 2 का काम इसी कनेक्शन की वजह से हो पाया।</p>
+<h2>क्या जोड़ा और कैसे</h2>
+<p>अगर AI सिर्फ़ निर्देश देता और काम मैं हाथ से करता, तो इतना काम कभी पूरा नहीं होता।</p>
+<table>
+<thead>
+<tr>
+<th>कनेक्शन</th>
+<th>AI क्या करता है</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude डेस्कटॉप ऐप + रिमोट कनेक्शन</td>
+<td>मैं फ़ोन से या ऑफ़िस से बात करूँ, तब भी काम घर के PC पर चलता है</td>
+</tr>
+<tr>
+<td>फ़ाइलें और कमांड लाइन</td>
+<td>ड्राइव की लिस्ट देखना, कॉपी का मिलान, ffmpeg से रिकॉर्डिंग टाइम और आवाज़ निकालना, Python स्क्रिप्ट चलाना</td>
+</tr>
+<tr>
+<td>स्क्रीन कंट्रोल</td>
+<td>7-Zip, Premiere और Media Encoder को क्लिक से चलाना</td>
+</tr>
+<tr>
+<td>Premiere MCP</td>
+<td>Premiere के अंदर लगे ब्रिज पैनल से सीक्वेंस और कैप्शन ट्रैक बनाना, प्रोजेक्ट सेव करना</td>
+</tr>
+<tr>
+<td>Media Encoder</td>
+<td>तारीख़-वार सीक्वेंस को ट्रांसक्रिप्शन के लिए MP3 में निकालना</td>
+</tr>
+</tbody>
+</table>
+<p>स्क्रीन कंट्रोल की भी सीमा थी। फ़ाइल एक्सप्लोरर में सिर्फ़ क्लिक हो पाता था, कॉपी-पेस्ट और ड्रैग-ड्रॉप बंद थे। इसलिए फ़ोन जैसे बिना ड्राइव अक्षर वाले डिवाइस से फ़ाइलें मुझे खुद लानी पड़ीं।</p>
+<h2>Premiere MCP</h2>
+<p>MCP एक तरीक़ा है जिससे AI दूसरे प्रोग्राम को औज़ार की तरह इस्तेमाल कर सकता है।
+Premiere के लिए मैं GitHub पर खुले में मौजूद Adobe-Premiere-Pro-MCP इस्तेमाल करता हूँ। Premiere में "MCP Bridge" नाम का एक्सटेंशन पैनल लगता है, और PC के अंदर एक छोटा सर्वर (पोर्ट 8097) AI के आदेशों को Premiere स्क्रिप्ट (ExtendScript) में बदलकर भेजता है।</p>
+<p><img alt="Premiere में MCP Bridge पैनल Connected हालत में, साथ में कनेक्शन लॉग" src="/images/20261018-premiere-mcp-setup/01-mcp-bridge-connected.webp" />
+<em>MCP Bridge पैनल। हरा Connected दिखे, तभी AI के आदेश Premiere तक पहुँचते हैं।</em></p>
+<p>पहली बार सितंबर की शुरुआत में लगाया था, शादी के ओपनिंग वीडियो के काम के समय। सोचा था बस इंस्टॉल फ़ाइल चलानी है, पर जाल बहुत निकले।
+अक्टूबर में ऑफ़िस के PC पर भी लगाया, और वहाँ सिर्फ़ ऑफ़िस नेटवर्क वाली एक और दिक़्क़त आई।</p>
+<table>
+<thead>
+<tr>
+<th>लक्षण</th>
+<th>वजह</th>
+<th>हल</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude ऐप सर्वर चलाता ही नहीं</td>
+<td>Store वाला ऐप सेटिंग फ़ाइल किसी और जगह से पढ़ता है</td>
+<td>असली जगह (LocalCache के नीचे) पर रजिस्टर किया</td>
+</tr>
+<tr>
+<td>सेटिंग चुपचाप अनदेखी</td>
+<td>इंस्टॉल स्क्रिप्ट सेटिंग फ़ाइल की शुरुआत में BOM (अदृश्य अक्षर) डाल देती है</td>
+<td>बिना BOM के दोबारा सेव</td>
+</tr>
+<tr>
+<td>सर्वर नहीं चलता</td>
+<td>सेटिंग में सिर्फ़ node लिखा था, ऐप उसे ढूँढ नहीं पाता</td>
+<td>node.exe का पूरा पाथ</td>
+</tr>
+<tr>
+<td>पैनल Connected पर आदेश नहीं पहुँचते</td>
+<td>हर चैट विंडो अपना सर्वर चलाती है और एक ही पोर्ट के लिए झगड़ती है</td>
+<td>बचे हुए सर्वर बंद करके दोबारा जोड़ना</td>
+</tr>
+<tr>
+<td>Premiere में कीबोर्ड काम नहीं करता</td>
+<td>ब्रिज पैनल कीबोर्ड इनपुट खींच लेता है</td>
+<td>हाथ से एडिट करते समय पैनल बंद</td>
+</tr>
+<tr>
+<td>ऑफ़िस PC पर इंस्टॉल फ़ेल</td>
+<td>Node ऑफ़िस के सिक्योरिटी डिवाइस के सर्टिफ़िकेट पर भरोसा नहीं करता</td>
+<td>Node को Windows सर्टिफ़िकेट स्टोर इस्तेमाल करने का विकल्प</td>
+</tr>
+</tbody>
+</table>
+<h2>इंस्टॉल का क्रम</h2>
+<p>कई बार अटकने के बाद यह क्रम तय किया। दूसरे PC पर भी इसी हिसाब से लगाया जा सकता है।</p>
+<table>
+<thead>
+<tr>
+<th>चरण</th>
+<th>कहाँ</th>
+<th>क्या करना है</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>PowerShell</td>
+<td>देखें Node.js है या नहीं। नहीं है तो इंस्टॉल करके नई विंडो खोलें</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ब्राउज़र</td>
+<td>GitHub से Adobe-Premiere-Pro-MCP को ZIP में डाउनलोड करके Documents में खोलें। बाद में हटाने पर Premiere एक्सटेंशन का कनेक्शन टूट जाता है, इसलिए शुरू से आख़िरी जगह पर रखें</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Notepad</td>
+<td>पहले install.bat खोलकर पढ़ें। रजिस्ट्री सेटिंग, एक्सटेंशन फ़ोल्डर जोड़ना, पैकेज इंस्टॉल और बिल्ड, सेटिंग लिखना, इसके अलावा कुछ अजीब दिखे तो रुक जाएँ</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PowerShell</td>
+<td>install.bat चलाएँ, देखें कि सर्वर फ़ाइल (dist\server.js) बनी या नहीं</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Premiere</td>
+<td>पूरी तरह बंद करके खोलें, Window &gt; Extensions &gt; MCP Bridge पैनल खोलें</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Claude ऐप</td>
+<td>एक बार खोलकर बंद करें ताकि सेटिंग फ़ोल्डर बन जाए</td>
+</tr>
+<tr>
+<td>7</td>
+<td>PowerShell</td>
+<td>असली सेटिंग फ़ाइल के पाथ पर सर्वर रजिस्टर करें। BOM के बिना सेव, node का पूरा पाथ</td>
+</tr>
+<tr>
+<td>8</td>
+<td>PowerShell</td>
+<td>Claude ऐप पूरी तरह बंद करके दोबारा खोलें। सेटिंग सिर्फ़ ऐप खुलते समय एक बार पढ़ी जाती है</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Premiere</td>
+<td>पैनल पर Connected देखें</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Claude ऐप</td>
+<td>नई चैट में कनेक्शन देखें, फिर कुछ बदले बिना सिर्फ़ ट्रैक की बनावट पढ़वाकर जाँचें</td>
+</tr>
+</tbody>
+</table>
+<p>रोज़ चालू करने का क्रम भी तय कर लिया।</p>
+<table>
+<thead>
+<tr>
+<th>क्रम</th>
+<th>क्या करना है</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>दूसरे MCP प्रोग्राम और दूसरी Claude चैट विंडो बंद करें</td>
+</tr>
+<tr>
+<td>2</td>
+<td>पोर्ट 8097 पकड़े बैठा पुराना सर्वर हो तो बंद करें</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Premiere खोलें, प्रोजेक्ट और सीक्वेंस खोलें</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Claude ऐप खोलें (सर्वर अपने-आप चलता है)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ब्रिज पैनल पर Connected देखकर काम शुरू करें</td>
+</tr>
+<tr>
+<td>6</td>
+<td>हाथ से एडिट करते समय पैनल बंद करें। सर्वर चालू रहता है, पैनल खोलते ही फिर जुड़ जाता है</td>
+</tr>
+</tbody>
+</table>
+<h2>इस वीकेंड: पोर्ट की खींचतान और ब्रिज में सुधार</h2>
+<p>इस वीकेंड फिर पोर्ट का झगड़ा हुआ। नई चैट विंडो पर जाते ही पुरानी विंडो का सर्वर पोर्ट पकड़े रहता, पैनल Connected दिखाता और आदेश हवा में खो जाते।
+पहले मैं एक लाइन की PowerShell कमांड से सारे बचे सर्वर बंद करके काम चलाता रहा। पर हर बार चैट बदलने पर यही करना पड़ता था, जो झंझट था।
+इसलिए इस बार AI ने ब्रिज का कोड ही बदल दिया। नया चालू हुआ सर्वर पुराने सर्वर से "पोर्ट छोड़ दो" कहता है और पुराना सर्वर हट जाता है। AI ने पहले लोकल में इसकी नक़ल करके जाँचा, फिर लागू किया। नया सर्वर चालू होने के बाद सिर्फ़ 15 सेकंड तक यह माँगता है, और हट चुका सर्वर दोबारा छीनने की कोशिश नहीं करता, चुपचाप इंतज़ार करता है। इसलिए आम तौर पर सबसे नई चैट विंडो जीतती है।
+बदलाव बिल्ड वाली फ़ाइल और असली सोर्स, दोनों में किया, ताकि बाद में दोबारा बिल्ड करने पर भी सुधार बना रहे।
+फिर भी पहले सेशन में कनेक्शन नहीं जुड़ा, तो सीक्वेंस XML फ़ाइल बनाकर स्क्रीन कंट्रोल से इम्पोर्ट किए। अगले सेशन से MCP से कैप्शन ट्रैक डाले और प्रोजेक्ट सेव तक किया।</p>
+<p>अगले लेख में 62 घंटे के वीडियो के सबटाइटल बनाने का तरीक़ा और AI से काम कुशलता से करवाने के बारे में जो सीखा, वह लिखूँगा।</p></div><aside class="series-box"><a class="series-name" href="/hi/series/video-archive-ai/">सीरीज़ · निजी वीडियो आर्काइव और AI</a><ol><li><span>भाग 1</span><a href="/hi/posts/travel-footage-ai-backup/">यात्रा के वीडियो का बैकअप, पूरी रात AI को सौंपा और सुबह वेरिफ़िकेशन रिपोर्ट मिली</a></li><li><span>भाग 2</span><a href="/hi/posts/travel-footage-time-sync/">पाँच कैमरों का रिकॉर्डिंग टाइम मिलाना और Premiere में तारीख़ के हिसाब से सीक्वेंस बनाना</a></li><li class="now"><span>भाग 3</span>AI से सीधे Premiere चलवाना: Premiere MCP जोड़ने के नोट्स</li><li><span>भाग 4</span><a href="/hi/posts/travel-footage-captions/">62 घंटे के यात्रा वीडियो के सबटाइटल, और AI के साथ काम की कुशलता</a></li></ol></aside></article><nav class="pager"><a href="/hi/posts/travel-footage-time-sync/"><span>पिछला लेख</span>पाँच कैमरों का रिकॉर्डिंग टाइम मिलाना और Premiere में तारीख़ के हिसाब से सीक्वेंस बनाना</a><a href="/hi/posts/travel-footage-captions/" class="r"><span>अगला लेख</span>62 घंटे के यात्रा वीडियो के सबटाइटल, और AI के साथ काम की कुशलता</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi" class=on>हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a></nav><p>© 2026 Kelvin</p></div>
+</footer>
+</body>
+</html>

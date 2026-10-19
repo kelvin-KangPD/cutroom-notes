@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cutroom-notes.pages.dev/sitemap.xml

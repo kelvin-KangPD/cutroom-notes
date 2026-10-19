@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>पाँच कैमरों का रिकॉर्डिंग टाइम मिलाना और Premiere में तारीख़ के हिसाब से सीक्वेंस बनाना · Cutroom Notes</title>
+<meta name="description" content="अलग-अलग गड़बड़ घड़ियों वाले कैमरों की 905 क्लिप को GPS और तस्वीरों की मदद से असली रिकॉर्डिंग टाइम पर लाया, फिर हर कैमरे के अलग ट्रैक वाले तारीख़-वार Premiere सीक्वेंस अपने-आप बनाए।">
+<meta property="og:title" content="पाँच कैमरों का रिकॉर्डिंग टाइम मिलाना और Premiere में तारीख़ के हिसाब से सीक्वेंस बनाना · Cutroom Notes">
+<meta property="og:description" content="अलग-अलग गड़बड़ घड़ियों वाले कैमरों की 905 क्लिप को GPS और तस्वीरों की मदद से असली रिकॉर्डिंग टाइम पर लाया, फिर हर कैमरे के अलग ट्रैक वाले तारीख़-वार Premiere सीक्वेंस अपने-आप बनाए।">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-time-sync/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-time-sync/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/hi/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/hi/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/hi/">सभी</a><a href="/hi/series/">सीरीज़</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">18 अक्टूबर 2026</time><h1>पाँच कैमरों का रिकॉर्डिंग टाइम मिलाना और Premiere में तारीख़ के हिसाब से सीक्वेंस बनाना</h1><p class="tr-line">दूसरी भाषा में पढ़ें: <a href="/id/posts/travel-footage-time-sync/" lang="id">Bahasa Indonesia</a> · <a href="/ar/posts/travel-footage-time-sync/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/hi/series/video-archive-ai/">सीरीज़ · निजी वीडियो आर्काइव और AI</a><ol><li><span>भाग 1</span><a href="/hi/posts/travel-footage-ai-backup/">यात्रा के वीडियो का बैकअप, पूरी रात AI को सौंपा और सुबह वेरिफ़िकेशन रिपोर्ट मिली</a></li><li class="now"><span>भाग 2</span>पाँच कैमरों का रिकॉर्डिंग टाइम मिलाना और Premiere में तारीख़ के हिसाब से सीक्वेंस बनाना</li><li><span>भाग 3</span><a href="/hi/posts/premiere-mcp-setup/">AI से सीधे Premiere चलवाना: Premiere MCP जोड़ने के नोट्स</a></li><li><span>भाग 4</span><a href="/hi/posts/travel-footage-captions/">62 घंटे के यात्रा वीडियो के सबटाइटल, और AI के साथ काम की कुशलता</a></li></ol></aside><div class="prose"><p>अलग-अलग गड़बड़ घड़ियों वाले कैमरों की 905 क्लिप को GPS और तस्वीरों की मदद से असली रिकॉर्डिंग टाइम पर लाया,
+<strong>फिर हर कैमरे के अलग ट्रैक वाले तारीख़-वार Premiere सीक्वेंस अपने-आप बनाए।</strong></p>
+<p>भाग 1 में सारे वीडियो एक हार्ड डिस्क में आ गए थे। अब उन्हें एडिट करने लायक़ क्रम में लगाने की बारी थी।
+कैमरे पाँच तरह के थे: Osmo Nano, GoPro, Canon 100D, Canon G7X (पत्नी का कैमरा), और फ़ोन।</p>
+<h2>रिकॉर्डिंग टाइम मिलाना: हर कैमरे की घड़ी अलग थी</h2>
+<p>एडिट करने के लिए कई कैमरों के वीडियो को असल में जिस क्रम में शूट हुए, उसी क्रम में रखना पड़ता है।
+दिक़्क़त यह थी कि हर कैमरे की घड़ी का आधार अलग था। तंज़ानिया का लोकल टाइम UTC+3 है, जो मेरे घर के टाइम ज़ोन (UTC+9) से 6 घंटे पीछे है।</p>
+<p>AI ने 905 फ़ाइलों का रिकॉर्डिंग टाइम निकाला और हर कैमरे के हिसाब से जाँचा।</p>
+<table>
+<thead>
+<tr>
+<th>कैमरा</th>
+<th>घड़ी की हालत</th>
+<th>कैसे मिलाया</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Osmo (412 क्लिप)</td>
+<td>फ़ाइल के नाम में घर का टाइम (UTC+9)</td>
+<td>नाम वाले टाइम से 9 घंटे घटाकर UTC, फिर 3 घंटे जोड़कर लोकल टाइम</td>
+</tr>
+<tr>
+<td>GoPro (215 क्लिप)</td>
+<td>बिल्कुल गड़बड़</td>
+<td>नीचे अलग से</td>
+</tr>
+<tr>
+<td>Canon 100D और G7X (276 क्लिप)</td>
+<td>लोकल टाइम नहीं</td>
+<td>पहले ग़लती से UTC माना, अगले सेशन में पक्का हुआ कि घर का टाइम था</td>
+</tr>
+<tr>
+<td>बाक़ी (2 क्लिप)</td>
+<td>अलग की गई फ़ाइलें</td>
+<td>अलग ट्रैक</td>
+</tr>
+</tbody>
+</table>
+<h3>GoPro</h3>
+<p>GoPro हर बार ऑन होने पर टाइम सेट करने को कहता है, तो आलस में मैंने कई बार कुछ भी डाल दिया। शायद 2016 जैसा बेतुका साल भी डाला होगा।
+इसलिए फ़ाइल में लिखे टाइम पर भरोसा नहीं किया जा सकता था।</p>
+<p>AI को सुराग मिला उस GPS डेटा में, जो GoPro वीडियो के अंदर ही रिकॉर्ड करता है। GPS में सैटेलाइट से मिला सटीक टाइम होता है।
+जिन फ़ाइलों में GPS मिला, उनमें वही टाइम लिया। जिनमें नहीं मिला, उनके लिए इस बात का फ़ायदा उठाया कि ग़लत घड़ी एक जैसी ही ग़लत चलती है।
+एक ही घड़ी-सेटिंग पर शूट हुई फ़ाइलों के नंबर-रेंज ढूँढे, हर रेंज का फ़र्क़ निकाला और सबको एक साथ ठीक कर दिया।</p>
+<table>
+<thead>
+<tr>
+<th>फ़ाइल नंबर रेंज</th>
+<th>घड़ी कितनी ग़लत थी</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0418–0433</td>
+<td>लगभग सही</td>
+</tr>
+<tr>
+<td>0434–0460</td>
+<td>लगभग एक दिन</td>
+</tr>
+<tr>
+<td>0461–0479</td>
+<td>लगभग 3 घंटे 20 मिनट, उल्टी दिशा में</td>
+</tr>
+<tr>
+<td>0482–0636</td>
+<td>लगभग 153 दिन</td>
+</tr>
+<tr>
+<td>0637–0640</td>
+<td>लगभग 163 दिन</td>
+</tr>
+</tbody>
+</table>
+<p>इस तरह 215 में से 214 क्लिप ठीक हो गईं। बची हुई एक (GX010479) के नाम में "अनुमानित टाइम" लिख दिया।
+जहाँ Osmo के साथ एक ही समय पर शूटिंग हुई थी, वहाँ आवाज़ की वेवफ़ॉर्म मिलाकर जाँचा, और फ़र्क़ 10–20 सेकंड के अंदर निकला।</p>
+<h3>Canon</h3>
+<p>Canon को पहले घर का टाइम माना, फिर लोकल टाइम मानकर दो बार आवाज़ मिलाई, और दोनों बार मेहनत बेकार गई।
+आख़िर में एक तस्वीर से बात सुलझी। एक ही टाइम पर Osmo में दिन था और Canon में रात का खाना।
+यह साफ़ हो गया कि लोकल टाइम नहीं है, और UTC होने की संभावना ज़्यादा लगी, इसलिए फ़िलहाल +3 घंटे करके डाल दिया।
+अगले सेशन में यह पलट गया। कैमरे की घड़ी के हिसाब से रात 8–10 बजे की सारी तस्वीरें दिन की सफ़ारी (ज़ेब्रा, शेर, हाथी) की थीं, और 9 घंटे पीछे करने पर GoPro के GPS और Osmo से सबसे ज़्यादा मेल खाया। <strong>Canon 100D और G7X दोनों घर के टाइम पर थे।</strong> सिर्फ़ G7X के वीडियो (MP4) का टाइम पहले से सही था, इसलिए उसे नहीं बदला।</p>
+<h2>Premiere में तारीख़-वार सीक्वेंस</h2>
+<p>टाइम ठीक होने के बाद बाक़ी काम बस नियम के हिसाब से रखना था।
+AI ने स्क्रिप्ट से Premiere के लिए सीक्वेंस फ़ाइल (XML) बनाई और Premiere में इम्पोर्ट की।
+पहले सिर्फ़ DAY 1 पर आज़माया, तरीक़ा सही निकला तो सब एक साथ बनाया।</p>
+<table>
+<thead>
+<tr>
+<th>चीज़</th>
+<th>नियम</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>सीक्वेंस</td>
+<td>तारीख़ के हिसाब से 16, 4K 29.97fps</td>
+</tr>
+<tr>
+<td>दिन की सीमा</td>
+<td>सुबह 4 बजे। आधी रात के बाद की शूटिंग पिछले दिन में</td>
+</tr>
+<tr>
+<td>ट्रैक</td>
+<td>V1 Osmo, V2 GoPro, V3 Canon, V4 बाक़ी। ऑडियो हर कैमरे के 2 ट्रैक</td>
+</tr>
+<tr>
+<td>एक साथ शूटिंग</td>
+<td>एक ही जगह पर ऊपर-नीचे</td>
+</tr>
+<tr>
+<td>सीन के बीच</td>
+<td>2 सेकंड का फ़ासला</td>
+</tr>
+<tr>
+<td>मार्कर</td>
+<td>हर सीन पर लोकल टाइम</td>
+</tr>
+<tr>
+<td>क्लिप का नाम</td>
+<td>आख़िर में [तारीख़ टाइम]</td>
+</tr>
+<tr>
+<td>साइज़</td>
+<td>2.7K क्लिप को 4K के हिसाब से बड़ा किया</td>
+</tr>
+<tr>
+<td>हटाया</td>
+<td>सिंक की अस्थायी फ़ाइलें, थंबनेल और प्रॉक्सी फ़ाइलें, 0.5 सेकंड से छोटी क्लिप, डुप्लिकेट</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Premiere टाइमलाइन में 26/9 का सीक्वेंस, जिसमें Osmo, GoPro, Canon, तस्वीरें और फ़ोन के ट्रैक ऊपर-नीचे रखे हैं" src="/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp" />
+<em>26/9 का सीक्वेंस, लगभग 1 घंटा 40 मिनट पर। V1 Osmo, V2 GoPro, V3 Canon, V5 तस्वीरें, V9 फ़ोन। एक ही पल को शूट करने वाले कैमरे ऊपर-नीचे हैं।</em></p>
+<p>तारीख़ के हिसाब से देखें तो ऐसा है।</p>
+<table>
+<thead>
+<tr>
+<th>तारीख़</th>
+<th>क्लिप</th>
+<th>कैमरे</th>
+<th>लंबाई</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24/9</td>
+<td>4</td>
+<td>Osmo</td>
+<td>2 मिनट</td>
+</tr>
+<tr>
+<td>25/9</td>
+<td>54</td>
+<td>Osmo 41, GoPro 13</td>
+<td>158 मिनट</td>
+</tr>
+<tr>
+<td>26/9</td>
+<td>130</td>
+<td>Canon 68, Osmo 36, GoPro 26</td>
+<td>232 मिनट</td>
+</tr>
+<tr>
+<td>27/9</td>
+<td>182</td>
+<td>Canon 96, Osmo 66, GoPro 20</td>
+<td>380 मिनट</td>
+</tr>
+<tr>
+<td>28/9</td>
+<td>42</td>
+<td>Canon 33, GoPro 6, Osmo 2, बाक़ी 1</td>
+<td>91 मिनट</td>
+</tr>
+<tr>
+<td>29/9</td>
+<td>154</td>
+<td>Canon 75, Osmo 44, GoPro 35</td>
+<td>454 मिनट</td>
+</tr>
+<tr>
+<td>30/9</td>
+<td>2</td>
+<td>GoPro</td>
+<td>2 मिनट</td>
+</tr>
+<tr>
+<td>1/10</td>
+<td>37</td>
+<td>Osmo 21, GoPro 16</td>
+<td>387 मिनट</td>
+</tr>
+<tr>
+<td>2/10</td>
+<td>51</td>
+<td>Osmo 36, GoPro 15</td>
+<td>367 मिनट</td>
+</tr>
+<tr>
+<td>3/10</td>
+<td>62</td>
+<td>Osmo 47, GoPro 15</td>
+<td>281 मिनट</td>
+</tr>
+<tr>
+<td>4/10</td>
+<td>41</td>
+<td>Osmo 31, GoPro 10</td>
+<td>310 मिनट</td>
+</tr>
+<tr>
+<td>5/10</td>
+<td>30</td>
+<td>GoPro 23, Osmo 7</td>
+<td>322 मिनट</td>
+</tr>
+<tr>
+<td>6/10</td>
+<td>38</td>
+<td>GoPro 27, Osmo 11</td>
+<td>129 मिनट</td>
+</tr>
+<tr>
+<td>7/10</td>
+<td>20</td>
+<td>Osmo</td>
+<td>244 मिनट</td>
+</tr>
+<tr>
+<td>8/10</td>
+<td>13</td>
+<td>Osmo 9, GoPro 4</td>
+<td>198 मिनट</td>
+</tr>
+<tr>
+<td>9/10</td>
+<td>15</td>
+<td>Osmo 13, GoPro 2</td>
+<td>119 मिनट</td>
+</tr>
+</tbody>
+</table>
+<p>सिर्फ़ 29/9 का दिन ही 450 मिनट से ज़्यादा है।
+हर फ़ाइल खोलकर कैमरे के हिसाब से लगाना और टाइम मिलाना एडिटिंग का सबसे उबाऊ हिस्सा होता है, और वह पूरा का पूरा हट गया।
+इम्पोर्ट ख़त्म होते ही Premiere ने अपने-आप मीडिया एनालिसिस भी शुरू कर दिया।</p>
+<p>काम की फ़ाइलें अलग से रखीं। आगे नए वीडियो जुड़ें तो बस इन्हें दोबारा चलाना है।</p>
+<table>
+<thead>
+<tr>
+<th>फ़ाइल</th>
+<th>काम</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clip_times_fixed.csv</td>
+<td>905 क्लिप का सुधारा हुआ रिकॉर्डिंग टाइम</td>
+</tr>
+<tr>
+<td>make_all.py</td>
+<td>तारीख़-वार सीक्वेंस बनाने वाली स्क्रिप्ट। Canon का टाइम ठीक करते समय इसे दोबारा चलाया</td>
+</tr>
+<tr>
+<td>हैंडओवर नोट (.md)</td>
+<td>फ़ाइलों की जगह, हर कैमरे का सुधार, बचे काम, काम के तरीक़े</td>
+</tr>
+</tbody>
+</table>
+<h2>अगले सेशन में दोबारा बने v2 सीक्वेंस</h2>
+<p>Canon का टाइम पक्का होने के बाद नई बातचीत में सीक्वेंस दोबारा बनाए।</p>
+<table>
+<thead>
+<tr>
+<th>काम</th>
+<th>नतीजा</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canon का टाइम</td>
+<td>100D और G7X को घर का टाइम पक्का करके ठीक किया</td>
+</tr>
+<tr>
+<td>फ़ोटो ट्रैक</td>
+<td>778 तस्वीरें (100D 678, G7X 73, GoPro 15, Osmo 12) 3 सेकंड की कट बनाकर फ़ोटो ट्रैक में। सिर्फ़ RAW (CR2) वाली 343 तस्वीरें Premiere नहीं पढ़ पाया, इसलिए फ़िलहाल बाहर रखीं और सिर्फ़ उनकी लिस्ट बचाई</td>
+</tr>
+<tr>
+<td>v2 सीक्वेंस</td>
+<td>तस्वीरों समेत तारीख़-वार 17 सीक्वेंस बने। रवाना होने वाली सुबह घर पर ली गई 5 तस्वीरों से एक और सीक्वेंस 0923 बना</td>
+</tr>
+<tr>
+<td>नई फ़ुटेज</td>
+<td>जिन G7X और 100D की फ़ुटेज का बैकअप नहीं हुआ था, और फ़ोन के वीडियो, कुल 407 क्लिप नए ट्रैक पर। ताकि पुराने ट्रैक और पहले से निकाले गए MP3 न बिगड़ें</td>
+</tr>
+<tr>
+<td>ग़ायब फ़ाइलें ढूँढना</td>
+<td>कैमरे के फ़ाइल नंबरों के बीच के ख़ाली हिस्सों से पता लगाया। 100D के 4293–4532 नंबर, यानी 240 फ़ाइलें, ठीक DAY 4 जितनी हैं, इसलिए वे लैपटॉप वाले डेटा में होंगी</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Premiere के प्रोजेक्ट पैनल में 0923 से 1009 तक यात्रा के 17 v2 सीक्वेंस" src="/images/20261018-time-sync-sequences/02-v2-sequence-list.webp" />
+<em>प्रोजेक्ट पैनल। ऊपर तारीख़-वार निकाले गए MP3, नीचे 4K 29.97fps के 17 v2 सीक्वेंस।</em></p>
+<p>अगले लेख में उस कनेक्शन के बारे में लिखूँगा जिससे AI सीधे Premiere चला पाया, यानी Premiere MCP।</p></div><aside class="series-box"><a class="series-name" href="/hi/series/video-archive-ai/">सीरीज़ · निजी वीडियो आर्काइव और AI</a><ol><li><span>भाग 1</span><a href="/hi/posts/travel-footage-ai-backup/">यात्रा के वीडियो का बैकअप, पूरी रात AI को सौंपा और सुबह वेरिफ़िकेशन रिपोर्ट मिली</a></li><li class="now"><span>भाग 2</span>पाँच कैमरों का रिकॉर्डिंग टाइम मिलाना और Premiere में तारीख़ के हिसाब से सीक्वेंस बनाना</li><li><span>भाग 3</span><a href="/hi/posts/premiere-mcp-setup/">AI से सीधे Premiere चलवाना: Premiere MCP जोड़ने के नोट्स</a></li><li><span>भाग 4</span><a href="/hi/posts/travel-footage-captions/">62 घंटे के यात्रा वीडियो के सबटाइटल, और AI के साथ काम की कुशलता</a></li></ol></aside></article><nav class="pager"><a href="/hi/posts/travel-footage-ai-backup/"><span>पिछला लेख</span>यात्रा के वीडियो का बैकअप, पूरी रात AI को सौंपा और सुबह वेरिफ़िकेशन रिपोर्ट मिली</a><a href="/hi/posts/premiere-mcp-setup/" class="r"><span>अगला लेख</span>AI से सीधे Premiere चलवाना: Premiere MCP जोड़ने के नोट्स</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi" class=on>हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a></nav><p>© 2026 Kelvin</p></div>
+</footer>
+</body>
+</html>

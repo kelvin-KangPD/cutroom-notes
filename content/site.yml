@@ -1,0 +1,56 @@
+title: Cutroom Notes
+url: https://cutroom-notes.pages.dev
+author: Kelvin
+desc: Work notes on video editing, AI and automation.
+langs:
+  id:
+    name: Bahasa Indonesia
+    dir: ltr
+    desc: Catatan kerja seputar editing video, AI, dan otomatisasi.
+    all: Semua
+    series: Seri
+    part: "Bagian {n}"
+    prev: Tulisan sebelumnya
+    next: Tulisan berikutnya
+    also_in: "Baca juga dalam:"
+    empty: Belum ada tulisan.
+    date_fmt: "{d} {m} {y}"
+    months: [Januari, Februari, Maret, April, Mei, Juni, Juli, Agustus, September, Oktober, November, Desember]
+    series_titles:
+      video-archive-ai:
+        title: Arsip video pribadi dan AI
+        desc: Bagaimana rekaman yang menumpuk bertahun-tahun berubah nilainya ketika AI ikut bekerja.
+  hi:
+    name: हिन्दी
+    dir: ltr
+    desc: वीडियो एडिटिंग, AI और ऑटोमेशन पर काम के नोट्स।
+    all: सभी
+    series: सीरीज़
+    part: "भाग {n}"
+    prev: पिछला लेख
+    next: अगला लेख
+    also_in: "दूसरी भाषा में पढ़ें:"
+    empty: अभी कोई लेख नहीं है।
+    date_fmt: "{d} {m} {y}"
+    months: [जनवरी, फ़रवरी, मार्च, अप्रैल, मई, जून, जुलाई, अगस्त, सितंबर, अक्टूबर, नवंबर, दिसंबर]
+    series_titles:
+      video-archive-ai:
+        title: निजी वीडियो आर्काइव और AI
+        desc: सालों से जमा की गई फ़ुटेज AI के साथ काम करने पर कैसे बदल जाती है।
+  ar:
+    name: العربية
+    dir: rtl
+    desc: ملاحظات عمل عن مونتاج الفيديو والذكاء الاصطناعي والأتمتة.
+    all: الكل
+    series: سلسلة
+    part: "الجزء {n}"
+    prev: المقال السابق
+    next: المقال التالي
+    also_in: "اقرأ أيضًا بلغة أخرى:"
+    empty: لا توجد مقالات بعد.
+    date_fmt: "{d} {m} {y}"
+    months: [يناير, فبراير, مارس, أبريل, مايو, يونيو, يوليو, أغسطس, سبتمبر, أكتوبر, نوفمبر, ديسمبر]
+    series_titles:
+      video-archive-ai:
+        title: الأرشيف الشخصي للفيديو والذكاء الاصطناعي
+        desc: كيف تتغير قيمة اللقطات المتراكمة على مر السنين عندما يدخل الذكاء الاصطناعي في العمل.

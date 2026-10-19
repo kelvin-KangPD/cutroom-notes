@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menyamakan jam rekam lima kamera dan membuat sequence Premiere per tanggal · Cutroom Notes</title>
+<meta name="description" content="905 klip dari kamera dengan jam yang kacau saya cocokkan ke waktu rekam sebenarnya memakai GPS dan foto, lalu sequence Premiere per tanggal dengan track terpisah per kamera dibuat otomatis.">
+<meta property="og:title" content="Menyamakan jam rekam lima kamera dan membuat sequence Premiere per tanggal · Cutroom Notes">
+<meta property="og:description" content="905 klip dari kamera dengan jam yang kacau saya cocokkan ke waktu rekam sebenarnya memakai GPS dan foto, lalu sequence Premiere per tanggal dengan track terpisah per kamera dibuat otomatis.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-time-sync/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-time-sync/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/id/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/id/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/id/">Semua</a><a href="/id/series/">Seri</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">18 Oktober 2026</time><h1>Menyamakan jam rekam lima kamera dan membuat sequence Premiere per tanggal</h1><p class="tr-line">Baca juga dalam: <a href="/hi/posts/travel-footage-time-sync/" lang="hi">हिन्दी</a> · <a href="/ar/posts/travel-footage-time-sync/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/id/series/video-archive-ai/">Seri · Arsip video pribadi dan AI</a><ol><li><span>Bagian 1</span><a href="/id/posts/travel-footage-ai-backup/">Backup video perjalanan, saya serahkan ke AI semalaman dan pagi-pagi dapat laporan verifikasi</a></li><li class="now"><span>Bagian 2</span>Menyamakan jam rekam lima kamera dan membuat sequence Premiere per tanggal</li><li><span>Bagian 3</span><a href="/id/posts/premiere-mcp-setup/">Membuat AI bisa mengoperasikan Premiere langsung: catatan memasang Premiere MCP</a></li><li><span>Bagian 4</span><a href="/id/posts/travel-footage-captions/">Membuat subtitle untuk 62 jam video perjalanan, dan efisiensi kerja dengan AI</a></li></ol></aside><div class="prose"><p>905 klip dari kamera yang jamnya berantakan saya cocokkan ke waktu rekam sebenarnya memakai GPS dan foto,
+<strong>lalu sequence Premiere per tanggal dengan track terpisah per kamera dibuat otomatis.</strong></p>
+<p>Di bagian 1 semua video sudah terkumpul di satu hard disk. Sekarang tahap menyusunnya supaya siap diedit.
+Kameranya lima jenis: Osmo Nano, GoPro, Canon 100D, Canon G7X (kamera istri saya), dan ponsel.</p>
+<h2>Menyamakan waktu rekam: jam di setiap kamera berbeda</h2>
+<p>Untuk mengedit, video dari beberapa kamera harus disusun sesuai urutan rekam yang sebenarnya.
+Masalahnya, patokan jam di setiap kamera berbeda. Waktu lokal di Tanzania adalah UTC+3, enam jam di belakang zona waktu rumah saya (UTC+9).</p>
+<p>AI menarik waktu rekam dari 905 file, lalu memeriksanya per kamera.</p>
+<table>
+<thead>
+<tr>
+<th>Kamera</th>
+<th>Kondisi jam</th>
+<th>Cara menyamakan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Osmo (412 klip)</td>
+<td>Nama file memakai jam rumah (UTC+9)</td>
+<td>Waktu di nama file dikurangi 9 jam jadi UTC, lalu ditambah 3 jam jadi waktu lokal</td>
+</tr>
+<tr>
+<td>GoPro (215 klip)</td>
+<td>Berantakan</td>
+<td>Dibahas terpisah di bawah</td>
+</tr>
+<tr>
+<td>Canon 100D dan G7X (276 klip)</td>
+<td>Bukan waktu lokal</td>
+<td>Awalnya salah dianggap UTC, di sesi berikutnya dipastikan memakai jam rumah</td>
+</tr>
+<tr>
+<td>Lainnya (2 klip)</td>
+<td>File yang dipisahkan</td>
+<td>Track tersendiri</td>
+</tr>
+</tbody>
+</table>
+<h3>GoPro</h3>
+<p>GoPro selalu minta jam diatur setiap kali dinyalakan, jadi karena malas, cukup banyak yang saya isi asal-asalan. Mungkin ada juga yang tahunnya ngawur seperti 2016.
+Karena itu waktu yang tercatat di file tidak bisa dipercaya.</p>
+<p>Petunjuk yang ditemukan AI adalah data GPS yang direkam GoPro di dalam video. GPS menyimpan waktu yang tepat dari satelit.
+File yang sempat menangkap GPS langsung memakai waktu itu. Untuk yang tidak, AI memanfaatkan fakta bahwa jam yang salah itu melesetnya konsisten.
+AI mencari rentang nomor file yang direkam dengan setelan jam yang sama, menghitung selisihnya per rentang, lalu mengoreksi semuanya sekaligus.</p>
+<table>
+<thead>
+<tr>
+<th>Rentang nomor file</th>
+<th>Seberapa jauh jamnya meleset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0418–0433</td>
+<td>Hampir tepat</td>
+</tr>
+<tr>
+<td>0434–0460</td>
+<td>Sekitar satu hari</td>
+</tr>
+<tr>
+<td>0461–0479</td>
+<td>Sekitar 3 jam 20 menit, ke arah sebaliknya</td>
+</tr>
+<tr>
+<td>0482–0636</td>
+<td>Sekitar 153 hari</td>
+</tr>
+<tr>
+<td>0637–0640</td>
+<td>Sekitar 163 hari</td>
+</tr>
+</tbody>
+</table>
+<p>Dengan cara ini 214 dari 215 klip berhasil dipulihkan. Satu sisanya (GX010479) saya tandai dengan label "perkiraan waktu" di namanya.
+Bagian yang direkam bersamaan dengan Osmo saya cek dengan membandingkan gelombang suaranya, dan selisihnya di bawah 10–20 detik.</p>
+<h3>Canon</h3>
+<p>Canon awalnya dianggap memakai jam rumah, lalu dianggap memakai waktu lokal, dan perbandingan suara dijalankan dua kali. Dua-duanya sia-sia.
+Akhirnya terpecahkan oleh satu foto. Di jam yang sama, Osmo merekam siang hari sementara Canon merekam makan malam.
+Sudah jelas bukan waktu lokal, dan karena kemungkinan besar UTC, untuk sementara dimasukkan dengan +3 jam.
+Ini terbalik di sesi berikutnya. Semua foto yang menurut jam kamera diambil pukul 8–10 malam ternyata adegan safari siang bolong (zebra, singa, gajah), dan ketika dimundurkan 9 jam, hasilnya paling banyak tumpang tindih dengan GPS GoPro dan Osmo. <strong>Canon 100D dan G7X ternyata sama-sama memakai jam rumah.</strong> Hanya video G7X (MP4) yang catatan waktunya sudah benar, jadi tidak dikoreksi.</p>
+<h2>Sequence Premiere per tanggal</h2>
+<p>Setelah waktunya beres, sisanya tinggal disusun sesuai aturan.
+AI membuat file sequence untuk Premiere (XML) dengan skrip, lalu di-import ke Premiere.
+Pertama dicoba dulu dengan DAY 1 saja, setelah caranya terbukti benar baru semuanya dibuat sekaligus.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Aturan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sequence</td>
+<td>16 sequence per tanggal, 4K 29,97fps</td>
+</tr>
+<tr>
+<td>Batas hari</td>
+<td>Pukul 4 pagi. Rekaman lewat tengah malam masuk ke hari sebelumnya</td>
+</tr>
+<tr>
+<td>Track</td>
+<td>V1 Osmo, V2 GoPro, V3 Canon, V4 lainnya. Audio dua track per kamera</td>
+</tr>
+<tr>
+<td>Rekaman bersamaan</td>
+<td>Ditumpuk atas-bawah di titik yang sama</td>
+</tr>
+<tr>
+<td>Jeda antar adegan</td>
+<td>Dipadatkan jadi 2 detik</td>
+</tr>
+<tr>
+<td>Marker</td>
+<td>Waktu lokal di setiap adegan</td>
+</tr>
+<tr>
+<td>Nama klip</td>
+<td>Diakhiri [tanggal waktu]</td>
+</tr>
+<tr>
+<td>Ukuran</td>
+<td>Klip 2.7K diperbesar agar pas di 4K</td>
+</tr>
+<tr>
+<td>Yang dibuang</td>
+<td>File sinkronisasi sementara, file thumbnail dan proxy, klip di bawah 0,5 detik, file duplikat</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Sequence 26/9 di timeline Premiere, dengan track Osmo, GoPro, Canon, foto, dan ponsel bertumpuk atas-bawah" src="/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp" />
+<em>Sequence 26/9 di sekitar menit ke-100. V1 Osmo, V2 GoPro, V3 Canon, V5 foto, V9 ponsel. Kamera yang merekam momen yang sama bertumpuk atas-bawah.</em></p>
+<p>Kalau dilihat per tanggal, hasilnya seperti ini.</p>
+<table>
+<thead>
+<tr>
+<th>Tanggal</th>
+<th>Klip</th>
+<th>Susunan kamera</th>
+<th>Durasi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24/9</td>
+<td>4</td>
+<td>Osmo</td>
+<td>2 menit</td>
+</tr>
+<tr>
+<td>25/9</td>
+<td>54</td>
+<td>Osmo 41, GoPro 13</td>
+<td>158 menit</td>
+</tr>
+<tr>
+<td>26/9</td>
+<td>130</td>
+<td>Canon 68, Osmo 36, GoPro 26</td>
+<td>232 menit</td>
+</tr>
+<tr>
+<td>27/9</td>
+<td>182</td>
+<td>Canon 96, Osmo 66, GoPro 20</td>
+<td>380 menit</td>
+</tr>
+<tr>
+<td>28/9</td>
+<td>42</td>
+<td>Canon 33, GoPro 6, Osmo 2, lainnya 1</td>
+<td>91 menit</td>
+</tr>
+<tr>
+<td>29/9</td>
+<td>154</td>
+<td>Canon 75, Osmo 44, GoPro 35</td>
+<td>454 menit</td>
+</tr>
+<tr>
+<td>30/9</td>
+<td>2</td>
+<td>GoPro</td>
+<td>2 menit</td>
+</tr>
+<tr>
+<td>1/10</td>
+<td>37</td>
+<td>Osmo 21, GoPro 16</td>
+<td>387 menit</td>
+</tr>
+<tr>
+<td>2/10</td>
+<td>51</td>
+<td>Osmo 36, GoPro 15</td>
+<td>367 menit</td>
+</tr>
+<tr>
+<td>3/10</td>
+<td>62</td>
+<td>Osmo 47, GoPro 15</td>
+<td>281 menit</td>
+</tr>
+<tr>
+<td>4/10</td>
+<td>41</td>
+<td>Osmo 31, GoPro 10</td>
+<td>310 menit</td>
+</tr>
+<tr>
+<td>5/10</td>
+<td>30</td>
+<td>GoPro 23, Osmo 7</td>
+<td>322 menit</td>
+</tr>
+<tr>
+<td>6/10</td>
+<td>38</td>
+<td>GoPro 27, Osmo 11</td>
+<td>129 menit</td>
+</tr>
+<tr>
+<td>7/10</td>
+<td>20</td>
+<td>Osmo</td>
+<td>244 menit</td>
+</tr>
+<tr>
+<td>8/10</td>
+<td>13</td>
+<td>Osmo 9, GoPro 4</td>
+<td>198 menit</td>
+</tr>
+<tr>
+<td>9/10</td>
+<td>15</td>
+<td>Osmo 13, GoPro 2</td>
+<td>119 menit</td>
+</tr>
+</tbody>
+</table>
+<p>Tanggal 29/9 saja lebih dari 450 menit.
+Membuka semuanya satu per satu, menyusunnya per kamera, dan menyamakan waktunya adalah bagian editing yang paling malas saya kerjakan. Bagian itu sekarang hilang begitu saja.
+Begitu import selesai, Premiere juga mulai menganalisis media dengan sendirinya.</p>
+<p>File kerjanya saya simpan terpisah. Kalau nanti ada video tambahan, cukup jalankan ulang ini.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clip_times_fixed.csv</td>
+<td>Waktu rekam 905 klip yang sudah dikoreksi</td>
+</tr>
+<tr>
+<td>make_all.py</td>
+<td>Skrip pembuat sequence per tanggal. Dijalankan ulang saat waktu Canon diperbaiki</td>
+</tr>
+<tr>
+<td>Catatan serah terima (.md)</td>
+<td>Lokasi file, nilai koreksi per kamera, pekerjaan yang tersisa, tips kerja</td>
+</tr>
+</tbody>
+</table>
+<h2>Sequence v2 yang dibuat ulang di sesi berikutnya</h2>
+<p>Setelah waktu Canon dipastikan, sequence dibuat ulang di sesi percakapan baru.</p>
+<table>
+<thead>
+<tr>
+<th>Tugas</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Waktu Canon</td>
+<td>100D dan G7X dipastikan memakai jam rumah, lalu dikoreksi</td>
+</tr>
+<tr>
+<td>Track foto</td>
+<td>778 foto (100D 678, G7X 73, GoPro 15, Osmo 12) masuk ke track foto sebagai potongan 3 detik. 343 foto yang hanya ada dalam RAW (CR2) tidak bisa dibaca Premiere, jadi dikeluarkan dulu dan hanya daftarnya yang disimpan</td>
+</tr>
+<tr>
+<td>Sequence v2</td>
+<td>Dibuat ulang dengan foto, jadi 17 sequence per tanggal. Lima foto yang diambil di rumah pada pagi hari keberangkatan menjadi satu sequence tambahan, 0923</td>
+</tr>
+<tr>
+<td>Rekaman baru</td>
+<td>407 klip dari G7X dan 100D yang belum di-backup, ditambah video ponsel, ditaruh di track baru. Supaya susunan track lama dan MP3 yang sudah diekspor tidak terganggu</td>
+</tr>
+<tr>
+<td>Mencari file yang hilang</td>
+<td>Dilacak dari nomor file kamera yang bolong. Nomor 4293–4532 di 100D, 240 file, pas dengan jumlah DAY 4, jadi kemungkinan besar ada di data laptop</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Panel project Premiere berisi 17 sequence v2 perjalanan dari 0923 sampai 1009" src="/images/20261018-time-sync-sequences/02-v2-sequence-list.webp" />
+<em>Panel project. Bagian atas adalah MP3 per tanggal, bagian bawah 17 sequence v2 4K 29,97fps.</em></p>
+<p>Di tulisan berikutnya saya rangkum koneksi yang membuat AI bisa mengoperasikan Premiere langsung, yaitu Premiere MCP.</p></div><aside class="series-box"><a class="series-name" href="/id/series/video-archive-ai/">Seri · Arsip video pribadi dan AI</a><ol><li><span>Bagian 1</span><a href="/id/posts/travel-footage-ai-backup/">Backup video perjalanan, saya serahkan ke AI semalaman dan pagi-pagi dapat laporan verifikasi</a></li><li class="now"><span>Bagian 2</span>Menyamakan jam rekam lima kamera dan membuat sequence Premiere per tanggal</li><li><span>Bagian 3</span><a href="/id/posts/premiere-mcp-setup/">Membuat AI bisa mengoperasikan Premiere langsung: catatan memasang Premiere MCP</a></li><li><span>Bagian 4</span><a href="/id/posts/travel-footage-captions/">Membuat subtitle untuk 62 jam video perjalanan, dan efisiensi kerja dengan AI</a></li></ol></aside></article><nav class="pager"><a href="/id/posts/travel-footage-ai-backup/"><span>Tulisan sebelumnya</span>Backup video perjalanan, saya serahkan ke AI semalaman dan pagi-pagi dapat laporan verifikasi</a><a href="/id/posts/premiere-mcp-setup/" class="r"><span>Tulisan berikutnya</span>Membuat AI bisa mengoperasikan Premiere langsung: catatan memasang Premiere MCP</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/id/" lang="id" class=on>Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a></nav><p>© 2026 Kelvin</p></div>
+</footer>
+</body>
+</html>

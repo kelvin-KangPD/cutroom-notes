@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Membuat subtitle untuk 62 jam video perjalanan, dan efisiensi kerja dengan AI · Cutroom Notes</title>
+<meta name="description" content="Subtitle 62 jam video perjalanan saya ubah caranya, posisi ucapan ditangkap dulu dengan transkripsi Premiere lalu hanya bagian penting yang dirapikan dengan Gemini. Biaya kerja AI ternyata ditentukan oleh panjang percakapan dan jumlah bolak-balik.">
+<meta property="og:title" content="Membuat subtitle untuk 62 jam video perjalanan, dan efisiensi kerja dengan AI · Cutroom Notes">
+<meta property="og:description" content="Subtitle 62 jam video perjalanan saya ubah caranya, posisi ucapan ditangkap dulu dengan transkripsi Premiere lalu hanya bagian penting yang dirapikan dengan Gemini. Biaya kerja AI ternyata ditentukan oleh panjang percakapan dan jumlah bolak-balik.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-captions/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261019-captions-efficiency/01-caption-track.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-captions/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/id/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/id/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/id/">Semua</a><a href="/id/series/">Seri</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-19">19 Oktober 2026</time><h1>Membuat subtitle untuk 62 jam video perjalanan, dan efisiensi kerja dengan AI</h1><p class="tr-line">Baca juga dalam: <a href="/hi/posts/travel-footage-captions/" lang="hi">हिन्दी</a> · <a href="/ar/posts/travel-footage-captions/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/id/series/video-archive-ai/">Seri · Arsip video pribadi dan AI</a><ol><li><span>Bagian 1</span><a href="/id/posts/travel-footage-ai-backup/">Backup video perjalanan, saya serahkan ke AI semalaman dan pagi-pagi dapat laporan verifikasi</a></li><li><span>Bagian 2</span><a href="/id/posts/travel-footage-time-sync/">Menyamakan jam rekam lima kamera dan membuat sequence Premiere per tanggal</a></li><li><span>Bagian 3</span><a href="/id/posts/premiere-mcp-setup/">Membuat AI bisa mengoperasikan Premiere langsung: catatan memasang Premiere MCP</a></li><li class="now"><span>Bagian 4</span>Membuat subtitle untuk 62 jam video perjalanan, dan efisiensi kerja dengan AI</li></ol></aside><div class="prose"><p>Subtitle 62 jam video perjalanan saya ubah caranya: posisi ucapan ditangkap dulu dengan transkripsi Premiere, lalu hanya bagian penting yang dirapikan dengan Gemini.
+<strong>Biaya kerja AI ternyata ditentukan oleh panjang percakapan dan jumlah bolak-balik.</strong></p>
+<p>Ini bagian terakhir dari catatan kerja. Isinya subtitle, biaya, dan rekaman lama yang ikut saya rapikan dengan alur yang sama.</p>
+<h2>Subtitle: transkripsi Premiere + Gemini</h2>
+<p>Untuk subtitle, SRT dari Gemini yang paling akurat. Tapi 62 jam tidak mungkin dimasukkan semua ke Gemini, jadi caranya saya ubah.</p>
+<table>
+<thead>
+<tr>
+<th>Langkah</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ekspor sequence per tanggal jadi MP3 dengan Media Encoder</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Jalankan transkripsi Premiere dulu untuk menangkap posisi ucapan. Bahasa default-nya ternyata bahasa Inggris, jadi diganti ke bahasa yang benar</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Dari hasil transkripsi (json), buang bagian yang tidak dikenali supaya suara radio pemandu safari ikut tersaring</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Buat SRT dari json, lalu naikkan caption track ke sequence v2 lewat MCP</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Koreksi Gemini hanya untuk bagian yang benar-benar akan dipakai saat edit, bukan semuanya. Bagian dengan obrolan paling padat dipilih dengan skor, dipotong per 2 menit. Awalnya per 3 menit, tapi aplikasi Gemini hanya menuliskan sampai sekitar 2 menit dengan lengkap, jadi diperpendek</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Blok subtitle berjajar di caption track C1 paling atas pada timeline Premiere" src="/images/20261019-captions-efficiency/01-caption-track.webp" />
+<em>C1 paling atas di sequence v2 adalah caption track. Karena bentuknya caption, bukan klip teks, gampang diekspor lagi jadi SRT atau diperbaiki.</em></p>
+<p>Transkripsi saya antrekan per tanggal di Premiere dan dibiarkan jalan sendiri. Awalnya dicek setiap 3 menit dan diproses satu per satu, tapi dari pemeriksaan di tengah jalan ketahuan itu tidak efisien, jadi diganti: setiap 30–40 menit, tanggal yang sudah selesai diproses sekaligus.</p>
+<p>Saya juga sempat menyuruh AI mengirim notifikasi ke ponsel setiap kali pekerjaan selesai. Di sisi AI tercatat sudah terkirim beberapa kali, tapi tidak satu pun sampai. Akhirnya saya putuskan sering-sering mengecek sendiri saja.</p>
+<h2>Biaya dan efisiensi</h2>
+<p>Ini pertama kalinya saya benar-benar memperhatikan pemakaian.
+Setiap kali mengirim satu perintah, AI membaca ulang seluruh percakapan sampai titik itu. Jadi makin panjang percakapannya, pekerjaan yang sama bisa jadi berkali-kali lipat lebih mahal.
+Menunggu 20 menit hampir tidak memakan biaya. Yang mahal adalah jumlah bolak-baliknya.</p>
+<p>Di tengah jalan saya tanya, apakah cara kerja tadi efisien? Jawabannya: setengah-setengah.</p>
+<table>
+<thead>
+<tr>
+<th>Pekerjaan</th>
+<th>Penilaian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memulihkan waktu GoPro</td>
+<td>Dua-tiga kali jalankan skrip, puluhan file beres sekaligus, verifikasi juga lolos sekali jalan</td>
+</tr>
+<tr>
+<td>Merapikan lokasi simpan project</td>
+<td>Selesai dalam beberapa langkah</td>
+</tr>
+<tr>
+<td>Mengecek waktu Canon</td>
+<td>Tidak efisien. Mencoba menarik suara dari seluruh hard disk eksternal lalu menyerah karena lambat, menerima log error 260 ribu karakter apa adanya, dan percaya asumsi tanpa verifikasi lalu menjalankan perbandingan suara dua kali. Padahal satu foto saja sudah cukup</td>
+</tr>
+</tbody>
+</table>
+<p>Jadi di akhir, AI menulis catatan serah terima di folder kerja, dan saya pindah ke percakapan baru begitu batas pemakaian di-reset.
+AI bahkan menyiapkan pesan pertama untuk ditempel di percakapan baru.</p>
+<pre><code>Baca catatan serah terima di folder edit Tanzania di PC rumah (drive I:), lalu lanjutkan editing Tanzania.
+Minta semua izin yang dibutuhkan sekaligus di awal, dan jalankan pekerjaan secara paralel.
+</code></pre>
+<p>Di catatan serah terima itu juga masuk tips yang saya pelajari kali ini.</p>
+<table>
+<thead>
+<tr>
+<th>Tips</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Membaca hard disk eksternal</td>
+<td>Lambat. Jangan baca file utuh, ambil bagian yang perlu saja</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Terima ringkasannya saja. Log yang membanjir semuanya jadi biaya</td>
+</tr>
+<tr>
+<td>Verifikasi</td>
+<td>Sebelum menjalankan proses lama, uji dulu dugaannya dengan satu sampel</td>
+</tr>
+<tr>
+<td>Salin massal</td>
+<td>7-Zip File Manager lebih cepat daripada salin lewat perintah</td>
+</tr>
+<tr>
+<td>Sinkron suara</td>
+<td>Samakan dengan membandingkan perubahan volume suara dua video</td>
+</tr>
+</tbody>
+</table>
+<h2>Rekaman lama juga pakai kerangka yang sama</h2>
+<p>Yang saya rapikan bukan cuma video perjalanan. 14 folder rekaman pribadi dari sebelum perjalanan juga disamakan strukturnya.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Struktur</td>
+<td>Asli\Video, Asli\Foto, Lainnya, Project</td>
+</tr>
+<tr>
+<td>Aturan</td>
+<td>Video dan audio ke Asli\Video, foto ke Asli\Foto, hasil olahan seperti foto edit dan grafis ke Lainnya, file project ke Project</td>
+</tr>
+<tr>
+<td>Verifikasi</td>
+<td>Jumlah file dipastikan sama dengan sebelum dirapikan</td>
+</tr>
+<tr>
+<td>Yang tidak disentuh</td>
+<td>Folder yang sudah punya struktur, project yang sedang diedit (takut tautannya rusak), folder tanpa tanggal</td>
+</tr>
+<tr>
+<td>Berikutnya</td>
+<td>Membuat project di setiap folder sampai sequence dengan track per kamera</td>
+</tr>
+</tbody>
+</table>
+<h2>Yang masih tersisa</h2>
+<table>
+<thead>
+<tr>
+<th>Pekerjaan</th>
+<th>Catatan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAY 4 dan DAY 6</td>
+<td>Data dari laptop sudah dipindah ke hard disk eksternal. Tinggal disambungkan dan dimasukkan</td>
+</tr>
+<tr>
+<td>DAY 9</td>
+<td>Folder kosong di semua media penyimpanan</td>
+</tr>
+<tr>
+<td>343 foto RAW</td>
+<td>Ekspor ke JPG dari Lightroom lalu tambahkan</td>
+</tr>
+<tr>
+<td>Subtitle</td>
+<td>Transkripsi tanggal yang tersisa, transkripsi khusus klip baru, koreksi Gemini untuk bagian penting</td>
+</tr>
+<tr>
+<td>Sequence rekaman lama</td>
+<td>Per project, setelah transkripsi selesai</td>
+</tr>
+<tr>
+<td>Salinan cloud</td>
+<td>OneDrive 1TB dua akun, Google Drive 400GB</td>
+</tr>
+</tbody>
+</table>
+<p>Catatan kerjanya sampai di sini. Mulai tulisan berikutnya saya ingin merapikan pikiran tentang akan jadi apa video-video yang sudah menumpuk ini nantinya.</p></div><aside class="series-box"><a class="series-name" href="/id/series/video-archive-ai/">Seri · Arsip video pribadi dan AI</a><ol><li><span>Bagian 1</span><a href="/id/posts/travel-footage-ai-backup/">Backup video perjalanan, saya serahkan ke AI semalaman dan pagi-pagi dapat laporan verifikasi</a></li><li><span>Bagian 2</span><a href="/id/posts/travel-footage-time-sync/">Menyamakan jam rekam lima kamera dan membuat sequence Premiere per tanggal</a></li><li><span>Bagian 3</span><a href="/id/posts/premiere-mcp-setup/">Membuat AI bisa mengoperasikan Premiere langsung: catatan memasang Premiere MCP</a></li><li class="now"><span>Bagian 4</span>Membuat subtitle untuk 62 jam video perjalanan, dan efisiensi kerja dengan AI</li></ol></aside></article><nav class="pager"><a href="/id/posts/premiere-mcp-setup/"><span>Tulisan sebelumnya</span>Membuat AI bisa mengoperasikan Premiere langsung: catatan memasang Premiere MCP</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/id/" lang="id" class=on>Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a></nav><p>© 2026 Kelvin</p></div>
+</footer>
+</body>
+</html>

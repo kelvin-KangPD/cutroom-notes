@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي · Cutroom Notes</title>
+<meta name="description" content="غيرت طريقة الترجمة النصية لـ 62 ساعة من فيديو الرحلة، فحددت أماكن الكلام أولًا بتفريغ Premiere ثم صححت المقاطع المهمة فقط بـ Gemini. وتبين أن تكلفة عمل الذكاء الاصطناعي يحددها طول المحادثة وعدد الذهاب والإياب.">
+<meta property="og:title" content="ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي · Cutroom Notes">
+<meta property="og:description" content="غيرت طريقة الترجمة النصية لـ 62 ساعة من فيديو الرحلة، فحددت أماكن الكلام أولًا بتفريغ Premiere ثم صححت المقاطع المهمة فقط بـ Gemini. وتبين أن تكلفة عمل الذكاء الاصطناعي يحددها طول المحادثة وعدد الذهاب والإياب.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-captions/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261019-captions-efficiency/01-caption-track.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-captions/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/ar/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/ar/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/ar/">الكل</a><a href="/ar/series/">سلسلة</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-19">19 أكتوبر 2026</time><h1>ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي</h1><p class="tr-line">اقرأ أيضًا بلغة أخرى: <a href="/id/posts/travel-footage-captions/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/travel-footage-captions/" lang="hi">हिन्दी</a></p></header><aside class="series-box"><a class="series-name" href="/ar/series/video-archive-ai/">سلسلة · الأرشيف الشخصي للفيديو والذكاء الاصطناعي</a><ol><li><span>الجزء 1</span><a href="/ar/posts/travel-footage-ai-backup/">نسخ احتياطي لفيديوهات الرحلة، تركته للذكاء الاصطناعي طوال الليل واستلمت تقرير التحقق صباحًا</a></li><li><span>الجزء 2</span><a href="/ar/posts/travel-footage-time-sync/">ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم</a></li><li><span>الجزء 3</span><a href="/ar/posts/premiere-mcp-setup/">جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP</a></li><li class="now"><span>الجزء 4</span>ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي</li></ol></aside><div class="prose"><p>غيرت طريقة الترجمة النصية لـ 62 ساعة من فيديو الرحلة: حددت أماكن الكلام أولًا بتفريغ Premiere، ثم صححت المقاطع المهمة فقط بـ Gemini.
+<strong>وتبين أن تكلفة عمل الذكاء الاصطناعي يحددها طول المحادثة وعدد الذهاب والإياب.</strong></p>
+<p>هذا الجزء الأخير من ملاحظات العمل. فيه الترجمة النصية والتكلفة، واللقطات القديمة التي رتبتها بالطريقة نفسها.</p>
+<h2>الترجمة النصية: تفريغ Premiere + Gemini</h2>
+<p>في الترجمة النصية كان ملف SRT من Gemini الأدق. لكن لا يمكن إدخال 62 ساعة كلها في Gemini، فغيرت الطريقة.</p>
+<table>
+<thead>
+<tr>
+<th>الخطوة</th>
+<th>المحتوى</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>استخراج التسلسلات اليومية بصيغة MP3 عبر Media Encoder</td>
+</tr>
+<tr>
+<td>2</td>
+<td>تشغيل تفريغ Premiere أولًا لتحديد أماكن الكلام. كانت اللغة الافتراضية الإنجليزية فغيرتها إلى اللغة الصحيحة</td>
+</tr>
+<tr>
+<td>3</td>
+<td>حذف المقاطع غير المفهومة من نتيجة التفريغ (json)، فتصفى ضوضاء لاسلكي مرشد السفاري</td>
+</tr>
+<tr>
+<td>4</td>
+<td>إنشاء SRT من json ثم رفع مسار الترجمة إلى تسلسل v2 عبر MCP</td>
+</tr>
+<tr>
+<td>5</td>
+<td>تصحيح Gemini ليس للكل، بل للمقاطع التي ستُستخدم فعلًا في المونتاج. اخترنا المقاطع الأكثر كلامًا بنظام نقاط، وقطعناها إلى دقيقتين. بدأنا بثلاث دقائق، لكن تطبيق Gemini لم يكن يكتب كاملًا إلا نحو دقيقتين، فقصرناها</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="كتل الترجمة مصفوفة على مسار الترجمة C1 في أعلى خط زمن Premiere" src="/images/20261019-captions-efficiency/01-caption-track.webp" />
+<em>المسار C1 في أعلى تسلسل v2 هو مسار الترجمة. لأنه ترجمة وليس مقاطع نصية، يسهل تصديره مجددًا إلى SRT أو تعديله.</em></p>
+<p>وضعت التفريغ في طابور Premiere لكل يوم وتركته يعمل وحده. في البداية كنا نتفقد كل 3 دقائق ونعالج يومًا يومًا، لكن المراجعة في منتصف الطريق أظهرت أن ذلك غير فعال، فصرنا نعالج الأيام المنتهية دفعة واحدة كل 30 إلى 40 دقيقة.</p>
+<p>جربت أيضًا أن يرسل الذكاء الاصطناعي إشعارًا إلى هاتفي عند انتهاء العمل. سجلت جهته أنه أرسل عدة مرات، لكن لم يصلني شيء. قررت في النهاية أن أتفقد بنفسي كثيرًا.</p>
+<h2>التكلفة والكفاءة</h2>
+<p>هذه أول مرة أنتبه فيها جديًا إلى الاستهلاك.
+مع كل أمر يرسله الذكاء الاصطناعي، يعيد قراءة المحادثة كلها حتى تلك اللحظة. لذلك كلما طالت المحادثة صار العمل نفسه أغلى بأضعاف.
+الانتظار عشرين دقيقة لا يكلف شيئًا تقريبًا. المكلف هو كثرة الذهاب والإياب.</p>
+<p>سألته في منتصف العمل: هل كانت الطريقة فعالة؟ قال: نصف نصف.</p>
+<table>
+<thead>
+<tr>
+<th>العمل</th>
+<th>التقييم</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>استعادة وقت GoPro</td>
+<td>سكربت شُغل مرتين أو ثلاثًا فصحح عشرات الملفات دفعة واحدة، ونجح التحقق من أول مرة</td>
+</tr>
+<tr>
+<td>ترتيب مكان حفظ المشروع</td>
+<td>انتهى في خطوات قليلة</td>
+</tr>
+<tr>
+<td>التحقق من وقت Canon</td>
+<td>غير فعال. حاول استخراج الصوت من القرص الخارجي كله ثم تخلى بسبب البطء، واستلم سجل أخطاء من 260 ألف حرف كما هو، ووثق بافتراض دون تحقق فشغل مقارنة الصوت مرتين. صورة واحدة كانت تكفي</td>
+</tr>
+</tbody>
+</table>
+<p>لذلك في النهاية كتب الذكاء الاصطناعي ملاحظة تسليم في مجلد العمل، وانتقلت إلى محادثة جديدة فور تجدد حد الاستخدام.
+بل جهز لي الرسالة الأولى لألصقها في المحادثة الجديدة.</p>
+<pre><code>اقرأ ملاحظة التسليم في مجلد مونتاج تنزانيا على حاسوب البيت (القرص I:) وتابع مونتاج تنزانيا.
+اطلب كل الأذونات اللازمة مرة واحدة في البداية، وشغل المهام بالتوازي.
+</code></pre>
+<p>وأضفنا إلى ملاحظة التسليم ما تعلمناه هذه المرة.</p>
+<table>
+<thead>
+<tr>
+<th>النصيحة</th>
+<th>المحتوى</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>القراءة من القرص الخارجي</td>
+<td>بطيئة. لا تقرأ الملف كله، خذ الجزء اللازم فقط</td>
+</tr>
+<tr>
+<td>المخرجات</td>
+<td>استلم الملخص فقط. السجلات المتدفقة كلها تكلفة</td>
+</tr>
+<tr>
+<td>التحقق</td>
+<td>قبل تشغيل عمل طويل، اختبر الفرضية على عينة واحدة</td>
+</tr>
+<tr>
+<td>النسخ الضخم</td>
+<td>مدير ملفات 7-Zip أسرع من النسخ بالأوامر</td>
+</tr>
+<tr>
+<td>مزامنة الصوت</td>
+<td>بمقارنة تغير مستوى الصوت بين فيديوهين</td>
+</tr>
+</tbody>
+</table>
+<h2>اللقطات القديمة بالإطار نفسه</h2>
+<p>لم أرتب فيديوهات الرحلة فقط. 14 مجلدًا من تصويري الشخصي قبل الرحلة صارت أيضًا بالبنية نفسها.</p>
+<table>
+<thead>
+<tr>
+<th>البند</th>
+<th>المحتوى</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>البنية</td>
+<td>الأصل\فيديو، الأصل\صور، أخرى، المشروع</td>
+</tr>
+<tr>
+<td>القاعدة</td>
+<td>الفيديو والصوت في الأصل\فيديو، والصور في الأصل\صور، والمعالَج مثل الصور المعدلة والرسوميات في أخرى، وملفات المشروع في المشروع</td>
+</tr>
+<tr>
+<td>التحقق</td>
+<td>التأكد من أن عدد الملفات مطابق لما قبل الترتيب</td>
+</tr>
+<tr>
+<td>ما لم نلمسه</td>
+<td>المجلدات التي لها بنية أصلًا، والمشاريع التي يجري مونتاجها (خوفًا من انكسار الروابط)، والمجلدات بلا تاريخ</td>
+</tr>
+<tr>
+<td>التالي</td>
+<td>إنشاء مشروع لكل مجلد حتى تسلسلات بمسار لكل كاميرا</td>
+</tr>
+</tbody>
+</table>
+<h2>ما تبقى</h2>
+<table>
+<thead>
+<tr>
+<th>المهمة</th>
+<th>ملاحظة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>اليوم 4 واليوم 6</td>
+<td>بيانات الحاسوب المحمول صارت على قرص خارجي. يبقى توصيلها وإدخالها</td>
+</tr>
+<tr>
+<td>اليوم 9</td>
+<td>مجلد فارغ في كل وسائط التخزين</td>
+</tr>
+<tr>
+<td>343 صورة RAW</td>
+<td>تصديرها إلى JPG من Lightroom ثم إضافتها</td>
+</tr>
+<tr>
+<td>الترجمة النصية</td>
+<td>تفريغ الأيام المتبقية، تفريغ المقاطع الجديدة وحدها، تصحيح Gemini للمقاطع المهمة</td>
+</tr>
+<tr>
+<td>تسلسلات اللقطات القديمة</td>
+<td>لكل مشروع بعد انتهاء التفريغ</td>
+</tr>
+<tr>
+<td>النسخ السحابية</td>
+<td>حسابا OneDrive بسعة 1TB، وGoogle Drive بسعة 400GB</td>
+</tr>
+</tbody>
+</table>
+<p>إلى هنا تنتهي ملاحظات العمل. ابتداءً من المقال القادم أريد أن أرتب أفكاري حول ما يمكن أن تصبح عليه هذه الفيديوهات المتراكمة مستقبلًا.</p></div><aside class="series-box"><a class="series-name" href="/ar/series/video-archive-ai/">سلسلة · الأرشيف الشخصي للفيديو والذكاء الاصطناعي</a><ol><li><span>الجزء 1</span><a href="/ar/posts/travel-footage-ai-backup/">نسخ احتياطي لفيديوهات الرحلة، تركته للذكاء الاصطناعي طوال الليل واستلمت تقرير التحقق صباحًا</a></li><li><span>الجزء 2</span><a href="/ar/posts/travel-footage-time-sync/">ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم</a></li><li><span>الجزء 3</span><a href="/ar/posts/premiere-mcp-setup/">جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP</a></li><li class="now"><span>الجزء 4</span>ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي</li></ol></aside></article><nav class="pager"><a href="/ar/posts/premiere-mcp-setup/"><span>المقال السابق</span>جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar" class=on>العربية</a></nav><p>© 2026 Kelvin</p></div>
+</footer>
+</body>
+</html>

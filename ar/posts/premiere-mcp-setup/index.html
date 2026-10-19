@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP · Cutroom Notes</title>
+<meta name="description" content="ربطت الذكاء الاصطناعي عبر تطبيق Claude لسطح المكتب وPremiere MCP ليشغل حاسوبي وPremiere مباشرة، وحللت واحدة تلو الأخرى فخاخ التركيب وصولًا إلى التنازع على المنفذ.">
+<meta property="og:title" content="جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP · Cutroom Notes">
+<meta property="og:description" content="ربطت الذكاء الاصطناعي عبر تطبيق Claude لسطح المكتب وPremiere MCP ليشغل حاسوبي وPremiere مباشرة، وحللت واحدة تلو الأخرى فخاخ التركيب وصولًا إلى التنازع على المنفذ.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/premiere-mcp-setup/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261018-premiere-mcp-setup/01-mcp-bridge-connected.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/ar/posts/premiere-mcp-setup/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/ar/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/ar/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/ar/">الكل</a><a href="/ar/series/">سلسلة</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">18 أكتوبر 2026</time><h1>جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP</h1><p class="tr-line">اقرأ أيضًا بلغة أخرى: <a href="/id/posts/premiere-mcp-setup/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/premiere-mcp-setup/" lang="hi">हिन्दी</a></p></header><aside class="series-box"><a class="series-name" href="/ar/series/video-archive-ai/">سلسلة · الأرشيف الشخصي للفيديو والذكاء الاصطناعي</a><ol><li><span>الجزء 1</span><a href="/ar/posts/travel-footage-ai-backup/">نسخ احتياطي لفيديوهات الرحلة، تركته للذكاء الاصطناعي طوال الليل واستلمت تقرير التحقق صباحًا</a></li><li><span>الجزء 2</span><a href="/ar/posts/travel-footage-time-sync/">ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم</a></li><li class="now"><span>الجزء 3</span>جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP</li><li><span>الجزء 4</span><a href="/ar/posts/travel-footage-captions/">ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي</a></li></ol></aside><div class="prose"><p>ربطت الذكاء الاصطناعي عبر تطبيق Claude لسطح المكتب وPremiere MCP ليشغل حاسوبي وPremiere مباشرة،
+<strong>وحللت واحدة تلو الأخرى فخاخ التركيب وصولًا إلى التنازع على المنفذ.</strong></p>
+<p>عمل الجزأين الأول والثاني كان ممكنًا بفضل هذا الربط.</p>
+<h2>ماذا ربطت وكيف</h2>
+<p>لو اكتفى الذكاء الاصطناعي بإعطاء التعليمات وقمت أنا بالعمل يدويًا، لما انتهى هذا الحجم من العمل أبدًا.</p>
+<table>
+<thead>
+<tr>
+<th>الربط</th>
+<th>ما يفعله الذكاء الاصطناعي</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>تطبيق Claude لسطح المكتب + اتصال عن بعد</td>
+<td>حتى لو تحدثت من الهاتف أو من العمل، يجري العمل على حاسوب البيت</td>
+</tr>
+<tr>
+<td>الملفات وسطر الأوامر</td>
+<td>عرض الأقراص، مطابقة نتائج النسخ، استخراج وقت التصوير والصوت بـ ffmpeg، تشغيل سكربتات Python</td>
+</tr>
+<tr>
+<td>التحكم بالشاشة</td>
+<td>تشغيل 7-Zip وPremiere وMedia Encoder بالنقر</td>
+</tr>
+<tr>
+<td>Premiere MCP</td>
+<td>إنشاء التسلسلات ومسارات الترجمة عبر لوحة الجسر داخل Premiere وحفظ المشروع</td>
+</tr>
+<tr>
+<td>Media Encoder</td>
+<td>استخراج التسلسلات اليومية بصيغة MP3 للتفريغ النصي</td>
+</tr>
+</tbody>
+</table>
+<p>للتحكم بالشاشة حدود أيضًا. في مستكشف الملفات يمكن النقر فقط، أما النسخ واللصق والسحب والإفلات فممنوعة. لذلك كان علي أن أنقل بنفسي ملفات الأجهزة التي ليس لها حرف قرص مثل الهاتف.</p>
+<h2>Premiere MCP</h2>
+<p>MCP طريقة ربط تجعل الذكاء الاصطناعي يستخدم برامج أخرى كأدوات.
+لبرنامج Premiere أستخدم Adobe-Premiere-Pro-MCP المنشور مفتوحًا على GitHub. يُضاف إلى Premiere لوحة امتداد اسمها "MCP Bridge"، ويعمل داخل الحاسوب خادم صغير (المنفذ 8097) يحول أوامر الذكاء الاصطناعي إلى سكربتات Premiere ‏(ExtendScript).</p>
+<p><img alt="لوحة MCP Bridge في Premiere بحالة Connected مع سجل الاتصال" src="/images/20261018-premiere-mcp-setup/01-mcp-bridge-connected.webp" />
+<em>لوحة MCP Bridge. لا تصل أوامر الذكاء الاصطناعي إلى Premiere إلا عند ظهور Connected باللون الأخضر.</em></p>
+<p>أول مرة ركبته كانت في بداية سبتمبر أثناء عمل فيديو افتتاح حفل الزفاف. ظننت أنه يكفي تشغيل ملف التثبيت، لكن الفخاخ كانت كثيرة.
+وفي أكتوبر ركبته أيضًا على حاسوب العمل، وظهرت مشكلة إضافية لا تحدث إلا في شبكة الشركة.</p>
+<table>
+<thead>
+<tr>
+<th>العَرَض</th>
+<th>السبب</th>
+<th>الحل</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>تطبيق Claude لا يشغل الخادم إطلاقًا</td>
+<td>نسخة المتجر من التطبيق تقرأ ملف الإعدادات من مكان آخر</td>
+<td>التسجيل في المكان الحقيقي (تحت LocalCache)</td>
+</tr>
+<tr>
+<td>الإعدادات تُتجاهل بصمت</td>
+<td>سكربت التثبيت يضع BOM (حرف غير مرئي) في بداية ملف الإعدادات</td>
+<td>إعادة الحفظ بدون BOM</td>
+</tr>
+<tr>
+<td>فشل تشغيل الخادم</td>
+<td>الإعدادات تذكر node فقط فلا يجده التطبيق</td>
+<td>المسار الكامل لـ node.exe</td>
+</tr>
+<tr>
+<td>اللوحة تقول Connected لكن الأوامر لا تصل</td>
+<td>كل نافذة محادثة تشغل خادمها وتتنازع على منفذ واحد</td>
+<td>إنهاء الخوادم المتبقية ثم إعادة الاتصال</td>
+</tr>
+<tr>
+<td>لوحة المفاتيح لا تعمل في Premiere</td>
+<td>لوحة الجسر تستولي على إدخال لوحة المفاتيح</td>
+<td>إغلاق اللوحة أثناء المونتاج اليدوي</td>
+</tr>
+<tr>
+<td>فشل التثبيت على حاسوب العمل</td>
+<td>Node لا يثق بشهادة جهاز الأمان في الشركة</td>
+<td>خيار يجعل Node يستخدم مخزن شهادات Windows</td>
+</tr>
+</tbody>
+</table>
+<h2>ترتيب التثبيت بعد التجربة</h2>
+<p>هذا الترتيب الذي استقر عليه بعد أن تعثرت مرات كثيرة. يصلح لأي حاسوب آخر.</p>
+<table>
+<thead>
+<tr>
+<th>الخطوة</th>
+<th>أين</th>
+<th>ماذا تفعل</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>PowerShell</td>
+<td>تأكد من وجود Node.js. إن لم يكن موجودًا ثبته وافتح نافذة جديدة</td>
+</tr>
+<tr>
+<td>2</td>
+<td>المتصفح</td>
+<td>نزّل Adobe-Premiere-Pro-MCP من GitHub بصيغة ZIP وفك ضغطه في مجلد Documents. نقله لاحقًا يكسر ربط امتداد Premiere، فضعه من البداية في مكانه النهائي</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Notepad</td>
+<td>افتح install.bat واقرأه أولًا. إن رأيت شيئًا غريبًا غير إعداد السجل وربط مجلد الامتداد وتثبيت الحزم وبنائها وكتابة الإعدادات فتوقف</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PowerShell</td>
+<td>شغل install.bat وتأكد من إنشاء ملف الخادم (dist\server.js)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Premiere</td>
+<td>أغلقه تمامًا وافتحه، ثم افتح Window &gt; Extensions &gt; MCP Bridge</td>
+</tr>
+<tr>
+<td>6</td>
+<td>تطبيق Claude</td>
+<td>شغله مرة وأغلقه لينشئ مجلد الإعدادات</td>
+</tr>
+<tr>
+<td>7</td>
+<td>PowerShell</td>
+<td>سجل الخادم في مسار ملف الإعدادات الحقيقي. احفظ بدون BOM واكتب مسار node كاملًا</td>
+</tr>
+<tr>
+<td>8</td>
+<td>PowerShell</td>
+<td>أغلق تطبيق Claude تمامًا ثم شغله. الإعدادات تُقرأ مرة واحدة عند تشغيل التطبيق</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Premiere</td>
+<td>تأكد أن اللوحة تعرض Connected</td>
+</tr>
+<tr>
+<td>10</td>
+<td>تطبيق Claude</td>
+<td>في محادثة جديدة تحقق من الاتصال، ثم اطلب منه قراءة بنية المسارات فقط دون أي تعديل للتحقق</td>
+</tr>
+</tbody>
+</table>
+<p>وحددت أيضًا ترتيب التشغيل اليومي.</p>
+<table>
+<thead>
+<tr>
+<th>الترتيب</th>
+<th>ماذا تفعل</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>أغلق برامج MCP الأخرى ونوافذ محادثة Claude الأخرى</td>
+</tr>
+<tr>
+<td>2</td>
+<td>إن بقي خادم قديم ممسكًا بالمنفذ 8097 فأنهه</td>
+</tr>
+<tr>
+<td>3</td>
+<td>افتح Premiere ثم المشروع والتسلسل</td>
+</tr>
+<tr>
+<td>4</td>
+<td>افتح تطبيق Claude (يشتغل الخادم تلقائيًا)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>تأكد من Connected في لوحة الجسر ثم ابدأ العمل</td>
+</tr>
+<tr>
+<td>6</td>
+<td>أغلق اللوحة أثناء المونتاج اليدوي. الخادم يبقى شغالًا ويتصل فورًا عند إعادة فتحها</td>
+</tr>
+</tbody>
+</table>
+<h2>هذا الأسبوع: التنازع على المنفذ وتعديل الجسر</h2>
+<p>هذا الأسبوع عاد التنازع على المنفذ. كلما انتقلت إلى نافذة محادثة جديدة بقي خادم النافذة القديمة ممسكًا بالمنفذ، فتعرض اللوحة Connected بينما تضيع الأوامر في الهواء.
+في البداية اكتفيت بسطر PowerShell واحد ينهي كل الخوادم المتبقية دفعة واحدة. لكن تكراره عند كل انتقال بين النوافذ كان مزعجًا.
+لذلك هذه المرة عدل الذكاء الاصطناعي كود الجسر نفسه. الخادم الجديد يطلب من القديم "سلمني المنفذ" فيتنحى القديم. جرب الفكرة أولًا بمحاكاة محلية ثم طبقها. الخادم الجديد لا يطلب إلا خلال 15 ثانية من تشغيله، والخادم الذي تنحى لا يحاول الاستيلاء من جديد بل ينتظر بهدوء. لذلك تفوز عادةً أحدث نافذة محادثة.
+التعديل شمل ملفات البناء والمصدر الأصلي معًا، فيبقى قائمًا حتى لو أعدنا البناء لاحقًا.
+ومع ذلك لم يتصل في الجلسة الأولى، فأنشأنا التسلسلات كملفات XML واستوردناها عبر التحكم بالشاشة. ومن الجلسة التالية صرنا نضيف مسارات الترجمة عبر MCP ونحفظ المشروع أيضًا.</p>
+<p>في المقال القادم أكتب كيف صنعنا ترجمة نصية لـ 62 ساعة من الفيديو، وما تعلمته عن تشغيل عمل الذكاء الاصطناعي بكفاءة.</p></div><aside class="series-box"><a class="series-name" href="/ar/series/video-archive-ai/">سلسلة · الأرشيف الشخصي للفيديو والذكاء الاصطناعي</a><ol><li><span>الجزء 1</span><a href="/ar/posts/travel-footage-ai-backup/">نسخ احتياطي لفيديوهات الرحلة، تركته للذكاء الاصطناعي طوال الليل واستلمت تقرير التحقق صباحًا</a></li><li><span>الجزء 2</span><a href="/ar/posts/travel-footage-time-sync/">ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم</a></li><li class="now"><span>الجزء 3</span>جعل الذكاء الاصطناعي يشغل Premiere مباشرة: ملاحظات تركيب Premiere MCP</li><li><span>الجزء 4</span><a href="/ar/posts/travel-footage-captions/">ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي</a></li></ol></aside></article><nav class="pager"><a href="/ar/posts/travel-footage-time-sync/"><span>المقال السابق</span>ضبط وقت التصوير لخمس كاميرات وبناء تسلسلات Premiere لكل يوم</a><a href="/ar/posts/travel-footage-captions/" class="r"><span>المقال التالي</span>ترجمة نصية لـ 62 ساعة من فيديو الرحلة، وكفاءة العمل مع الذكاء الاصطناعي</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar" class=on>العربية</a></nav><p>© 2026 Kelvin</p></div>
+</footer>
+</body>
+</html>
