@@ -101,3 +101,6 @@ footer.site p { margin: 8px 0 0; }
   .thumb { width: 88px; height: 60px; }
   .prose { font-size: 16px; }
 }
+
+.comments { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); }
+.comments h2 { font-size: 18px; margin: 0 0 12px; }

@@ -1,9 +1,24 @@
 title: Cutroom Notes
 url: https://cutroom-notes.pages.dev
 author: Kelvin
+cusdis_app_id: ""  # cusdis.com App ID, empty = no comments
 desc: Work notes on video editing, AI and automation.
 langs:
   id:
+    comments_title: Komentar
+    cusdis:
+      powered_by: Diberdayakan oleh Cusdis
+      post_comment: Kirim komentar
+      loading: Memuat...
+      email: Email (opsional)
+      nickname: Nama
+      reply_placeholder: Tulis komentar...
+      reply_btn: Balas
+      sending: Mengirim...
+      mod_badge: Penulis
+      content_is_required: Komentar tidak boleh kosong
+      nickname_is_required: Nama wajib diisi
+      comment_has_been_sent: Komentar terkirim dan akan tampil setelah disetujui.
     name: Bahasa Indonesia
     dir: ltr
     desc: Catatan kerja seputar editing video, AI, dan otomatisasi.
@@ -21,6 +36,20 @@ langs:
         title: Arsip video pribadi dan AI
         desc: Bagaimana rekaman yang menumpuk bertahun-tahun berubah nilainya ketika AI ikut bekerja.
   hi:
+    comments_title: टिप्पणियाँ
+    cusdis:
+      powered_by: Cusdis द्वारा
+      post_comment: टिप्पणी भेजें
+      loading: लोड हो रहा है...
+      email: ईमेल (वैकल्पिक)
+      nickname: नाम
+      reply_placeholder: अपनी टिप्पणी लिखें...
+      reply_btn: जवाब दें
+      sending: भेजा जा रहा है...
+      mod_badge: लेखक
+      content_is_required: टिप्पणी खाली नहीं हो सकती
+      nickname_is_required: नाम ज़रूरी है
+      comment_has_been_sent: टिप्पणी भेज दी गई है। मंज़ूरी के बाद दिखेगी।
     name: हिन्दी
     dir: ltr
     desc: वीडियो एडिटिंग, AI और ऑटोमेशन पर काम के नोट्स।
@@ -38,6 +67,20 @@ langs:
         title: निजी वीडियो आर्काइव और AI
         desc: सालों से जमा की गई फ़ुटेज AI के साथ काम करने पर कैसे बदल जाती है।
   ar:
+    comments_title: التعليقات
+    cusdis:
+      powered_by: بدعم من Cusdis
+      post_comment: أرسل التعليق
+      loading: جارٍ التحميل...
+      email: البريد الإلكتروني (اختياري)
+      nickname: الاسم
+      reply_placeholder: اكتب تعليقك...
+      reply_btn: رد
+      sending: جارٍ الإرسال...
+      mod_badge: الكاتب
+      content_is_required: التعليق لا يمكن أن يكون فارغًا
+      nickname_is_required: الاسم مطلوب
+      comment_has_been_sent: تم إرسال تعليقك وسيظهر بعد الموافقة عليه.
     name: العربية
     dir: rtl
     desc: ملاحظات عمل عن مونتاج الفيديو والذكاء الاصطناعي والأتمتة.

@@ -15,6 +15,7 @@ summary: ...
 ---
 """
 import html
+import json
 import re
 import shutil
 from datetime import date, datetime
@@ -123,6 +124,18 @@ def series_box(p, posts, L):
             f'{html.escape(L["series"])} · {html.escape(info["title"])}</a><ol>{items}</ol></aside>')
 
 
+def comments(p, L):
+    app = CFG.get("cusdis_app_id")
+    if not app:
+        return ""
+    return (f'<section class="comments"><h2>{html.escape(L["comments_title"])}</h2>'
+            f'<script>window.CUSDIS_LOCALE={json.dumps(L["cusdis"], ensure_ascii=False)}</script>'
+            f'<div id="cusdis_thread" data-host="https://cusdis.com" data-app-id="{app}" '
+            f'data-page-id="{p["lang"]}:{p["slug"]}" data-page-url="{SITE_URL}{p["url"]}" '
+            f'data-page-title="{html.escape(p["title"])}" data-theme="auto"></div>'
+            '<script async defer src="https://cusdis.com/js/cusdis.es.js"></script></section>')
+
+
 def alternates_for(slug):
     alt = {c: f"/{c}/posts/{slug}/" for c in LANGS if (ROOT / "content" / c / f"{slug}.md").exists()}
     return alt
@@ -154,7 +167,7 @@ def build_lang(lang, urls):
                 f'<a href="/{c}/posts/{p["slug"]}/" lang="{c}">{html.escape(n)}</a>' for c, n in others) + "</p>")
         body = (f'<article class="post"><header><time datetime="{p["date"]}">{fmt(p["date"], L)}</time>'
                 f'<h1>{html.escape(p["title"])}</h1>{trline}</header>{sb}'
-                f'<div class="prose">{p["html"]}</div>{sb}</article>{pager}')
+                f'<div class="prose">{p["html"]}</div>{sb}</article>{comments(p, L)}{pager}')
         alt = alternates_for(p["slug"])
         write(f"{lang}/posts/{p['slug']}/index.html",
               page(lang, p["title"], body, p.get("summary"), p.get("cover"), alt, p["url"]))
