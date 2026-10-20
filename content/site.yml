@@ -1,6 +1,9 @@
 title: Cutroom Notes
 url: https://cutroom-notes.pages.dev
 author: Kelvin
+about: Kelvin, a content creator from Korea.
+home_blog: https://kelvin-kangpd.github.io
+home_blog_name: 강PD 로그
 cusdis_app_id: ""  # cusdis.com App ID, empty = no comments
 desc: Work notes on video editing, AI and automation.
 langs:
@@ -21,6 +24,7 @@ langs:
       comment_has_been_sent: Komentar terkirim dan akan tampil setelah disetujui.
     name: Bahasa Indonesia
     dir: ltr
+    about: Kelvin, pembuat konten dari Korea.
     desc: Catatan kerja seputar editing video, AI, dan otomatisasi.
     all: Semua
     series: Seri
@@ -35,6 +39,9 @@ langs:
       video-archive-ai:
         title: Arsip video pribadi dan AI
         desc: Bagaimana rekaman yang menumpuk bertahun-tahun berubah nilainya ketika AI ikut bekerja.
+      naver-blog-automation:
+        title: Otomatisasi blog Naver dan menempati ruang konten lebih dulu
+        desc: Mengotomatiskan unggahan blog, dan pikiran yang muncul sesudahnya.
   hi:
     comments_title: टिप्पणियाँ
     cusdis:
@@ -52,6 +59,7 @@ langs:
       comment_has_been_sent: टिप्पणी भेज दी गई है। मंज़ूरी के बाद दिखेगी।
     name: हिन्दी
     dir: ltr
+    about: Kelvin, कोरिया के कंटेंट क्रिएटर।
     desc: वीडियो एडिटिंग, AI और ऑटोमेशन पर काम के नोट्स।
     all: सभी
     series: सीरीज़
@@ -66,6 +74,9 @@ langs:
       video-archive-ai:
         title: निजी वीडियो आर्काइव और AI
         desc: सालों से जमा की गई फ़ुटेज AI के साथ काम करने पर कैसे बदल जाती है।
+      naver-blog-automation:
+        title: Naver ब्लॉग ऑटोमेशन और कंटेंट में पहले जगह बनाना
+        desc: ब्लॉग अपलोड को ऑटोमेट करना, और उसके बाद आए विचार।
   ar:
     comments_title: التعليقات
     cusdis:
@@ -83,6 +94,7 @@ langs:
       comment_has_been_sent: تم إرسال تعليقك وسيظهر بعد الموافقة عليه.
     name: العربية
     dir: rtl
+    about: Kelvin، صانع محتوى من كوريا.
     desc: ملاحظات عمل عن مونتاج الفيديو والذكاء الاصطناعي والأتمتة.
     all: الكل
     series: سلسلة
@@ -97,3 +109,6 @@ langs:
       video-archive-ai:
         title: الأرشيف الشخصي للفيديو والذكاء الاصطناعي
         desc: كيف تتغير قيمة اللقطات المتراكمة على مر السنين عندما يدخل الذكاء الاصطناعي في العمل.
+      naver-blog-automation:
+        title: أتمتة مدونة Naver والسبق إلى مكان المحتوى
+        desc: أتمتة رفع التدوينات، والأفكار التي جاءت بعدها.

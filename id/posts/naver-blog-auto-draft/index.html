@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menulis blog Naver dengan AI, otomatisasi penuh sampai tepat sebelum simpan sementara · Cutroom Notes</title>
+<meta name="description" content="Unggahan blog Naver yang dulu saya kerjakan manual lebih dari 30 menit sekali, kini dikerjakan AI dengan mengendalikan browser langsung: isi, foto, keterangan foto, sampai judul dimasukkan lalu disimpan sementara.">
+<meta property="og:title" content="Menulis blog Naver dengan AI, otomatisasi penuh sampai tepat sebelum simpan sementara · Cutroom Notes">
+<meta property="og:description" content="Unggahan blog Naver yang dulu saya kerjakan manual lebih dari 30 menit sekali, kini dikerjakan AI dengan mengendalikan browser langsung: isi, foto, keterangan foto, sampai judul dimasukkan lalu disimpan sementara.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/naver-blog-auto-draft/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/naver-blog-auto-draft/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/naver-blog-auto-draft/">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/id/posts/naver-blog-auto-draft/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/id/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/id/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/id/">Semua</a><a href="/id/series/">Seri</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-19">19 Oktober 2026</time><h1>Menulis blog Naver dengan AI, otomatisasi penuh sampai tepat sebelum simpan sementara</h1><p class="tr-line">Baca juga dalam: <a href="/hi/posts/naver-blog-auto-draft/" lang="hi">हिन्दी</a> · <a href="/ar/posts/naver-blog-auto-draft/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/id/series/naver-blog-automation/">Seri · Otomatisasi blog Naver dan menempati ruang konten lebih dulu</a><ol><li class="now"><span>Bagian 1</span>Menulis blog Naver dengan AI, otomatisasi penuh sampai tepat sebelum simpan sementara</li><li><span>Bagian 2</span><a href="/id/posts/content-land-grab/">Sebelum konten membanjir tanpa batas, saya harus lebih dulu menempati bahasa yang masih kosong</a></li><li><span>Bagian 3</span><a href="/id/posts/multilingual-site-launch/">Menempati bahasa lebih dulu: di hari yang sama saya pindahkan ke situs multibahasa</a></li></ol></aside><div class="prose"><p>Unggahan blog Naver, satu tulisan per hari yang dulu saya kerjakan manual lebih dari 30 menit setiap kali,
+<strong>kini saya otomatiskan sampai AI mengendalikan browser langsung, memasukkan isi, foto, keterangan foto, dan judul, lalu menyimpannya sebagai draf.</strong></p>
+<p>Kemarin untuk pertama kalinya semuanya berhasil sampai akhir.
+Yang saya lakukan hanya membuka draf yang tersimpan, membacanya sekilas, lalu menekan tombol terbit.
+Makna terbesar dari pekerjaan ini: hasilnya sudah cukup baik untuk langsung dipakai di pekerjaan kantor.</p>
+<h2>Dulu begini</h2>
+<p>Saya memindahkan artikel blog perusahaan, yang ditulis pihak vendor di inblog, ke blog Naver. Artikelnya tidak disalin begitu saja. Gaya bahasa dan strukturnya saya ubah supaya cocok dengan pencarian Naver, mesin pencari utama di Korea. Kira-kira satu artikel per hari. Penulisan ulangnya sudah saya kerjakan bersama AI. Tapi setiap kali masih ada yang tersisa: memasukkannya ke editor Naver sambil mengklik sana-sini, mengunggah foto, dan menyesuaikan lagi dengan gaya saya.</p>
+<p>Blog Naver tidak punya API resmi untuk menerbitkan tulisan. Jadi tulisan yang dibuat AI pada akhirnya harus dipindahkan dengan tangan.
+Untuk mengurangi itu, saya membuat tombol bookmark (bookmarklet) dan perintah PowerShell.</p>
+<table>
+<thead>
+<tr>
+<th>Urutan</th>
+<th>Pelaku</th>
+<th>Pekerjaan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>AI</td>
+<td>Membuat lembar kerja berisi isi tulisan, kandidat judul, daftar foto, dan keterangan foto</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Manusia</td>
+<td>Menyalin "perintah mengambil foto" dari lembar kerja lalu menempelkannya ke PowerShell</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Manusia</td>
+<td>Menekan "salin isi" lalu menempelkannya ke editor Naver</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Manusia</td>
+<td>Menekan bookmark "ubah format" (mengganti bentuk kutipan dan garis pemisah)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Manusia</td>
+<td>Menekan bookmark "masukkan foto" sebanyak jumlah foto, memilih foto di jendela pilih file setiap kali</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Manusia</td>
+<td>Mengklik kolom keterangan di tiap foto lalu menempelkan keterangannya</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Manusia</td>
+<td>Mengetik judul, memeriksa kartu tautan, menerbitkan</td>
+</tr>
+</tbody>
+</table>
+<p>Berkat tombol-tombol itu pekerjaan memang berkurang. Tapi kalau fotonya lebih dari sepuluh, klik-nya tetap puluhan kali.
+Keterangan foto gagal dimasukkan otomatis, jadi saya hanya menyalinnya ke clipboard dan menempelkannya sendiri.
+<strong>Satu tulisan paling cepat tetap makan 30 menit.</strong></p>
+<h2>Cara baru: AI mengendalikan browser lewat kode</h2>
+<p>Intinya adalah Playwright MCP.
+Playwright adalah alat untuk mengoperasikan browser lewat kode, dan kalau dihubungkan lewat MCP, AI bisa memakainya langsung.
+AI tidak menangkap layar lalu mengklik koordinat. Ia membaca struktur halaman, memilih elemen, lalu mengoperasikannya. Karena itu cepat, dan jarang meleset.</p>
+<p>Cara menghubungkannya seperti ini.</p>
+<table>
+<thead>
+<tr>
+<th>Langkah</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Tambahkan <code>--remote-debugging-port=9222</code> di akhir target pintasan Whale (browser buatan Naver), lalu jalankan Whale lewat pintasan itu</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Daftarkan Playwright MCP di file pengaturan aplikasi desktop Claude, supaya terhubung ke Whale yang sudah menyala (port 9222)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tutup aplikasi sepenuhnya, lalu buka lagi</td>
+</tr>
+</tbody>
+</table>
+<p>Isi file pengaturannya seperti ini. Saya sudah memakai MCP Premiere, jadi keduanya ada di sana.</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;playwright&quot;: {
+      &quot;command&quot;: &quot;cmd&quot;,
+      &quot;args&quot;: [&quot;/c&quot;, &quot;npx&quot;, &quot;-y&quot;, &quot;@playwright/mcp@latest&quot;, &quot;--cdp-endpoint&quot;, &quot;http://localhost:9222&quot;]
+    },
+    &quot;premiere-pro&quot;: { &quot;...&quot;: &quot;...&quot; }
+  }
+}
+</code></pre>
+<p>Yang penting, ini bukan membuka Whale baru, melainkan menyambung ke Whale yang biasa saya pakai.
+Login Naver sudah aktif, jadi saya tidak perlu memberikan ID dan kata sandi ke AI.</p>
+<h2>Bergulat dengan editor Naver</h2>
+<p>Editor Naver (SmartEditor) cukup rewel untuk diotomatiskan. Saya catat tempat saya benar-benar tersangkut dan cara mengatasinya.</p>
+<table>
+<thead>
+<tr>
+<th>Masalah</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menempel isi tulisan</td>
+<td>Tidak memakai clipboard. Peristiwa tempel palsu dikirim langsung ke area input di dalam editor. HTML masuk apa adanya, jadi tabel, huruf tebal, dan pindah baris tetap terjaga</td>
+</tr>
+<tr>
+<td>Jarak antarparagraf</td>
+<td>Naver mengabaikan margin paragraf. Baris kosong harus dimasukkan sebagai paragraf kosong sungguhan</td>
+</tr>
+<tr>
+<td>Bentuk kutipan</td>
+<td>Kutipan yang ditempel lewat HTML selalu masuk sebagai kutipan bertanda petik. Setelah menempel, tekan kutipan lalu ganti bentuknya dengan tombol bentuk</td>
+</tr>
+<tr>
+<td>Tempat foto</td>
+<td>Di isi tulisan saya taruh baris penanda seperti <code>[📸 foto 01 &#124; keterangan: …]</code>, lalu di tempat baris itu dihapus saya tekan tombol foto</td>
+</tr>
+<tr>
+<td>Menghapus baris</td>
+<td>Tombol seleksi seperti Shift+Home ditangkap editor. Klik di ujung baris, lalu tekan Backspace sebanyak jumlah hurufnya</td>
+</tr>
+<tr>
+<td>Mengunggah foto</td>
+<td>Jendela pilih file tidak dimunculkan; file langsung dimasukkan lewat fitur unggah file Playwright. Tapi file di luar folder kerja ditolak, jadi salinannya saya taruh di folder kerja</td>
+</tr>
+<tr>
+<td>Kolom keterangan</td>
+<td>Kolom keterangan baru muncul setelah fotonya diklik. Inilah sebab penyisipan keterangan otomatis dulu gagal</td>
+</tr>
+<tr>
+<td>Memeriksa unggahan</td>
+<td>Sesaat setelah naik, alamat foto tampak seperti penanda svg. Itu normal. Tunggu beberapa detik</td>
+</tr>
+<tr>
+<td>Tombol tidak mau ditekan</td>
+<td>Tertutup panel samping atau sedang dalam animasi. Posisi tombol dihitung ulang setiap kali lalu ditekan dengan mouse</td>
+</tr>
+<tr>
+<td>Tab tersembunyi</td>
+<td>Kalau tab ada di belakang, layar tidak merespons. Bawa tab ke depan dulu, baru lanjut</td>
+</tr>
+</tbody>
+</table>
+<p>Kode untuk menempel isi tulisan seperti ini. Setelah bagian ini berhasil, sisanya ikut terpecahkan.</p>
+<pre><code class="language-js">async (page) =&gt; {
+  const HTML = `...HTML isi tulisan...`;
+  const fr = page.frame({ name: 'mainFrame' }) || page.mainFrame();
+  await fr.locator('.se-component.se-text .se-text-paragraph').first().click();
+  await page.waitForTimeout(400);
+  await fr.evaluate((h) =&gt; {
+    const ib = [...document.querySelectorAll('iframe')]
+      .map(i =&gt; { try { return i.contentDocument } catch (e) { return null } })
+      .find(x =&gt; x &amp;&amp; x.body &amp;&amp; x.body.isContentEditable);
+    const W = ib.defaultView, dt = new W.DataTransfer();
+    dt.setData('text/html', h);
+    dt.setData('text/plain', h.replace(/&lt;[^&gt;]+&gt;/g, ''));
+    ib.body.dispatchEvent(new W.ClipboardEvent('paste', { clipboardData: dt, bubbles: true, cancelable: true }));
+  }, HTML);
+  await page.waitForTimeout(4000);
+}
+</code></pre>
+<p>Foto dikerjakan satu per satu secara berulang. Sekali dijalankan, ia melakukan "memasukkan keterangan ke foto sebelumnya" dan "menghapus penanda 📸 berikutnya lalu menekan tombol foto" sekaligus, dan begitu masuk ke keadaan pilih file, foto dengan nomor urut itu diunggah. Terus berputar sampai tidak ada lagi penanda 📸.</p>
+<h2>Tombol terbit tidak boleh tertekan</h2>
+<p>Langkah terakhir adalah simpan sementara. Yang paling saya jaga di sini adalah agar tombol terbit tidak tertekan, bahkan karena kecelakaan.
+Tombol di editor Naver berlabel bahasa Korea: 저장 berarti "simpan" dan 발행 berarti "terbit". Label tombol dibaca dulu, dan kalau bukan 저장 atau mengandung 발행, kode berhenti tanpa menekan.
+Keberhasilan dipastikan dari angka di samping tombol simpan yang bertambah 1.</p>
+<pre><code class="language-js">async (page) =&gt; {
+  const fr = page.frame({ name: 'mainFrame' }) || page.mainFrame();
+  const btn = fr.locator('button[class*=&quot;save_btn&quot;]').first();
+  const label = (await btn.textContent()).trim();
+  if (!/저장/.test(label) || /발행/.test(label)) return { error: label };
+  const cnt = () =&gt; fr.evaluate(() =&gt; document.querySelector('[class*=&quot;save_btn&quot;]').parentElement.textContent);
+  const before = await cnt();
+  const b = await btn.boundingBox();
+  await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2);
+  await page.waitForTimeout(2500);
+  return { before, after: await cnt() };
+}
+</code></pre>
+<p>Penerbitan sengaja saya sisakan untuk manusia.
+Tulisannya menjadi publik dan terbit atas nama perusahaan, jadi pemeriksaan terakhir saya yang pegang.
+<strong>Selain pemeriksaan itu, tidak ada lagi yang perlu saya sentuh.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tahap</th>
+<th>Dulu</th>
+<th>Sekarang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menulis</td>
+<td>AI</td>
+<td>AI</td>
+</tr>
+<tr>
+<td>Menyiapkan foto</td>
+<td>Menempelkan perintah ke PowerShell</td>
+<td>AI</td>
+</tr>
+<tr>
+<td>Memasukkan isi</td>
+<td>Salin dan tempel</td>
+<td>AI</td>
+</tr>
+<tr>
+<td>Merapikan format</td>
+<td>Tombol bookmark</td>
+<td>AI</td>
+</tr>
+<tr>
+<td>Foto dan keterangan</td>
+<td>Klik sebanyak jumlah foto, tempel keterangan</td>
+<td>AI</td>
+</tr>
+<tr>
+<td>Judul dan kartu tautan</td>
+<td>Manusia</td>
+<td>AI</td>
+</tr>
+<tr>
+<td>Simpan sementara</td>
+<td>Manusia</td>
+<td>AI</td>
+</tr>
+<tr>
+<td>Pemeriksaan dan penerbitan</td>
+<td>Manusia</td>
+<td>Manusia</td>
+</tr>
+</tbody>
+</table>
+<h2>Saya buatkan juga untuk blog pribadi</h2>
+<p>Cara yang sama saya rapikan sebagai skill terpisah agar bisa dipakai juga untuk blog Naver pribadi saya.
+Bedanya dengan versi kantor ada di gaya bahasa. Saya minta AI membaca beberapa tulisan lama saya, lalu mengambil kebiasaan saya, yaitu akhiran kalimat, emoji, panjang paragraf, dan penataan foto, dalam bentuk tabel, dan menulis dengan gaya itu.
+Cukup beri folder foto dan catatan kasar, maka tulisan dibuat lalu disimpan sementara.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Masukan</td>
+<td>Jalur folder foto + catatan</td>
+</tr>
+<tr>
+<td>Gaya bahasa</td>
+<td>Sekali di awal, membaca struktur 5 tulisan terakhir lalu menyimpan profil gaya</td>
+</tr>
+<tr>
+<td>Tidak mengarang</td>
+<td>Nama toko, harga, dan tanggal yang tidak ada di catatan atau foto tidak ditulis, ditandai <code>[perlu dicek]</code></td>
+</tr>
+<tr>
+<td>Foto</td>
+<td>HEIC diubah ke JPG, yang terlalu besar dikecilkan, dan kalau mau memakai salinan tanpa data lokasi</td>
+</tr>
+<tr>
+<td>Akhir</td>
+<td>Simpan sementara. Terbitnya saya sendiri</td>
+</tr>
+</tbody>
+</table>
+<p>File skill-nya saya buka untuk umum (isinya dalam bahasa Korea). Tinggal dimasukkan ke Claude sebagai skill.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://kelvin-kangpd.github.io/files/naver-personal-draft/SKILL.md">SKILL.md</a></td>
+<td>Seluruh prosedur dan kode</td>
+</tr>
+<tr>
+<td><a href="https://kelvin-kangpd.github.io/files/naver-personal-draft/my-blog.md">my-blog.md</a></td>
+<td>Formulir kosong profil gaya bahasa</td>
+</tr>
+</tbody>
+</table>
+<p>Di PC rumah saya juga sedang memasang koneksi yang sama, tapi berhenti di tengah. File pengaturan sudah dimasukkan, tetapi aplikasi Claude belum juga mengenali Playwright. Saya akan mulai lagi dengan memeriksa file pengaturan mana yang dibaca aplikasi di tab pengembang pada pengaturannya.</p>
+<p>Di tulisan berikutnya saya menulis apa yang saya pikirkan setelah ini berhasil. Kenapa setelah alat ini ada, saya merasa harus bergegas.</p></div><aside class="series-box"><a class="series-name" href="/id/series/naver-blog-automation/">Seri · Otomatisasi blog Naver dan menempati ruang konten lebih dulu</a><ol><li class="now"><span>Bagian 1</span>Menulis blog Naver dengan AI, otomatisasi penuh sampai tepat sebelum simpan sementara</li><li><span>Bagian 2</span><a href="/id/posts/content-land-grab/">Sebelum konten membanjir tanpa batas, saya harus lebih dulu menempati bahasa yang masih kosong</a></li><li><span>Bagian 3</span><a href="/id/posts/multilingual-site-launch/">Menempati bahasa lebih dulu: di hari yang sama saya pindahkan ke situs multibahasa</a></li></ol></aside></article><nav class="pager"><a href="/id/posts/hello/"><span>Tulisan sebelumnya</span>Membuka blog ini</a><a href="/id/posts/travel-footage-captions/" class="r"><span>Tulisan berikutnya</span>Membuat subtitle untuk 62 jam video perjalanan, dan efisiensi kerja dengan AI</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/id/" lang="id" class=on>Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, pembuat konten dari Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

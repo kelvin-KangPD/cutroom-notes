@@ -88,6 +88,7 @@ def page(lang, title, body, desc=None, image=None, alternates=None, path="/"):
         "ALL": html.escape(L["all"]) if L else "", "SERIES_NAV": html.escape(L["series"]) if L else "",
         "SERIES_HREF": f"/{lang}/series/" if lang else "/",
         "BODY": body, "LANGS": lang_nav(lang), "YEAR": str(date.today().year), "AUTHOR": CFG["author"],
+        "ABOUT": html.escape((L or CFG).get("about", CFG.get("about", ""))) + f' · <a href="{CFG["home_blog"]}" lang="ko">{html.escape(CFG["home_blog_name"])}</a>',
     }
     out = LAYOUT
     for k, v in vals.items():
