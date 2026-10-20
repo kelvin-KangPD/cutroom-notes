@@ -7,6 +7,41 @@ home_blog_name: 강PD 로그
 cusdis_app_id: ""  # cusdis.com App ID, empty = no comments
 desc: Work notes on video editing, AI and automation.
 langs:
+  en:
+    about: Kelvin, a content creator from Korea.
+    comments_title: Comments
+    cusdis:
+      powered_by: Powered by Cusdis
+      post_comment: Post comment
+      loading: Loading...
+      email: Email (optional)
+      nickname: Name
+      reply_placeholder: Write a comment...
+      reply_btn: Reply
+      sending: Sending...
+      mod_badge: Author
+      content_is_required: Comment can't be empty
+      nickname_is_required: Name is required
+      comment_has_been_sent: Your comment has been sent and will appear once approved.
+    name: English
+    dir: ltr
+    desc: Work notes on video editing, AI and automation.
+    all: All
+    series: Series
+    part: "Part {n}"
+    prev: Previous post
+    next: Next post
+    also_in: "Also in:"
+    empty: No posts yet.
+    date_fmt: "{m} {d}, {y}"
+    months: [January, February, March, April, May, June, July, August, September, October, November, December]
+    series_titles:
+      video-archive-ai:
+        title: Personal video archive and AI
+        desc: How years of stockpiled footage change in value once AI joins the work.
+      naver-blog-automation:
+        title: Naver blog automation and claiming content space first
+        desc: Automating blog uploads, and the thoughts that came after.
   id:
     comments_title: Komentar
     cusdis:

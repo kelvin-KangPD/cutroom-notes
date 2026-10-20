@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subtitling 62 hours of travel footage, and working efficiently with AI · Cutroom Notes</title>
+<meta name="description" content="For 62 hours of travel footage, I changed the subtitle workflow: Premiere&#x27;s transcription finds where people speak, and only the highlights get polished with Gemini. With AI, the cost turned out to depend on conversation length and the number of back-and-forths.">
+<meta property="og:title" content="Subtitling 62 hours of travel footage, and working efficiently with AI · Cutroom Notes">
+<meta property="og:description" content="For 62 hours of travel footage, I changed the subtitle workflow: Premiere&#x27;s transcription finds where people speak, and only the highlights get polished with Gemini. With AI, the cost turned out to depend on conversation length and the number of back-and-forths.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-captions/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261019-captions-efficiency/01-caption-track.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/en/posts/travel-footage-captions/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/en/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/en/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/en/">All</a><a href="/en/series/">Series</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-19">October 19, 2026</time><h1>Subtitling 62 hours of travel footage, and working efficiently with AI</h1><p class="tr-line">Also in: <a href="/id/posts/travel-footage-captions/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/travel-footage-captions/" lang="hi">हिन्दी</a> · <a href="/ar/posts/travel-footage-captions/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/en/series/video-archive-ai/">Series · Personal video archive and AI</a><ol><li><span>Part 1</span><a href="/en/posts/travel-footage-ai-backup/">Backing up travel footage: I left it to AI overnight and got a verification report in the morning</a></li><li><span>Part 2</span><a href="/en/posts/travel-footage-time-sync/">Syncing capture times across five cameras and building per-day sequences in Premiere</a></li><li><span>Part 3</span><a href="/en/posts/premiere-mcp-setup/">Letting AI drive Premiere directly: notes on setting up the Premiere MCP</a></li><li class="now"><span>Part 4</span>Subtitling 62 hours of travel footage, and working efficiently with AI</li></ol></aside><div class="prose"><p>For 62 hours of travel footage, I changed the subtitle workflow: Premiere's transcription finds where people speak, and only the highlights get polished with Gemini.
+<strong>With AI, the cost turned out to depend on conversation length and the number of back-and-forths.</strong></p>
+<p>This is the last of the work notes. It covers subtitles, cost, and the old footage I tidied up along the way.</p>
+<h2>Subtitles: Premiere transcription + Gemini</h2>
+<p>Gemini's SRT output was the most accurate for subtitles. But I couldn't feed all 62 hours into Gemini, so I changed the approach.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Export each per-day sequence as MP3 with Media Encoder</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Run Premiere's transcription first to locate the speech. The default language was set to English, so I switched it to Korean</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Drop the unrecognized segments from the transcription output (JSON), which filters out safari radio noise</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Build an SRT from the JSON and add it to the v2 sequences as a caption track through the MCP</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Polish with Gemini only the parts that will actually be used in the edit, not everything. Highlight sections dense with conversation were picked by score and cut into 2-minute chunks. The Gemini app only transcribed about 2 minutes reliably to the end, so I came down from the 3-minute chunks I started with</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Subtitle blocks lined up on the C1 caption track at the top of the Premiere timeline" src="/images/20261019-captions-efficiency/01-caption-track.webp" />
+<em>C1 at the top of the v2 sequence is the caption track. Because these are captions rather than text clips, they're easy to re-export as SRT or edit later.</em></p>
+<p>I queued the transcriptions day by day in Premiere and let them run on their own. At first the AI checked every 3 minutes and handled them one at a time, but a mid-way review showed that was inefficient, so it switched to processing finished days in batches every 30–40 minutes.</p>
+<p>I also tried having it send a phone notification when a job finished. On the AI's side it said it had sent several, but not one arrived. I decided to just check in more often myself.</p>
+<h2>Cost and efficiency</h2>
+<p>This was the first time I really paid attention to usage.
+Every time it sends a command, the AI rereads the entire conversation up to that point. So the longer the conversation, the more the same task costs, several times over.
+Waiting 20 minutes costs almost nothing. Lots of back-and-forth is what's expensive.</p>
+<p>Partway through, I asked whether the way we'd been working was efficient. The answer was: about half and half.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recovering GoPro times</td>
+<td>Fixed dozens of files at once with two or three scripts, and passed verification on the first try</td>
+</tr>
+<tr>
+<td>Sorting out where the project is saved</td>
+<td>Done in a few steps</td>
+</tr>
+<tr>
+<td>Checking the Canon times</td>
+<td>Inefficient. Tried to pull audio from the whole external drive and gave up because of the speed, received a 260,000-character error log in full, and trusted an untested assumption through two rounds of audio comparison. One photo would have answered it immediately</td>
+</tr>
+</tbody>
+</table>
+<p>So at the end, it wrote a handover document into the working folder, and we agreed to move to a new conversation timed to when the usage limit resets.
+It even wrote the first message to paste into the new conversation.</p>
+<pre><code>Read the handover notes in the Tanzania edit folder on the home PC (drive I:) and let's continue the Tanzania edit.
+Ask for every permission you need all at once at the start, and run the work in parallel.
+</code></pre>
+<p>The handover document also includes the tips I picked up this time.</p>
+<table>
+<thead>
+<tr>
+<th>Tip</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reading external drives</td>
+<td>Slow. Read only the parts you need, not whole files</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Get summaries only. A flood of logs is all cost</td>
+</tr>
+<tr>
+<td>Verification</td>
+<td>Before running something long, test the hypothesis on one sample</td>
+</tr>
+<tr>
+<td>Bulk copying</td>
+<td>7-Zip File Manager is faster than copying from the command line</td>
+</tr>
+<tr>
+<td>Audio sync</td>
+<td>Line up two clips by comparing how their loudness changes</td>
+</tr>
+</tbody>
+</table>
+<h2>Old footage, same structure</h2>
+<p>It wasn't only the trip footage. I also brought 14 folders of personal footage shot before the trip into the same structure.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structure</td>
+<td>Originals\Video, Originals\Photos, Other, Project</td>
+</tr>
+<tr>
+<td>Rules</td>
+<td>Video and audio go in Originals\Video, photos in Originals\Photos, processed material like edits and graphics in Other, project files in Project</td>
+</tr>
+<tr>
+<td>Verification</td>
+<td>Checked the file count matched what was there before</td>
+</tr>
+<tr>
+<td>Left alone</td>
+<td>Folders that already had a structure, projects being edited (in case links break), folders without dates</td>
+</tr>
+<tr>
+<td>Next</td>
+<td>Create a project for each folder, with sequences split into per-camera tracks</td>
+</tr>
+</tbody>
+</table>
+<h2>Remaining work</h2>
+<table>
+<thead>
+<tr>
+<th>To do</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAY 4 and 6</td>
+<td>Brought the laptop material over on an external drive. Connect it and add it</td>
+</tr>
+<tr>
+<td>DAY 9</td>
+<td>Empty folder on every storage device</td>
+</tr>
+<tr>
+<td>343 RAW photos</td>
+<td>Export to JPG from Lightroom and add</td>
+</tr>
+<tr>
+<td>Subtitles</td>
+<td>Transcribe the remaining days, transcribe only the new clips separately, polish the highlights with Gemini</td>
+</tr>
+<tr>
+<td>Sequences for old footage</td>
+<td>Per project, after transcription is done</td>
+</tr>
+<tr>
+<td>Cloud copies</td>
+<td>Two OneDrive 1TB accounts, Google Drive 400GB</td>
+</tr>
+</tbody>
+</table>
+<p>That's the end of the work notes. From the next post, I plan to sort out my thoughts on what this stockpile of footage could become.</p></div><aside class="series-box"><a class="series-name" href="/en/series/video-archive-ai/">Series · Personal video archive and AI</a><ol><li><span>Part 1</span><a href="/en/posts/travel-footage-ai-backup/">Backing up travel footage: I left it to AI overnight and got a verification report in the morning</a></li><li><span>Part 2</span><a href="/en/posts/travel-footage-time-sync/">Syncing capture times across five cameras and building per-day sequences in Premiere</a></li><li><span>Part 3</span><a href="/en/posts/premiere-mcp-setup/">Letting AI drive Premiere directly: notes on setting up the Premiere MCP</a></li><li class="now"><span>Part 4</span>Subtitling 62 hours of travel footage, and working efficiently with AI</li></ol></aside></article><nav class="pager"><a href="/en/posts/naver-blog-auto-draft/"><span>Previous post</span>Writing on a Naver blog with AI: fully automated up to saving the draft</a><a href="/en/posts/content-land-grab/" class="r"><span>Next post</span>Before content floods in endlessly, I should claim the languages that are still empty</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en" class=on>English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, a content creator from Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

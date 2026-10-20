@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letting AI drive Premiere directly: notes on setting up the Premiere MCP · Cutroom Notes</title>
+<meta name="description" content="I connected the Claude desktop app and a Premiere MCP so AI could operate my PC and Premiere directly, and worked through the installation traps and port fights one by one.">
+<meta property="og:title" content="Letting AI drive Premiere directly: notes on setting up the Premiere MCP · Cutroom Notes">
+<meta property="og:description" content="I connected the Claude desktop app and a Premiere MCP so AI could operate my PC and Premiere directly, and worked through the installation traps and port fights one by one.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/premiere-mcp-setup/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261018-premiere-mcp-setup/01-mcp-bridge-connected.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/en/posts/premiere-mcp-setup/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/en/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/en/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/en/">All</a><a href="/en/series/">Series</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">October 18, 2026</time><h1>Letting AI drive Premiere directly: notes on setting up the Premiere MCP</h1><p class="tr-line">Also in: <a href="/id/posts/premiere-mcp-setup/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/premiere-mcp-setup/" lang="hi">हिन्दी</a> · <a href="/ar/posts/premiere-mcp-setup/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/en/series/video-archive-ai/">Series · Personal video archive and AI</a><ol><li><span>Part 1</span><a href="/en/posts/travel-footage-ai-backup/">Backing up travel footage: I left it to AI overnight and got a verification report in the morning</a></li><li><span>Part 2</span><a href="/en/posts/travel-footage-time-sync/">Syncing capture times across five cameras and building per-day sequences in Premiere</a></li><li class="now"><span>Part 3</span>Letting AI drive Premiere directly: notes on setting up the Premiere MCP</li><li><span>Part 4</span><a href="/en/posts/travel-footage-captions/">Subtitling 62 hours of travel footage, and working efficiently with AI</a></li></ol></aside><div class="prose"><p>I connected the Claude desktop app and a Premiere MCP so AI could operate my PC and Premiere directly,
+<strong>and worked through the installation traps and port fights one by one.</strong></p>
+<p>This connection is what made the work in parts 1 and 2 possible.</p>
+<h2>What I connected, and how</h2>
+<p>If the AI could only give instructions and I had to do everything by hand, I couldn't have handled this volume.</p>
+<table>
+<thead>
+<tr>
+<th>Connection</th>
+<th>What the AI does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude desktop app + remote access</td>
+<td>Even when I chat from my phone or the office, the work runs on my home PC</td>
+</tr>
+<tr>
+<td>Files and command line</td>
+<td>Lists drives, checks copy results, pulls capture times and audio with ffmpeg, runs Python scripts</td>
+</tr>
+<tr>
+<td>Screen control</td>
+<td>Clicks through 7-Zip, Premiere and Media Encoder</td>
+</tr>
+<tr>
+<td>Premiere MCP</td>
+<td>Builds sequences and caption tracks and saves the project through a bridge panel inside Premiere</td>
+</tr>
+<tr>
+<td>Media Encoder</td>
+<td>Exports the per-day sequences as MP3 for transcription</td>
+</tr>
+</tbody>
+</table>
+<p>Screen control had its limits. In File Explorer it could click, but copy, paste and drag-and-drop were blocked, so devices without a drive letter, like my phone, I had to move myself.</p>
+<h2>The Premiere MCP</h2>
+<p>MCP is a way of connecting AI to other programs so it can use them as tools.
+For Premiere I use Adobe-Premiere-Pro-MCP, published on GitHub. An "MCP Bridge" extension panel attaches to Premiere, and a small server runs on the PC (port 8097) passing the AI's commands to Premiere as scripts (ExtendScript).</p>
+<p><img alt="Premiere MCP Bridge panel showing Connected, with the connection log visible" src="/images/20261018-premiere-mcp-setup/01-mcp-bridge-connected.webp" />
+<em>The MCP Bridge panel. The green Connected has to show before AI commands reach Premiere.</em></p>
+<p>I first installed it in early September, while working on the video shown before our wedding ceremony. I thought running the installer would be enough, but there were plenty of traps.
+In October I put the same thing on my work PC, and the company network added one more problem.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The Claude app never starts the server</td>
+<td>The Microsoft Store version of the app reads its config file from a different path</td>
+<td>Register it at the real path (under LocalCache)</td>
+</tr>
+<tr>
+<td>Settings silently ignored</td>
+<td>The install script puts a BOM (an invisible character) at the start of the config file</td>
+<td>Save it again without the BOM</td>
+</tr>
+<tr>
+<td>Server fails to start</td>
+<td>The config just says node, and the app can't find it</td>
+<td>Use the full path to node.exe</td>
+</tr>
+<tr>
+<td>Panel says Connected but commands do nothing</td>
+<td>Each chat window starts its own server, and they fight over the one port</td>
+<td>Clean up leftover server processes and reconnect</td>
+</tr>
+<tr>
+<td>Keyboard dead in Premiere</td>
+<td>The bridge panel grabs keyboard input</td>
+<td>Close the panel when editing by hand</td>
+</tr>
+<tr>
+<td>Install fails on the work PC</td>
+<td>Node doesn't trust the certificate of the company's security appliance</td>
+<td>An option that makes Node use the Windows certificate store</td>
+</tr>
+</tbody>
+</table>
+<h2>Installation steps</h2>
+<p>This is the order I settled on after getting stuck several times. It works for installing on another PC too.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Where</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>PowerShell</td>
+<td>Check Node.js is installed. If not, install it and open a new window</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Browser</td>
+<td>Download Adobe-Premiere-Pro-MCP from GitHub as a ZIP and unzip it into Documents. Moving it later breaks the Premiere extension link, so put it in its final location from the start</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Notepad</td>
+<td>Open install.bat and read it first. If it does anything unfamiliar beyond registry settings, linking the extension folder, installing and building packages, and writing settings, stop</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PowerShell</td>
+<td>Run install.bat and check the server file (dist\server.js) was created</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Premiere</td>
+<td>Quit completely, restart, open Window &gt; Extensions &gt; MCP Bridge</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Claude app</td>
+<td>Launch once and quit, so it creates its settings folder</td>
+</tr>
+<tr>
+<td>7</td>
+<td>PowerShell</td>
+<td>Register the server in the real config file path. Save without a BOM, use the full path for node</td>
+</tr>
+<tr>
+<td>8</td>
+<td>PowerShell</td>
+<td>Quit the Claude app completely and launch it again. It reads settings only once, at startup</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Premiere</td>
+<td>Check the panel shows Connected</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Claude app</td>
+<td>In a new chat, check the connection status, and verify by having it only read the track layout without changing anything</td>
+</tr>
+</tbody>
+</table>
+<p>I also settled on a startup routine for everyday use.</p>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Close other MCP programs and other Claude chat windows</td>
+</tr>
+<tr>
+<td>2</td>
+<td>If a leftover server is holding port 8097, clean it up</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Launch Premiere, open the project and sequence</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Launch the Claude app (the server starts automatically)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Check the bridge panel shows Connected, then work</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Close the panel when editing by hand. The server stays up, so it reconnects as soon as you reopen it</td>
+</tr>
+</tbody>
+</table>
+<h2>This weekend: the port fight and a bridge fix</h2>
+<p>The port fight broke out again this weekend. Every time I moved to a new chat window, the old window's server was still holding the port, so the panel said Connected while the commands vanished into thin air.
+At first I got by with a one-line PowerShell command that cleaned up leftover servers. But I had to repeat it every time I switched windows, which got tedious.
+So this time the AI changed the bridge code itself. A newly started server asks the old one to hand over the port, and the old one steps aside. It tested this with a local simulation before applying it. A new server asks for the port only during its first 15 seconds, and a server that has stepped aside waits quietly instead of trying to take it back. So normally the most recent chat window wins.
+The change went into both the build output and the original source, so it survives a rebuild.
+Even so, in the first session the connection never came up, so the sequences were made as XML files and imported through screen control. From the next session on, it used the MCP to add caption tracks and save the project.</p>
+<p>In the next post I cover how I made subtitles for 62 hours of footage, and what I learned about running AI work efficiently.</p></div><aside class="series-box"><a class="series-name" href="/en/series/video-archive-ai/">Series · Personal video archive and AI</a><ol><li><span>Part 1</span><a href="/en/posts/travel-footage-ai-backup/">Backing up travel footage: I left it to AI overnight and got a verification report in the morning</a></li><li><span>Part 2</span><a href="/en/posts/travel-footage-time-sync/">Syncing capture times across five cameras and building per-day sequences in Premiere</a></li><li class="now"><span>Part 3</span>Letting AI drive Premiere directly: notes on setting up the Premiere MCP</li><li><span>Part 4</span><a href="/en/posts/travel-footage-captions/">Subtitling 62 hours of travel footage, and working efficiently with AI</a></li></ol></aside></article><nav class="pager"><a href="/en/posts/travel-footage-time-sync/"><span>Previous post</span>Syncing capture times across five cameras and building per-day sequences in Premiere</a><a href="/en/posts/hello/" class="r"><span>Next post</span>Opening this blog</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en" class=on>English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, a content creator from Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

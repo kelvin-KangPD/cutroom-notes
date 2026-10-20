@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Syncing capture times across five cameras and building per-day sequences in Premiere · Cutroom Notes</title>
+<meta name="description" content="I lined up 905 clips from cameras with mismatched clocks to their real capture times using GPS and photos, then automatically built per-day Premiere sequences with a separate track for each camera.">
+<meta property="og:title" content="Syncing capture times across five cameras and building per-day sequences in Premiere · Cutroom Notes">
+<meta property="og:description" content="I lined up 905 clips from cameras with mismatched clocks to their real capture times using GPS and photos, then automatically built per-day Premiere sequences with a separate track for each camera.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-time-sync/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/en/posts/travel-footage-time-sync/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/en/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/en/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/en/">All</a><a href="/en/series/">Series</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">October 18, 2026</time><h1>Syncing capture times across five cameras and building per-day sequences in Premiere</h1><p class="tr-line">Also in: <a href="/id/posts/travel-footage-time-sync/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/travel-footage-time-sync/" lang="hi">हिन्दी</a> · <a href="/ar/posts/travel-footage-time-sync/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/en/series/video-archive-ai/">Series · Personal video archive and AI</a><ol><li><span>Part 1</span><a href="/en/posts/travel-footage-ai-backup/">Backing up travel footage: I left it to AI overnight and got a verification report in the morning</a></li><li class="now"><span>Part 2</span>Syncing capture times across five cameras and building per-day sequences in Premiere</li><li><span>Part 3</span><a href="/en/posts/premiere-mcp-setup/">Letting AI drive Premiere directly: notes on setting up the Premiere MCP</a></li><li><span>Part 4</span><a href="/en/posts/travel-footage-captions/">Subtitling 62 hours of travel footage, and working efficiently with AI</a></li></ol></aside><div class="prose"><p>I lined up 905 clips from cameras with mismatched clocks to their real capture times using GPS and photos,
+<strong>then automatically built per-day Premiere sequences with a separate track for each camera.</strong></p>
+<p>In part 1 I gathered the footage onto one drive. This step lays it out so it can actually be edited.
+There were five kinds of camera: Osmo Nano, GoPro, Canon 100D, Canon G7X (my wife's camera), and a phone.</p>
+<h2>Syncing capture times: every camera's clock was different</h2>
+<p>To edit, you need clips from several cameras placed in the order they were actually shot.
+But each camera's clock used a different reference. Local time in Tanzania is UTC+3, six hours behind Korea.</p>
+<p>The AI pulled the capture time from all 905 files and worked through them camera by camera.</p>
+<table>
+<thead>
+<tr>
+<th>Camera</th>
+<th>Clock state</th>
+<th>How it was fixed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Osmo (412 clips)</td>
+<td>File names carry Korea time</td>
+<td>Subtract 9 hours from the time in the file name to get UTC, then add 3 hours for local time</td>
+</tr>
+<tr>
+<td>GoPro (215 clips)</td>
+<td>A mess</td>
+<td>See below</td>
+</tr>
+<tr>
+<td>Canon 100D and G7X (276 clips)</td>
+<td>Not local time</td>
+<td>First wrongly assumed to be UTC, confirmed as Korea time in a later session</td>
+</tr>
+<tr>
+<td>Other (2 clips)</td>
+<td>Filed separately</td>
+<td>Their own track</td>
+</tr>
+</tbody>
+</table>
+<h3>GoPro</h3>
+<p>The GoPro asks you to set the time every time you turn it on, and I often punched in something rough just to get past it. Some were probably set to the wrong year entirely, like 2016.
+So the timestamps on those files couldn't be trusted.</p>
+<p>The clue the AI found was the GPS data the GoPro records inside the video. GPS carries accurate time from the satellites.
+Files with a GPS fix used that time directly. For files without one, it relied on the fact that a wrong clock is wrong by a constant amount.
+It found ranges of file numbers shot with the same clock setting, worked out the offset for each range, and shifted them back in one go.</p>
+<table>
+<thead>
+<tr>
+<th>File number range</th>
+<th>Clock offset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0418–0433</td>
+<td>Almost correct</td>
+</tr>
+<tr>
+<td>0434–0460</td>
+<td>About one day</td>
+</tr>
+<tr>
+<td>0461–0479</td>
+<td>About 3 hours 20 minutes, in the other direction</td>
+</tr>
+<tr>
+<td>0482–0636</td>
+<td>About 153 days</td>
+</tr>
+<tr>
+<td>0637–0640</td>
+<td>About 163 days</td>
+</tr>
+</tbody>
+</table>
+<p>That recovered 214 of the 215 clips. The last one (GX010479) got "estimated time" added to its name.
+Where the GoPro and Osmo were rolling at the same time, comparing the audio waveforms confirmed the sync to within 10–20 seconds.</p>
+<h3>Canon</h3>
+<p>For the Canons, I first took them to be on Korea time, then assumed local time and ran two rounds of audio comparison. Both were wasted effort.
+In the end, a single photo solved it. At the same moment the Osmo showed daytime, the Canon showed us eating dinner.
+That made it certain it wasn't local time. UTC seemed likely, so I entered +3 hours for now.
+That got overturned in the next session. Photos stamped 8–10 p.m. by the camera clock were all midday safari scenes (zebras, lions, elephants), and shifting them back 9 hours gave the most overlap with the GoPro GPS and the Osmo. Both the 100D and the G7X were on <strong>Korea time</strong>. The G7X videos (MP4), though, were recorded correctly and needed no correction.</p>
+<h2>Per-day sequences in Premiere</h2>
+<p>Once the times were sorted, the rest was just placing clips by rule.
+The AI wrote a script that generated sequence files (XML) for Premiere, and I imported them.
+We tested with DAY 1 alone first, confirmed the approach, and then built everything in one go.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sequences</td>
+<td>16, one per day, 4K 29.97fps</td>
+</tr>
+<tr>
+<td>Day boundary</td>
+<td>4 a.m. Anything shot after midnight goes to the previous day</td>
+</tr>
+<tr>
+<td>Tracks</td>
+<td>V1 Osmo, V2 GoPro, V3 Canon, V4 other. Two audio tracks per camera</td>
+</tr>
+<tr>
+<td>Simultaneous shots</td>
+<td>Stacked at the same point, one above the other</td>
+</tr>
+<tr>
+<td>Between scenes</td>
+<td>Gaps compressed to 2 seconds</td>
+</tr>
+<tr>
+<td>Markers</td>
+<td>Local time at each scene</td>
+</tr>
+<tr>
+<td>Clip names</td>
+<td>[date time] appended</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>2.7K clips scaled up to fit 4K</td>
+</tr>
+<tr>
+<td>Left out</td>
+<td>Temporary sync files, thumbnail and proxy files, anything under 0.5 seconds, exact duplicates</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Premiere timeline of the 9/26 sequence, with Osmo, GoPro, Canon, photo and phone tracks stacked one above the other" src="/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp" />
+<em>The 9/26 sequence at around 1 hour 40 minutes. V1 Osmo, V2 GoPro, V3 Canon, V5 photos, V9 phone. Cameras that caught the same moment are stacked on top of each other.</em></p>
+<p>Here it is by day.</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Clips</th>
+<th>Cameras</th>
+<th>Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9/24</td>
+<td>4</td>
+<td>Osmo</td>
+<td>2 min</td>
+</tr>
+<tr>
+<td>9/25</td>
+<td>54</td>
+<td>Osmo 41, GoPro 13</td>
+<td>158 min</td>
+</tr>
+<tr>
+<td>9/26</td>
+<td>130</td>
+<td>Canon 68, Osmo 36, GoPro 26</td>
+<td>232 min</td>
+</tr>
+<tr>
+<td>9/27</td>
+<td>182</td>
+<td>Canon 96, Osmo 66, GoPro 20</td>
+<td>380 min</td>
+</tr>
+<tr>
+<td>9/28</td>
+<td>42</td>
+<td>Canon 33, GoPro 6, Osmo 2, other 1</td>
+<td>91 min</td>
+</tr>
+<tr>
+<td>9/29</td>
+<td>154</td>
+<td>Canon 75, Osmo 44, GoPro 35</td>
+<td>454 min</td>
+</tr>
+<tr>
+<td>9/30</td>
+<td>2</td>
+<td>GoPro</td>
+<td>2 min</td>
+</tr>
+<tr>
+<td>10/1</td>
+<td>37</td>
+<td>Osmo 21, GoPro 16</td>
+<td>387 min</td>
+</tr>
+<tr>
+<td>10/2</td>
+<td>51</td>
+<td>Osmo 36, GoPro 15</td>
+<td>367 min</td>
+</tr>
+<tr>
+<td>10/3</td>
+<td>62</td>
+<td>Osmo 47, GoPro 15</td>
+<td>281 min</td>
+</tr>
+<tr>
+<td>10/4</td>
+<td>41</td>
+<td>Osmo 31, GoPro 10</td>
+<td>310 min</td>
+</tr>
+<tr>
+<td>10/5</td>
+<td>30</td>
+<td>GoPro 23, Osmo 7</td>
+<td>322 min</td>
+</tr>
+<tr>
+<td>10/6</td>
+<td>38</td>
+<td>GoPro 27, Osmo 11</td>
+<td>129 min</td>
+</tr>
+<tr>
+<td>10/7</td>
+<td>20</td>
+<td>Osmo</td>
+<td>244 min</td>
+</tr>
+<tr>
+<td>10/8</td>
+<td>13</td>
+<td>Osmo 9, GoPro 4</td>
+<td>198 min</td>
+</tr>
+<tr>
+<td>10/9</td>
+<td>15</td>
+<td>Osmo 13, GoPro 2</td>
+<td>119 min</td>
+</tr>
+</tbody>
+</table>
+<p>9/29 alone runs over 450 minutes.
+Opening every clip, laying them out by camera and lining up the times is normally the part of editing I hate most, and it was gone entirely.
+Once the import finished, Premiere started its own media analysis.</p>
+<p>I kept the working files. When more footage turns up, I just run these again.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clip_times_fixed.csv</td>
+<td>Corrected capture times for all 905 clips</td>
+</tr>
+<tr>
+<td>make_all.py</td>
+<td>Script that builds the per-day sequences. Rerun it when the Canon times change</td>
+</tr>
+<tr>
+<td>Handover notes (Markdown)</td>
+<td>Locations, per-camera offsets, remaining work, working tips</td>
+</tr>
+</tbody>
+</table>
+<h2>v2 sequences, rebuilt in the next session</h2>
+<p>After the Canon times were confirmed, I rebuilt the sequences in a new session.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canon times</td>
+<td>100D and G7X confirmed as Korea time and corrected</td>
+</tr>
+<tr>
+<td>Photo track</td>
+<td>778 photos (100D 678, G7X 73, GoPro 15, Osmo 12) placed on a photo track as 3-second shots. 343 that exist only as RAW (CR2) can't be read by Premiere, so they were left out for now and listed in a file</td>
+</tr>
+<tr>
+<td>v2 sequences</td>
+<td>Rebuilt with photos as 17 per-day sequences. Five photos taken in Korea on the morning we flew out created an extra 0923 sequence</td>
+</tr>
+<tr>
+<td>New footage</td>
+<td>407 clips that had never been backed up, from the G7X, 100D and phone, placed on new tracks, so the existing track layout and the MP3s already exported stayed untouched</td>
+</tr>
+<tr>
+<td>Finding missing files</td>
+<td>Tracked through gaps in the camera file numbers. The 240 files numbered 4293–4532 on the 100D match exactly one day, DAY 4, so they're probably in the laptop material</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Premiere project panel listing 17 Tanzania v2 sequences from 0923 to 1009" src="/images/20261018-time-sync-sequences/02-v2-sequence-list.webp" />
+<em>The project panel. The per-day MP3 exports at the top, the 17 v2 sequences in 4K 29.97fps below.</em></p>
+<p>In the next post I write up the connection that let AI drive Premiere directly: the Premiere MCP.</p></div><aside class="series-box"><a class="series-name" href="/en/series/video-archive-ai/">Series · Personal video archive and AI</a><ol><li><span>Part 1</span><a href="/en/posts/travel-footage-ai-backup/">Backing up travel footage: I left it to AI overnight and got a verification report in the morning</a></li><li class="now"><span>Part 2</span>Syncing capture times across five cameras and building per-day sequences in Premiere</li><li><span>Part 3</span><a href="/en/posts/premiere-mcp-setup/">Letting AI drive Premiere directly: notes on setting up the Premiere MCP</a></li><li><span>Part 4</span><a href="/en/posts/travel-footage-captions/">Subtitling 62 hours of travel footage, and working efficiently with AI</a></li></ol></aside></article><nav class="pager"><a href="/en/posts/travel-footage-ai-backup/"><span>Previous post</span>Backing up travel footage: I left it to AI overnight and got a verification report in the morning</a><a href="/en/posts/premiere-mcp-setup/" class="r"><span>Next post</span>Letting AI drive Premiere directly: notes on setting up the Premiere MCP</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en" class=on>English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, a content creator from Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>
