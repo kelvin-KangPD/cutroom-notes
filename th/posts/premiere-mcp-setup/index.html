@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP · Cutroom Notes</title>
+<meta name="description" content="ผมเชื่อมแอป Claude บนเดสก์ท็อปกับ Premiere MCP ให้ AI ควบคุมคอมพิวเตอร์และ Premiere ได้โดยตรง แล้วแก้ทั้งกับดักตอนติดตั้งและปัญหาแย่งพอร์ตไปทีละข้อ">
+<meta property="og:title" content="ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP · Cutroom Notes">
+<meta property="og:description" content="ผมเชื่อมแอป Claude บนเดสก์ท็อปกับ Premiere MCP ให้ AI ควบคุมคอมพิวเตอร์และ Premiere ได้โดยตรง แล้วแก้ทั้งกับดักตอนติดตั้งและปัญหาแย่งพอร์ตไปทีละข้อ">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/premiere-mcp-setup/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/premiere-mcp-setup/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261018-premiere-mcp-setup/01-mcp-bridge-connected.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/th/posts/premiere-mcp-setup/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/th/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/th/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/th/">ทั้งหมด</a><a href="/th/series/">ซีรีส์</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">18 ตุลาคม 2026</time><h1>ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</h1><p class="tr-line">อ่านในภาษาอื่น: <a href="/en/posts/premiere-mcp-setup/" lang="en">English</a> · <a href="/id/posts/premiere-mcp-setup/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/premiere-mcp-setup/" lang="hi">हिन्दी</a> · <a href="/ar/posts/premiere-mcp-setup/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/th/series/video-archive-ai/">ซีรีส์ · คลังวิดีโอส่วนตัวกับ AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/travel-footage-ai-backup/">แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</a></li><li><span>ตอนที่ 2</span><a href="/th/posts/travel-footage-time-sync/">ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</a></li><li class="now"><span>ตอนที่ 3</span>ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</li><li><span>ตอนที่ 4</span><a href="/th/posts/travel-footage-captions/">ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม</a></li></ol></aside><div class="prose"><p>ผมเชื่อมแอป Claude บนเดสก์ท็อปกับ Premiere MCP ให้ AI ควบคุมคอมพิวเตอร์และ Premiere ได้โดยตรง
+<strong>แล้วแก้ทั้งกับดักตอนติดตั้งและปัญหาแย่งพอร์ตไปทีละข้อ</strong></p>
+<p>งานในตอนที่ 1 และ 2 ทำได้ก็เพราะการเชื่อมต่อนี้</p>
+<h2>เชื่อมอะไร และเชื่อมอย่างไร</h2>
+<p>ถ้า AI แค่บอกวิธีแล้วผมต้องลงมือเองทั้งหมด ปริมาณขนาดนี้คงทำไม่ไหว</p>
+<table>
+<thead>
+<tr>
+<th>การเชื่อมต่อ</th>
+<th>สิ่งที่ AI ทำ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>แอป Claude บนเดสก์ท็อป + การเชื่อมต่อระยะไกล</td>
+<td>ต่อให้ผมคุยจากโทรศัพท์หรือที่ทำงาน งานก็รันอยู่บนคอมพิวเตอร์ที่บ้าน</td>
+</tr>
+<tr>
+<td>ไฟล์และคอมมานด์ไลน์</td>
+<td>ดูรายชื่อไดรฟ์ ตรวจผลการคัดลอก ดึงเวลาถ่ายและเสียงด้วย ffmpeg รันสคริปต์ Python</td>
+</tr>
+<tr>
+<td>ควบคุมหน้าจอ</td>
+<td>คลิกใช้งาน 7-Zip, Premiere และ Media Encoder</td>
+</tr>
+<tr>
+<td>Premiere MCP</td>
+<td>สร้างซีเควนซ์และแทร็กคำบรรยาย และบันทึกโปรเจกต์ ผ่านแผงบริดจ์ที่ติดอยู่ใน Premiere</td>
+</tr>
+<tr>
+<td>Media Encoder</td>
+<td>ส่งออกซีเควนซ์รายวันเป็น MP3 สำหรับถอดเสียง</td>
+</tr>
+</tbody>
+</table>
+<p>การควบคุมหน้าจอก็มีข้อจำกัด ใน File Explorer คลิกได้ แต่คัดลอก วาง และลากวางถูกบล็อก อุปกรณ์ที่ไม่มีอักษรไดรฟ์ อย่างโทรศัพท์ ผมเลยต้องย้ายเอง</p>
+<h2>Premiere MCP</h2>
+<p>MCP คือวิธีเชื่อม AI กับโปรแกรมอื่นให้ใช้งานเหมือนเป็นเครื่องมือ
+สำหรับ Premiere ผมใช้ Adobe-Premiere-Pro-MCP ที่เผยแพร่บน GitHub ฝั่ง Premiere จะมีแผงส่วนขยาย "MCP Bridge" และมีเซิร์ฟเวอร์เล็กๆ รันอยู่ในเครื่อง (พอร์ต 8097) คอยส่งคำสั่งของ AI ไปเป็นสคริปต์ของ Premiere (ExtendScript)</p>
+<p><img alt="แผง MCP Bridge ใน Premiere ขึ้นสถานะ Connected พร้อมบันทึกการเชื่อมต่อ" src="/images/20261018-premiere-mcp-setup/01-mcp-bridge-connected.webp" />
+<em>แผง MCP Bridge ต้องขึ้น Connected สีเขียวก่อน คำสั่งของ AI จึงจะเข้าไปถึง Premiere</em></p>
+<p>ผมติดตั้งครั้งแรกตอนต้นเดือนกันยายน ระหว่างทำวิดีโอที่ฉายก่อนพิธีแต่งงาน คิดว่าแค่รันตัวติดตั้งก็จบ แต่กับดักเยอะมาก
+เดือนตุลาคมติดตั้งในคอมพิวเตอร์ที่ทำงานด้วย และเครือข่ายบริษัทก็มีปัญหาเพิ่มมาอีกหนึ่งข้อ</p>
+<table>
+<thead>
+<tr>
+<th>อาการ</th>
+<th>สาเหตุ</th>
+<th>วิธีแก้</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>แอป Claude ไม่เปิดเซิร์ฟเวอร์เลย</td>
+<td>แอปเวอร์ชัน Microsoft Store อ่านไฟล์ตั้งค่าจากตำแหน่งอื่น</td>
+<td>ลงทะเบียนที่ตำแหน่งจริง (ใต้ LocalCache)</td>
+</tr>
+<tr>
+<td>การตั้งค่าถูกเพิกเฉยแบบเงียบๆ</td>
+<td>สคริปต์ติดตั้งใส่ BOM (อักขระที่มองไม่เห็น) ไว้หน้าไฟล์ตั้งค่า</td>
+<td>บันทึกใหม่โดยไม่มี BOM</td>
+</tr>
+<tr>
+<td>เซิร์ฟเวอร์รันไม่ขึ้น</td>
+<td>ในการตั้งค่าเขียนแค่ node แอปเลยหาไม่เจอ</td>
+<td>ใช้พาธเต็มของ node.exe</td>
+</tr>
+<tr>
+<td>แผงขึ้น Connected แต่คำสั่งไม่ทำงาน</td>
+<td>หน้าต่างแชตแต่ละหน้าต่างเปิดเซิร์ฟเวอร์ของตัวเอง แล้วแย่งพอร์ตเดียวกัน</td>
+<td>ปิดโปรเซสเซิร์ฟเวอร์ที่ค้างอยู่แล้วเชื่อมต่อใหม่</td>
+</tr>
+<tr>
+<td>คีย์บอร์ดใช้ไม่ได้ใน Premiere</td>
+<td>แผงบริดจ์ดึงการกดแป้นไป</td>
+<td>ปิดแผงเวลาตัดต่อเอง</td>
+</tr>
+<tr>
+<td>ติดตั้งในคอมพิวเตอร์ที่ทำงานไม่สำเร็จ</td>
+<td>Node ไม่เชื่อใบรับรองของอุปกรณ์ความปลอดภัยของบริษัท</td>
+<td>ตัวเลือกให้ Node ใช้คลังใบรับรองของ Windows</td>
+</tr>
+</tbody>
+</table>
+<h2>ลำดับการติดตั้ง</h2>
+<p>นี่คือลำดับที่สรุปได้หลังติดหลายรอบ ติดตั้งในเครื่องอื่นก็ทำตามนี้ได้</p>
+<table>
+<thead>
+<tr>
+<th>ขั้น</th>
+<th>ที่ไหน</th>
+<th>ทำอะไร</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>PowerShell</td>
+<td>ตรวจว่าติดตั้ง Node.js แล้ว ถ้ายังให้ติดตั้งแล้วเปิดหน้าต่างใหม่</td>
+</tr>
+<tr>
+<td>2</td>
+<td>เบราว์เซอร์</td>
+<td>ดาวน์โหลด Adobe-Premiere-Pro-MCP จาก GitHub เป็น ZIP แล้วแตกไฟล์ในโฟลเดอร์ Documents ถ้าย้ายทีหลังการเชื่อมส่วนขยายของ Premiere จะพัง จึงควรวางไว้ที่ตำแหน่งสุดท้ายตั้งแต่แรก</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Notepad</td>
+<td>เปิดอ่าน install.bat ก่อน ถ้ามีการทำงานแปลกๆ นอกจากตั้งค่ารีจิสทรี เชื่อมโฟลเดอร์ส่วนขยาย ติดตั้งและบิลด์แพ็กเกจ และเขียนการตั้งค่า ให้หยุด</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PowerShell</td>
+<td>รัน install.bat แล้วตรวจว่ามีไฟล์เซิร์ฟเวอร์ (dist\server.js) เกิดขึ้น</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Premiere</td>
+<td>ปิดให้สนิทแล้วเปิดใหม่ เปิดแผง Window &gt; Extensions &gt; MCP Bridge</td>
+</tr>
+<tr>
+<td>6</td>
+<td>แอป Claude</td>
+<td>เปิดหนึ่งครั้งแล้วปิด เพื่อให้สร้างโฟลเดอร์การตั้งค่า</td>
+</tr>
+<tr>
+<td>7</td>
+<td>PowerShell</td>
+<td>ลงทะเบียนเซิร์ฟเวอร์ในไฟล์ตั้งค่าที่ตำแหน่งจริง บันทึกโดยไม่มี BOM และใช้พาธเต็มของ node</td>
+</tr>
+<tr>
+<td>8</td>
+<td>PowerShell</td>
+<td>ปิดแอป Claude ให้สนิทแล้วเปิดใหม่ แอปอ่านการตั้งค่าแค่ครั้งเดียวตอนเปิด</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Premiere</td>
+<td>ตรวจว่าแผงขึ้น Connected</td>
+</tr>
+<tr>
+<td>10</td>
+<td>แอป Claude</td>
+<td>ในแชตใหม่ ตรวจสถานะการเชื่อมต่อ และทดสอบโดยให้อ่านแค่โครงสร้างแทร็กโดยไม่แก้ไขอะไร</td>
+</tr>
+</tbody>
+</table>
+<p>ผมยังกำหนดลำดับการเปิดใช้งานในชีวิตประจำวันไว้ด้วย</p>
+<table>
+<thead>
+<tr>
+<th>ลำดับ</th>
+<th>ทำอะไร</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ปิดโปรแกรม MCP อื่นและหน้าต่างแชต Claude อื่น</td>
+</tr>
+<tr>
+<td>2</td>
+<td>ถ้ามีเซิร์ฟเวอร์ค้างจับพอร์ต 8097 อยู่ ให้ปิดก่อน</td>
+</tr>
+<tr>
+<td>3</td>
+<td>เปิด Premiere เปิดโปรเจกต์และซีเควนซ์</td>
+</tr>
+<tr>
+<td>4</td>
+<td>เปิดแอป Claude (เซิร์ฟเวอร์จะขึ้นเอง)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ตรวจว่าแผงบริดจ์ขึ้น Connected แล้วเริ่มงาน</td>
+</tr>
+<tr>
+<td>6</td>
+<td>เวลาตัดต่อเองให้ปิดแผง เซิร์ฟเวอร์ยังทำงานอยู่ เปิดแผงใหม่ก็เชื่อมต่อทันที</td>
+</tr>
+</tbody>
+</table>
+<h2>สุดสัปดาห์นี้: ศึกแย่งพอร์ตกับการแก้บริดจ์</h2>
+<p>สุดสัปดาห์นี้ปัญหาแย่งพอร์ตก็กลับมาอีก ทุกครั้งที่ย้ายไปหน้าต่างแชตใหม่ เซิร์ฟเวอร์ของหน้าต่างเก่ายังจับพอร์ตไว้ แผงขึ้น Connected แต่คำสั่งหายไปในอากาศ
+ตอนแรกผมแก้ขัดด้วยคำสั่ง PowerShell บรรทัดเดียวที่ปิดเซิร์ฟเวอร์ที่ค้างอยู่ทั้งหมด แต่ต้องทำซ้ำทุกครั้งที่ย้ายหน้าต่าง ซึ่งยุ่งยาก
+ครั้งนี้ AI เลยแก้โค้ดบริดจ์เอง เซิร์ฟเวอร์ที่เพิ่งเปิดจะขอให้เซิร์ฟเวอร์เก่า "ส่งพอร์ตมา" แล้วเซิร์ฟเวอร์เก่าก็ยอมถอย มันจำลองทดสอบในเครื่องก่อนแล้วจึงนำไปใช้จริง เซิร์ฟเวอร์ใหม่จะขอพอร์ตเฉพาะใน 15 วินาทีแรกหลังเปิด ส่วนเซิร์ฟเวอร์ที่ถอยไปแล้วจะรอเงียบๆ ไม่พยายามแย่งคืน ปกติแล้วหน้าต่างแชตล่าสุดจึงเป็นฝ่ายชนะ
+แก้ทั้งไฟล์ที่บิลด์แล้วและซอร์สต้นฉบับ ถึงบิลด์ใหม่ทีหลังการแก้ก็ยังอยู่
+แต่ในเซสชันแรกการเชื่อมต่อก็ไม่ติดจนจบ ซีเควนซ์จึงสร้างเป็นไฟล์ XML แล้วนำเข้าด้วยการควบคุมหน้าจอ ตั้งแต่เซสชันถัดไปจึงใช้ MCP ใส่แทร็กคำบรรยายและบันทึกโปรเจกต์ได้</p>
+<p>ตอนหน้าจะบันทึกวิธีทำซับไตเติลให้ฟุตเทจยาว 62 ชั่วโมง และสิ่งที่ได้เรียนรู้เรื่องการใช้ AI ทำงานให้มีประสิทธิภาพ</p></div><aside class="series-box"><a class="series-name" href="/th/series/video-archive-ai/">ซีรีส์ · คลังวิดีโอส่วนตัวกับ AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/travel-footage-ai-backup/">แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</a></li><li><span>ตอนที่ 2</span><a href="/th/posts/travel-footage-time-sync/">ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</a></li><li class="now"><span>ตอนที่ 3</span>ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</li><li><span>ตอนที่ 4</span><a href="/th/posts/travel-footage-captions/">ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม</a></li></ol></aside></article><nav class="pager"><a href="/th/posts/travel-footage-time-sync/"><span>บทความก่อนหน้า</span>ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</a><a href="/th/posts/hello/" class="r"><span>บทความถัดไป</span>เปิดบล็อกนี้</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th" class=on>ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin ครีเอเตอร์คอนเทนต์จากเกาหลี · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

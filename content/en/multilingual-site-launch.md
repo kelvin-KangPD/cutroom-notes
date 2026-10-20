@@ -23,7 +23,7 @@ I picked the languages of countries with large populations but little web conten
 | Item | Detail |
 |---|---|
 | Site | [Cutroom Notes](/en/), the site you're reading now |
-| Languages | Indonesian, Hindi, Arabic (English was added later) |
+| Languages | Indonesian, Hindi, Arabic (English and Thai were added later) |
 | First posts | Four per language. Parts 1–4 of the series "Personal video archive and AI" from my Korean blog |
 
 ![The Indonesian home page of Cutroom Notes](/images/20261020-multilingual-site-launch/01-indonesian-home.webp)

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า · Cutroom Notes</title>
+<meta name="description" content="วิดีโอทริปแทนซาเนียที่กระจายอยู่ในกล้องและฮาร์ดดิสก์หลายตัว ผมฝากให้ AI รวมไว้ในฮาร์ดดิสก์ลูกเดียวทั้งคืน แล้วตอนเช้าก็ได้รับรายงานที่ตรวจเทียบไฟล์ทีละไฟล์">
+<meta property="og:title" content="แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า · Cutroom Notes">
+<meta property="og:description" content="วิดีโอทริปแทนซาเนียที่กระจายอยู่ในกล้องและฮาร์ดดิสก์หลายตัว ผมฝากให้ AI รวมไว้ในฮาร์ดดิสก์ลูกเดียวทั้งคืน แล้วตอนเช้าก็ได้รับรายงานที่ตรวจเทียบไฟล์ทีละไฟล์">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/travel-footage-ai-backup/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-ai-backup/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-ai-backup/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-ai-backup/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/travel-footage-ai-backup/">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/th/posts/travel-footage-ai-backup/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/th/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/th/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/th/">ทั้งหมด</a><a href="/th/series/">ซีรีส์</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">18 ตุลาคม 2026</time><h1>แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</h1><p class="tr-line">อ่านในภาษาอื่น: <a href="/en/posts/travel-footage-ai-backup/" lang="en">English</a> · <a href="/id/posts/travel-footage-ai-backup/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/travel-footage-ai-backup/" lang="hi">हिन्दी</a> · <a href="/ar/posts/travel-footage-ai-backup/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/th/series/video-archive-ai/">ซีรีส์ · คลังวิดีโอส่วนตัวกับ AI</a><ol><li class="now"><span>ตอนที่ 1</span>แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</li><li><span>ตอนที่ 2</span><a href="/th/posts/travel-footage-time-sync/">ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</a></li><li><span>ตอนที่ 3</span><a href="/th/posts/premiere-mcp-setup/">ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</a></li><li><span>ตอนที่ 4</span><a href="/th/posts/travel-footage-captions/">ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม</a></li></ol></aside><div class="prose"><p>วิดีโอทริปแทนซาเนียที่กระจายอยู่ในกล้องและฮาร์ดดิสก์หลายตัว ผมฝากให้ AI รวมไว้ในฮาร์ดดิสก์ลูกเดียวทั้งคืน
+<strong>แล้วตอนเช้าก็ได้รับรายงานตรวจสอบที่เทียบไฟล์ทีละไฟล์</strong></p>
+<p>ถ้าทำเองด้วยมือ คงเสียเสาร์อาทิตย์ไปหลายรอบ
+ผมแค่เสียบฮาร์ดดิสก์ เข้านอน แล้วตื่นมาอ่านรายงาน
+เริ่มแบ็กอัปคืนวันพุธ พอถึงสุดสัปดาห์ก็ไปถึงซีเควนซ์ใน Premiere แล้ว และเช้าวันจันทร์งานซับไตเติลก็ยังรันอยู่
+เนื้อหาเยอะ เลยแบ่งบันทึกการทำงานเป็นสี่ตอน ตอนนี้คือขั้นแรก เรื่องการแบ็กอัปและจัดระเบียบไฟล์</p>
+<h2>จุดเริ่มต้น: ไฟล์กระจัดกระจาย ฮาร์ดดิสก์เต็ม</h2>
+<p>กลับจากทริป วิดีโอกระจายอยู่ตามอุปกรณ์ต่างๆ</p>
+<table>
+<thead>
+<tr>
+<th>ที่อยู่</th>
+<th>สิ่งที่อยู่ข้างใน</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>การ์ด SD ของ Osmo Nano</td>
+<td>วิดีโอช่วงครึ่งหลังของทริป</td>
+</tr>
+<tr>
+<td>หน่วยความจำในตัว Osmo Nano</td>
+<td>วิดีโอที่ยังไม่ได้ย้ายไปการ์ด SD</td>
+</tr>
+<tr>
+<td>การ์ด SD ของ GoPro</td>
+<td>วิดีโอช่วงครึ่งหลังของทริป</td>
+</tr>
+<tr>
+<td>ฮาร์ดดิสก์ภายนอก 1TB</td>
+<td>DAY 1–12 ที่ย้ายไว้ระหว่างทริป เหลือที่ว่างราว 6GB</td>
+</tr>
+<tr>
+<td>ฮาร์ดดิสก์ภายนอก 2TB</td>
+<td>ข้อมูลเก่า เช่น รูปงานแต่งงาน ประมาณ 320GB</td>
+</tr>
+<tr>
+<td>โน้ตบุ๊กอีกเครื่อง</td>
+<td>DAY 4 และ DAY 6 ประมาณ 300GB</td>
+</tr>
+</tbody>
+</table>
+<p>กล้องมีห้าแบบ คือ Osmo Nano, GoPro, Canon 100D, Canon G7X (กล้องของภรรยา) และโทรศัพท์</p>
+<p>ปัญหาคือวันรุ่งขึ้นผมมีถ่ายงานอีก เลยต้องล้างการ์ด SD ให้เสร็จในคืนนั้น
+แผนแรกง่ายๆ คือรวมไฟล์ทริปทั้งหมดไว้ในฮาร์ดดิสก์ 2TB แล้วย้ายข้อมูลเก่าใน 2TB ไปไว้ใน 1TB</p>
+<p>AI ชี้ปัญหาเรื่องลำดับขึ้นมาก่อน
+ฮาร์ดดิสก์ 1TB เหลือที่แค่ 6GB ย้าย 320GB ไปตรงๆ ไม่พอแน่ และถ้าล้างการ์ด SD ไปด้วย ไฟล์ทริปจะเหลืออยู่ที่เดียวคือฮาร์ดดิสก์ 2TB
+ผมเลยเปลี่ยนแผนเป็นแบบนี้</p>
+<table>
+<thead>
+<tr>
+<th>ไฟล์</th>
+<th>รวมไว้ที่</th>
+<th>สำเนาที่สอง</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAY 1–12 ในฮาร์ดดิสก์ 1TB</td>
+<td>ฮาร์ดดิสก์ 2TB</td>
+<td>เก็บไว้ในฮาร์ดดิสก์ 1TB ไปก่อน</td>
+</tr>
+<tr>
+<td>การ์ด SD ของ Osmo และ GoPro, หน่วยความจำในตัว Osmo</td>
+<td>ฮาร์ดดิสก์ 2TB</td>
+<td>ไดรฟ์ D ของคอมพิวเตอร์</td>
+</tr>
+<tr>
+<td>ข้อมูลเก่าในฮาร์ดดิสก์ 2TB</td>
+<td>ย้ายไปไดรฟ์ D ของคอมพิวเตอร์</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>กันสับสน ผมเลยตั้งชื่อให้ฮาร์ดดิสก์ด้วย ลูก 2TB ใช้ชื่อภรรยา ลูก 1TB ใช้ชื่อผม</p>
+<p>AI ที่ใช้คือแอป Claude บนเดสก์ท็อปที่เชื่อมต่อกับคอมพิวเตอร์ที่บ้าน AI เปิดไฟล์ คัดลอก และเปรียบเทียบเองทั้งหมด วิธีเชื่อมต่อผมเขียนแยกไว้ในตอนที่ 3</p>
+<h2>คัดลอกและตรวจสอบทั้งคืน</h2>
+<p>คัดลอกไฟล์จำนวนมากด้วยคำสั่งแล้วช้า AI เลยควบคุมหน้าจอเปิด 7-Zip File Manager ขึ้นมาใช้แทน</p>
+<p>ตอนแรกมันรอให้งานหนึ่งเสร็จก่อนแล้วค่อยถามงานถัดไป เลยช้า
+ผมถามว่ามีเหตุผลอะไรที่ต้องทำทีละอย่างไหม มันตอบว่าไม่มี หลังจากนั้นก็สั่งพร้อมกันหลายงาน</p>
+<p>สถานะก่อนผมเข้านอนเป็นแบบนี้</p>
+<table>
+<thead>
+<tr>
+<th>งาน</th>
+<th>ความคืบหน้า</th>
+<th>คาดว่าเสร็จ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>หน่วยความจำ Osmo → ฮาร์ดดิสก์ 2TB และไดรฟ์ D</td>
+<td>บางส่วนจาก 43 ไฟล์</td>
+<td>ตีหนึ่งครึ่ง</td>
+</tr>
+<tr>
+<td>ข้อมูลเก่าใน 2TB → ไดรฟ์ D</td>
+<td>32GB จาก 257GB</td>
+<td>ตีสาม ลบต้นฉบับหลังตรวจสอบ</td>
+</tr>
+<tr>
+<td>DAY 1–12 ใน 1TB → 2TB</td>
+<td>125GB จาก 908GB</td>
+<td>ตีห้าถึงหกโมงเช้า</td>
+</tr>
+</tbody>
+</table>
+<p>มันยังสรุปสิ่งที่ต้องระวังก่อนนอนให้ด้วย คือห้ามถอด Osmo ห้ามถอดฮาร์ดดิสก์ทั้งสองลูก และห้ามปิดแอป Claude กับหน้าต่าง 7-Zip
+มันบอกว่าจะทิ้งรายงานไว้ราวหกโมงยี่สิบ และก็มีรายงานรออยู่จริงๆ</p>
+<table>
+<thead>
+<tr>
+<th>งาน</th>
+<th>รายงานตอนเช้า</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>การ์ด SD ของ Osmo (66 ไฟล์, 103GB)</td>
+<td>คัดลอกไปทั้งฮาร์ดดิสก์ 2TB และไดรฟ์ D ตรงกับต้นฉบับ</td>
+</tr>
+<tr>
+<td>การ์ด SD ของ GoPro (19 ไฟล์, 12GB)</td>
+<td>เหมือนกัน</td>
+</tr>
+<tr>
+<td>หน่วยความจำในตัว Osmo (22 ไฟล์)</td>
+<td>เหมือนกัน</td>
+</tr>
+<tr>
+<td>DAY 1–12 จาก 1TB → 2TB</td>
+<td>ทั้ง 2,511 ไฟล์ชื่อและขนาดตรงกัน ในจำนวนนี้ 299 ไฟล์ (ไฟล์ใหญ่ทั้งหมดรวมกับตัวอย่างที่สุ่ม) เทียบถึงระดับเนื้อหา</td>
+</tr>
+<tr>
+<td>ข้อมูลเก่าใน 2TB → ไดรฟ์ D</td>
+<td>ยืนยันตรงกัน 9,938 ไฟล์ แล้วลบฝั่งฮาร์ดดิสก์</td>
+</tr>
+<tr>
+<td>ไฟล์ GoPro 33 ไฟล์ (17.5GB) ที่ซ้ำกันใน DAY 8 กับ DAY 10-11</td>
+<td>ยืนยันว่าเป็นไฟล์เดียวกัน แล้วลบฝั่ง DAY 10-11</td>
+</tr>
+</tbody>
+</table>
+<p><strong>เฉพาะสิ่งที่ตรวจสอบเสร็จแล้วเท่านั้นที่ถูกเขียนว่า "ลบได้"</strong>
+มันบอกว่าการ์ด SD สองใบกับหน่วยความจำในตัว Osmo อย่าลบจากคอมพิวเตอร์ ให้ฟอร์แมตในกล้องแทน ผมก็ทำตามแล้วออกไปทำงาน</p>
+<p>หลังจัดเสร็จ ฮาร์ดดิสก์ 2TB กลายเป็นลูกสำหรับทริปนี้โดยเฉพาะ DAY 1–15 ใส่ได้ครบและยังเหลือที่ 794GB
+ผมคิดว่าไม่ต้องแบ็กอัปสองชั้นก็ได้ สุดท้ายเลยล้างสำเนาทริปในฮาร์ดดิสก์ 1TB ออก แล้วเอาไปใช้เก็บข้อมูลอื่น</p>
+<p>ตอนหน้าจะบันทึกขั้นตอนการปรับเวลาถ่ายของคลิปทั้ง 905 คลิปตามกล้องแต่ละตัว และการสร้างซีเควนซ์รายวันใน Premiere</p></div><aside class="series-box"><a class="series-name" href="/th/series/video-archive-ai/">ซีรีส์ · คลังวิดีโอส่วนตัวกับ AI</a><ol><li class="now"><span>ตอนที่ 1</span>แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</li><li><span>ตอนที่ 2</span><a href="/th/posts/travel-footage-time-sync/">ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</a></li><li><span>ตอนที่ 3</span><a href="/th/posts/premiere-mcp-setup/">ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</a></li><li><span>ตอนที่ 4</span><a href="/th/posts/travel-footage-captions/">ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม</a></li></ol></aside></article><nav class="pager"><span></span><a href="/th/posts/travel-footage-time-sync/" class="r"><span>บทความถัดไป</span>ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th" class=on>ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin ครีเอเตอร์คอนเทนต์จากเกาหลี · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

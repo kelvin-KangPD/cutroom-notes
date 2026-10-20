@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม · Cutroom Notes</title>
+<meta name="description" content="ซับไตเติลของวิดีโอทริปยาว 62 ชั่วโมง ผมเปลี่ยนวิธีเป็นใช้การถอดเสียงของ Premiere หาตำแหน่งที่มีคนพูด แล้วขัดเกลาด้วย Gemini เฉพาะช่วงไฮไลต์ ส่วนงานของ AI ต้นทุนขึ้นอยู่กับความยาวของบทสนทนาและจำนวนครั้งที่โต้ตอบกันไปมา">
+<meta property="og:title" content="ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม · Cutroom Notes">
+<meta property="og:description" content="ซับไตเติลของวิดีโอทริปยาว 62 ชั่วโมง ผมเปลี่ยนวิธีเป็นใช้การถอดเสียงของ Premiere หาตำแหน่งที่มีคนพูด แล้วขัดเกลาด้วย Gemini เฉพาะช่วงไฮไลต์ ส่วนงานของ AI ต้นทุนขึ้นอยู่กับความยาวของบทสนทนาและจำนวนครั้งที่โต้ตอบกันไปมา">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-captions/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/travel-footage-captions/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261019-captions-efficiency/01-caption-track.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/th/posts/travel-footage-captions/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/th/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/th/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/th/">ทั้งหมด</a><a href="/th/series/">ซีรีส์</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-19">19 ตุลาคม 2026</time><h1>ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม</h1><p class="tr-line">อ่านในภาษาอื่น: <a href="/en/posts/travel-footage-captions/" lang="en">English</a> · <a href="/id/posts/travel-footage-captions/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/travel-footage-captions/" lang="hi">हिन्दी</a> · <a href="/ar/posts/travel-footage-captions/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/th/series/video-archive-ai/">ซีรีส์ · คลังวิดีโอส่วนตัวกับ AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/travel-footage-ai-backup/">แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</a></li><li><span>ตอนที่ 2</span><a href="/th/posts/travel-footage-time-sync/">ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</a></li><li><span>ตอนที่ 3</span><a href="/th/posts/premiere-mcp-setup/">ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</a></li><li class="now"><span>ตอนที่ 4</span>ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม</li></ol></aside><div class="prose"><p>ซับไตเติลของวิดีโอทริปยาว 62 ชั่วโมง ผมเปลี่ยนวิธีเป็นใช้การถอดเสียงของ Premiere หาตำแหน่งที่มีคนพูด แล้วขัดเกลาด้วย Gemini เฉพาะช่วงไฮไลต์
+<strong>ส่วนงานของ AI ต้นทุนขึ้นอยู่กับความยาวของบทสนทนาและจำนวนครั้งที่โต้ตอบกันไปมา</strong></p>
+<p>นี่คือตอนสุดท้ายของบันทึกการทำงาน ว่าด้วยซับไตเติล ต้นทุน และฟุตเทจเก่าที่จัดไปพร้อมกัน</p>
+<h2>ซับไตเติล: การถอดเสียงของ Premiere + Gemini</h2>
+<p>ซับไตเติลไฟล์ SRT จาก Gemini แม่นที่สุด แต่จะใส่ทั้ง 62 ชั่วโมงเข้า Gemini ไม่ได้ ผมเลยเปลี่ยนวิธี</p>
+<table>
+<thead>
+<tr>
+<th>ขั้น</th>
+<th>รายละเอียด</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ส่งออกซีเควนซ์รายวันเป็น MP3 ด้วย Media Encoder</td>
+</tr>
+<tr>
+<td>2</td>
+<td>รันการถอดเสียงของ Premiere ก่อนเพื่อหาตำแหน่งที่มีคนพูด ภาษาตั้งต้นเป็นภาษาอังกฤษ เลยเปลี่ยนเป็นภาษาเกาหลี</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ตัดช่วงที่ระบบจำไม่ได้ออกจากผลถอดเสียง (JSON) ซึ่งช่วยกรองเสียงวิทยุสื่อสารระหว่างซาฟารีออกไป</td>
+</tr>
+<tr>
+<td>4</td>
+<td>สร้าง SRT จาก JSON แล้วใส่เป็นแทร็กคำบรรยายในซีเควนซ์ v2 ผ่าน MCP</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ขัดเกลาด้วย Gemini เฉพาะช่วงที่จะใช้ตัดต่อจริง ไม่ใช่ทั้งหมด เลือกช่วงไฮไลต์ที่มีบทสนทนาหนาแน่นด้วยการให้คะแนน แล้วแบ่งเป็นท่อนละ 2 นาที แอป Gemini ถอดเสียงได้ครบจนจบแค่ราว 2 นาที เลยลดลงมาจากท่อนละ 3 นาทีที่ใช้ตอนแรก</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="บล็อกซับไตเติลเรียงอยู่บนแทร็กคำบรรยาย C1 ด้านบนสุดของไทม์ไลน์ Premiere" src="/images/20261019-captions-efficiency/01-caption-track.webp" />
+<em>C1 ด้านบนสุดของซีเควนซ์ v2 คือแทร็กคำบรรยาย เพราะเป็นคำบรรยายไม่ใช่คลิปข้อความ จึงส่งออกเป็น SRT ใหม่หรือแก้ไขทีหลังได้ง่าย</em></p>
+<p>การถอดเสียง ผมตั้งคิวไว้ใน Premiere ทีละวันแล้วปล่อยให้รันเอง ตอนแรก AI เช็กทุก 3 นาทีและจัดการทีละรายการ แต่การทบทวนกลางทางพบว่าไม่คุ้ม เลยเปลี่ยนเป็นรวบจัดการวันที่เสร็จแล้วทุก 30–40 นาที</p>
+<p>ผมยังลองให้ส่งการแจ้งเตือนเข้าโทรศัพท์เมื่องานเสร็จ ฝั่ง AI บอกว่าส่งไปหลายครั้ง แต่ไม่มีมาถึงสักครั้ง สุดท้ายเลยตัดสินใจเข้าไปดูเองบ่อยๆ</p>
+<h2>ต้นทุนและประสิทธิภาพ</h2>
+<p>ครั้งนี้เป็นครั้งแรกที่ผมใส่ใจเรื่องปริมาณการใช้งานจริงจัง
+ทุกครั้งที่ส่งคำสั่ง AI จะอ่านบทสนทนาทั้งหมดจนถึงตอนนั้นใหม่อีกรอบ ยิ่งบทสนทนายาว งานเดียวกันก็ยิ่งแพงขึ้นหลายเท่า
+การรอ 20 นาทีแทบไม่เสียอะไร ที่แพงคือการโต้ตอบไปมาหลายครั้ง</p>
+<p>ระหว่างทางผมถามว่าวิธีที่ทำอยู่คุ้มไหม คำตอบคือครึ่งๆ</p>
+<table>
+<thead>
+<tr>
+<th>งาน</th>
+<th>การประเมิน</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>กู้เวลาของ GoPro</td>
+<td>ใช้สคริปต์สองสามครั้งปรับได้หลายสิบไฟล์ในทีเดียว และผ่านการตรวจสอบตั้งแต่รอบแรก</td>
+</tr>
+<tr>
+<td>จัดที่เก็บโปรเจกต์</td>
+<td>เสร็จในไม่กี่ขั้น</td>
+</tr>
+<tr>
+<td>ตรวจเวลาของ Canon</td>
+<td>ไม่คุ้ม พยายามดึงเสียงจากฮาร์ดดิสก์ภายนอกทั้งลูกแล้วต้องเลิกเพราะช้า รับบันทึกข้อผิดพลาดยาว 260,000 ตัวอักษรมาทั้งก้อน และเชื่อสมมติฐานที่ยังไม่ได้ตรวจจนรันการเทียบเสียงไปสองรอบ ทั้งที่ดูรูปเดียวก็รู้ได้ทันที</td>
+</tr>
+</tbody>
+</table>
+<p>ตอนท้ายจึงให้เขียนเอกสารส่งต่องานไว้ในโฟลเดอร์งาน แล้วตกลงกันว่าจะย้ายไปบทสนทนาใหม่ในเวลาที่โควตาการใช้งานรีเซ็ต
+มันเขียนข้อความแรกสำหรับวางในบทสนทนาใหม่ไว้ให้ด้วย</p>
+<pre><code>อ่านเอกสารส่งต่องานในโฟลเดอร์ตัดต่อแทนซาเนียบนคอมพิวเตอร์ที่บ้าน (ไดรฟ์ I:) แล้วตัดต่อแทนซาเนียต่อ
+ขอสิทธิ์ที่ต้องใช้ทั้งหมดในครั้งเดียวตั้งแต่ต้น และทำงานแบบขนาน
+</code></pre>
+<p>ในเอกสารส่งต่องานยังใส่เคล็ดลับที่ได้เรียนรู้ครั้งนี้ไว้ด้วย</p>
+<table>
+<thead>
+<tr>
+<th>เคล็ดลับ</th>
+<th>รายละเอียด</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>อ่านฮาร์ดดิสก์ภายนอก</td>
+<td>ช้า อย่าอ่านทั้งไฟล์ อ่านเฉพาะช่วงที่ต้องใช้</td>
+</tr>
+<tr>
+<td>ผลลัพธ์</td>
+<td>รับแค่สรุป ถ้าบันทึกพรั่งพรูออกมา ทั้งหมดนั้นคือต้นทุน</td>
+</tr>
+<tr>
+<td>การตรวจสอบ</td>
+<td>ก่อนรันอะไรนานๆ ให้ทดสอบสมมติฐานกับตัวอย่างเดียวก่อน</td>
+</tr>
+<tr>
+<td>คัดลอกจำนวนมาก</td>
+<td>7-Zip File Manager เร็วกว่าคัดลอกด้วยคำสั่ง</td>
+</tr>
+<tr>
+<td>ซิงก์เสียง</td>
+<td>เทียบความดังเบาของเสียงที่เปลี่ยนไปในสองคลิปเพื่อจับให้ตรงกัน</td>
+</tr>
+</tbody>
+</table>
+<h2>ฟุตเทจเก่าก็จัดเป็นโครงเดียวกัน</h2>
+<p>ไม่ได้จัดแค่วิดีโอทริป โฟลเดอร์ฟุตเทจส่วนตัวที่ถ่ายไว้ก่อนทริป 14 โฟลเดอร์ ผมก็จัดให้เป็นโครงเดียวกัน</p>
+<table>
+<thead>
+<tr>
+<th>รายการ</th>
+<th>รายละเอียด</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>โครงสร้าง</td>
+<td>ต้นฉบับ\วิดีโอ, ต้นฉบับ\รูปถ่าย, อื่นๆ, โปรเจกต์</td>
+</tr>
+<tr>
+<td>กฎ</td>
+<td>วิดีโอและเสียงไว้ในต้นฉบับ\วิดีโอ รูปไว้ในต้นฉบับ\รูปถ่าย งานที่แปรรูปแล้วอย่างไฟล์ปรับแต่งและกราฟิกไว้ในอื่นๆ ไฟล์โปรเจกต์ไว้ในโปรเจกต์</td>
+</tr>
+<tr>
+<td>การตรวจสอบ</td>
+<td>ตรวจว่าจำนวนไฟล์เท่ากับก่อนจัด</td>
+</tr>
+<tr>
+<td>ไม่ได้แตะ</td>
+<td>โฟลเดอร์ที่มีโครงอยู่แล้ว โปรเจกต์ที่กำลังตัดต่อ (กลัวลิงก์พัง) และโฟลเดอร์ที่ไม่มีวันที่</td>
+</tr>
+<tr>
+<td>ต่อไป</td>
+<td>สร้างโปรเจกต์ให้แต่ละโฟลเดอร์ พร้อมซีเควนซ์ที่แยกแทร็กตามกล้อง</td>
+</tr>
+</tbody>
+</table>
+<h2>งานที่เหลือ</h2>
+<table>
+<thead>
+<tr>
+<th>สิ่งที่ต้องทำ</th>
+<th>หมายเหตุ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAY 4 และ 6</td>
+<td>ขนข้อมูลจากโน้ตบุ๊กมาใส่ฮาร์ดดิสก์ภายนอกแล้ว ต้องเสียบแล้วนำเข้า</td>
+</tr>
+<tr>
+<td>DAY 9</td>
+<td>เป็นโฟลเดอร์ว่างในทุกอุปกรณ์เก็บข้อมูล</td>
+</tr>
+<tr>
+<td>รูป RAW 343 รูป</td>
+<td>ส่งออกเป็น JPG จาก Lightroom แล้วเพิ่มเข้าไป</td>
+</tr>
+<tr>
+<td>ซับไตเติล</td>
+<td>ถอดเสียงวันที่เหลือ ถอดเสียงเฉพาะคลิปใหม่แยกต่างหาก ขัดเกลาไฮไลต์ด้วย Gemini</td>
+</tr>
+<tr>
+<td>ซีเควนซ์ของฟุตเทจเก่า</td>
+<td>ทำทีละโปรเจกต์หลังถอดเสียงเสร็จ</td>
+</tr>
+<tr>
+<td>สำเนาบนคลาวด์</td>
+<td>OneDrive 1TB สองบัญชี และ Google Drive 400GB</td>
+</tr>
+</tbody>
+</table>
+<p>บันทึกการทำงานจบเพียงเท่านี้ ตั้งแต่บทความหน้า ผมตั้งใจจะเรียบเรียงความคิดว่าฟุตเทจที่สะสมไว้นี้จะกลายเป็นอะไรได้บ้างในอนาคต</p></div><aside class="series-box"><a class="series-name" href="/th/series/video-archive-ai/">ซีรีส์ · คลังวิดีโอส่วนตัวกับ AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/travel-footage-ai-backup/">แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</a></li><li><span>ตอนที่ 2</span><a href="/th/posts/travel-footage-time-sync/">ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</a></li><li><span>ตอนที่ 3</span><a href="/th/posts/premiere-mcp-setup/">ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</a></li><li class="now"><span>ตอนที่ 4</span>ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม</li></ol></aside></article><nav class="pager"><a href="/th/posts/naver-blog-auto-draft/"><span>บทความก่อนหน้า</span>เขียนบล็อก Naver ด้วย AI อัตโนมัติเต็มรูปแบบจนถึงขั้นบันทึกฉบับร่าง</a><a href="/th/posts/content-land-grab/" class="r"><span>บทความถัดไป</span>ก่อนที่คอนเทนต์จะหลั่งไหลมาไม่มีที่สิ้นสุด ผมต้องจับจองภาษาที่ยังว่างอยู่ก่อน</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th" class=on>ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin ครีเอเตอร์คอนเทนต์จากเกาหลี · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

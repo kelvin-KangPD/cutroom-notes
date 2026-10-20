@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere · Cutroom Notes</title>
+<meta name="description" content="คลิป 905 คลิปจากกล้องที่นาฬิกาไม่ตรงกัน ผมใช้ GPS และรูปถ่ายปรับให้ตรงกับเวลาถ่ายจริง แล้วสร้างซีเควนซ์รายวันใน Premiere ที่แยกแทร็กตามกล้องโดยอัตโนมัติ">
+<meta property="og:title" content="ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere · Cutroom Notes">
+<meta property="og:description" content="คลิป 905 คลิปจากกล้องที่นาฬิกาไม่ตรงกัน ผมใช้ GPS และรูปถ่ายปรับให้ตรงกับเวลาถ่ายจริง แล้วสร้างซีเควนซ์รายวันใน Premiere ที่แยกแทร็กตามกล้องโดยอัตโนมัติ">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/travel-footage-time-sync/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/travel-footage-time-sync/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/th/posts/travel-footage-time-sync/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/th/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111827'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23f59e0b' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23f59e0b'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/th/"><span class="mark" aria-hidden="true"></span>Cutroom Notes</a>
+    <nav class="top"><a href="/th/">ทั้งหมด</a><a href="/th/series/">ซีรีส์</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-18">18 ตุลาคม 2026</time><h1>ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</h1><p class="tr-line">อ่านในภาษาอื่น: <a href="/en/posts/travel-footage-time-sync/" lang="en">English</a> · <a href="/id/posts/travel-footage-time-sync/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/travel-footage-time-sync/" lang="hi">हिन्दी</a> · <a href="/ar/posts/travel-footage-time-sync/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/th/series/video-archive-ai/">ซีรีส์ · คลังวิดีโอส่วนตัวกับ AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/travel-footage-ai-backup/">แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</a></li><li class="now"><span>ตอนที่ 2</span>ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</li><li><span>ตอนที่ 3</span><a href="/th/posts/premiere-mcp-setup/">ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</a></li><li><span>ตอนที่ 4</span><a href="/th/posts/travel-footage-captions/">ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม</a></li></ol></aside><div class="prose"><p>คลิป 905 คลิปจากกล้องที่นาฬิกาไม่ตรงกัน ผมใช้ GPS และรูปถ่ายปรับให้ตรงกับเวลาถ่ายจริง
+<strong>แล้วสร้างซีเควนซ์รายวันใน Premiere ที่แยกแทร็กตามกล้องโดยอัตโนมัติ</strong></p>
+<p>ตอนที่ 1 ผมรวมวิดีโอไว้ในฮาร์ดดิสก์ลูกเดียวแล้ว ตอนนี้คือขั้นจัดวางให้พร้อมตัดต่อ
+กล้องมีห้าแบบ คือ Osmo Nano, GoPro, Canon 100D, Canon G7X (กล้องของภรรยา) และโทรศัพท์</p>
+<h2>ปรับเวลาถ่าย: นาฬิกาของกล้องแต่ละตัวไม่เหมือนกันเลย</h2>
+<p>จะตัดต่อได้ ต้องวางคลิปจากหลายกล้องตามลำดับที่ถ่ายจริง
+แต่กล้องแต่ละตัวตั้งนาฬิกาไม่เหมือนกัน เวลาท้องถิ่นที่แทนซาเนียคือ UTC+3 ช้ากว่าเกาหลี 6 ชั่วโมง</p>
+<p>AI ดึงเวลาถ่ายของทั้ง 905 ไฟล์ออกมา แล้วไล่ตรวจทีละกล้อง</p>
+<table>
+<thead>
+<tr>
+<th>กล้อง</th>
+<th>สภาพนาฬิกา</th>
+<th>วิธีปรับ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Osmo (412 คลิป)</td>
+<td>ชื่อไฟล์เป็นเวลาเกาหลี</td>
+<td>ลบ 9 ชั่วโมงจากเวลาในชื่อไฟล์ให้เป็น UTC แล้วบวก 3 ชั่วโมงให้เป็นเวลาท้องถิ่น</td>
+</tr>
+<tr>
+<td>GoPro (215 คลิป)</td>
+<td>มั่วไปหมด</td>
+<td>แยกอธิบายด้านล่าง</td>
+</tr>
+<tr>
+<td>Canon 100D และ G7X (276 คลิป)</td>
+<td>ไม่ใช่เวลาท้องถิ่น</td>
+<td>ตอนแรกเข้าใจผิดว่าเป็น UTC มายืนยันในเซสชันถัดไปว่าเป็นเวลาเกาหลี</td>
+</tr>
+<tr>
+<td>อื่นๆ (2 คลิป)</td>
+<td>ไฟล์ที่แยกไว้ต่างหาก</td>
+<td>ใส่แทร็กแยก</td>
+</tr>
+</tbody>
+</table>
+<h3>GoPro</h3>
+<p>GoPro ให้ตั้งเวลาทุกครั้งที่เปิดเครื่อง ผมขี้เกียจเลยกรอกแบบลวกๆ ไปหลายครั้ง บางทีอาจตั้งเป็นปีที่ผิดไปเลย เช่น 2016
+เวลาที่บันทึกในไฟล์จึงเชื่อไม่ได้</p>
+<p>เบาะแสที่ AI หาเจอคือข้อมูล GPS ที่ GoPro บันทึกไว้ในวิดีโอ GPS มีเวลาที่แม่นยำจากดาวเทียม
+ไฟล์ที่จับสัญญาณ GPS ได้ก็ใช้เวลานั้นตรงๆ ส่วนไฟล์ที่ไม่มี GPS ใช้หลักว่านาฬิกาที่ผิดจะผิดไปเท่าๆ กันตลอด
+มันหาช่วงหมายเลขไฟล์ที่ถ่ายด้วยการตั้งนาฬิกาแบบเดียวกัน คำนวณว่าแต่ละช่วงคลาดไปเท่าไร แล้วปรับกลับทีเดียว</p>
+<table>
+<thead>
+<tr>
+<th>ช่วงหมายเลขไฟล์</th>
+<th>นาฬิกาคลาดไป</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0418–0433</td>
+<td>เกือบตรง</td>
+</tr>
+<tr>
+<td>0434–0460</td>
+<td>ประมาณ 1 วัน</td>
+</tr>
+<tr>
+<td>0461–0479</td>
+<td>ประมาณ 3 ชั่วโมง 20 นาที ไปในทิศตรงข้าม</td>
+</tr>
+<tr>
+<td>0482–0636</td>
+<td>ประมาณ 153 วัน</td>
+</tr>
+<tr>
+<td>0637–0640</td>
+<td>ประมาณ 163 วัน</td>
+</tr>
+</tbody>
+</table>
+<p>วิธีนี้กู้ได้ 214 จาก 215 คลิป อีกหนึ่งคลิป (GX010479) ใส่คำว่า "เวลาโดยประมาณ" ไว้ในชื่อ
+ช่วงที่ถ่ายพร้อมกับ Osmo ตรวจด้วยการเทียบรูปคลื่นเสียง ตรงกันภายใน 10–20 วินาที</p>
+<h3>Canon</h3>
+<p>Canon ตอนแรกผมคิดว่าเป็นเวลาเกาหลี จากนั้นสันนิษฐานว่าเป็นเวลาท้องถิ่นแล้วรันการเทียบเสียงไปสองรอบ เสียแรงเปล่าทั้งสองรอบ
+สุดท้ายคลี่คลายได้ด้วยรูปเดียว ช่วงเวลาเดียวกันที่ Osmo เป็นกลางวัน Canon กลับเป็นภาพตอนกินข้าวเย็น
+แน่ใจได้ว่าไม่ใช่เวลาท้องถิ่น และน่าจะเป็น UTC เลยใส่ +3 ชั่วโมงไปก่อน
+ข้อนี้ถูกพลิกในเซสชันถัดไป รูปที่นาฬิกากล้องบอกว่าถ่ายตอนสองทุ่มถึงสี่ทุ่ม เป็นภาพซาฟารีตอนกลางวันทั้งหมด (ม้าลาย สิงโต ช้าง) และพอเลื่อนเวลาย้อนไป 9 ชั่วโมง ก็ทับกับ GPS ของ GoPro และ Osmo มากที่สุด ทั้ง 100D และ G7X ตั้งเป็น<strong>เวลาเกาหลี</strong> แต่วิดีโอ (MP4) ของ G7X บันทึกเวลาถูกต้องอยู่แล้ว จึงไม่ต้องปรับ</p>
+<h2>ซีเควนซ์รายวันใน Premiere</h2>
+<p>พอเวลาเรียบร้อย ที่เหลือก็แค่วางตามกฎ
+AI เขียนสคริปต์สร้างไฟล์ซีเควนซ์ (XML) สำหรับ Premiere แล้วผมก็นำเข้าใน Premiere
+ทดลองกับ DAY 1 วันเดียวก่อน ยืนยันวิธีแล้วจึงสร้างทั้งหมดทีเดียว</p>
+<table>
+<thead>
+<tr>
+<th>รายการ</th>
+<th>กฎ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ซีเควนซ์</td>
+<td>16 ซีเควนซ์ วันละหนึ่ง 4K 29.97fps</td>
+</tr>
+<tr>
+<td>เส้นแบ่งวัน</td>
+<td>ตีสี่ ที่ถ่ายหลังเที่ยงคืนนับเป็นของวันก่อน</td>
+</tr>
+<tr>
+<td>แทร็ก</td>
+<td>V1 Osmo, V2 GoPro, V3 Canon, V4 อื่นๆ เสียงกล้องละ 2 แทร็ก</td>
+</tr>
+<tr>
+<td>ถ่ายพร้อมกัน</td>
+<td>วางซ้อนกันบนล่างที่จุดเดียวกัน</td>
+</tr>
+<tr>
+<td>ระหว่างฉาก</td>
+<td>บีบช่องว่างเหลือ 2 วินาที</td>
+</tr>
+<tr>
+<td>มาร์กเกอร์</td>
+<td>เวลาท้องถิ่นทุกฉาก</td>
+</tr>
+<tr>
+<td>ชื่อคลิป</td>
+<td>ต่อท้ายด้วย [วันที่ เวลา]</td>
+</tr>
+<tr>
+<td>ขนาด</td>
+<td>คลิป 2.7K ขยายให้พอดี 4K</td>
+</tr>
+<tr>
+<td>ตัดออก</td>
+<td>ไฟล์ชั่วคราวจากการซิงก์ ไฟล์ภาพย่อและพร็อกซี คลิปสั้นกว่า 0.5 วินาที ไฟล์ซ้ำ</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="ไทม์ไลน์ Premiere ของซีเควนซ์ 9/26 ที่แทร็ก Osmo, GoPro, Canon, รูปถ่าย และโทรศัพท์วางซ้อนกันบนล่าง" src="/images/20261018-time-sync-sequences/01-timeline-camera-tracks.webp" />
+<em>ซีเควนซ์ 9/26 ราวๆ นาทีที่ 1 ชั่วโมง 40 นาที V1 Osmo, V2 GoPro, V3 Canon, V5 รูปถ่าย, V9 โทรศัพท์ กล้องที่ถ่ายช่วงเดียวกันจะซ้อนกันบนล่าง</em></p>
+<p>ถ้าดูเป็นรายวันจะเป็นแบบนี้</p>
+<table>
+<thead>
+<tr>
+<th>วันที่</th>
+<th>คลิป</th>
+<th>กล้อง</th>
+<th>ความยาว</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9/24</td>
+<td>4</td>
+<td>Osmo</td>
+<td>2 นาที</td>
+</tr>
+<tr>
+<td>9/25</td>
+<td>54</td>
+<td>Osmo 41, GoPro 13</td>
+<td>158 นาที</td>
+</tr>
+<tr>
+<td>9/26</td>
+<td>130</td>
+<td>Canon 68, Osmo 36, GoPro 26</td>
+<td>232 นาที</td>
+</tr>
+<tr>
+<td>9/27</td>
+<td>182</td>
+<td>Canon 96, Osmo 66, GoPro 20</td>
+<td>380 นาที</td>
+</tr>
+<tr>
+<td>9/28</td>
+<td>42</td>
+<td>Canon 33, GoPro 6, Osmo 2, อื่นๆ 1</td>
+<td>91 นาที</td>
+</tr>
+<tr>
+<td>9/29</td>
+<td>154</td>
+<td>Canon 75, Osmo 44, GoPro 35</td>
+<td>454 นาที</td>
+</tr>
+<tr>
+<td>9/30</td>
+<td>2</td>
+<td>GoPro</td>
+<td>2 นาที</td>
+</tr>
+<tr>
+<td>10/1</td>
+<td>37</td>
+<td>Osmo 21, GoPro 16</td>
+<td>387 นาที</td>
+</tr>
+<tr>
+<td>10/2</td>
+<td>51</td>
+<td>Osmo 36, GoPro 15</td>
+<td>367 นาที</td>
+</tr>
+<tr>
+<td>10/3</td>
+<td>62</td>
+<td>Osmo 47, GoPro 15</td>
+<td>281 นาที</td>
+</tr>
+<tr>
+<td>10/4</td>
+<td>41</td>
+<td>Osmo 31, GoPro 10</td>
+<td>310 นาที</td>
+</tr>
+<tr>
+<td>10/5</td>
+<td>30</td>
+<td>GoPro 23, Osmo 7</td>
+<td>322 นาที</td>
+</tr>
+<tr>
+<td>10/6</td>
+<td>38</td>
+<td>GoPro 27, Osmo 11</td>
+<td>129 นาที</td>
+</tr>
+<tr>
+<td>10/7</td>
+<td>20</td>
+<td>Osmo</td>
+<td>244 นาที</td>
+</tr>
+<tr>
+<td>10/8</td>
+<td>13</td>
+<td>Osmo 9, GoPro 4</td>
+<td>198 นาที</td>
+</tr>
+<tr>
+<td>10/9</td>
+<td>15</td>
+<td>Osmo 13, GoPro 2</td>
+<td>119 นาที</td>
+</tr>
+</tbody>
+</table>
+<p>แค่วันที่ 9/29 วันเดียวก็เกิน 450 นาที
+การเปิดคลิปทีละคลิป วางเรียงตามกล้อง แล้วปรับเวลาให้ตรง ปกติเป็นส่วนที่ผมไม่อยากทำที่สุดในการตัดต่อ แต่ส่วนนั้นหายไปทั้งหมด
+พอนำเข้าเสร็จ Premiere ก็เริ่มวิเคราะห์มีเดียเอง</p>
+<p>ผมเก็บไฟล์งานไว้แยกต่างหาก ถ้ามีวิดีโอเพิ่มเข้ามา แค่รันพวกนี้ใหม่</p>
+<table>
+<thead>
+<tr>
+<th>ไฟล์</th>
+<th>ใช้ทำอะไร</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clip_times_fixed.csv</td>
+<td>เวลาถ่ายที่ปรับแล้วของ 905 คลิป</td>
+</tr>
+<tr>
+<td>make_all.py</td>
+<td>สคริปต์สร้างซีเควนซ์รายวัน รันใหม่เมื่อแก้เวลาของ Canon</td>
+</tr>
+<tr>
+<td>เอกสารส่งต่องาน (Markdown)</td>
+<td>ที่อยู่ไฟล์ ค่าปรับเวลาของแต่ละกล้อง งานที่เหลือ เคล็ดลับการทำงาน</td>
+</tr>
+</tbody>
+</table>
+<h2>ซีเควนซ์ v2 ที่สร้างใหม่ในเซสชันถัดไป</h2>
+<p>หลังยืนยันเวลาของ Canon แล้ว ผมสร้างซีเควนซ์ใหม่ในเซสชันใหม่</p>
+<table>
+<thead>
+<tr>
+<th>งาน</th>
+<th>ผลลัพธ์</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>เวลาของ Canon</td>
+<td>ยืนยันว่า 100D และ G7X เป็นเวลาเกาหลี แล้วปรับให้ถูก</td>
+</tr>
+<tr>
+<td>แทร็กรูปถ่าย</td>
+<td>รูป 778 รูป (100D 678, G7X 73, GoPro 15, Osmo 12) วางในแทร็กรูปถ่ายรูปละ 3 วินาที อีก 343 รูปที่มีแต่ไฟล์ RAW (CR2) Premiere อ่านไม่ได้ เลยตัดออกไว้ก่อนและบันทึกรายชื่อไว้</td>
+</tr>
+<tr>
+<td>ซีเควนซ์ v2</td>
+<td>สร้างใหม่รวมรูปถ่ายเป็น 17 ซีเควนซ์รายวัน รูป 5 รูปที่ถ่ายในเกาหลีเช้าวันออกเดินทาง ทำให้มีซีเควนซ์ 0923 เพิ่มมาอีกหนึ่ง</td>
+</tr>
+<tr>
+<td>ฟุตเทจใหม่</td>
+<td>คลิป 407 คลิปที่ยังไม่เคยแบ็กอัป จาก G7X, 100D และโทรศัพท์ วางในแทร็กใหม่ เพื่อไม่ให้กระทบการจัดแทร็กเดิมและไฟล์ MP3 ที่ส่งออกไปแล้ว</td>
+</tr>
+<tr>
+<td>ตามหาไฟล์ที่หายไป</td>
+<td>ไล่จากช่วงหมายเลขไฟล์ของกล้องที่ขาดหาย ไฟล์ 100D หมายเลข 4293–4532 จำนวน 240 ไฟล์ตรงกับปริมาณของ DAY 4 พอดี จึงน่าจะอยู่ในข้อมูลจากโน้ตบุ๊ก</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="แผงโปรเจกต์ของ Premiere ที่มีซีเควนซ์แทนซาเนีย v2 จำนวน 17 ซีเควนซ์ ตั้งแต่ 0923 ถึง 1009" src="/images/20261018-time-sync-sequences/02-v2-sequence-list.webp" />
+<em>แผงโปรเจกต์ ด้านบนเป็นไฟล์ MP3 ที่ส่งออกรายวัน ด้านล่างเป็นซีเควนซ์ v2 แบบ 4K 29.97fps จำนวน 17 ซีเควนซ์</em></p>
+<p>ตอนหน้าจะสรุปการเชื่อมต่อที่ทำให้ AI ควบคุม Premiere ได้โดยตรง นั่นคือ Premiere MCP</p></div><aside class="series-box"><a class="series-name" href="/th/series/video-archive-ai/">ซีรีส์ · คลังวิดีโอส่วนตัวกับ AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/travel-footage-ai-backup/">แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</a></li><li class="now"><span>ตอนที่ 2</span>ปรับเวลาถ่ายของกล้องห้าตัวให้ตรงกัน แล้วสร้างซีเควนซ์รายวันใน Premiere</li><li><span>ตอนที่ 3</span><a href="/th/posts/premiere-mcp-setup/">ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</a></li><li><span>ตอนที่ 4</span><a href="/th/posts/travel-footage-captions/">ทำซับไตเติลให้วิดีโอทริปยาว 62 ชั่วโมง และการใช้ AI ทำงานให้คุ้ม</a></li></ol></aside></article><nav class="pager"><a href="/th/posts/travel-footage-ai-backup/"><span>บทความก่อนหน้า</span>แบ็กอัปวิดีโอทริป ฝากให้ AI ทำทั้งคืน แล้วรับรายงานตรวจสอบตอนเช้า</a><a href="/th/posts/premiere-mcp-setup/" class="r"><span>บทความถัดไป</span>ให้ AI ควบคุม Premiere โดยตรง: บันทึกการติดตั้ง Premiere MCP</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th" class=on>ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin ครีเอเตอร์คอนเทนต์จากเกาหลี · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>
