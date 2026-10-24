@@ -18,6 +18,9 @@ There were five kinds of camera: Osmo Nano, GoPro, Canon 100D, Canon G7X (my wif
 To edit, you need clips from several cameras placed in the order they were actually shot.
 But each camera's clock used a different reference. Local time in Tanzania is UTC+3, six hours behind Korea.
 
+![DAY 7 folder with 100d, canon, gopro and osmo subfolders](/images/20261018-time-sync-sequences/03-카메라별-폴더.webp)
+<small>DAY 7 also has a separate folder per camera. Even one day of footage mixes four cameras with different clocks.</small>
+
 The AI pulled the capture time from all 905 files and worked through them camera by camera.
 
 | Camera | Clock state | How it was fixed |
@@ -31,6 +34,9 @@ The AI pulled the capture time from all 905 files and worked through them camera
 
 The GoPro asks you to set the time every time you turn it on, and I often punched in something rough just to get past it. Some were probably set to the wrong year entirely, like 2016.
 So the timestamps on those files couldn't be trusted.
+
+![GoPro file properties on DAY 5](/images/20261018-time-sync-sequences/04-고프로-파일-날짜.webp)
+<small>Properties of a GoPro file from DAY 5. The created date is 10/15/2026 (the day it was copied) and the modified date is 4/29/2026; neither matches the day it was shot on the trip.</small>
 
 The clue the AI found was the GPS data the GoPro records inside the video. GPS carries accurate time from the satellites.
 Files with a GPS fix used that time directly. For files without one, it relied on the fact that a wrong clock is wrong by a constant amount.
@@ -53,6 +59,12 @@ For the Canons, I first took them to be on Korea time, then assumed local time a
 In the end, a single photo solved it. At the same moment the Osmo showed daytime, the Canon showed us eating dinner.
 That made it certain it wasn't local time. UTC seemed likely, so I entered +3 hours for now.
 That got overturned in the next session. Photos stamped 8–10 p.m. by the camera clock were all midday safari scenes (zebras, lions, elephants), and shifting them back 9 hours gave the most overlap with the GoPro GPS and the Osmo. Both the 100D and the G7X were on **Korea time**. The G7X videos (MP4), though, were recorded correctly and needed no correction.
+
+![Canon CR2 photo list on DAY 5](/images/20261018-time-sync-sequences/05-캐논-사진-목록.webp)
+<small>The Canon photo folder for DAY 5 (DCIM/100CANON). CR2 photos are stacked in time order from 3:38 PM on 9/29.</small>
+
+![IMG_4543.CR2 properties window](/images/20261018-time-sync-sequences/06-캐논-촬영-시각-속성.webp)
+<small>Properties of IMG_4543.CR2. The shot date recorded by the camera is 9/29/2026 3:50 PM, and the model shows as Canon EOS 100D.</small>
 
 ## Per-day sequences in Premiere
 

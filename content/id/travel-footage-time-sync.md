@@ -18,6 +18,9 @@ Kameranya lima jenis: Osmo Nano, GoPro, Canon 100D, Canon G7X (kamera istri saya
 Untuk mengedit, video dari beberapa kamera harus disusun sesuai urutan rekam yang sebenarnya.
 Masalahnya, patokan jam di setiap kamera berbeda. Waktu lokal di Tanzania adalah UTC+3, enam jam di belakang zona waktu rumah saya (UTC+9).
 
+![DAY 7 folder with 100d, canon, gopro and osmo subfolders](/images/20261018-time-sync-sequences/03-카메라별-폴더.webp)
+<small>DAY 7 juga punya folder terpisah untuk tiap kamera. Footage satu hari saja sudah bercampur dari empat kamera dengan jam berbeda.</small>
+
 AI menarik waktu rekam dari 905 file, lalu memeriksanya per kamera.
 
 | Kamera | Kondisi jam | Cara menyamakan |
@@ -31,6 +34,9 @@ AI menarik waktu rekam dari 905 file, lalu memeriksanya per kamera.
 
 GoPro selalu minta jam diatur setiap kali dinyalakan, jadi karena malas, cukup banyak yang saya isi asal-asalan. Mungkin ada juga yang tahunnya ngawur seperti 2016.
 Karena itu waktu yang tercatat di file tidak bisa dipercaya.
+
+![GoPro file properties on DAY 5](/images/20261018-time-sync-sequences/04-고프로-파일-날짜.webp)
+<small>Properti file GoPro dari DAY 5. Tanggal dibuat 10/15/2026 (hari disalin) dan tanggal diubah 4/29/2026; keduanya tidak cocok dengan hari pengambilan selama perjalanan.</small>
 
 Petunjuk yang ditemukan AI adalah data GPS yang direkam GoPro di dalam video. GPS menyimpan waktu yang tepat dari satelit.
 File yang sempat menangkap GPS langsung memakai waktu itu. Untuk yang tidak, AI memanfaatkan fakta bahwa jam yang salah itu melesetnya konsisten.
@@ -53,6 +59,12 @@ Canon awalnya dianggap memakai jam rumah, lalu dianggap memakai waktu lokal, dan
 Akhirnya terpecahkan oleh satu foto. Di jam yang sama, Osmo merekam siang hari sementara Canon merekam makan malam.
 Sudah jelas bukan waktu lokal, dan karena kemungkinan besar UTC, untuk sementara dimasukkan dengan +3 jam.
 Ini terbalik di sesi berikutnya. Semua foto yang menurut jam kamera diambil pukul 8–10 malam ternyata adegan safari siang bolong (zebra, singa, gajah), dan ketika dimundurkan 9 jam, hasilnya paling banyak tumpang tindih dengan GPS GoPro dan Osmo. **Canon 100D dan G7X ternyata sama-sama memakai jam rumah.** Hanya video G7X (MP4) yang catatan waktunya sudah benar, jadi tidak dikoreksi.
+
+![Canon CR2 photo list on DAY 5](/images/20261018-time-sync-sequences/05-캐논-사진-목록.webp)
+<small>Folder foto Canon DAY 5 (DCIM/100CANON). Foto CR2 tersusun berurutan waktu mulai pukul 3:38 PM tanggal 9/29.</small>
+
+![IMG_4543.CR2 properties window](/images/20261018-time-sync-sequences/06-캐논-촬영-시각-속성.webp)
+<small>Properti IMG_4543.CR2. Tanggal pengambilan yang dicatat kamera adalah 9/29/2026 3:50 PM, dan modelnya tertulis Canon EOS 100D.</small>
 
 ## Sequence Premiere per tanggal
 

@@ -79,4 +79,7 @@ Untuk dua kartu SD dan memori internal Osmo, AI menyarankan supaya jangan dihapu
 Setelah semua rapi, hard disk 2TB jadi khusus untuk perjalanan. DAY 1–15 masuk semua dan masih tersisa 794GB.
 Saya merasa backup ganda belum perlu, jadi salinan perjalanan di hard disk 1TB akhirnya saya kosongkan dan hard disk itu dipakai untuk data lain.
 
+![Travel folder list](/images/20261018-travel-footage-ai-backup/01-여행-폴더-목록.webp)
+<small>Daftar folder perjalanan setelah dirapikan. Folder DAY dan folder sementara GoPro serta Osmo terkumpul di satu tempat.</small>
+
 Di tulisan berikutnya saya catat bagaimana waktu rekam 905 klip ini disamakan per kamera, lalu dibuat sequence Premiere per tanggal.

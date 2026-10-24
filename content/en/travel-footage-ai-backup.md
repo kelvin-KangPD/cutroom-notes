@@ -79,4 +79,7 @@ It told me not to delete the two SD cards and the Osmo's internal memory from th
 After the cleanup, the 2TB drive became the trip drive. DAY 1–15 all fit, with 794GB left over.
 I decided I didn't need a second backup, so in the end I cleared the trip copy off the 1TB drive and used it for other material.
 
+![Travel folder list](/images/20261018-travel-footage-ai-backup/01-여행-폴더-목록.webp)
+<small>The travel folder list after cleanup. The DAY folders and the temporary GoPro and Osmo folders are gathered in one place.</small>
+
 In the next post I cover how I synced the capture times of these 905 clips camera by camera and built per-day sequences in Premiere.
