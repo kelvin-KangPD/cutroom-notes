@@ -3,7 +3,7 @@ title: "Making a wedding-prep checklist by exporting our KakaoTalk chat and hand
 date: 2026-10-24
 series: wedding-ai
 part: 2
-cover: /images/20261024-kakao-checklist/01-카톡-대화-내보내기.webp
+cover: /images/20261024-kakao-checklist/02-체크리스트-남은-일.webp
 summary: "I exported the whole KakaoTalk chat with my wife from our wedding prep, gave it to Claude, and got a web checklist split into done and not done that we could tick off together."
 ---
 

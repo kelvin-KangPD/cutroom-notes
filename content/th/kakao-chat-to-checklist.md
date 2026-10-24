@@ -3,7 +3,7 @@ title: "ส่งออกแชต KakaoTalk แล้วให้ Claude ท�
 date: 2026-10-24
 series: wedding-ai
 part: 2
-cover: /images/20261024-kakao-checklist/01-카톡-대화-내보내기.webp
+cover: /images/20261024-kakao-checklist/02-체크리스트-남은-일.webp
 summary: "ผมส่งออกแชต KakaoTalk ทั้งหมดที่คุยกับภรรยาตอนเตรียมงานแต่งงานให้ Claude แล้วได้เช็กลิสต์บนเว็บที่แยกสิ่งที่ทำแล้วกับยังไม่ได้ทำ ซึ่งเราช่วยกันติ๊กได้"
 ---
 

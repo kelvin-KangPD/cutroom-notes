@@ -102,6 +102,32 @@ def write(rel, content):
     out.write_text(content, encoding="utf-8")
 
 
+def tile(p, L):
+    img = (f'<img class="cover" loading="lazy" alt="" src="{p["cover"]}">' if p.get("cover") else '<div class="ph"></div>')
+    part = f'<span class="part">{html.escape(L["part"].format(n=p["part"]))}</span>' if p.get("part") else ""
+    return (f'<article class="tile"><a href="{p["url"]}">{img}'
+            f'<div class="meta">{part}<time datetime="{p["date"]}">{fmt(p["date"], L)}</time></div>'
+            f'<h3>{html.escape(p["title"])}</h3><p>{html.escape(p.get("summary", ""))}</p></a></article>')
+
+
+def home(posts, L):
+    hero, rest = posts[0], posts[1:5]
+    himg = (f'<img class="cover" alt="" src="{hero["cover"]}">' if hero.get("cover") else '<div class="ph"></div>')
+    part = f'<span class="part">{html.escape(L["part"].format(n=hero["part"]))}</span>' if hero.get("part") else ""
+    top = (f'<section class="home-top"><div class="hero"><a href="{hero["url"]}">{himg}'
+           f'<div class="meta">{part}<time datetime="{hero["date"]}">{fmt(hero["date"], L)}</time></div>'
+           f'<h2>{html.escape(hero["title"])}</h2><p>{html.escape(hero.get("summary", ""))}</p></a></div>')
+    items = ""
+    for q in rest:
+        t = f'<img class="thumb" loading="lazy" alt="" src="{q["cover"]}">' if q.get("cover") else ""
+        items += (f'<a href="{q["url"]}"><div><h3>{html.escape(q["title"])}</h3>'
+                  f'<div class="date">{fmt(q["date"], L)}</div></div>{t}</a>')
+    top += f'<aside class="latest"><div class="latest-head">LATEST</div>{items}</aside></section>'
+    grid = ('<section class="section"><div class="section-head"><h2>ALL</h2></div><div class="grid">'
+            + "".join(tile(q, L) for q in posts) + "</div></section>")
+    return top + grid
+
+
 def card(p, L):
     thumb = f'<img class="thumb" loading="lazy" alt="" src="{p["cover"]}">' if p.get("cover") else ""
     part = f'<span class="part">{html.escape(L["part"].format(n=p["part"]))}</span>' if p.get("part") else ""
@@ -146,8 +172,7 @@ def build_lang(lang, urls):
     L = LANGS[lang]
     posts = load(lang)
     # index
-    body = (f'<header class="list-head"><h1>{html.escape(CFG["title"])}</h1><p>{html.escape(L["desc"])}</p></header>'
-            + ('<div class="list">' + "".join(card(p, L) for p in posts) + "</div>" if posts else f'<p class="empty">{html.escape(L["empty"])}</p>'))
+    body = home(posts, L) if posts else f'<p class="empty">{html.escape(L["empty"])}</p>'
     alt_home = {c: f"/{c}/" for c in LANGS}
     alt_home["x-default"] = "/"
     write(f"{lang}/index.html", page(lang, CFG["title"], body, alternates=alt_home, path=f"/{lang}/"))

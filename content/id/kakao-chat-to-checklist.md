@@ -3,7 +3,7 @@ title: "Membuat daftar periksa persiapan pernikahan dari ekspor chat KakaoTalk, 
 date: 2026-10-24
 series: wedding-ai
 part: 2
-cover: /images/20261024-kakao-checklist/01-카톡-대화-내보내기.webp
+cover: /images/20261024-kakao-checklist/02-체크리스트-남은-일.webp
 summary: "Saya mengekspor seluruh chat KakaoTalk persiapan pernikahan dengan istri, menyerahkannya ke Claude, dan mendapat daftar periksa web yang memisahkan yang sudah dan belum dikerjakan, yang bisa kami centang bersama."
 ---
 

@@ -3,7 +3,7 @@ title: "KakaoTalk चैट एक्सपोर्ट करके शाद�
 date: 2026-10-24
 series: wedding-ai
 part: 2
-cover: /images/20261024-kakao-checklist/01-카톡-대화-내보내기.webp
+cover: /images/20261024-kakao-checklist/02-체크리스트-남은-일.webp
 summary: "शादी की तैयारी के दौरान पत्नी के साथ हुई पूरी KakaoTalk चैट एक्सपोर्ट करके Claude को दी, और हो चुके व बाकी कामों वाली वेब चेकलिस्ट मिली जिस पर हम साथ टिक कर सकते थे।"
 ---
 
