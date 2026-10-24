@@ -42,6 +42,9 @@ langs:
       naver-blog-automation:
         title: Naver blog automation and claiming content space first
         desc: Automating blog uploads, and the thoughts that came after.
+      wedding-ai:
+        title: Wedding prep and AI
+        desc: Records of handling the wedding video and wedding and honeymoon prep with AI.
   id:
     comments_title: Komentar
     cusdis:
@@ -77,6 +80,9 @@ langs:
       naver-blog-automation:
         title: Otomatisasi blog Naver dan menempati ruang konten lebih dulu
         desc: Mengotomatiskan unggahan blog, dan pikiran yang muncul sesudahnya.
+      wedding-ai:
+        title: Persiapan pernikahan dan AI
+        desc: Catatan mengurus video pernikahan serta persiapan pernikahan dan bulan madu dengan AI.
   hi:
     comments_title: टिप्पणियाँ
     cusdis:
@@ -112,6 +118,9 @@ langs:
       naver-blog-automation:
         title: Naver ब्लॉग ऑटोमेशन और कंटेंट में पहले जगह बनाना
         desc: ब्लॉग अपलोड को ऑटोमेट करना, और उसके बाद आए विचार।
+      wedding-ai:
+        title: शादी की तैयारी और AI
+        desc: शादी का वीडियो और शादी व हनीमून की तैयारी AI से संभालने का रिकॉर्ड।
   ar:
     comments_title: التعليقات
     cusdis:
@@ -147,6 +156,9 @@ langs:
       naver-blog-automation:
         title: أتمتة مدونة Naver والسبق إلى مكان المحتوى
         desc: أتمتة رفع التدوينات، والأفكار التي جاءت بعدها.
+      wedding-ai:
+        title: تجهيزات الزفاف وAI
+        desc: سجلّ التعامل مع فيديو الزفاف وتجهيزات الزفاف وشهر العسل بواسطة AI.
   th:
     about: Kelvin ครีเอเตอร์คอนเทนต์จากเกาหลี
     comments_title: ความคิดเห็น
@@ -182,3 +194,6 @@ langs:
       naver-blog-automation:
         title: ระบบอัตโนมัติสำหรับบล็อก Naver และการจับจองพื้นที่คอนเทนต์ก่อนใคร
         desc: ทำให้การอัปโหลดบล็อกเป็นอัตโนมัติ และความคิดที่ตามมาหลังจากนั้น
+      wedding-ai:
+        title: การเตรียมงานแต่งงานกับ AI
+        desc: บันทึกการใช้ AI จัดการวิดีโองานแต่งและการเตรียมงานแต่งกับฮันนีมูน
