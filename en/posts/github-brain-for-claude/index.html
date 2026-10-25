@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tired of re-explaining every new Claude chat, I built an AI brain on GitHub · Cutroom Notes</title>
+<meta name="description" content="To get the same result no matter which device or chat window I use, I moved my rules and progress into a GitHub repository outside Claude. After a week of attempts, a new window now picks up the work from a single phrase: “connect blog”.">
+<meta property="og:title" content="Tired of re-explaining every new Claude chat, I built an AI brain on GitHub · Cutroom Notes">
+<meta property="og:description" content="To get the same result no matter which device or chat window I use, I moved my rules and progress into a GitHub repository outside Claude. After a week of attempts, a new window now picks up the work from a single phrase: “connect blog”.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/github-brain-for-claude/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/github-brain-for-claude/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/github-brain-for-claude/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/github-brain-for-claude/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/github-brain-for-claude/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261026-github-brain/01-블로그-연결-시작판.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/en/posts/github-brain-for-claude/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/en/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/en/">Cutroom Notes</a>
+    <nav class="top"><a href="/en/">All</a><a href="/en/series/">Series</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-26">October 26, 2026</time><h1>Tired of re-explaining every new Claude chat, I built an AI brain on GitHub</h1><p class="tr-line">Also in: <a href="/id/posts/github-brain-for-claude/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/github-brain-for-claude/" lang="hi">हिन्दी</a> · <a href="/ar/posts/github-brain-for-claude/" lang="ar">العربية</a> · <a href="/th/posts/github-brain-for-claude/" lang="th">ไทย</a></p></header><aside class="series-box"><a class="series-name" href="/en/series/ai-orchestration/">Series · Building an AI orchestration</a><ol><li class="now"><span>Part 1</span>Tired of re-explaining every new Claude chat, I built an AI brain on GitHub</li></ol></aside><div class="prose"><p>To get the same result no matter which device or chat window I give the order from, <strong>I built an AI brain in a GitHub repository outside Claude.</strong></p>
+<p>The more I used Claude, the more I found myself giving it work from my home PC one time, my laptop the next, and my phone after that.
+Sometimes in this chat window, sometimes in that one. It got far too complicated.
+And every new chat window meant loading the previous posts and explaining how far I'd gotten. That got really tiresome.</p>
+<p>Let me say this first: this is one part of building an orchestration setup, and this post is the work log for it.
+Honestly, I think it's a pretty inefficient way to do it. Plenty of people have probably built far more efficient systems already.
+Still, I'm leaving this here to share the process I went through.</p>
+<p><img alt="The &quot;blog connection start board&quot; screen: a one-page guide so that three accounts and several PCs all start work in the same order" src="/images/20261026-github-brain/01-블로그-연결-시작판.webp" /></p>
+<h2>All I wanted was one thing</h2>
+<p>Keep the brain on the web, and whatever device I make a request from, have it go through that brain (GitHub) and follow fixed procedures (skills, md documents) to produce a consistent result.
+From the outside it looks like "isn't that easy?", but it wasn't.
+I spent almost a week building this system. Countless chat windows, countless tests, countless tokens burned.
+And I'm still optimizing it.</p>
+<p>This is my setup. The problem was that all of it worked separately.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>What I use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Devices</td>
+<td>Home PC, work PC, laptop, phone</td>
+</tr>
+<tr>
+<td>Claude accounts</td>
+<td>Two personal, one work. Three accounts</td>
+</tr>
+<tr>
+<td>Chat windows</td>
+<td>Desktop app chat, Code tab, cloud sessions, mobile app</td>
+</tr>
+<tr>
+<td>Outputs</td>
+<td>Kang PD Log, the multilingual site Cutroom Notes (5 languages), Naver blog</td>
+</tr>
+</tbody>
+</table>
+<p>Claude has memory too. But it builds up separately for each account.
+One account's memory picked up work blog rules, another picked up personal blog rules. New windows ended up following the wrong rules.
+So I decided to keep the memory outside Claude, not inside it.</p>
+<h2>What I tried over the week</h2>
+<p>I didn't land on the current structure from the start. Most attempts failed.</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Attempt</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10/23</td>
+<td>Designed a structure where I write instructions in one document in the repository, and a watcher program checks it every 1–2 hours and sends the work to dedicated chat windows by field (blog, Naver, Premiere)</td>
+<td>Only settled the direction</td>
+</tr>
+<tr>
+<td>10/24</td>
+<td>Moved the to-do queue to GitHub Issues. Wrote 11 labels (needs triage, waiting, in progress, blocked, per owner, per PC), an issue template and an operating rules document</td>
+<td>The skeleton stood up</td>
+</tr>
+<tr>
+<td>10/24</td>
+<td>Ran a scheduled task, the "command session", every 2 hours from 09:00 to 23:00 to triage and assign new issues</td>
+<td>Triage worked well. Launching the dedicated chat windows didn't</td>
+</tr>
+<tr>
+<td>10/24</td>
+<td>A GitHub Actions workflow that runs translation automatically through the Gemini API</td>
+<td>Unstable with 429 and 503 errors, and it used more tokens, so I rolled it back</td>
+</tr>
+<tr>
+<td>10/24</td>
+<td>Dropped all of it and condensed everything into one skill that runs the fixed procedure to the end from one command: "let's write a blog post"</td>
+<td>The starting point of the current approach</td>
+</tr>
+<tr>
+<td>10/25</td>
+<td>A shared structure for three accounts and several PCs. The original lives in one repository; accounts and PCs only hold an entrance</td>
+<td>The start board above came out of this</td>
+</tr>
+<tr>
+<td>10/25</td>
+<td>Stopped saving to PC folders too. The only workspace is GitHub</td>
+<td>The current structure</td>
+</tr>
+</tbody>
+</table>
+<p>I had high hopes for the Gemini API. Handing it jobs like translation, separate from Claude's limits, seemed like a good idea.
+But I had to persuade both Gemini and Claude. If either one slipped, the workload doubled.
+So for now I decided to go with Claude only.</p>
+<p>I also tried a scheduled task that checks Git at set intervals so that work starts on its own whenever a file changes.
+The problem was that every time I edited the rulebook (the document with my writing rules), that counted as a change too and triggered a check. It just leaked tokens.
+On top of that, a session started by a scheduled task had no way to open a new chat window. I ran it twice to confirm.
+In the end I gave up on automatic watching. If I do it at all, I'll add it last, once the whole design is finished.</p>
+<h2>The current structure: a thin entrance, the brain in the repository</h2>
+<p><img alt="Diagram: whatever device the request comes from, it passes through the entrance and produces results according to the rules in the GitHub repository" src="/images/20261026-github-brain/02-저장소-뇌-구조도.webp" /></p>
+<p>I drew this diagram myself. The key is keeping almost nothing on the accounts and PCs.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What's there</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Entrance</td>
+<td>A short instruction: when I say "connect blog", read the repository first</td>
+<td>One skill per account (blog-connect), and one block of global instructions on PCs that use Claude Code</td>
+</tr>
+<tr>
+<td>Brain</td>
+<td>Start instructions, work log, rulebook, writing procedure skill</td>
+<td>Private repository blog-notes</td>
+</tr>
+<tr>
+<td>Outputs</td>
+<td>Posts, translations, photos</td>
+<td>Two public repositories (Kang PD Log, Cutroom Notes)</td>
+</tr>
+</tbody>
+</table>
+<p>I don't write rules in the entrance. If I did, each account would end up with a different version, and every fix would mean editing three places.
+All the entrance does is say "go to the repository and read in this order". I gave the entrance a version number (v1), and if it doesn't match the number in the repository's start instructions, the window says in one line "please update the entrance".</p>
+<p><img alt="The &quot;first time on a new account&quot; section of the start board, expanded to show how to register the blog-connect entrance skill by pasting its full text" src="/images/20261026-github-brain/03-새-계정-입구-스킬.webp" /></p>
+<p>When adding a new account, I just follow this section. If the window can't read the repository, I paste in the whole skill text and register it.</p>
+<p><img alt="File list of the private repository blog-notes: skill, plan, Naver and received-photos folders, plus CLAUDE.md and the work log" src="/images/20261026-github-brain/04-비공개-저장소-blog-notes.webp" /></p>
+<p>This is the private repository that acts as the brain. A new window reads only these, in this order.</p>
+<table>
+<thead>
+<tr>
+<th>Order</th>
+<th>File</th>
+<th>What to read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>CLAUDE.md</td>
+<td>All of it. Short start instructions</td>
+</tr>
+<tr>
+<td>2</td>
+<td>작업일지.md (work log)</td>
+<td>Only "current status". No reading it end to end</td>
+</tr>
+<tr>
+<td>3</td>
+<td>계획/준구블로그_법전.md (rulebook)</td>
+<td>Only the chapters needed for the current task</td>
+</tr>
+<tr>
+<td>4</td>
+<td>.claude/skills/blog-write</td>
+<td>Only the relevant section of the writing procedure</td>
+</tr>
+</tbody>
+</table>
+<p>I blocked full reading because of tokens. Reading the whole work log every time eats into the limit on its own.
+When finishing, the window has to update "current status" in the work log and commit and push. <strong>Work that isn't pushed doesn't show up on other devices.</strong></p>
+<p>There was an actual accident along the way. Another window picked up the work blog's rulebook and worked from it.
+At the top of the work folder there was a work document with "rulebook" in its name, so it showed up first in the search.
+So I nailed it down in the start instructions: "the rulebook for these blogs is this one file". I also added a line telling it to look in the rulebook first before asking me about rules like photo sizes.</p>
+<p><img alt="The &quot;when it doesn't work&quot; section of the start board: symptoms I actually ran into, such as being asked which blog or working from the work rulebook, with causes and fixes" src="/images/20261026-github-brain/05-안-될-때.webp" /></p>
+<p>Symptoms I actually ran into piled up one by one in the start board's "when it doesn't work" section.</p>
+<h2>Keeping the start board HTML too</h2>
+<p>The photo at the top is that start board. I kept getting confused every time I added a new account or a new PC, so I made it into a one-page HTML.
+It has seven sections: opening a chat, finishing, first time on a new account, first time on a new PC, current progress, when it doesn't work, and where everything lives.
+Originally each command only had a "copy" button. In the public version I removed the buttons and saved it again with every command and phrase fully expanded.</p>
+<p><a href="https://kelvin-kangpd.github.io/files/ai-brain/start-board.html">Open the public version of the start board</a></p>
+<p>It reflects the state as of midday on October 25. After that it changed once more to "don't save to PC folders, use only GitHub", so I barely use the PC folder paths or the PowerShell push command on the board anymore. A few work-related mentions were replaced with general wording.</p>
+<p><img alt="File list of the public Kang PD Log repository, with kelvin-KangPD and claude both listed as commit authors" src="/images/20261026-github-brain/06-공개-저장소-강PD로그.webp" /></p>
+<p>This is the public repository where the outputs pile up. Both claude and I show up in the commit history. Whatever window did the work, the results end up here.</p>
+<p>This post was written with that structure too. Today I just said "let's write a blog post" in a new chat window.
+The window read the entrance skill, pulled the repository from GitHub, read the work log, and reported the next task in one line. It didn't ask which blog.
+The first time it tried to pull the repository it got stuck once because there was no authentication, and it pulled it again by adding the repository to the session. Small snags like that are still left.</p>
+<p>What's left is automatic watching. Right now I still have to open a window and say one line.
+Once the design is fully done, I plan to add it at the very end.</p></div><aside class="series-box"><a class="series-name" href="/en/series/ai-orchestration/">Series · Building an AI orchestration</a><ol><li class="now"><span>Part 1</span>Tired of re-explaining every new Claude chat, I built an AI brain on GitHub</li></ol></aside></article><nav class="pager"><a href="/en/posts/kakao-chat-to-checklist/"><span>Previous post</span>Making a wedding-prep checklist by exporting our KakaoTalk chat and handing it to Claude</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en" class=on>English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, a content creator from Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

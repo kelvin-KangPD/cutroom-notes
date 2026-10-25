@@ -45,6 +45,9 @@ langs:
       wedding-ai:
         title: Wedding prep and AI
         desc: Records of handling the wedding video and wedding and honeymoon prep with AI.
+      ai-orchestration:
+        title: Building an AI orchestration
+        desc: Making different devices, accounts and chat windows work in one flow.
   id:
     comments_title: Komentar
     cusdis:
@@ -83,6 +86,9 @@ langs:
       wedding-ai:
         title: Persiapan pernikahan dan AI
         desc: Catatan mengurus video pernikahan serta persiapan pernikahan dan bulan madu dengan AI.
+      ai-orchestration:
+        title: Membangun orkestrasi AI
+        desc: Membuat perangkat, akun, dan jendela chat yang berbeda bekerja dalam satu alur.
   hi:
     comments_title: टिप्पणियाँ
     cusdis:
@@ -121,6 +127,9 @@ langs:
       wedding-ai:
         title: शादी की तैयारी और AI
         desc: शादी का वीडियो और शादी व हनीमून की तैयारी AI से संभालने का रिकॉर्ड।
+      ai-orchestration:
+        title: AI ऑर्केस्ट्रेशन बनाना
+        desc: अलग-अलग डिवाइस, अकाउंट और चैट विंडो को एक ही प्रवाह में काम कराने की प्रक्रिया।
   ar:
     comments_title: التعليقات
     cusdis:
@@ -159,6 +168,9 @@ langs:
       wedding-ai:
         title: تجهيزات الزفاف وAI
         desc: سجلّ التعامل مع فيديو الزفاف وتجهيزات الزفاف وشهر العسل بواسطة AI.
+      ai-orchestration:
+        title: بناء تنسيق للذكاء الاصطناعي
+        desc: جعل الأجهزة والحسابات ونوافذ المحادثة المختلفة تعمل في مسار واحد.
   th:
     about: Kelvin ครีเอเตอร์คอนเทนต์จากเกาหลี
     comments_title: ความคิดเห็น
@@ -197,3 +209,6 @@ langs:
       wedding-ai:
         title: การเตรียมงานแต่งงานกับ AI
         desc: บันทึกการใช้ AI จัดการวิดีโองานแต่งและการเตรียมงานแต่งกับฮันนีมูน
+      ai-orchestration:
+        title: สร้างออร์เคสเตรชัน AI
+        desc: ทำให้อุปกรณ์ บัญชี และหน้าต่างแชตที่ต่างกันทำงานในลำดับเดียวกัน

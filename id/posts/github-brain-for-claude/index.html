@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capek menjelaskan ulang di setiap chat Claude, saya membuat otak AI di GitHub · Cutroom Notes</title>
+<meta name="description" content="Supaya hasilnya sama dari perangkat atau jendela chat mana pun, saya memindahkan aturan dan status kerja ke repositori GitHub di luar Claude. Setelah seminggu mencoba, jendela baru kini melanjutkan pekerjaan hanya dari satu kalimat: “sambungkan blog”.">
+<meta property="og:title" content="Capek menjelaskan ulang di setiap chat Claude, saya membuat otak AI di GitHub · Cutroom Notes">
+<meta property="og:description" content="Supaya hasilnya sama dari perangkat atau jendela chat mana pun, saya memindahkan aturan dan status kerja ke repositori GitHub di luar Claude. Setelah seminggu mencoba, jendela baru kini melanjutkan pekerjaan hanya dari satu kalimat: “sambungkan blog”.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/github-brain-for-claude/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/github-brain-for-claude/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/github-brain-for-claude/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/github-brain-for-claude/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/github-brain-for-claude/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261026-github-brain/01-블로그-연결-시작판.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/id/posts/github-brain-for-claude/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/id/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/id/">Cutroom Notes</a>
+    <nav class="top"><a href="/id/">Semua</a><a href="/id/series/">Seri</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-26">26 Oktober 2026</time><h1>Capek menjelaskan ulang di setiap chat Claude, saya membuat otak AI di GitHub</h1><p class="tr-line">Baca juga dalam: <a href="/en/posts/github-brain-for-claude/" lang="en">English</a> · <a href="/hi/posts/github-brain-for-claude/" lang="hi">हिन्दी</a> · <a href="/ar/posts/github-brain-for-claude/" lang="ar">العربية</a> · <a href="/th/posts/github-brain-for-claude/" lang="th">ไทย</a></p></header><aside class="series-box"><a class="series-name" href="/id/series/ai-orchestration/">Seri · Membangun orkestrasi AI</a><ol><li class="now"><span>Bagian 1</span>Capek menjelaskan ulang di setiap chat Claude, saya membuat otak AI di GitHub</li></ol></aside><div class="prose"><p>Supaya hasilnya sama dari perangkat atau jendela chat mana pun saya memberi perintah, <strong>saya membuat otak AI di repositori GitHub di luar Claude.</strong></p>
+<p>Makin sering memakai Claude, makin sering saya memberi pekerjaan dari PC rumah, lalu dari laptop, lalu dari ponsel.
+Kadang di jendela chat ini, kadang di jendela itu. Semuanya jadi terlalu rumit.
+Padahal setiap membuka jendela chat baru, saya harus memuat tulisan sebelumnya dan menjelaskan sudah sampai mana. Itu benar-benar melelahkan.</p>
+<p>Saya sampaikan dulu: pekerjaan ini adalah bagian dari proses membangun orkestrasi, dan tulisan ini catatan kerjanya.
+Jujur, menurut saya ini cara yang cukup tidak efisien. Pasti sudah banyak orang yang membangun cara yang jauh lebih efisien.
+Tetap saja, saya tinggalkan di sini untuk berbagi proses yang saya jalani.</p>
+<p><img alt="Layar &quot;papan mulai koneksi blog&quot;: panduan satu halaman agar tiga akun dan beberapa PC memulai pekerjaan dengan urutan yang sama" src="/images/20261026-github-brain/01-블로그-연결-시작판.webp" /></p>
+<h2>Yang saya mau cuma satu</h2>
+<p>Menaruh otak di web, lalu dari perangkat mana pun saya meminta, permintaan itu melewati otak tersebut (GitHub) dan mengikuti prosedur yang sudah ditetapkan (skill, dokumen md) sehingga hasilnya selalu konsisten.
+Dari luar kelihatannya "bukannya tinggal begitu saja?", tapi ternyata tidak mudah.
+Hampir seminggu saya habiskan untuk membangun sistem ini. Banyak sekali jendela chat, banyak sekali tes, banyak sekali token terbuang.
+Dan sampai sekarang masih terus saya optimalkan.</p>
+<p>Beginilah lingkungan kerja saya. Masalahnya, semuanya berjalan sendiri-sendiri.</p>
+<table>
+<thead>
+<tr>
+<th>Bagian</th>
+<th>Yang saya pakai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Perangkat</td>
+<td>PC rumah, PC kantor, laptop, ponsel</td>
+</tr>
+<tr>
+<td>Akun Claude</td>
+<td>Dua pribadi, satu kantor. Tiga akun</td>
+</tr>
+<tr>
+<td>Jendela chat</td>
+<td>Chat aplikasi desktop, tab Code, sesi cloud, aplikasi seluler</td>
+</tr>
+<tr>
+<td>Hasil</td>
+<td>Kang PD Log, situs multibahasa Cutroom Notes (5 bahasa), blog Naver</td>
+</tr>
+</tbody>
+</table>
+<p>Claude juga punya memori. Tapi memori itu menumpuk terpisah di tiap akun.
+Memori satu akun kemasukan aturan blog kantor, akun lain kemasukan aturan blog pribadi. Jendela baru jadi mengikuti aturan yang salah.
+Jadi saya putuskan menyimpan ingatan itu di luar Claude, bukan di dalamnya.</p>
+<h2>Yang saya coba selama seminggu</h2>
+<p>Saya tidak langsung sampai di struktur yang sekarang. Percobaan yang gagal justru lebih banyak.</p>
+<table>
+<thead>
+<tr>
+<th>Tanggal</th>
+<th>Percobaan</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10/23</td>
+<td>Merancang struktur: saya menulis instruksi di satu dokumen di repositori, lalu program pemantau mengeceknya setiap 1–2 jam dan mengirim pekerjaan ke jendela chat khusus per bidang (blog, Naver, Premiere)</td>
+<td>Baru menentukan arah</td>
+</tr>
+<tr>
+<td>10/24</td>
+<td>Memindahkan antrean tugas ke GitHub Issues. Membuat 11 label (perlu dipilah, menunggu, sedang dikerjakan, terhambat, per penanggung jawab, per PC), template issue, dan dokumen aturan operasional</td>
+<td>Kerangkanya berdiri</td>
+</tr>
+<tr>
+<td>10/24</td>
+<td>Menjalankan tugas terjadwal "sesi komando" setiap 2 jam dari pukul 09.00 sampai 23.00 untuk memilah dan membagikan issue baru</td>
+<td>Pemilahan berjalan baik. Membuka jendela chat penanggung jawab tidak bisa</td>
+</tr>
+<tr>
+<td>10/24</td>
+<td>Workflow GitHub Actions yang menjalankan terjemahan otomatis lewat Gemini API</td>
+<td>Tidak stabil karena error 429 dan 503, token juga lebih boros, jadi saya batalkan</td>
+</tr>
+<tr>
+<td>10/24</td>
+<td>Melepas semuanya dan merangkum jadi satu skill yang menjalankan prosedur tetap sampai selesai dari satu perintah: "ayo tulis blog"</td>
+<td>Titik awal cara yang sekarang</td>
+</tr>
+<tr>
+<td>10/25</td>
+<td>Struktur bersama untuk tiga akun dan beberapa PC. Aslinya hanya satu repositori, akun dan PC hanya menyimpan pintu masuk</td>
+<td>Papan mulai di atas lahir di sini</td>
+</tr>
+<tr>
+<td>10/25</td>
+<td>Berhenti menyimpan ke folder PC juga. Ruang kerjanya hanya GitHub</td>
+<td>Struktur sekarang</td>
+</tr>
+</tbody>
+</table>
+<p>Saya cukup berharap pada Gemini API. Rasanya bagus kalau pekerjaan seperti terjemahan bisa diserahkan tanpa terikat batas Claude.
+Tapi ternyata saya harus meyakinkan Gemini dan Claude sekaligus. Kalau salah satu saja meleset, beban kerjanya jadi dua kali lipat.
+Jadi untuk sekarang saya putuskan pakai Claude saja.</p>
+<p>Saya juga mencoba tugas terjadwal yang mengecek Git setiap selang waktu tertentu, supaya pekerjaan berjalan sendiri setiap ada file yang berubah.
+Masalahnya, setiap kali saya mengedit buku aturan (dokumen aturan menulis), itu juga terhitung perubahan dan memicu pengecekan. Token cuma bocor.
+Selain itu, sesi yang dijalankan tugas terjadwal tidak punya fitur untuk membuka jendela chat baru. Saya jalankan dua kali untuk memastikan.
+Akhirnya pemantauan otomatis saya tutup sebagai kegagalan. Kalaupun dibuat, akan saya pasang paling akhir, setelah seluruh rancangan selesai.</p>
+<h2>Struktur sekarang: pintu masuk tipis, otak di repositori</h2>
+<p><img alt="Diagram: dari perangkat mana pun permintaan datang, ia melewati pintu masuk lalu menghasilkan keluaran sesuai aturan di repositori GitHub" src="/images/20261026-github-brain/02-저장소-뇌-구조도.webp" /></p>
+<p>Diagram ini saya gambar sendiri. Kuncinya, hampir tidak ada yang disimpan di akun dan PC.</p>
+<table>
+<thead>
+<tr>
+<th>Lapisan</th>
+<th>Isinya</th>
+<th>Di mana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pintu masuk</td>
+<td>Instruksi singkat: kalau saya bilang "sambungkan blog", baca repositori dulu</td>
+<td>Satu skill per akun (blog-connect), dan satu blok instruksi global di PC yang memakai Claude Code</td>
+</tr>
+<tr>
+<td>Otak</td>
+<td>Instruksi awal, log kerja, buku aturan, skill prosedur menulis</td>
+<td>Repositori privat blog-notes</td>
+</tr>
+<tr>
+<td>Hasil</td>
+<td>Tulisan, terjemahan, foto</td>
+<td>Dua repositori publik (Kang PD Log, Cutroom Notes)</td>
+</tr>
+</tbody>
+</table>
+<p>Saya tidak menulis aturan di pintu masuk. Kalau ditulis, versinya akan berbeda di tiap akun, dan setiap perbaikan berarti harus mengedit tiga tempat.
+Tugas pintu masuk hanya "pergi ke repositori dan baca dengan urutan ini". Saya memberi nomor versi (v1) pada pintu masuk, dan kalau tidak cocok dengan nomor di instruksi awal repositori, jendela akan bilang satu baris "tolong perbarui pintu masuknya".</p>
+<p><img alt="Bagian &quot;pertama kali di akun baru&quot; pada papan mulai, terbuka menampilkan cara mendaftarkan skill pintu masuk blog-connect dengan menempelkan teks lengkapnya" src="/images/20261026-github-brain/03-새-계정-입구-스킬.webp" /></p>
+<p>Saat menambah akun baru, cukup ikuti bagian ini. Kalau jendelanya tidak bisa membaca repositori, saya tempelkan seluruh teks skill lalu mendaftarkannya.</p>
+<p><img alt="Daftar file repositori privat blog-notes: folder skill, rencana, Naver, foto masuk, serta CLAUDE.md dan log kerja" src="/images/20261026-github-brain/04-비공개-저장소-blog-notes.webp" /></p>
+<p>Inilah repositori privat yang berperan sebagai otak. Jendela baru hanya membaca ini, dengan urutan ini.</p>
+<table>
+<thead>
+<tr>
+<th>Urutan</th>
+<th>File</th>
+<th>Yang dibaca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>CLAUDE.md</td>
+<td>Semuanya. Instruksi awal yang pendek</td>
+</tr>
+<tr>
+<td>2</td>
+<td>작업일지.md (log kerja)</td>
+<td>Hanya "status sekarang". Dilarang membaca semuanya</td>
+</tr>
+<tr>
+<td>3</td>
+<td>계획/준구블로그_법전.md (buku aturan)</td>
+<td>Hanya bab yang diperlukan untuk pekerjaan saat itu</td>
+</tr>
+<tr>
+<td>4</td>
+<td>.claude/skills/blog-write</td>
+<td>Hanya bagian prosedur menulis yang relevan</td>
+</tr>
+</tbody>
+</table>
+<p>Membaca seluruhnya saya larang karena token. Membaca seluruh log kerja setiap kali saja sudah menggerus batas.
+Saat selesai, jendela harus memperbarui "status sekarang" di log kerja lalu commit dan push. <strong>Pekerjaan yang belum di-push tidak terlihat di perangkat lain.</strong></p>
+<p>Di tengah jalan memang sempat ada kecelakaan. Jendela lain mengambil buku aturan blog kantor dan bekerja dengan itu.
+Di bagian paling atas folder kerja ada dokumen kantor yang namanya mengandung kata "buku aturan", jadi dokumen itu yang muncul duluan di pencarian.
+Maka saya tegaskan di instruksi awal: "buku aturan blog-blog ini hanya file ini". Saya juga menambahkan baris agar ia mencari di buku aturan dulu sebelum menanyakan aturan seperti ukuran foto kepada saya.</p>
+<p><img alt="Bagian &quot;kalau tidak berhasil&quot; pada papan mulai: gejala yang benar-benar saya alami, seperti ditanya blog yang mana atau bekerja dengan buku aturan kantor, beserta penyebab dan solusinya" src="/images/20261026-github-brain/05-안-될-때.webp" /></p>
+<p>Gejala yang benar-benar saya alami saya kumpulkan satu per satu di bagian "kalau tidak berhasil" pada papan mulai.</p>
+<h2>HTML papan mulai juga saya tinggalkan</h2>
+<p>Foto paling atas itulah papan mulainya. Setiap menambah akun baru atau PC baru saya selalu bingung, jadi saya buat HTML satu halaman.
+Isinya tujuh bagian: saat membuka chat, saat selesai, pertama kali di akun baru, pertama kali di PC baru, progres sekarang, kalau tidak berhasil, dan di mana semuanya berada.
+Awalnya setiap perintah hanya punya tombol "salin". Di versi publik, tombolnya saya hapus dan saya simpan ulang dengan semua perintah dan kalimat terbuka penuh.</p>
+<p><a href="https://kelvin-kangpd.github.io/files/ai-brain/start-board.html">Buka versi publik papan mulai</a></p>
+<p>Isinya sesuai keadaan siang hari 25 Oktober. Setelah itu berubah sekali lagi menjadi "tidak menyimpan ke folder PC, hanya memakai GitHub", jadi jalur folder PC dan perintah push PowerShell di papan itu sekarang hampir tidak saya pakai. Beberapa sebutan terkait kantor saya ganti dengan istilah umum.</p>
+<p><img alt="Daftar file repositori publik Kang PD Log, dengan kelvin-KangPD dan claude sama-sama tercatat sebagai penulis commit" src="/images/20261026-github-brain/06-공개-저장소-강PD로그.webp" /></p>
+<p>Inilah repositori publik tempat hasil menumpuk. Di riwayat commit, nama saya dan claude tercatat bersama. Dari jendela mana pun pekerjaannya, hasilnya berkumpul di sini.</p>
+<p>Tulisan ini juga dibuat dengan struktur itu. Hari ini saya hanya bilang "ayo tulis blog" di jendela chat baru.
+Jendela itu membaca skill pintu masuk, mengambil repositori dari GitHub, membaca log kerja, dan melaporkan tugas berikutnya dalam satu baris. Ia tidak bertanya blog yang mana.
+Saat pertama mengambil repositori, sempat tersendat sekali karena tidak ada autentikasi, lalu diambil ulang dengan cara menambahkan repositori ke sesi. Hambatan kecil seperti ini masih tersisa.</p>
+<p>Yang tersisa adalah pemantauan otomatis. Sekarang saya masih harus membuka jendela dan mengucapkan satu kalimat.
+Setelah rancangannya selesai semua, baru saya coba pasang di bagian paling akhir.</p></div><aside class="series-box"><a class="series-name" href="/id/series/ai-orchestration/">Seri · Membangun orkestrasi AI</a><ol><li class="now"><span>Bagian 1</span>Capek menjelaskan ulang di setiap chat Claude, saya membuat otak AI di GitHub</li></ol></aside></article><nav class="pager"><a href="/id/posts/kakao-chat-to-checklist/"><span>Tulisan sebelumnya</span>Membuat daftar periksa persiapan pernikahan dari ekspor chat KakaoTalk, saya serahkan ke Claude</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id" class=on>Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, pembuat konten dari Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>
