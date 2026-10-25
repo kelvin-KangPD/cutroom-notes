@@ -120,6 +120,11 @@ So I decided to keep the memory outside Claude, not inside it.</p>
 <td>Stopped saving to PC folders too. The only workspace is GitHub</td>
 <td>The current structure</td>
 </tr>
+<tr>
+<td>10/26</td>
+<td>Cut the entrance skill down to three lines and moved every rule into the repository</td>
+<td>Entrance v2</td>
+</tr>
 </tbody>
 </table>
 <p>I had high hopes for the Gemini API. Handing it jobs like translation, separate from Claude's limits, seemed like a good idea.
@@ -159,7 +164,7 @@ In the end I gave up on automatic watching. If I do it at all, I'll add it last,
 </tbody>
 </table>
 <p>I don't write rules in the entrance. If I did, each account would end up with a different version, and every fix would mean editing three places.
-All the entrance does is say "go to the repository and read in this order". I gave the entrance a version number (v1), and if it doesn't match the number in the repository's start instructions, the window says in one line "please update the entrance".</p>
+All the entrance does is say "go to the repository and read in this order". I gave the entrance a version number (v1), and if it doesn't match the number in the repository's start instructions, the window says in one line "please update the entrance". It started as v1 and became v2 a day later, for the reasons below.</p>
 <p><img alt="The &quot;first time on a new account&quot; section of the start board, expanded to show how to register the blog-connect entrance skill by pasting its full text" src="/images/20261026-github-brain/03-새-계정-입구-스킬.webp" /></p>
 <p>When adding a new account, I just follow this section. If the window can't read the repository, I paste in the whole skill text and register it.</p>
 <p><img alt="File list of the private repository blog-notes: skill, plan, Naver and received-photos folders, plus CLAUDE.md and the work log" src="/images/20261026-github-brain/04-비공개-저장소-blog-notes.webp" /></p>
@@ -207,12 +212,75 @@ So I nailed it down in the start instructions: "the rulebook for these blogs is 
 It has seven sections: opening a chat, finishing, first time on a new account, first time on a new PC, current progress, when it doesn't work, and where everything lives.
 Originally each command only had a "copy" button. In the public version I removed the buttons and saved it again with every command and phrase fully expanded.</p>
 <p><a href="https://kelvin-kangpd.github.io/files/ai-brain/start-board.html">Open the public version of the start board</a></p>
-<p>It reflects the state as of midday on October 25. After that it changed once more to "don't save to PC folders, use only GitHub", so I barely use the PC folder paths or the PowerShell push command on the board anymore. A few work-related mentions were replaced with general wording.</p>
+<p>It reflects the state as of midday on October 25. After that it changed once more to "don't save to PC folders, use only GitHub", so I barely use the PC folder paths or the PowerShell push command on the board anymore. A few work-related mentions were replaced with general wording. The entrance skill also changed to v2 a day later, so the skill text inside the start board is still v1.</p>
 <p><img alt="File list of the public Kang PD Log repository, with kelvin-KangPD and claude both listed as commit authors" src="/images/20261026-github-brain/06-공개-저장소-강PD로그.webp" /></p>
 <p>This is the public repository where the outputs pile up. Both claude and I show up in the commit history. Whatever window did the work, the results end up here.</p>
 <p>This post was written with that structure too. Today I just said "let's write a blog post" in a new chat window.
 The window read the entrance skill, pulled the repository from GitHub, read the work log, and reported the next task in one line. It didn't ask which blog.
 The first time it tried to pull the repository it got stuck once because there was no authentication, and it pulled it again by adding the repository to the session. Small snags like that are still left.</p>
+<h2>Cutting the entrance down once more, a day later</h2>
+<p>On the evening I made the start board, I reworked the structure again. Accidents kept happening.</p>
+<p>One window, while running on my home PC, told me "this is a cloud window, so you'll have to continue the Naver work on your home PC."
+The PC connection had dropped and come back in the middle of the chat, and it decided without checking.
+When I pointed that out, it built a procedure to tell my home PC from my work PC and took access to my D drive.
+That was the opposite of what I wanted. <strong>Nothing should be saved on any PC, so the work can continue from another PC or my phone.</strong></p>
+<p>So I nailed down three things.</p>
+<table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workspace</td>
+<td>GitHub only. The window pulls the repository, works in it and pushes from there. It never opens or writes to a PC folder</td>
+</tr>
+<tr>
+<td>Naver</td>
+<td>If the window can't touch Naver, it doesn't stop. It adds one line to a queue md file, and a window with Playwright attached clears the queue in one go</td>
+</tr>
+<tr>
+<td>Other accounts</td>
+<td>As long as GitHub is connected, any account does the same job</td>
+</tr>
+</tbody>
+</table>
+<p>Applying that meant editing the entrance skill three times in one day. Each time I had to press "save skill" again in the account.
+I had said no rules go in the entrance, yet the actual v1 skill held the order for opening the repository, the reading order, even what to do at the end.
+So whenever a rule changed, I'd have had to go round all three accounts. When I asked why it wasn't built this way from the start, it said it had copied the skill made in an earlier window as it was and didn't see rules written in two places as a problem.</p>
+<p>Entrance v2 asks for only three things.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Entrance v2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Pull blog-notes from GitHub. Don't open PC folders</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Read the repository's CLAUDE.md and follow it. If it differs from the skill or memory, the repository wins</td>
+</tr>
+<tr>
+<td>3</td>
+<td>If there's no way to pull it, say so in one line and stop. Don't work from memory or guesses</td>
+</tr>
+</tbody>
+</table>
+<p>Every other rule moved into CLAUDE.md. Now changing a rule doesn't touch the accounts at all.</p>
+<p>There was one more accident. A new window asked to redo three Naver posts I had already cleaned up and published.
+I'd published them but never updated the status value in the draft files or the queue. I added a line: when you publish on Naver, fix both on the spot.</p>
+<p>Then I tested again in a new window. What I sent was two lines: "let's write a new blog post, this chat starts on the home PC."</p>
+<p><img alt="In a new chat window, after &quot;let's write a new blog post&quot;, it pulls the repository, finishes preparing, and reports the received-photos folder, the Naver queue and next post candidates in a table" src="/images/20261026-github-brain/07-새-창-시험.webp" /></p>
+<p>The window pulled the repository, finished preparing, and told me the received-photos folder was empty and no Naver drafts were waiting.
+It showed the "posts to write next" candidates from the work log in a table, and said it would handle the leftover translation fix along the way.
+It didn't ask which blog, and it didn't ask me to open a PC folder.</p>
 <p>What's left is automatic watching. Right now I still have to open a window and say one line.
 Once the design is fully done, I plan to add it at the very end.</p></div><aside class="series-box"><a class="series-name" href="/en/series/ai-orchestration/">Series · Building an AI orchestration</a><ol><li class="now"><span>Part 1</span>Tired of re-explaining every new Claude chat, I built an AI brain on GitHub</li></ol></aside></article><nav class="pager"><a href="/en/posts/kakao-chat-to-checklist/"><span>Previous post</span>Making a wedding-prep checklist by exporting our KakaoTalk chat and handing it to Claude</a><span></span></nav>
 </main>

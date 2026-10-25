@@ -52,6 +52,7 @@ Saya tidak langsung sampai di struktur yang sekarang. Percobaan yang gagal justr
 | 10/24 | Melepas semuanya dan merangkum jadi satu skill yang menjalankan prosedur tetap sampai selesai dari satu perintah: "ayo tulis blog" | Titik awal cara yang sekarang |
 | 10/25 | Struktur bersama untuk tiga akun dan beberapa PC. Aslinya hanya satu repositori, akun dan PC hanya menyimpan pintu masuk | Papan mulai di atas lahir di sini |
 | 10/25 | Berhenti menyimpan ke folder PC juga. Ruang kerjanya hanya GitHub | Struktur sekarang |
+| 10/26 | Skill pintu masuk dipangkas jadi tiga baris, semua aturan dipindah ke repositori | Pintu masuk v2 |
 
 Saya cukup berharap pada Gemini API. Rasanya bagus kalau pekerjaan seperti terjemahan bisa diserahkan tanpa terikat batas Claude.
 Tapi ternyata saya harus meyakinkan Gemini dan Claude sekaligus. Kalau salah satu saja meleset, beban kerjanya jadi dua kali lipat.
@@ -75,7 +76,7 @@ Diagram ini saya gambar sendiri. Kuncinya, hampir tidak ada yang disimpan di aku
 | Hasil | Tulisan, terjemahan, foto | Dua repositori publik (Kang PD Log, Cutroom Notes) |
 
 Saya tidak menulis aturan di pintu masuk. Kalau ditulis, versinya akan berbeda di tiap akun, dan setiap perbaikan berarti harus mengedit tiga tempat.
-Tugas pintu masuk hanya "pergi ke repositori dan baca dengan urutan ini". Saya memberi nomor versi (v1) pada pintu masuk, dan kalau tidak cocok dengan nomor di instruksi awal repositori, jendela akan bilang satu baris "tolong perbarui pintu masuknya".
+Tugas pintu masuk hanya "pergi ke repositori dan baca dengan urutan ini". Saya memberi nomor versi (v1) pada pintu masuk, dan kalau tidak cocok dengan nomor di instruksi awal repositori, jendela akan bilang satu baris "tolong perbarui pintu masuknya". Awalnya v1, lalu sehari kemudian jadi v2 karena alasan yang saya tulis di bawah.
 
 ![Bagian "pertama kali di akun baru" pada papan mulai, terbuka menampilkan cara mendaftarkan skill pintu masuk blog-connect dengan menempelkan teks lengkapnya](/images/20261026-github-brain/03-새-계정-입구-스킬.webp)
 
@@ -111,7 +112,7 @@ Awalnya setiap perintah hanya punya tombol "salin". Di versi publik, tombolnya s
 
 [Buka versi publik papan mulai](https://kelvin-kangpd.github.io/files/ai-brain/start-board.html)
 
-Isinya sesuai keadaan siang hari 25 Oktober. Setelah itu berubah sekali lagi menjadi "tidak menyimpan ke folder PC, hanya memakai GitHub", jadi jalur folder PC dan perintah push PowerShell di papan itu sekarang hampir tidak saya pakai. Beberapa sebutan terkait kantor saya ganti dengan istilah umum.
+Isinya sesuai keadaan siang hari 25 Oktober. Setelah itu berubah sekali lagi menjadi "tidak menyimpan ke folder PC, hanya memakai GitHub", jadi jalur folder PC dan perintah push PowerShell di papan itu sekarang hampir tidak saya pakai. Beberapa sebutan terkait kantor saya ganti dengan istilah umum. Skill pintu masuk juga berubah ke v2 sehari kemudian, jadi teks skill di papan mulai itu masih v1.
 
 ![Daftar file repositori publik Kang PD Log, dengan kelvin-KangPD dan claude sama-sama tercatat sebagai penulis commit](/images/20261026-github-brain/06-공개-저장소-강PD로그.webp)
 
@@ -120,6 +121,48 @@ Inilah repositori publik tempat hasil menumpuk. Di riwayat commit, nama saya dan
 Tulisan ini juga dibuat dengan struktur itu. Hari ini saya hanya bilang "ayo tulis blog" di jendela chat baru.
 Jendela itu membaca skill pintu masuk, mengambil repositori dari GitHub, membaca log kerja, dan melaporkan tugas berikutnya dalam satu baris. Ia tidak bertanya blog yang mana.
 Saat pertama mengambil repositori, sempat tersendat sekali karena tidak ada autentikasi, lalu diambil ulang dengan cara menambahkan repositori ke sesi. Hambatan kecil seperti ini masih tersisa.
+
+## Sehari kemudian, pintu masuk dipangkas sekali lagi
+
+Pada malam hari saya membuat papan mulai, strukturnya saya ubah lagi. Masalah datang beruntun.
+
+Satu jendela, padahal sedang berjalan di PC rumah, bilang "ini jendela cloud, jadi pekerjaan Naver harus dilanjutkan di PC rumah."
+Di tengah percakapan sambungan ke PC sempat putus lalu tersambung lagi, dan ia memutuskan tanpa memeriksanya.
+Setelah saya tegur, ia malah membuat prosedur untuk membedakan PC rumah dan PC kantor, lalu mengambil akses ke drive D.
+Yang saya mau justru kebalikannya. **Tidak boleh ada yang disimpan di PC mana pun, supaya pekerjaan bisa dilanjutkan dari PC lain atau ponsel.**
+
+Jadi saya tetapkan tiga hal.
+
+| Prinsip | Isi |
+|---|---|
+| Ruang kerja | Hanya GitHub. Jendela mengambil repositori, bekerja di sana, dan langsung push dari sana. Folder PC tidak dibuka dan tidak ditulisi |
+| Naver | Kalau jendela tidak bisa menyentuh Naver, ia tidak berhenti. Ia menambah satu baris ke file antrean md, lalu jendela yang tersambung ke Playwright menyelesaikan antrean itu sekaligus |
+| Akun lain | Selama GitHub tersambung, akun mana pun mengerjakan hal yang sama |
+
+Untuk menerapkannya, skill pintu masuk saya ubah tiga kali dalam sehari. Setiap kali saya harus menekan "simpan skill" lagi di akun.
+Saya sudah bilang aturan tidak ditulis di pintu masuk, tapi skill v1 yang sebenarnya berisi urutan membuka repositori, urutan membaca, sampai apa yang dilakukan di akhir.
+Artinya setiap ada aturan yang berubah, saya harus mengurus ketiga akun. Waktu saya tanya kenapa tidak begini dari awal, jawabannya ia menyalin skill buatan jendela sebelumnya apa adanya dan tidak melihat aturan yang tertulis di dua tempat sebagai masalah.
+
+Pintu masuk v2 hanya meminta tiga hal.
+
+| Urutan | Pintu masuk v2 |
+|---|---|
+| 1 | Ambil blog-notes dari GitHub. Jangan buka folder PC |
+| 2 | Baca CLAUDE.md di repositori dan ikuti. Kalau berbeda dengan skill atau memori, repositori yang dipakai |
+| 3 | Kalau tidak ada cara mengambilnya, sampaikan dalam satu baris lalu berhenti. Jangan bekerja dari ingatan atau tebakan |
+
+Semua aturan lainnya pindah ke CLAUDE.md. Sekarang mengubah aturan sama sekali tidak menyentuh akun.
+
+Ada satu masalah lagi. Jendela baru mengajak mengerjakan ulang tiga tulisan Naver yang sudah saya rapikan dan terbitkan.
+Tulisannya sudah terbit, tapi nilai status di file draf dan antreannya tidak saya ubah. Saya tambahkan satu baris: kalau menerbitkan di Naver, ubah keduanya saat itu juga.
+
+Lalu saya uji lagi di jendela baru. Yang saya kirim hanya dua baris: "ayo tulis blog baru, percakapan ini mulai di PC rumah."
+
+![Di jendela chat baru, setelah "ayo tulis blog baru", ia mengambil repositori, menyelesaikan persiapan, lalu melaporkan folder foto masuk, antrean Naver, dan kandidat tulisan berikutnya dalam tabel](/images/20261026-github-brain/07-새-창-시험.webp)
+
+Jendela itu mengambil repositori, menyelesaikan persiapan, lalu memberi tahu bahwa folder foto masuk kosong dan tidak ada draf Naver yang menunggu.
+Ia menampilkan kandidat "tulisan berikutnya" dari log kerja dalam tabel, dan bilang sisa perbaikan terjemahan akan dikerjakan sekalian.
+Ia tidak bertanya blog yang mana, dan tidak meminta saya membuka folder PC.
 
 Yang tersisa adalah pemantauan otomatis. Sekarang saya masih harus membuka jendela dan mengucapkan satu kalimat.
 Setelah rancangannya selesai semua, baru saya coba pasang di bagian paling akhir.

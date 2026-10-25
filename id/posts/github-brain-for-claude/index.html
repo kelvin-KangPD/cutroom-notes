@@ -120,6 +120,11 @@ Jadi saya putuskan menyimpan ingatan itu di luar Claude, bukan di dalamnya.</p>
 <td>Berhenti menyimpan ke folder PC juga. Ruang kerjanya hanya GitHub</td>
 <td>Struktur sekarang</td>
 </tr>
+<tr>
+<td>10/26</td>
+<td>Skill pintu masuk dipangkas jadi tiga baris, semua aturan dipindah ke repositori</td>
+<td>Pintu masuk v2</td>
+</tr>
 </tbody>
 </table>
 <p>Saya cukup berharap pada Gemini API. Rasanya bagus kalau pekerjaan seperti terjemahan bisa diserahkan tanpa terikat batas Claude.
@@ -159,7 +164,7 @@ Akhirnya pemantauan otomatis saya tutup sebagai kegagalan. Kalaupun dibuat, akan
 </tbody>
 </table>
 <p>Saya tidak menulis aturan di pintu masuk. Kalau ditulis, versinya akan berbeda di tiap akun, dan setiap perbaikan berarti harus mengedit tiga tempat.
-Tugas pintu masuk hanya "pergi ke repositori dan baca dengan urutan ini". Saya memberi nomor versi (v1) pada pintu masuk, dan kalau tidak cocok dengan nomor di instruksi awal repositori, jendela akan bilang satu baris "tolong perbarui pintu masuknya".</p>
+Tugas pintu masuk hanya "pergi ke repositori dan baca dengan urutan ini". Saya memberi nomor versi (v1) pada pintu masuk, dan kalau tidak cocok dengan nomor di instruksi awal repositori, jendela akan bilang satu baris "tolong perbarui pintu masuknya". Awalnya v1, lalu sehari kemudian jadi v2 karena alasan yang saya tulis di bawah.</p>
 <p><img alt="Bagian &quot;pertama kali di akun baru&quot; pada papan mulai, terbuka menampilkan cara mendaftarkan skill pintu masuk blog-connect dengan menempelkan teks lengkapnya" src="/images/20261026-github-brain/03-새-계정-입구-스킬.webp" /></p>
 <p>Saat menambah akun baru, cukup ikuti bagian ini. Kalau jendelanya tidak bisa membaca repositori, saya tempelkan seluruh teks skill lalu mendaftarkannya.</p>
 <p><img alt="Daftar file repositori privat blog-notes: folder skill, rencana, Naver, foto masuk, serta CLAUDE.md dan log kerja" src="/images/20261026-github-brain/04-비공개-저장소-blog-notes.webp" /></p>
@@ -207,12 +212,75 @@ Maka saya tegaskan di instruksi awal: "buku aturan blog-blog ini hanya file ini"
 Isinya tujuh bagian: saat membuka chat, saat selesai, pertama kali di akun baru, pertama kali di PC baru, progres sekarang, kalau tidak berhasil, dan di mana semuanya berada.
 Awalnya setiap perintah hanya punya tombol "salin". Di versi publik, tombolnya saya hapus dan saya simpan ulang dengan semua perintah dan kalimat terbuka penuh.</p>
 <p><a href="https://kelvin-kangpd.github.io/files/ai-brain/start-board.html">Buka versi publik papan mulai</a></p>
-<p>Isinya sesuai keadaan siang hari 25 Oktober. Setelah itu berubah sekali lagi menjadi "tidak menyimpan ke folder PC, hanya memakai GitHub", jadi jalur folder PC dan perintah push PowerShell di papan itu sekarang hampir tidak saya pakai. Beberapa sebutan terkait kantor saya ganti dengan istilah umum.</p>
+<p>Isinya sesuai keadaan siang hari 25 Oktober. Setelah itu berubah sekali lagi menjadi "tidak menyimpan ke folder PC, hanya memakai GitHub", jadi jalur folder PC dan perintah push PowerShell di papan itu sekarang hampir tidak saya pakai. Beberapa sebutan terkait kantor saya ganti dengan istilah umum. Skill pintu masuk juga berubah ke v2 sehari kemudian, jadi teks skill di papan mulai itu masih v1.</p>
 <p><img alt="Daftar file repositori publik Kang PD Log, dengan kelvin-KangPD dan claude sama-sama tercatat sebagai penulis commit" src="/images/20261026-github-brain/06-공개-저장소-강PD로그.webp" /></p>
 <p>Inilah repositori publik tempat hasil menumpuk. Di riwayat commit, nama saya dan claude tercatat bersama. Dari jendela mana pun pekerjaannya, hasilnya berkumpul di sini.</p>
 <p>Tulisan ini juga dibuat dengan struktur itu. Hari ini saya hanya bilang "ayo tulis blog" di jendela chat baru.
 Jendela itu membaca skill pintu masuk, mengambil repositori dari GitHub, membaca log kerja, dan melaporkan tugas berikutnya dalam satu baris. Ia tidak bertanya blog yang mana.
 Saat pertama mengambil repositori, sempat tersendat sekali karena tidak ada autentikasi, lalu diambil ulang dengan cara menambahkan repositori ke sesi. Hambatan kecil seperti ini masih tersisa.</p>
+<h2>Sehari kemudian, pintu masuk dipangkas sekali lagi</h2>
+<p>Pada malam hari saya membuat papan mulai, strukturnya saya ubah lagi. Masalah datang beruntun.</p>
+<p>Satu jendela, padahal sedang berjalan di PC rumah, bilang "ini jendela cloud, jadi pekerjaan Naver harus dilanjutkan di PC rumah."
+Di tengah percakapan sambungan ke PC sempat putus lalu tersambung lagi, dan ia memutuskan tanpa memeriksanya.
+Setelah saya tegur, ia malah membuat prosedur untuk membedakan PC rumah dan PC kantor, lalu mengambil akses ke drive D.
+Yang saya mau justru kebalikannya. <strong>Tidak boleh ada yang disimpan di PC mana pun, supaya pekerjaan bisa dilanjutkan dari PC lain atau ponsel.</strong></p>
+<p>Jadi saya tetapkan tiga hal.</p>
+<table>
+<thead>
+<tr>
+<th>Prinsip</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ruang kerja</td>
+<td>Hanya GitHub. Jendela mengambil repositori, bekerja di sana, dan langsung push dari sana. Folder PC tidak dibuka dan tidak ditulisi</td>
+</tr>
+<tr>
+<td>Naver</td>
+<td>Kalau jendela tidak bisa menyentuh Naver, ia tidak berhenti. Ia menambah satu baris ke file antrean md, lalu jendela yang tersambung ke Playwright menyelesaikan antrean itu sekaligus</td>
+</tr>
+<tr>
+<td>Akun lain</td>
+<td>Selama GitHub tersambung, akun mana pun mengerjakan hal yang sama</td>
+</tr>
+</tbody>
+</table>
+<p>Untuk menerapkannya, skill pintu masuk saya ubah tiga kali dalam sehari. Setiap kali saya harus menekan "simpan skill" lagi di akun.
+Saya sudah bilang aturan tidak ditulis di pintu masuk, tapi skill v1 yang sebenarnya berisi urutan membuka repositori, urutan membaca, sampai apa yang dilakukan di akhir.
+Artinya setiap ada aturan yang berubah, saya harus mengurus ketiga akun. Waktu saya tanya kenapa tidak begini dari awal, jawabannya ia menyalin skill buatan jendela sebelumnya apa adanya dan tidak melihat aturan yang tertulis di dua tempat sebagai masalah.</p>
+<p>Pintu masuk v2 hanya meminta tiga hal.</p>
+<table>
+<thead>
+<tr>
+<th>Urutan</th>
+<th>Pintu masuk v2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ambil blog-notes dari GitHub. Jangan buka folder PC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Baca CLAUDE.md di repositori dan ikuti. Kalau berbeda dengan skill atau memori, repositori yang dipakai</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Kalau tidak ada cara mengambilnya, sampaikan dalam satu baris lalu berhenti. Jangan bekerja dari ingatan atau tebakan</td>
+</tr>
+</tbody>
+</table>
+<p>Semua aturan lainnya pindah ke CLAUDE.md. Sekarang mengubah aturan sama sekali tidak menyentuh akun.</p>
+<p>Ada satu masalah lagi. Jendela baru mengajak mengerjakan ulang tiga tulisan Naver yang sudah saya rapikan dan terbitkan.
+Tulisannya sudah terbit, tapi nilai status di file draf dan antreannya tidak saya ubah. Saya tambahkan satu baris: kalau menerbitkan di Naver, ubah keduanya saat itu juga.</p>
+<p>Lalu saya uji lagi di jendela baru. Yang saya kirim hanya dua baris: "ayo tulis blog baru, percakapan ini mulai di PC rumah."</p>
+<p><img alt="Di jendela chat baru, setelah &quot;ayo tulis blog baru&quot;, ia mengambil repositori, menyelesaikan persiapan, lalu melaporkan folder foto masuk, antrean Naver, dan kandidat tulisan berikutnya dalam tabel" src="/images/20261026-github-brain/07-새-창-시험.webp" /></p>
+<p>Jendela itu mengambil repositori, menyelesaikan persiapan, lalu memberi tahu bahwa folder foto masuk kosong dan tidak ada draf Naver yang menunggu.
+Ia menampilkan kandidat "tulisan berikutnya" dari log kerja dalam tabel, dan bilang sisa perbaikan terjemahan akan dikerjakan sekalian.
+Ia tidak bertanya blog yang mana, dan tidak meminta saya membuka folder PC.</p>
 <p>Yang tersisa adalah pemantauan otomatis. Sekarang saya masih harus membuka jendela dan mengucapkan satu kalimat.
 Setelah rancangannya selesai semua, baru saya coba pasang di bagian paling akhir.</p></div><aside class="series-box"><a class="series-name" href="/id/series/ai-orchestration/">Seri · Membangun orkestrasi AI</a><ol><li class="now"><span>Bagian 1</span>Capek menjelaskan ulang di setiap chat Claude, saya membuat otak AI di GitHub</li></ol></aside></article><nav class="pager"><a href="/id/posts/kakao-chat-to-checklist/"><span>Tulisan sebelumnya</span>Membuat daftar periksa persiapan pernikahan dari ekspor chat KakaoTalk, saya serahkan ke Claude</a><span></span></nav>
 </main>
