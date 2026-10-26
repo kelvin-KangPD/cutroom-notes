@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>อยากเป็นรีวิวเวอร์ Coupang แต่รีวิวค้างเป็นสิบๆ ลองทำแบบนี้ · Cutroom Notes</title>
+<meta name="description" content="ผมให้แค่คีย์เวิร์ดสำหรับรีวิว Coupang 20 ชิ้น Claude คุมงาน Gemini เขียนเนื้อหา แล้ว Claude ลงให้ นี่คือความล้มเหลวและลำดับที่ใช้ได้ในที่สุด">
+<meta property="og:title" content="อยากเป็นรีวิวเวอร์ Coupang แต่รีวิวค้างเป็นสิบๆ ลองทำแบบนี้ · Cutroom Notes">
+<meta property="og:description" content="ผมให้แค่คีย์เวิร์ดสำหรับรีวิว Coupang 20 ชิ้น Claude คุมงาน Gemini เขียนเนื้อหา แล้ว Claude ลงให้ นี่คือความล้มเหลวและลำดับที่ใช้ได้ในที่สุด">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/coupang-review-gemini-orchestration/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/coupang-review-gemini-orchestration/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/coupang-review-gemini-orchestration/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/coupang-review-gemini-orchestration/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/coupang-review-gemini-orchestration/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261026-coupang-gemini-reviews/01-제미나이-작성-화면.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/th/posts/coupang-review-gemini-orchestration/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/th/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/th/">Cutroom Notes</a>
+    <nav class="top"><a href="/th/">ทั้งหมด</a><a href="/th/series/">ซีรีส์</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-26">26 ตุลาคม 2026</time><h1>อยากเป็นรีวิวเวอร์ Coupang แต่รีวิวค้างเป็นสิบๆ ลองทำแบบนี้</h1><p class="tr-line">อ่านในภาษาอื่น: <a href="/en/posts/coupang-review-gemini-orchestration/" lang="en">English</a> · <a href="/id/posts/coupang-review-gemini-orchestration/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/coupang-review-gemini-orchestration/" lang="hi">हिन्दी</a> · <a href="/ar/posts/coupang-review-gemini-orchestration/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/th/series/ai-orchestration/">ซีรีส์ · สร้างออร์เคสเตรชัน AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/github-brain-for-claude/">เหนื่อยกับการอธิบายใหม่ทุกแชต Claude เลยสร้างสมองของ AI ไว้บน GitHub</a></li><li class="now"><span>ตอนที่ 2</span>อยากเป็นรีวิวเวอร์ Coupang แต่รีวิวค้างเป็นสิบๆ ลองทำแบบนี้</li></ol></aside><div class="prose"><p>ผมให้แค่คีย์เวิร์ดสำหรับรีวิว Coupang 20 ชิ้น <strong>Gemini เป็นคนเขียน แล้ว Claude เป็นคนลงให้</strong></p>
+<p>ผมอยากลองโปรแกรมรีวิวเวอร์ของ Coupang แต่ในบัญชีมีรีวิวที่ยังไม่ได้เขียนค้างอยู่เป็นกอง Coupang ไม่มีการบันทึกร่าง พอเปิดรีวิวแล้วต้องเขียนให้จบตรงนั้นเลย ผมเลยเลื่อนไปเรื่อยๆ</p>
+<p>ขอบอกก่อนว่าโปรแกรมรีวิวเวอร์ของ Coupang ไม่มีที่ให้สมัคร เท่าที่ผมหาดู Coupang จะเชิญคนที่เขียนรีวิวสม่ำเสมอ และไม่มีปุ่มสมัครให้เห็น ผมจึงตัดสินใจสะสมประวัติรีวิวไว้ก่อน</p>
+<p><img alt="Gemini เขียนรีวิวตามหมายเลข มีหัวข้อ สรุปสามบรรทัด เหตุผลที่ซื้อ ผลการใช้ และข้อสรุป" src="/images/20261026-coupang-gemini-reviews/01-제미나이-작성-화면.webp" /></p>
+<h2>แบ่งบทบาทกัน</h2>
+<p>Gemini เขียนรีวิวเก่ง ส่วน Claude คลิกหน้าเว็บเพื่อลงรีวิว ผมแบ่งแบบนี้เพื่อประหยัดโทเค็น</p>
+<table>
+<thead>
+<tr>
+<th>บทบาท</th>
+<th>งาน</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ผม</td>
+<td>โยนคีย์เวิร์ดของสินค้าแต่ละชิ้น: ซื้อเพราะอะไรและรู้สึกอย่างไร</td>
+</tr>
+<tr>
+<td>Claude</td>
+<td>จัดคีย์เวิร์ดแล้วส่งให้ Gemini จากนั้นลงและแก้ผลลัพธ์บน Coupang</td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td>ขยายคีย์เวิร์ดให้เป็นรีวิวเต็ม</td>
+</tr>
+</tbody>
+</table>
+<p>ผมใช้แชต Gemini ปกติกับโมเดล Flash ไม่ใช่ AI Studio ถ้าเชื่อมบัญชี Google ไว้ในเบราว์เซอร์ Whale Claude จะสั่งงานหน้าต่างนั้นได้โดยตรง</p>
+<h2>ตอนแรกสั้นเกินไปและไม่มีการขึ้นบรรทัด</h2>
+<p>รีวิวชุดแรกที่ลงเป็นข้อความก้อนเดียว ไม่แบ่งย่อหน้าและไม่ยาวเท่าไร พอเปิดในมือถือก็เหมือนกำแพง</p>
+<p><img alt="รีวิวชุดแรกที่เปิดในมือถือ เป็นข้อความก้อนเดียวไม่มีการแบ่งย่อหน้า" src="/images/20261026-coupang-gemini-reviews/02-처음-줄바꿈-없는-후기.webp" /></p>
+<p>รีวิวดีๆ ของคนอื่นมีจุดร่วมกัน คือแบ่งเป็นเหตุผลที่ซื้อ ความรู้สึกที่ใช้ และข้อสรุป พร้อมบรรทัดสรุปด้านบน ผมสั่งให้ Gemini ใช้รูปแบบนั้นเป๊ะๆ</p>
+<table>
+<thead>
+<tr>
+<th>ส่วน</th>
+<th>เนื้อหา</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>หัวข้อ</td>
+<td>หนึ่งบรรทัดสำหรับทั้งรีวิว</td>
+</tr>
+<tr>
+<td>สรุป 3 บรรทัด</td>
+<td>ประโยคสั้นที่ขึ้นต้นด้วยเครื่องหมายถูก</td>
+</tr>
+<tr>
+<td>เหตุผลที่ซื้อ</td>
+<td>ทำไมถึงซื้อ</td>
+</tr>
+<tr>
+<td>ผลการใช้</td>
+<td>สองย่อหน้า</td>
+</tr>
+<tr>
+<td>ข้อสรุป</td>
+<td>แนะนำให้ใคร</td>
+</tr>
+</tbody>
+</table>
+<h2>สิ่งที่เจอตอนใช้ Gemini</h2>
+<p>ไม่ได้ผลในครั้งเดียว นี่คือเรียงตามที่เจอ</p>
+<table>
+<thead>
+<tr>
+<th>ปัญหา</th>
+<th>วิธีแก้</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ขอเป็น JSON แล้วขาดกลางทางและบรรทัดหาย</td>
+<td>เปลี่ยนเป็นข้อความธรรมดาที่มีตัวคั่นเป็นเลข</td>
+</tr>
+<tr>
+<td>ขอ 500 ตัวอักษรได้ราว 380 ถึง 430</td>
+<td>Gemini นับน้อยไป ขอ 580 ถึง 750 แล้วได้ราว 500</td>
+</tr>
+<tr>
+<td>บางครั้งปฏิเสธว่า "ช่วยไม่ได้"</td>
+<td>ส่งคำขอเดิมอีกครั้งด้วยถ้อยคำที่ต่างออกไป</td>
+</tr>
+<tr>
+<td>แทรกความถี่อย่าง "ทุกวัน" ที่ผมไม่เคยพูด</td>
+<td>ค้นคำเหล่านั้นแล้วลบก่อนลง</td>
+</tr>
+</tbody>
+</table>
+<p>บรรทัดสุดท้ายสำคัญที่สุด ผมสั่งให้ขยายความให้อ่านลื่น แต่ห้ามแต่งประสบการณ์ที่ผมไม่ได้เล่า มันจึงใช้ได้เฉพาะข้อเท็จจริงที่ผมให้ และสำหรับสินค้าที่ยังไม่ได้ใช้ ก็เขียนว่า "ยังไม่ได้ใช้" ตามจริง</p>
+<h2>Coupang ปฏิเสธการบันทึกอย่างเงียบๆ</h2>
+<p>ตอน Claude กดบันทึกในหน้าแก้ไขของ Coupang มักล้มเหลวโดยไม่มีข้อความผิดพลาดใดๆ สาเหตุคือแท็บ Coupang ไม่ได้อยู่ด้านหน้า พอไปแท็บ Gemini แล้วกลับมา Coupang ยังอยู่ด้านหลัง และในสภาพนั้นการบันทึกล้มเหลวเงียบๆ ผมให้ดึงแท็บมาด้านหน้าก่อนบันทึกทุกครั้ง แล้วตรวจที่หน้ารายการว่าข้อความเปลี่ยนจริงหรือไม่ ข้อความแสดงข้อผิดพลาดซ่อนอยู่ในหน้าเสมอ จึงเชื่อเป็นสัญญาณล้มเหลวไม่ได้</p>
+<p>เนื้อหาที่สั้นเกินไป ราว 60 ตัวอักษร ก็บันทึกไม่ได้เช่นกัน</p>
+<h2>ผลลัพธ์</h2>
+<p>ผมแก้รีวิว 20 ชิ้นเป็นรูปแบบใหม่และลงเรียบร้อย สิ่งที่ผมเขียนมีแค่คีย์เวิร์ด</p>
+<p><img alt="รายการรีวิวที่เขียนแล้วบน Coupang แต่ละชิ้นมีหัวข้อ สรุปสามบรรทัดที่มีเครื่องหมายถูก เหตุผลที่ซื้อ ผลการใช้ และข้อสรุป" src="/images/20261026-coupang-gemini-reviews/03-최종-후기-쿠팡.webp" /></p>
+<p>ยังเหลืองานอยู่ รูปภาพผมจะอัปโหลดเองทีหลัง และรีวิวของสินค้าที่ยังไม่ได้ใช้ ผมจะแก้หลังจากใช้แล้ว ผมดู Coupang Partners ด้วย แต่การสมัครต้องยืนยันตัวตนและต้องใส่ข้อความเปิดเผยค่าตอบแทน ผมจึงต้องสมัครเอง</p>
+<p>ผมคิดจะเก็บขั้นตอนนี้ไว้เป็นสกิล "เขียนรีวิว Coupang" เพื่อให้ครั้งหน้าแค่ให้คีย์เวิร์ดก็รันลำดับเดิมได้</p></div><aside class="series-box"><a class="series-name" href="/th/series/ai-orchestration/">ซีรีส์ · สร้างออร์เคสเตรชัน AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/github-brain-for-claude/">เหนื่อยกับการอธิบายใหม่ทุกแชต Claude เลยสร้างสมองของ AI ไว้บน GitHub</a></li><li class="now"><span>ตอนที่ 2</span>อยากเป็นรีวิวเวอร์ Coupang แต่รีวิวค้างเป็นสิบๆ ลองทำแบบนี้</li></ol></aside></article><nav class="pager"><a href="/th/posts/github-brain-for-claude/"><span>บทความก่อนหน้า</span>เหนื่อยกับการอธิบายใหม่ทุกแชต Claude เลยสร้างสมองของ AI ไว้บน GitHub</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th" class=on>ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin ครีเอเตอร์คอนเทนต์จากเกาหลี · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>
