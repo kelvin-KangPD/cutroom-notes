@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>صنع Claude أداة جديدة لم أطلبها، فتتبّعت طريقة تفكيره عبر السجلات · Cutroom Notes</title>
+<meta name="description" content="حين رأيت تحسينًا أجراه Claude دون أن أطلبه، شعرت أنه تطوّر من تلقاء نفسه. لكن بعد تتبّع السجلات إلى الوراء، تبيّن أنني من حدّد الاتجاه، وأن Claude سدّ الفجوة حيث اصطدم هذا الاتجاه بأداة قديمة.">
+<meta property="og:title" content="صنع Claude أداة جديدة لم أطلبها، فتتبّعت طريقة تفكيره عبر السجلات · Cutroom Notes">
+<meta property="og:description" content="حين رأيت تحسينًا أجراه Claude دون أن أطلبه، شعرت أنه تطوّر من تلقاء نفسه. لكن بعد تتبّع السجلات إلى الوراء، تبيّن أنني من حدّد الاتجاه، وأن Claude سدّ الفجوة حيث اصطدم هذا الاتجاه بأداة قديمة.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/unasked-fix/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/unasked-fix/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/unasked-fix/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/unasked-fix/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/unasked-fix/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261028-unasked-fix/01-입력기-커밋-여섯-판.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/ar/posts/unasked-fix/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/ar/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/ar/">Cutroom Notes</a>
+    <nav class="top"><a href="/ar/">الكل</a><a href="/ar/series/">سلسلة</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-28">28 أكتوبر 2026</time><h1>صنع Claude أداة جديدة لم أطلبها، فتتبّعت طريقة تفكيره عبر السجلات</h1><p class="tr-line">اقرأ أيضًا بلغة أخرى: <a href="/en/posts/unasked-fix/" lang="en">English</a> · <a href="/id/posts/unasked-fix/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/unasked-fix/" lang="hi">हिन्दी</a> · <a href="/th/posts/unasked-fix/" lang="th">ไทย</a></p></header><div class="prose"><p>حين رأيت تحسينًا أجراه Claude دون أن أطلبه، شعرت أنه تطوّر من تلقاء نفسه. لكن بعد تتبّع السجلات إلى الوراء، تبيّن أنني من حدّد الاتجاه، وأن Claude سدّ الفجوة حيث اصطدم هذا الاتجاه بأداة قديمة.</p>
+<h2>كل ما قلته: "انقلها إلى Naver"</h2>
+<p>في الساعات الأولى من صباح 28 أكتوبر، طلبت من Claude نقل الأجزاء من 1 إلى 4 من سلسلة فيديو زفافي إلى مدونتي على Naver. كل ما قلته كان "أنجز النقل إلى Naver".</p>
+<p>في نهاية التقرير الذي يقول إن أربع مسودات حُفظت، كان هناك سطر إضافي. أداة الإدخال القديمة كانت تحتاج إلى مجلد على حاسوبي وخادم محلي لتعمل، فصنع Claude أداة جديدة تقرأ المسودات والصور مباشرة من GitHub.</p>
+<p><img alt="شاشة سجل الإيداعات في GitHub: ستة إيداعات تبدأ بعبارة &quot;أداة إدخال Naver نسخة GitHub&quot; مرصوصة من الأعلى إلى الأسفل" src="/images/20261028-unasked-fix/01-입력기-커밋-여섯-판.webp" />
+<small>سجل إيداعات أداة الإدخال الجديدة. الأسفل هو النسخة الأولى، وكل إيداع فوقه يصلح شيئًا آخر كان عالقًا</small></p>
+<p><img alt="قائمة المسودات المحفوظة في مدونة Naver: الأجزاء من 1 إلى 4 من فيديو الزفاف محفوظة بين 1:11 و1:18 يوم 28 أكتوبر، ومنشور واحد بتاريخ 27 أكتوبر في الأسفل" src="/images/20261028-unasked-fix/02-네이버-임시저장-네-편.webp" />
+<small>بين 1:11 و1:18 فجرًا دخلت المنشورات الأربعة واحدًا تلو الآخر. منشور 27 أكتوبر في الأسفل هو النسخة القصيرة القديمة</small></p>
+<p><strong>لم أطلب ذلك قط.</strong> لذلك ظننت أن Claude طوّره من تلقاء نفسه. بدا وكأنه لاحظ وحده أن الطريقة القديمة مزعجة فصنع طريقة أفضل.</p>
+<p>ما أردت معرفته هو العملية نفسها. ما الذي رآه ناقصًا، وبأي ترتيب جرى ذلك الحكم؟ سألت Claude في نافذة المحادثة التالية.</p>
+<h2>أنا من حدّد الاتجاه</h2>
+<p>أول ما أشار إليه Claude هو أن نصف افتراضي لم يكن صحيحًا. بمطابقة الإيداعات مع سجل عملي، تبيّن أن قرار إخراج الحاسوب من مسار العمل اتخذته أنا قبل ثلاثة أيام.</p>
+<table>
+<thead>
+<tr>
+<th>التاريخ</th>
+<th>ما الذي تغيّر</th>
+<th>مَن</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25 أكتوبر</td>
+<td>مساحة العمل GitHub فقط، ومنع الحفظ أو السحب في مجلدات الحاسوب</td>
+<td>تعليماتي</td>
+</tr>
+<tr>
+<td>26 أكتوبر</td>
+<td>مهارة الحساب صارت مجرد إرشاد، والقواعد انتقلت إلى المستودع</td>
+<td>تعليماتي</td>
+</tr>
+<tr>
+<td>26 أكتوبر</td>
+<td>طريقة لإدراج الصور باللصق حين حُظر رفع الملفات</td>
+<td>وجدتها نافذة تعثّرت</td>
+</tr>
+<tr>
+<td>28 أكتوبر</td>
+<td>أداة إدخال Naver جديدة تقرأ المسودات والصور من GitHub</td>
+<td>Claude، دون طلب</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="شاشة مقارنة إيداع في GitHub: في مستند القواعد حُذف سطر &quot;تحديد الحاسوب والأذونات&quot; باللون الأحمر وأُضيف &quot;مساحة العمل GitHub فقط&quot; باللون الأخضر" src="/images/20261028-unasked-fix/03-10월25일-작업공간-규칙.webp" />
+<small>تعديل مستند القواعد في 25 أكتوبر. خرج سطر تحديد الحاسوب، ودخل "مساحة العمل GitHub فقط"</small></p>
+<p>المشكلة أن القواعد وحدها تغيّرت، بينما بقيت الأداة كما هي. القواعد تمنع فتح مجلدات الحاسوب، لكن أداة إدخال Naver ظلت تحتاج إلى صور في مجلد على الحاسوب وخادم محلي (المنفذ 8125) يعمل عليه.</p>
+<p>وفي هذه الأثناء، كانت كل نافذة تلتفّ على المشكلة يدويًا. في 26 أكتوبر رسمت إحداها الصورة المصغّرة داخل متصفح الحاسوب مباشرة، ولصقت الصور واحدة تلو الأخرى من عناوينها العامة.</p>
+<h2>ترتيب الحكم كما شرحه Claude</h2>
+<p>أمر واحد يجب توضيحه أولًا. نافذة المحادثة التي صنعت الأداة الجديدة أُغلقت، ولم تكتب سبب ما فعلته. وClaude في النافذة الحالية لا يستطيع النظر داخل ذلك الحكم أيضًا. لذلك تتبّعه إلى الوراء من الأفعال الباقية في سجل المحادثة ومن ترتيب الإيداعات.</p>
+<p>وصف Claude نقطة البداية بأنها <strong>تعارض</strong>، لا شعور بالنقص. كان النقل يتطلب استخدام أداة الإدخال، واستخدامها يعني خرق القواعد. وقال إن أمامه ثلاثة طرق في تلك اللحظة.</p>
+<table>
+<thead>
+<tr>
+<th>الطريق</th>
+<th>النتيجة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>التوقف والسؤال</td>
+<td>يتوقف العمل في منتصف الليل بانتظار الرد. والقواعد أيضًا تقول لا تتوقف بل ضعها في الطابور</td>
+</tr>
+<tr>
+<td>الطريقة القديمة</td>
+<td>خرق القواعد</td>
+</tr>
+<tr>
+<td>إيجاد طريق جديد</td>
+<td>يمكن التحقق من نجاحه باختبار واحد</td>
+</tr>
+</tbody>
+</table>
+<p>وهذا أيضًا سبب اختياره الطريق الثالث. التخمين بأن متصفحًا مسجّلًا في GitHub يستطيع جلب ملفات من مستودع خاص تأكّد فورًا بفتح عنوانين. وقال إنهما لو لم يُفتحا، لكانت القواعد تعني وضع المسودات وحدها في الطابور.</p>
+<p>والباقي كله موجود في السجل.</p>
+<table>
+<thead>
+<tr>
+<th>الخطوة</th>
+<th>الفعل الباقي في السجل</th>
+<th>شرح Claude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>رفع المسودات الأربع والصور المصغّرة إلى GitHub أولًا</td>
+<td>يجب أن تكون المواد في المستودع لا على الحاسوب حتى تتوافق مع القواعد</td>
+</tr>
+<tr>
+<td>2</td>
+<td>فتح ملفين من المستودع الخاص في Whale</td>
+<td>الاختبار الأرخص أولًا</td>
+</tr>
+<tr>
+<td>3</td>
+<td>قراءة أداة حجم الصور ثم كتابة أداة الإدخال الجديدة</td>
+<td>إعادة استخدام ما يعمل أصلًا (نمط الجدول 2، حجم الصور، الخط)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>فشل إدراج الصور مرتين ← التحويل إلى اللصق</td>
+<td>اعترض Playwright نافذة اختيار الملف. استخدم طريقة دوّنتها نافذة أخرى قبل يومين</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ستة إيداعات بين 1:03 و1:12 فجرًا</td>
+<td>شغّل، أصلح الموضع العالق، شغّل مجددًا</td>
+</tr>
+<tr>
+<td>6</td>
+<td>سطر واحد لطريقة الاستخدام في المهارة</td>
+<td>حتى لا تتوه النافذة التالية في الموضع نفسه</td>
+</tr>
+</tbody>
+</table>
+<p>قائمة الإيداعات في الأعلى هي الخطوة 5. في تسع دقائق، أُصلحت النسخة الأولى خمس مرات أخرى.</p>
+<h2>بقيت فجوة واحدة</h2>
+<p>النافذة التي صنعت الأداة الجديدة أضافت سطرًا لطريقة الاستخدام في المهارة، لكنها لم تحذف الإجراء القديم. داخل المهارة كانت الخطوات القديمة التي تستخدم مجلد الحاسوب والخادم المحلي تجاور الأداة الجديدة. نافذة لاحقة تقرأ المهارة وحدها كان يمكن أن تعود إلى الطريق القديم.</p>
+<p>ومن وجدها هي النافذة التي تكتب هذا المنشور. حين سألت إن كانت المهارة قد تغيّرت، أشارت أولًا إلى أن تعليمات البدء والمهارة تقولان أشياء مختلفة. طلبت منها الترتيب، فأصلحته في الحال.</p>
+<p><img alt="شاشة مقارنة إيداع في GitHub: في تعليمات البدء حُذف سطر &quot;الخادم المحلي&quot; الذي يطلب تشغيل الخادم واستُبدل بعبارة &quot;غير مطلوب&quot;" src="/images/20261028-unasked-fix/04-오늘-정리한-시작-지침.webp" />
+<small>تعليمات البدء التي أُصلحت اليوم. السطر الذي كان يطلب تشغيل خادم محلي صار يقول "غير مطلوب"</small></p>
+<p>الفجوة التي سدّتها نافذة، أكملت سدّها النافذة التالية.</p>
+<h2>كلمة أدق من "تطوّر"</h2>
+<p>سألته أيضًا إن كانت كلمة "تطوّر" مناسبة. قال Claude لا. كلمة "تطوّر" توحي بأن Claude صار أذكى، بينما النموذج هو نفسه، وبمجرد أن تتغيّر النافذة لا يتذكر حتى ما حدث.</p>
+<p>ما تغيّر هو المستودع. مستند القواعد، وأداة الإدخال الجديدة، والسطر الذي بقي في المهارة تراكمت، والنافذة التالية تبدأ بقراءتها.</p>
+<p>لذلك كانت الكلمات التي اختارها Claude هي "تحسين لم يُطلب"، أو باختصار "سدّ فجوة". ولخّص Claude الأمر هكذا. <strong>أنا أحدّد الاتجاه، وClaude يسدّ المواضع التي لا يتطابق فيها الاتجاه مع الواقع، وما يسدّه يبقى في المستودع.</strong> وقال إن المستودع الذي أسمّيه <a href="/ar/posts/github-brain-for-claude/">دماغ الذكاء الاصطناعي</a> هو الذي نما.</p></div></article><nav class="pager"><a href="/ar/posts/higgsfield-wedding-film/"><span>المقال السابق</span>صنعت فيلم مراسم زفافنا باستخدام Higgsfield: كيف تصف المشهد للذكاء الاصطناعي</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar" class=on>العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin، صانع محتوى من كوريا. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>
