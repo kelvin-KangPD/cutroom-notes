@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أداة إدخال مدونتي على Naver صارت تقرأ من GitHub دون مجلد على الحاسوب أو خادم محلي · Cutroom Notes</title>
+<meta name="description" content="حين سلّمت Claude مهمة النقل إلى Naver، أعاد كتابة أداة الإدخال التي كانت تحتاج إلى مجلد على الحاسوب وخادم محلي لتقرأ المسودات والصور مباشرة من GitHub. الآن لا يحتاج الحاسوب إلا إلى نافذة متصفح Whale واحدة مسجّلة الدخول.">
+<meta property="og:title" content="أداة إدخال مدونتي على Naver صارت تقرأ من GitHub دون مجلد على الحاسوب أو خادم محلي · Cutroom Notes">
+<meta property="og:description" content="حين سلّمت Claude مهمة النقل إلى Naver، أعاد كتابة أداة الإدخال التي كانت تحتاج إلى مجلد على الحاسوب وخادم محلي لتقرأ المسودات والصور مباشرة من GitHub. الآن لا يحتاج الحاسوب إلا إلى نافذة متصفح Whale واحدة مسجّلة الدخول.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/naver-driver-github/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/naver-driver-github/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/naver-driver-github/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/naver-driver-github/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/naver-driver-github/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/ar/posts/naver-driver-github/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/ar/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/ar/">Cutroom Notes</a>
+    <nav class="top"><a href="/ar/">الكل</a><a href="/ar/series/">سلسلة</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-28">28 أكتوبر 2026</time><h1>أداة إدخال مدونتي على Naver صارت تقرأ من GitHub دون مجلد على الحاسوب أو خادم محلي</h1><p class="tr-line">اقرأ أيضًا بلغة أخرى: <a href="/en/posts/naver-driver-github/" lang="en">English</a> · <a href="/id/posts/naver-driver-github/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/naver-driver-github/" lang="hi">हिन्दी</a> · <a href="/th/posts/naver-driver-github/" lang="th">ไทย</a></p></header><aside class="series-box"><a class="series-name" href="/ar/series/ai-orchestration/">سلسلة · بناء تنسيق للذكاء الاصطناعي</a><ol><li><span>الجزء 1</span><a href="/ar/posts/github-brain-for-claude/">تعبت من إعادة الشرح في كل محادثة Claude جديدة، فبنيت دماغًا للذكاء الاصطناعي على GitHub</a></li><li><span>الجزء 2</span><a href="/ar/posts/coupang-review-gemini-orchestration/">تريد برنامج المراجعين في كوبانغ لكن تراكمت عليك عشرات المراجعات؟ جرّب هذه الطريقة</a></li><li class="now"><span>الجزء 3</span>أداة إدخال مدونتي على Naver صارت تقرأ من GitHub دون مجلد على الحاسوب أو خادم محلي</li></ol></aside><div class="prose"><p>حين سلّمت Claude مهمة النقل إلى Naver، أعاد كتابة أداة الإدخال التي كانت تحتاج إلى مجلد على الحاسوب وخادم محلي لتقرأ المسودات والصور مباشرة من GitHub. الآن لا يحتاج الحاسوب إلا إلى نافذة متصفح Whale واحدة مسجّلة الدخول.</p>
+<p>في الساعات الأولى من 28 أكتوبر، طلبت من Claude نقل الأجزاء من 1 إلى 4 من سلسلة فيديو زفافي إلى Naver. وأثناء حفظ المسودات الأربع أعاد Claude كتابة أداة الإدخال، وبعد انتهاء العمل ذكر ذلك في سطر واحد في آخر تقريره.</p>
+<p><img alt="شاشة سجل الإيداعات في GitHub: ستة إيداعات تبدأ بعبارة &quot;أداة إدخال Naver نسخة GitHub&quot; مرصوصة من الأعلى إلى الأسفل" src="/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp" />
+<small>سجل إيداعات أداة الإدخال الجديدة. الأسفل هو النسخة الأولى، وكل إيداع فوقه يصلح موضعًا آخر كان عالقًا</small></p>
+<p>أداة الإدخال سكربت يحرّك متصفح Whale عبر Playwright ليُدخل المنشور في محرر Naver. إذا كان Playwright هو اليد، فأداة الإدخال هي ورقة ترتيب العمل في تلك اليد. تقرأ المسودة وتحدد ترتيب إدخال العنوان والعناوين الفرعية بنمط الاقتباس والجداول والصور. ما تغيّر هذه المرة ليس اليد بل ورقة الترتيب.</p>
+<h2>القاعدة تقول GitHub فقط، والأداة مربوطة بالحاسوب</h2>
+<p>في 25 أكتوبر جعلت GitHub مساحة العمل الوحيدة للمدونة. الفكرة أن يستمر العمل من الحالة نفسها أيًّا كان الحساب أو الحاسوب أو الهاتف الذي أفتحه منه. لذلك أضفت قاعدة إلى تعليمات البدء: لا حفظ في مجلدات الحاسوب ولا سحب منها.</p>
+<p><img alt="شاشة مقارنة إيداع في GitHub: في تعليمات البدء حُذف سطر &quot;تحديد الحاسوب والأذونات&quot; باللون الأحمر وأُضيف &quot;مساحة العمل GitHub فقط&quot; باللون الأخضر" src="/images/20261028-naver-driver-github/02-작업공간-규칙-변경.webp" />
+<small>تعديل تعليمات البدء في 25 أكتوبر. خرج سطر تحديد الحاسوب ودخل "مساحة العمل GitHub فقط"</small></p>
+<p>لكن أداة إدخال Naver بقيت تعمل بالطريقة القديمة. لتشغيل الأداة القديمة (<code>naver_driver.js</code>) كان الحاسوب يحتاج إلى هذا التحضير.</p>
+<table>
+<thead>
+<tr>
+<th>التحضير</th>
+<th>الأداة القديمة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>المسودة</td>
+<td>تُقرأ عبر خادم محلي يُشغَّل بـ<code>python -m http.server 8125</code> في مجلد blog-notes على الحاسوب</td>
+</tr>
+<tr>
+<td>الصور</td>
+<td>تُنسخ إلى مجلد على الحاسوب يسمح به Playwright بأسماء <code>up0.webp</code> و<code>up1.webp</code></td>
+</tr>
+<tr>
+<td>الإعداد</td>
+<td>نسخ الأداة إلى المجلد نفسه باسم <code>drv.js</code>، وكتابة اسم المسودة وموضع البدء في <code>naver_params.json</code></td>
+</tr>
+<tr>
+<td>إدراج الصور</td>
+<td>حين تتوقف عند صورة تُرفع بـ<code>browser_file_upload</code> ثم تُشغَّل من جديد</td>
+</tr>
+</tbody>
+</table>
+<p>بحسب القاعدة، لم يكن مسموحًا بأي خطوة تستخدم مجلد الحاسوب. قبل يومين، في منشور مراجعات Coupang، التفّت نافذة سحابية على ذلك يدويًا. رسمت الصورة المصغّرة على لوحة رسم داخل متصفح الحاسوب، ولصقت الصور واحدة تلو الأخرى من عناوينها العامة على Kang PD Log.</p>
+<h2>اختبر أولًا بعنوانين</h2>
+<p>رفع Claude أولًا المسودات الأربع والصور المصغّرة إلى المستودع الخاص على GitHub. كان يجب أن تكون المواد في المستودع لا على الحاسوب حتى تتوافق مع القاعدة.</p>
+<p>ثم بدل أن يبني الأداة فورًا، أجرى اختبارًا. متصفح Whale مسجّل في حسابي على GitHub. فهل يستطيع Whale أيضًا جلب ملفات من مستودع خاص؟ طلب عنوانين عبر Whale، صورة مصغّرة ومسودة، ووصل الاثنان.</p>
+<p><strong>ذلك الاختبار الواحد ألغى الحاجة إلى مجلد الحاسوب.</strong> المسودات والصور المصغّرة من المستودع الخاص، وصور المتن من عناوين Kang PD Log المنشورة أصلًا. ويكفي أن تحمل مقدمة المسودة سطرًا واحدًا باسم مجلد الصور (<code>imgdir</code>).</p>
+<table>
+<thead>
+<tr>
+<th>المادة</th>
+<th>من أين تأخذها الأداة الجديدة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>المسودة</td>
+<td>مستودع blog-notes الخاص، <code>네이버/*.md</code></td>
+</tr>
+<tr>
+<td>الصورة المصغّرة</td>
+<td>المستودع نفسه، <code>네이버/썸네일/&lt;slug&gt;.webp</code></td>
+</tr>
+<tr>
+<td>صور المتن</td>
+<td>العنوان العام لـKang PD Log <code>images/&lt;imgdir&gt;/</code></td>
+</tr>
+<tr>
+<td>الأداة نفسها</td>
+<td>المستودع نفسه، <code>tools/naver_driver_gh.js</code>، مثبّتة برقم الإيداع</td>
+</tr>
+</tbody>
+</table>
+<p>الأداة نفسها تُقرأ من GitHub أيضًا. الطريقة أن يُقال لـWhale: "اجلب أداة الإدخال من هذا الإيداع وشغّلها". ولأن الإيداع مثبّت، يكفي عند كل إصلاح رفع إيداع جديد واستدعاؤها برقمه الجديد.</p>
+<pre><code class="language-js">async (page) =&gt; {
+  const SHA = '&lt;커밋 번호&gt;';
+  const s = await (await page.request.get('https://github.com/kelvin-KangPD/blog-notes/raw/' + SHA + '/tools/naver_driver_gh.js')).text();
+  return await eval(s)(page, { SHA, FILE: '&lt;원고 파일&gt;', PHASE: 'write', START: 0, CLEAR: true });
+}
+</code></pre>
+<p>كل قطعة من شيفرة Playwright يجب أن تنتهي خلال 60 ثانية. لذلك تعيد الأداة بعد 40 ثانية رقمًا يعني "أُدخل حتى هنا" وتتوقف. وعند استدعائها من ذلك الرقم تكمل. وبعد إدخال المتن كله تُستدعى مرحلة ختامية منفصلة تطبّق نمط "الجدول 2" وأحجام الصور (الصورة الرئيسية بعرض 600، والصور الممطوطة تعود إلى عرضها الأصلي) وخط المتن NanumSquare ثم تحفظ المسودة.</p>
+<h2>علقت الصور مرتين</h2>
+<p>عند تشغيل النسخة الأولى كانت الصور هي ما علق. وفي تسع دقائق تراكمت ستة إيداعات.</p>
+<table>
+<thead>
+<tr>
+<th>الوقت</th>
+<th>ما الذي تغيّر</th>
+<th>السبب</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1:03</td>
+<td>النسخة الأولى</td>
+<td>قراءة المسودات والصور من GitHub دون مجلد حاسوب أو خادم محلي</td>
+</tr>
+<tr>
+<td>1:04</td>
+<td>الصور عبر نافذة اختيار الملف</td>
+<td>وضع الملف مباشرة في حقل الإدخال لم ينجح</td>
+</tr>
+<tr>
+<td>1:06</td>
+<td>الصور عبر حدث اللصق</td>
+<td>Playwright يعترض نافذة اختيار الملف فلا يمكن استخدامها</td>
+</tr>
+<tr>
+<td>1:06</td>
+<td>عدم إعادة الفتح إن كانت شاشة الكتابة مفتوحة</td>
+<td>كانت نافذة "هل تريد مغادرة الصفحة؟" تظهر عند كل إعادة فتح</td>
+</tr>
+<tr>
+<td>1:09</td>
+<td>الإمساك بالمؤشر قبل الصورة والتحقق من الموضع</td>
+<td>بعد جدول أو صورة مباشرة لم يُلتقط المؤشر فدخلت الصورة إلى أعلى المنشور</td>
+</tr>
+<tr>
+<td>1:12</td>
+<td>إفراغ المتن كليًا وانتظار الصور أطول</td>
+<td>منع البدء بمنشور لم يُفرغ تمامًا، وعدم المتابعة قبل اكتمال دخول الصورة</td>
+</tr>
+</tbody>
+</table>
+<p>طريقة اللصق وجدتها نافذة محادثة أخرى قبل يومين ودوّنتها في المهارة. إذا صُنعت الصورة ككائن ملف داخل المحرر وأُرسلت مع إشارة "حدث لصق للتو"، يقبلها محرر Naver كأن شخصًا ضغط Ctrl+V. وحين علق، أخذ Claude ذلك السجل ووضعه في الأداة.</p>
+<p>مشكلة المؤشر ما زالت مكتوبة في تعليقات الأداة. بعد إدخال جدول مباشرة لا يستطيع المحرر نقل المؤشر خارج الجدول، فتهبط الصورة في أعلى المنشور. الآن يُلتقط المؤشر بكتابة حرف واحد ثم حذفه، وبعد دخول الصورة تتحقق الأداة من أن الكتلة الأخيرة صورة، وتتوقف إن لم تكن.</p>
+<h2>دخلت المنشورات الأربعة خلال سبع دقائق</h2>
+<p>بالنسخة السادسة دخلت الأجزاء من 1 إلى 4 واحدًا تلو الآخر. حُفظ الجزء الأول في 1:11 والرابع في 1:18.</p>
+<p><img alt="قائمة المسودات المحفوظة في مدونة Naver: الأجزاء من 1 إلى 4 من فيديو الزفاف محفوظة بين 1:11 و1:18 يوم 28 أكتوبر، ومنشور واحد بتاريخ 27 أكتوبر في الأسفل" src="/images/20261028-naver-driver-github/03-네이버-임시저장-네-편.webp" />
+<small>قائمة المسودات المحفوظة. دخلت الأجزاء من 1 إلى 4 متتابعة خلال سبع دقائق. منشور 27 أكتوبر في الأسفل هو النسخة القصيرة القديمة</small></p>
+<p><strong>لم يُجرَ أي تحضير على الحاسوب.</strong> لا خادم شُغّل ولا صور نُسخت. يكفي أن تكون نافذة Whale مفتوحة ومسجّلة في Naver وGitHub.</p>
+<p>بعد الانتهاء كتب Claude سطرًا واحدًا لطريقة استخدام الأداة الجديدة في المهارة. لكن الإجراء القديم للأداة القديمة بقي في مكانه. وبعد بضع ساعات أشارت نافذة أخرى إلى أن تعليمات البدء والمهارة تقولان أشياء مختلفة، وحين طلبت منها الترتيب أزالت الإجراء القديم.</p>
+<p><img alt="شاشة مقارنة إيداع في GitHub: في تعليمات البدء حُذف سطر &quot;الخادم المحلي&quot; الذي يطلب تشغيل الخادم واستُبدل بعبارة &quot;غير مطلوب&quot;" src="/images/20261028-naver-driver-github/04-시작-지침-정리.webp" />
+<small>تعليمات البدء بعد الترتيب. السطر الذي كان يطلب تشغيل خادم محلي صار يقول "غير مطلوب"</small></p>
+<h2>الحاسوب يُعير نافذة Whale واحدة فقط</h2>
+<p>في البنية الحالية، كل ما يتولاه الحاسوب هو متصفح مسجّل الدخول. يجري العمل في نافذة سحابية، ولا يُستعار Whale الحاسوب إلا عند الحاجة.</p>
+<table>
+<thead>
+<tr>
+<th>العمل</th>
+<th>أين</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>المسودات والصور المصغّرة وتحويل الصور والنشر على Kang PD Log والموقع متعدد اللغات</td>
+<td>نافذة سحابية (مستودعات GitHub)</td>
+</tr>
+<tr>
+<td>حفظ مسودة Naver</td>
+<td>نافذة Whale على الحاسوب (الأداة الجديدة تقرأ من GitHub وتُدخل)</td>
+</tr>
+<tr>
+<td>لقطات شاشة الويب</td>
+<td>تُلتقط في نافذة Whale على الحاسوب وتُجلب إلى السحابة</td>
+</tr>
+<tr>
+<td>حين يكون Whale مطفأ</td>
+<td>تُكتب المسودة فقط وتوضع في طابور <code>네이버/대기열.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>لقطات هذا المنشور جاءت بالطريقة نفسها. التقط Whale صور شاشات GitHub وأعاد بيانات الصورة على شكل نص، ثم حوّلها الجانب السحابي إلى ملفات صور من جديد. والخط المستخدم في الصور المصغّرة لا يمكن تنزيله من السحابة لأن العنوان محجوب، فجلبه Whale وسلّمه على دفعتين.</p>
+<p>حيث لم تتطابق القاعدة مع الأداة، لم يتوقف ولم يخرق القاعدة، بل تحقق أولًا باختبار رخيص من وجود طريق. ثم أصلح شيئًا واحدًا في كل مرة حتى أدخل المنشورات الأربعة كلها. في هذه المهمة، أحسن Claude العمل.</p></div><aside class="series-box"><a class="series-name" href="/ar/series/ai-orchestration/">سلسلة · بناء تنسيق للذكاء الاصطناعي</a><ol><li><span>الجزء 1</span><a href="/ar/posts/github-brain-for-claude/">تعبت من إعادة الشرح في كل محادثة Claude جديدة، فبنيت دماغًا للذكاء الاصطناعي على GitHub</a></li><li><span>الجزء 2</span><a href="/ar/posts/coupang-review-gemini-orchestration/">تريد برنامج المراجعين في كوبانغ لكن تراكمت عليك عشرات المراجعات؟ جرّب هذه الطريقة</a></li><li class="now"><span>الجزء 3</span>أداة إدخال مدونتي على Naver صارت تقرأ من GitHub دون مجلد على الحاسوب أو خادم محلي</li></ol></aside></article><nav class="pager"><a href="/ar/posts/higgsfield-wedding-film/"><span>المقال السابق</span>صنعت فيلم مراسم زفافنا باستخدام Higgsfield: كيف تصف المشهد للذكاء الاصطناعي</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar" class=on>العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin، صانع محتوى من كوريا. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

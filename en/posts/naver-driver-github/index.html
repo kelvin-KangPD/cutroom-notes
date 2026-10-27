@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How my Naver blog input tool stopped needing a PC folder and local server and started reading from GitHub · Cutroom Notes</title>
+<meta name="description" content="When I handed Claude a Naver migration, it rewrote the input tool that needed a PC folder and a local server so that it reads drafts and photos straight from GitHub. Now all the PC has to provide is one logged-in Whale browser window.">
+<meta property="og:title" content="How my Naver blog input tool stopped needing a PC folder and local server and started reading from GitHub · Cutroom Notes">
+<meta property="og:description" content="When I handed Claude a Naver migration, it rewrote the input tool that needed a PC folder and a local server so that it reads drafts and photos straight from GitHub. Now all the PC has to provide is one logged-in Whale browser window.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/naver-driver-github/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/naver-driver-github/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/naver-driver-github/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/naver-driver-github/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/naver-driver-github/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/en/posts/naver-driver-github/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/en/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/en/">Cutroom Notes</a>
+    <nav class="top"><a href="/en/">All</a><a href="/en/series/">Series</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-28">October 28, 2026</time><h1>How my Naver blog input tool stopped needing a PC folder and local server and started reading from GitHub</h1><p class="tr-line">Also in: <a href="/id/posts/naver-driver-github/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/naver-driver-github/" lang="hi">हिन्दी</a> · <a href="/ar/posts/naver-driver-github/" lang="ar">العربية</a> · <a href="/th/posts/naver-driver-github/" lang="th">ไทย</a></p></header><aside class="series-box"><a class="series-name" href="/en/series/ai-orchestration/">Series · Building an AI orchestration</a><ol><li><span>Part 1</span><a href="/en/posts/github-brain-for-claude/">Tired of re-explaining every new Claude chat, I built an AI brain on GitHub</a></li><li><span>Part 2</span><a href="/en/posts/coupang-review-gemini-orchestration/">Want to join Coupang&#x27;s reviewer program but stuck with dozens of overdue reviews? Try this</a></li><li class="now"><span>Part 3</span>How my Naver blog input tool stopped needing a PC folder and local server and started reading from GitHub</li></ol></aside><div class="prose"><p>When I handed Claude a Naver migration, it rewrote the input tool that needed a PC folder and a local server so that it reads drafts and photos straight from GitHub. Now all the PC has to provide is one logged-in Whale browser window.</p>
+<p>In the early hours of October 28, I asked Claude to move parts 1 to 4 of my wedding film series to Naver. While saving the four drafts, Claude rewrote the input tool, and once the work was done it mentioned this in one line at the end of its report.</p>
+<p><img alt="GitHub commit history screen: six commits starting with &quot;Naver input tool, GitHub version&quot; stacked one above the other" src="/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp" />
+<small>Commit history of the new input tool. The bottom one is the first version; each one above fixes one more place that got stuck</small></p>
+<p>The input tool is a script that drives the Whale browser through Playwright and puts a post into the Naver editor. If Playwright is the hand, the input tool is the work order you put in that hand. It reads the draft and decides in what order to enter the title, quote-style headings, tables and photos. What changed this time was not the hand but the work order.</p>
+<h2>The rule said GitHub only, but the tool was tied to the PC</h2>
+<p>On October 25, I made GitHub the only workspace for the blog. The idea was that whichever account, PC or phone I open it from, the work continues from the same state. So I added a rule to the start instructions: nothing is saved to or pulled into PC folders.</p>
+<p><img alt="GitHub commit diff screen: in the start instructions, the &quot;PC detection and permissions&quot; line is deleted in red and &quot;the workspace is GitHub only&quot; is added in green" src="/images/20261028-naver-driver-github/02-작업공간-규칙-변경.webp" />
+<small>The start instructions change on October 25. The PC detection line came out and "the workspace is GitHub only" went in</small></p>
+<p>The Naver input tool, though, still worked the old way. To run the old tool (<code>naver_driver.js</code>), the PC needed this preparation.</p>
+<table>
+<thead>
+<tr>
+<th>Prep</th>
+<th>Old input tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draft</td>
+<td>Read through a local server started with <code>python -m http.server 8125</code> in the blog-notes folder on the PC</td>
+</tr>
+<tr>
+<td>Photos</td>
+<td>Copied into a PC folder Playwright allows, named <code>up0.webp</code>, <code>up1.webp</code></td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>Tool copied into the same folder as <code>drv.js</code>, draft name and start position written in <code>naver_params.json</code></td>
+</tr>
+<tr>
+<td>Photo insert</td>
+<td>When it stopped at a photo, upload with <code>browser_file_upload</code> and run again</td>
+</tr>
+</tbody>
+</table>
+<p>Under the rule, none of the steps that use a PC folder were allowed. Two days earlier, for the Coupang review post, a cloud window worked around this by hand. It drew the thumbnail on a canvas inside the PC browser and pasted the photos one by one from their public addresses on Kang PD Log.</p>
+<h2>It tested with two addresses first</h2>
+<p>Claude first pushed the four drafts and thumbnails to the private repository on GitHub. The materials had to live in the repository, not on the PC, to match the rule.</p>
+<p>Then, instead of building the tool right away, it ran a test. Whale is logged into my GitHub account. So could Whale also fetch files from a private repository? It requested two addresses from Whale, one thumbnail and one draft, and both came back.</p>
+<p><strong>That one test removed the need for a PC folder.</strong> Drafts and thumbnails come from the private repository, and body photos come from Kang PD Log addresses that are already published. The draft's front matter just needs one line with the photo folder name (<code>imgdir</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Where the new tool gets it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draft</td>
+<td>blog-notes private repository, <code>네이버/*.md</code></td>
+</tr>
+<tr>
+<td>Thumbnail</td>
+<td>Same repository, <code>네이버/썸네일/&lt;slug&gt;.webp</code></td>
+</tr>
+<tr>
+<td>Body photos</td>
+<td>Kang PD Log public address <code>images/&lt;imgdir&gt;/</code></td>
+</tr>
+<tr>
+<td>The tool itself</td>
+<td>Same repository, <code>tools/naver_driver_gh.js</code>, pinned by commit</td>
+</tr>
+</tbody>
+</table>
+<p>The tool itself is read from GitHub too. It works by telling Whale, "fetch the input tool at this commit and run it." With the commit pinned, every fix just means pushing a new commit and calling it again with the new number.</p>
+<pre><code class="language-js">async (page) =&gt; {
+  const SHA = '&lt;커밋 번호&gt;';
+  const s = await (await page.request.get('https://github.com/kelvin-KangPD/blog-notes/raw/' + SHA + '/tools/naver_driver_gh.js')).text();
+  return await eval(s)(page, { SHA, FILE: '&lt;원고 파일&gt;', PHASE: 'write', START: 0, CLEAR: true });
+}
+</code></pre>
+<p>Each piece of Playwright code has to finish within 60 seconds. So after 40 seconds, the tool returns a number meaning "entered up to here" and stops. Calling it again from that number continues the entry. Once the body is in, a separate finishing step applies the "Table 2" style, photo sizes (lead photo 600 wide, stretched photos back to original width), the NanumSquare body font, and saves the draft.</p>
+<h2>Photos got stuck twice</h2>
+<p>When the first version ran, photos were what got stuck. Six commits piled up in nine minutes.</p>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>What changed</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1:03</td>
+<td>First version</td>
+<td>Read drafts and photos from GitHub with no PC folder or local server</td>
+</tr>
+<tr>
+<td>1:04</td>
+<td>Photos via the file picker</td>
+<td>Putting files straight into the file input didn't work</td>
+</tr>
+<tr>
+<td>1:06</td>
+<td>Photos via a paste event</td>
+<td>Playwright intercepts the file picker, so it can't be used</td>
+</tr>
+<tr>
+<td>1:06</td>
+<td>Don't reopen if already on the write screen</td>
+<td>A "leave this page?" dialog appeared every time it reopened</td>
+</tr>
+<tr>
+<td>1:09</td>
+<td>Grab the cursor before a photo, check position</td>
+<td>Right after a table or photo the cursor wasn't caught, and the photo went to the top of the post</td>
+</tr>
+<tr>
+<td>1:12</td>
+<td>Fully clear the body, wait longer for photos</td>
+<td>Prevent starting with a half-cleared post and moving on before a photo finished loading</td>
+</tr>
+</tbody>
+</table>
+<p>The paste method was one another chat window had found two days earlier and written into the skill. If you build the photo as a file object inside the editor and send it with a "a paste just happened" signal, the Naver editor accepts the photo as if a person pressed Ctrl+V. When it got stuck, Claude took that record and put it into the tool.</p>
+<p>The cursor problem is still written in the tool's comments. Right after a table goes in, the editor can't move the cursor out of the table, so the photo landed at the top of the post. It now grabs the cursor by typing one character and deleting it, and after a photo goes in it checks that the last block is a photo, stopping if it isn't.</p>
+<h2>Four posts went in within seven minutes</h2>
+<p>With the sixth version, parts 1 to 4 went in one after another. Part 1 was saved at 1:11 and part 4 at 1:18.</p>
+<p><img alt="Naver blog list of saved drafts: parts 1 to 4 of the wedding film saved between 1:11 and 1:18 on October 28, with one October 27 post at the bottom" src="/images/20261028-naver-driver-github/03-네이버-임시저장-네-편.webp" />
+<small>The saved drafts list. Parts 1 to 4 went in one after another within seven minutes. The October 27 post at the bottom is the old short version</small></p>
+<p><strong>No preparation was done on the PC.</strong> No server started, no photos copied. As long as the Whale window is open and logged into Naver and GitHub, that's it.</p>
+<p>After finishing, Claude wrote one line of usage for the new tool into the skill. The old procedure for the old tool was still there, though. A few hours later another window pointed out that the start instructions and the skill were saying different things, and when I told it to clean up, it cleared out the old procedure.</p>
+<p><img alt="GitHub commit diff screen: in the start instructions, the &quot;local server&quot; line telling you to start a server is deleted and replaced with &quot;not needed&quot;" src="/images/20261028-naver-driver-github/04-시작-지침-정리.webp" />
+<small>The cleaned-up start instructions. The line that said to start a local server now says "not needed"</small></p>
+<h2>The PC only lends one Whale window</h2>
+<p>In the current setup, all the PC handles is a logged-in browser. Work happens in a cloud window, and the PC's Whale is borrowed only when needed.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drafts, thumbnails, photo conversion, publishing Kang PD Log and the multilingual site</td>
+<td>Cloud window (GitHub repositories)</td>
+</tr>
+<tr>
+<td>Naver draft saving</td>
+<td>PC Whale window (the new tool reads from GitHub and enters it)</td>
+</tr>
+<tr>
+<td>Web screen captures</td>
+<td>Taken in the PC Whale window and brought back to the cloud</td>
+</tr>
+<tr>
+<td>When Whale is off</td>
+<td>Only the draft is made and queued in <code>네이버/대기열.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>The captures in this post came the same way. Whale took screenshots of GitHub, returned the image data as text, and the cloud side turned it back into image files. The font used for thumbnails can't be downloaded from the cloud because the address is blocked, so Whale fetched it instead and handed it over in two pieces.</p>
+<p>Where the rule and the tool didn't match, it neither stopped nor broke the rule, and checked first with a cheap test whether there was a way. Then it fixed one thing at a time and got all four posts in. On this one, Claude did good work.</p></div><aside class="series-box"><a class="series-name" href="/en/series/ai-orchestration/">Series · Building an AI orchestration</a><ol><li><span>Part 1</span><a href="/en/posts/github-brain-for-claude/">Tired of re-explaining every new Claude chat, I built an AI brain on GitHub</a></li><li><span>Part 2</span><a href="/en/posts/coupang-review-gemini-orchestration/">Want to join Coupang&#x27;s reviewer program but stuck with dozens of overdue reviews? Try this</a></li><li class="now"><span>Part 3</span>How my Naver blog input tool stopped needing a PC folder and local server and started reading from GitHub</li></ol></aside></article><nav class="pager"><a href="/en/posts/higgsfield-wedding-film/"><span>Previous post</span>I made the film for our wedding ceremony with Higgsfield: how to describe a scene to AI</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en" class=on>English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, a content creator from Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

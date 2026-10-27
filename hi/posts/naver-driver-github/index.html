@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>मेरा Naver ब्लॉग इनपुट टूल अब PC फ़ोल्डर और लोकल सर्वर के बिना GitHub से पढ़ता है · Cutroom Notes</title>
+<meta name="description" content="Naver माइग्रेशन सौंपने पर Claude ने PC फ़ोल्डर और लोकल सर्वर पर टिके इनपुट टूल को ऐसा बना दिया कि वह ड्राफ़्ट और फ़ोटो सीधे GitHub से पढ़ता है। अब PC को बस एक लॉग-इन Whale ब्राउज़र विंडो देनी होती है।">
+<meta property="og:title" content="मेरा Naver ब्लॉग इनपुट टूल अब PC फ़ोल्डर और लोकल सर्वर के बिना GitHub से पढ़ता है · Cutroom Notes">
+<meta property="og:description" content="Naver माइग्रेशन सौंपने पर Claude ने PC फ़ोल्डर और लोकल सर्वर पर टिके इनपुट टूल को ऐसा बना दिया कि वह ड्राफ़्ट और फ़ोटो सीधे GitHub से पढ़ता है। अब PC को बस एक लॉग-इन Whale ब्राउज़र विंडो देनी होती है।">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/naver-driver-github/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/naver-driver-github/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/naver-driver-github/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/naver-driver-github/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/naver-driver-github/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/hi/posts/naver-driver-github/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/hi/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/hi/">Cutroom Notes</a>
+    <nav class="top"><a href="/hi/">सभी</a><a href="/hi/series/">सीरीज़</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-28">28 अक्टूबर 2026</time><h1>मेरा Naver ब्लॉग इनपुट टूल अब PC फ़ोल्डर और लोकल सर्वर के बिना GitHub से पढ़ता है</h1><p class="tr-line">दूसरी भाषा में पढ़ें: <a href="/en/posts/naver-driver-github/" lang="en">English</a> · <a href="/id/posts/naver-driver-github/" lang="id">Bahasa Indonesia</a> · <a href="/ar/posts/naver-driver-github/" lang="ar">العربية</a> · <a href="/th/posts/naver-driver-github/" lang="th">ไทย</a></p></header><aside class="series-box"><a class="series-name" href="/hi/series/ai-orchestration/">सीरीज़ · AI ऑर्केस्ट्रेशन बनाना</a><ol><li><span>भाग 1</span><a href="/hi/posts/github-brain-for-claude/">हर नई Claude चैट में दोबारा समझाने से थककर, मैंने GitHub पर AI का दिमाग बनाया</a></li><li><span>भाग 2</span><a href="/hi/posts/coupang-review-gemini-orchestration/">Coupang के रिव्यूअर प्रोग्राम में जाना है, पर दर्जनों रिव्यू बाकी हैं? ऐसे करके देखें</a></li><li class="now"><span>भाग 3</span>मेरा Naver ब्लॉग इनपुट टूल अब PC फ़ोल्डर और लोकल सर्वर के बिना GitHub से पढ़ता है</li></ol></aside><div class="prose"><p>Naver माइग्रेशन सौंपने पर Claude ने PC फ़ोल्डर और लोकल सर्वर पर टिके इनपुट टूल को ऐसा बना दिया कि वह ड्राफ़्ट और फ़ोटो सीधे GitHub से पढ़ता है। अब PC को बस एक लॉग-इन Whale ब्राउज़र विंडो देनी होती है।</p>
+<p>28 अक्टूबर की सुबह-सुबह मैंने Claude से शादी वाली वीडियो सीरीज़ के भाग 1 से 4 Naver पर ले जाने को कहा। चार ड्राफ़्ट सेव करते हुए Claude ने इनपुट टूल दोबारा लिखा, और काम पूरा होने पर रिपोर्ट के आख़िर में एक पंक्ति में यह बताया।</p>
+<p><img alt="GitHub कमिट हिस्ट्री स्क्रीन: &quot;Naver इनपुट टूल GitHub वर्ज़न&quot; से शुरू होने वाले छह कमिट ऊपर-नीचे लगे हैं" src="/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp" />
+<small>नए इनपुट टूल की कमिट हिस्ट्री। सबसे नीचे पहला वर्ज़न है, और ऊपर वाला हर कमिट एक और अटकी जगह ठीक करता है</small></p>
+<p>इनपुट टूल एक स्क्रिप्ट है जो Playwright के ज़रिए Whale ब्राउज़र चलाकर Naver एडिटर में पोस्ट डालती है। अगर Playwright हाथ है, तो इनपुट टूल उस हाथ में दी गई काम की सूची है। यह ड्राफ़्ट पढ़कर तय करता है कि शीर्षक, कोट-स्टाइल उपशीर्षक, टेबल और फ़ोटो किस क्रम में डालने हैं। इस बार हाथ नहीं, काम की सूची बदली।</p>
+<h2>नियम कहता था सिर्फ़ GitHub, पर टूल PC से बँधा था</h2>
+<p>25 अक्टूबर को मैंने ब्लॉग के काम की जगह सिर्फ़ GitHub तय की। मक़सद यह था कि किसी भी अकाउंट, PC या फ़ोन से खोलूँ, काम उसी हालत से आगे बढ़े। इसलिए शुरुआती निर्देश में नियम जोड़ा: PC फ़ोल्डर में न कुछ सेव होगा, न pull होगा।</p>
+<p><img alt="GitHub कमिट तुलना स्क्रीन: शुरुआती निर्देश में &quot;PC पहचान और अनुमति&quot; वाली पंक्ति लाल रंग में हटी और &quot;काम की जगह सिर्फ़ GitHub&quot; हरे रंग में जुड़ी" src="/images/20261028-naver-driver-github/02-작업공간-규칙-변경.webp" />
+<small>25 अक्टूबर को शुरुआती निर्देश में बदलाव। PC पहचानने वाली पंक्ति हटी और "काम की जगह सिर्फ़ GitHub" जुड़ी</small></p>
+<p>लेकिन Naver इनपुट टूल अब भी पुराने तरीके से चलता था। पुराना टूल (<code>naver_driver.js</code>) चलाने के लिए PC पर यह तैयारी चाहिए थी।</p>
+<table>
+<thead>
+<tr>
+<th>तैयारी</th>
+<th>पुराना इनपुट टूल</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ड्राफ़्ट</td>
+<td>PC के blog-notes फ़ोल्डर में <code>python -m http.server 8125</code> से चालू लोकल सर्वर से पढ़ना</td>
+</tr>
+<tr>
+<td>फ़ोटो</td>
+<td>Playwright की अनुमति वाले PC फ़ोल्डर में <code>up0.webp</code>, <code>up1.webp</code> नाम से कॉपी</td>
+</tr>
+<tr>
+<td>सेटिंग</td>
+<td>टूल को उसी फ़ोल्डर में <code>drv.js</code> नाम से कॉपी, <code>naver_params.json</code> में ड्राफ़्ट का नाम और शुरुआती जगह</td>
+</tr>
+<tr>
+<td>फ़ोटो डालना</td>
+<td>फ़ोटो पर रुकने पर <code>browser_file_upload</code> से अपलोड करके फिर चलाना</td>
+</tr>
+</tbody>
+</table>
+<p>नियम के हिसाब से PC फ़ोल्डर वाला कोई भी कदम नहीं हो सकता था। दो दिन पहले Coupang रिव्यू वाली पोस्ट में एक क्लाउड विंडो ने इसे हाथ से सँभाला था। उसने PC ब्राउज़र के अंदर कैनवास पर थंबनेल बनाया और Kang PD Log के सार्वजनिक पते से फ़ोटो एक-एक करके पेस्ट कीं।</p>
+<h2>पहले दो पतों से टेस्ट किया</h2>
+<p>Claude ने पहले चारों ड्राफ़्ट और थंबनेल GitHub की निजी रिपॉज़िटरी में डाले। नियम से मेल के लिए सामग्री PC पर नहीं, रिपॉज़िटरी में होनी चाहिए थी।</p>
+<p>फिर सीधे टूल बनाने के बजाय पहले टेस्ट किया। Whale मेरे GitHub अकाउंट में लॉग-इन है। तो क्या Whale निजी रिपॉज़िटरी की फ़ाइलें भी ला सकता है? उसने Whale से दो पते माँगे, एक थंबनेल और एक ड्राफ़्ट, और दोनों मिल गए।</p>
+<p><strong>उस एक टेस्ट ने PC फ़ोल्डर की ज़रूरत ख़त्म कर दी।</strong> ड्राफ़्ट और थंबनेल निजी रिपॉज़िटरी से, और पोस्ट की फ़ोटो पहले से प्रकाशित Kang PD Log के पतों से। ड्राफ़्ट के ऊपरी हिस्से में बस फ़ोटो फ़ोल्डर के नाम (<code>imgdir</code>) की एक पंक्ति चाहिए।</p>
+<table>
+<thead>
+<tr>
+<th>सामग्री</th>
+<th>नया टूल कहाँ से लेता है</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ड्राफ़्ट</td>
+<td>blog-notes निजी रिपॉज़िटरी, <code>네이버/*.md</code></td>
+</tr>
+<tr>
+<td>थंबनेल</td>
+<td>वही रिपॉज़िटरी, <code>네이버/썸네일/&lt;slug&gt;.webp</code></td>
+</tr>
+<tr>
+<td>पोस्ट की फ़ोटो</td>
+<td>Kang PD Log का सार्वजनिक पता <code>images/&lt;imgdir&gt;/</code></td>
+</tr>
+<tr>
+<td>टूल ख़ुद</td>
+<td>वही रिपॉज़िटरी, <code>tools/naver_driver_gh.js</code>, कमिट से तय</td>
+</tr>
+</tbody>
+</table>
+<p>टूल ख़ुद भी GitHub से पढ़ा जाता है। Whale से कहा जाता है, "इस कमिट वाला इनपुट टूल लाकर चलाओ।" कमिट तय होने से हर सुधार पर बस नया कमिट डालकर नए नंबर से फिर बुलाना होता है।</p>
+<pre><code class="language-js">async (page) =&gt; {
+  const SHA = '&lt;커밋 번호&gt;';
+  const s = await (await page.request.get('https://github.com/kelvin-KangPD/blog-notes/raw/' + SHA + '/tools/naver_driver_gh.js')).text();
+  return await eval(s)(page, { SHA, FILE: '&lt;원고 파일&gt;', PHASE: 'write', START: 0, CLEAR: true });
+}
+</code></pre>
+<p>Playwright का हर कोड 60 सेकंड के अंदर ख़त्म होना चाहिए। इसलिए 40 सेकंड होते ही टूल "यहाँ तक डाला" वाला नंबर लौटाकर रुक जाता है। उस नंबर से फिर बुलाने पर आगे डालता है। पूरी सामग्री डल जाने के बाद अलग से समापन चरण बुलाया जाता है, जो "टेबल 2" स्टाइल, फ़ोटो साइज़ (मुख्य फ़ोटो 600 चौड़ी, खिंची फ़ोटो मूल चौड़ाई पर), NanumSquare फ़ॉन्ट और ड्राफ़्ट सेव करता है।</p>
+<h2>फ़ोटो पर दो बार अटका</h2>
+<p>पहला वर्ज़न चलाने पर फ़ोटो पर अटका। नौ मिनट में छह कमिट जमा हो गए।</p>
+<table>
+<thead>
+<tr>
+<th>समय</th>
+<th>क्या बदला</th>
+<th>क्यों</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1:03</td>
+<td>पहला वर्ज़न</td>
+<td>PC फ़ोल्डर या लोकल सर्वर के बिना GitHub से ड्राफ़्ट और फ़ोटो पढ़ना</td>
+</tr>
+<tr>
+<td>1:04</td>
+<td>फ़ोटो फ़ाइल चुनने वाली विंडो से</td>
+<td>फ़ाइल इनपुट में सीधे डालना काम नहीं किया</td>
+</tr>
+<tr>
+<td>1:06</td>
+<td>फ़ोटो पेस्ट इवेंट से</td>
+<td>Playwright फ़ाइल चुनने की विंडो रोक लेता है, इसलिए इस्तेमाल नहीं हो सकती</td>
+</tr>
+<tr>
+<td>1:06</td>
+<td>लिखने की स्क्रीन पर हों तो दोबारा न खोलें</td>
+<td>हर बार दोबारा खोलने पर "पेज छोड़ें?" डायलॉग आता था</td>
+</tr>
+<tr>
+<td>1:09</td>
+<td>फ़ोटो से पहले कर्सर पकड़ना, जगह जाँचना</td>
+<td>टेबल या फ़ोटो के ठीक बाद कर्सर नहीं पकड़ता था और फ़ोटो पोस्ट में सबसे ऊपर चली जाती थी</td>
+</tr>
+<tr>
+<td>1:12</td>
+<td>पोस्ट पूरी ख़ाली करना, फ़ोटो का ज़्यादा इंतज़ार</td>
+<td>अधूरी साफ़ पोस्ट से शुरुआत रोकना और फ़ोटो पूरी आने से पहले आगे न बढ़ना</td>
+</tr>
+</tbody>
+</table>
+<p>पेस्ट वाला तरीका दो दिन पहले दूसरी चैट विंडो ने खोजकर स्किल में लिखा था। फ़ोटो को एडिटर के अंदर फ़ाइल ऑब्जेक्ट बनाकर "अभी पेस्ट हुआ" संकेत के साथ भेजें, तो Naver एडिटर उसे ऐसे लेता है मानो किसी ने Ctrl+V दबाया हो। अटकने पर Claude ने वही रिकॉर्ड उठाकर टूल में डाल दिया।</p>
+<p>कर्सर की समस्या टूल की टिप्पणियों में अब भी लिखी है। टेबल डलते ही एडिटर कर्सर को टेबल से बाहर नहीं ले जा पाता था, इसलिए फ़ोटो पोस्ट में सबसे ऊपर पहुँच जाती थी। अब एक अक्षर टाइप करके मिटाने से कर्सर पकड़ा जाता है, और फ़ोटो डलने के बाद जाँचा जाता है कि आख़िरी ब्लॉक फ़ोटो है या नहीं, न हो तो टूल रुक जाता है।</p>
+<h2>सात मिनट में चारों पोस्ट डल गईं</h2>
+<p>छठे वर्ज़न से भाग 1 से 4 एक-एक करके डले। भाग 1 रात 1:11 पर और भाग 4 रात 1:18 पर सेव हुआ।</p>
+<p><img alt="Naver ब्लॉग में सेव किए ड्राफ़्ट की सूची: शादी वीडियो के भाग 1 से 4, 28 अक्टूबर को 1:11 से 1:18 के बीच सेव हुए, सबसे नीचे 27 अक्टूबर की एक पोस्ट" src="/images/20261028-naver-driver-github/03-네이버-임시저장-네-편.webp" />
+<small>सेव किए ड्राफ़्ट की सूची। भाग 1 से 4 सात मिनट में एक के बाद एक डले। नीचे वाली 27 अक्टूबर की पोस्ट पुराना छोटा वर्ज़न है</small></p>
+<p><strong>PC पर कोई तैयारी नहीं करनी पड़ी।</strong> न सर्वर चालू किया, न फ़ोटो कॉपी कीं। Whale विंडो खुली हो और Naver व GitHub में लॉग-इन हो, बस।</p>
+<p>काम ख़त्म करके Claude ने स्किल में नए टूल के इस्तेमाल की एक पंक्ति लिखी। पर पुराने टूल वाली पुरानी प्रक्रिया वहीं बची रही। कुछ घंटे बाद दूसरी विंडो ने बताया कि शुरुआती निर्देश और स्किल अलग-अलग बात कह रहे हैं, और मेरे साफ़ करने को कहने पर उसने पुरानी प्रक्रिया हटा दी।</p>
+<p><img alt="GitHub कमिट तुलना स्क्रीन: शुरुआती निर्देश में सर्वर चालू करने को कहने वाली &quot;लोकल सर्वर&quot; पंक्ति हटकर &quot;ज़रूरत नहीं&quot; हो गई" src="/images/20261028-naver-driver-github/04-시작-지침-정리.webp" />
+<small>साफ़ किए गए शुरुआती निर्देश। लोकल सर्वर चालू करने वाली पंक्ति अब कहती है "ज़रूरत नहीं"</small></p>
+<h2>PC बस एक Whale विंडो उधार देता है</h2>
+<p>अब की व्यवस्था में PC का काम सिर्फ़ लॉग-इन ब्राउज़र देना है। काम क्लाउड विंडो में होता है, और PC का Whale सिर्फ़ ज़रूरत पड़ने पर उधार लिया जाता है।</p>
+<table>
+<thead>
+<tr>
+<th>काम</th>
+<th>कहाँ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ड्राफ़्ट, थंबनेल, फ़ोटो बदलना, Kang PD Log और बहुभाषी साइट पर प्रकाशन</td>
+<td>क्लाउड विंडो (GitHub रिपॉज़िटरी)</td>
+</tr>
+<tr>
+<td>Naver ड्राफ़्ट सेव</td>
+<td>PC की Whale विंडो (नया टूल GitHub से पढ़कर डालता है)</td>
+</tr>
+<tr>
+<td>वेब स्क्रीन कैप्चर</td>
+<td>PC की Whale विंडो में लेकर क्लाउड में लाना</td>
+</tr>
+<tr>
+<td>Whale बंद हो तब</td>
+<td>सिर्फ़ ड्राफ़्ट बनाकर <code>네이버/대기열.md</code> में कतार में</td>
+</tr>
+</tbody>
+</table>
+<p>इस पोस्ट के कैप्चर भी इसी तरह आए। Whale ने GitHub स्क्रीन की तस्वीर ली, इमेज डेटा को टेक्स्ट के रूप में लौटाया, और क्लाउड की ओर उसे फिर इमेज फ़ाइल में बदला गया। थंबनेल का फ़ॉन्ट क्लाउड से डाउनलोड नहीं हो सकता क्योंकि पता बंद है, इसलिए Whale ने उसे लाकर दो हिस्सों में सौंपा।</p>
+<p>जहाँ नियम और टूल मेल नहीं खाते थे, वहाँ वह न रुका, न नियम तोड़ा, बल्कि सस्ते टेस्ट से पहले देखा कि रास्ता है या नहीं। फिर एक-एक चीज़ ठीक करते हुए चारों पोस्ट डाल दीं। इस काम में Claude ने अच्छा काम किया।</p></div><aside class="series-box"><a class="series-name" href="/hi/series/ai-orchestration/">सीरीज़ · AI ऑर्केस्ट्रेशन बनाना</a><ol><li><span>भाग 1</span><a href="/hi/posts/github-brain-for-claude/">हर नई Claude चैट में दोबारा समझाने से थककर, मैंने GitHub पर AI का दिमाग बनाया</a></li><li><span>भाग 2</span><a href="/hi/posts/coupang-review-gemini-orchestration/">Coupang के रिव्यूअर प्रोग्राम में जाना है, पर दर्जनों रिव्यू बाकी हैं? ऐसे करके देखें</a></li><li class="now"><span>भाग 3</span>मेरा Naver ब्लॉग इनपुट टूल अब PC फ़ोल्डर और लोकल सर्वर के बिना GitHub से पढ़ता है</li></ol></aside></article><nav class="pager"><a href="/hi/posts/higgsfield-wedding-film/"><span>पिछला लेख</span>अपनी शादी की रस्म के बीच चलने वाली फ़िल्म मैंने Higgsfield से बनाई: AI को दृश्य कैसे समझाएँ</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi" class=on>हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, कोरिया के कंटेंट क्रिएटर। · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

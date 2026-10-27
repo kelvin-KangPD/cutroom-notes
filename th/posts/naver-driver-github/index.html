@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เครื่องมือป้อนข้อมูลบล็อก Naver ของผม เปลี่ยนมาอ่านจาก GitHub โดยไม่ต้องใช้โฟลเดอร์พีซีและเซิร์ฟเวอร์ในเครื่อง · Cutroom Notes</title>
+<meta name="description" content="พอผมฝากงานย้ายไป Naver ให้ Claude มันก็เปลี่ยนเครื่องมือป้อนข้อมูลที่ต้องพึ่งโฟลเดอร์พีซีและเซิร์ฟเวอร์ในเครื่อง ให้มาอ่านฉบับร่างและรูปจาก GitHub โดยตรง ตอนนี้พีซีขอแค่หน้าต่างเบราว์เซอร์ Whale ที่ล็อกอินไว้หนึ่งหน้าต่างก็พอ">
+<meta property="og:title" content="เครื่องมือป้อนข้อมูลบล็อก Naver ของผม เปลี่ยนมาอ่านจาก GitHub โดยไม่ต้องใช้โฟลเดอร์พีซีและเซิร์ฟเวอร์ในเครื่อง · Cutroom Notes">
+<meta property="og:description" content="พอผมฝากงานย้ายไป Naver ให้ Claude มันก็เปลี่ยนเครื่องมือป้อนข้อมูลที่ต้องพึ่งโฟลเดอร์พีซีและเซิร์ฟเวอร์ในเครื่อง ให้มาอ่านฉบับร่างและรูปจาก GitHub โดยตรง ตอนนี้พีซีขอแค่หน้าต่างเบราว์เซอร์ Whale ที่ล็อกอินไว้หนึ่งหน้าต่างก็พอ">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/naver-driver-github/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/naver-driver-github/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/naver-driver-github/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/naver-driver-github/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/naver-driver-github/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/th/posts/naver-driver-github/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/th/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/th/">Cutroom Notes</a>
+    <nav class="top"><a href="/th/">ทั้งหมด</a><a href="/th/series/">ซีรีส์</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-28">28 ตุลาคม 2026</time><h1>เครื่องมือป้อนข้อมูลบล็อก Naver ของผม เปลี่ยนมาอ่านจาก GitHub โดยไม่ต้องใช้โฟลเดอร์พีซีและเซิร์ฟเวอร์ในเครื่อง</h1><p class="tr-line">อ่านในภาษาอื่น: <a href="/en/posts/naver-driver-github/" lang="en">English</a> · <a href="/id/posts/naver-driver-github/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/naver-driver-github/" lang="hi">हिन्दी</a> · <a href="/ar/posts/naver-driver-github/" lang="ar">العربية</a></p></header><aside class="series-box"><a class="series-name" href="/th/series/ai-orchestration/">ซีรีส์ · สร้างออร์เคสเตรชัน AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/github-brain-for-claude/">เหนื่อยกับการอธิบายใหม่ทุกแชต Claude เลยสร้างสมองของ AI ไว้บน GitHub</a></li><li><span>ตอนที่ 2</span><a href="/th/posts/coupang-review-gemini-orchestration/">อยากเป็นรีวิวเวอร์ Coupang แต่รีวิวค้างเป็นสิบๆ ลองทำแบบนี้</a></li><li class="now"><span>ตอนที่ 3</span>เครื่องมือป้อนข้อมูลบล็อก Naver ของผม เปลี่ยนมาอ่านจาก GitHub โดยไม่ต้องใช้โฟลเดอร์พีซีและเซิร์ฟเวอร์ในเครื่อง</li></ol></aside><div class="prose"><p>พอผมฝากงานย้ายไป Naver ให้ Claude มันก็เปลี่ยนเครื่องมือป้อนข้อมูลที่ต้องพึ่งโฟลเดอร์พีซีและเซิร์ฟเวอร์ในเครื่อง ให้มาอ่านฉบับร่างและรูปจาก GitHub โดยตรง ตอนนี้พีซีขอแค่หน้าต่างเบราว์เซอร์ Whale ที่ล็อกอินไว้หนึ่งหน้าต่างก็พอ</p>
+<p>เช้ามืดวันที่ 28 ตุลาคม ผมขอให้ Claude ย้ายตอนที่ 1 ถึง 4 ของซีรีส์วิดีโองานแต่งไปลง Naver ระหว่างบันทึกฉบับร่างทั้งสี่ตอน Claude เขียนเครื่องมือป้อนข้อมูลใหม่ และพอเสร็จงานก็บอกเรื่องนี้ไว้หนึ่งบรรทัดท้ายรายงาน</p>
+<p><img alt="หน้าประวัติคอมมิตของ GitHub: คอมมิตหกรายการที่ขึ้นต้นด้วย &quot;เครื่องมือป้อนข้อมูล Naver รุ่น GitHub&quot; เรียงซ้อนจากบนลงล่าง" src="/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp" />
+<small>ประวัติคอมมิตของเครื่องมือป้อนข้อมูลตัวใหม่ อันล่างสุดคือรุ่นแรก แต่ละอันข้างบนแก้จุดที่ติดเพิ่มทีละจุด</small></p>
+<p>เครื่องมือป้อนข้อมูลคือสคริปต์ที่สั่งเบราว์เซอร์ Whale ผ่าน Playwright เพื่อใส่โพสต์ลงในโปรแกรมแก้ไขของ Naver ถ้า Playwright คือมือ เครื่องมือป้อนข้อมูลก็คือใบลำดับงานที่ยื่นให้มือนั้น มันอ่านฉบับร่างแล้วกำหนดว่าจะใส่ชื่อเรื่อง หัวข้อย่อยแบบคำพูดอ้างอิง ตาราง และรูปตามลำดับไหน ครั้งนี้สิ่งที่เปลี่ยนไม่ใช่มือ แต่เป็นใบลำดับงาน</p>
+<h2>กฎบอกว่า GitHub อย่างเดียว แต่เครื่องมือยังผูกอยู่กับพีซี</h2>
+<p>วันที่ 25 ตุลาคม ผมกำหนดให้ GitHub เป็นพื้นที่ทำงานเดียวของบล็อก เพื่อให้เปิดจากบัญชีไหน พีซีเครื่องไหน หรือมือถือ งานก็ต่อจากสถานะเดียวกัน ผมจึงเพิ่มกฎไว้ในคำสั่งเริ่มต้นว่า ห้ามบันทึกหรือ pull ในโฟลเดอร์พีซี</p>
+<p><img alt="หน้าเปรียบเทียบคอมมิตของ GitHub: ในคำสั่งเริ่มต้น บรรทัด &quot;การตรวจพีซีและสิทธิ์&quot; ถูกลบเป็นสีแดง และ &quot;พื้นที่ทำงานคือ GitHub เท่านั้น&quot; ถูกเพิ่มเป็นสีเขียว" src="/images/20261028-naver-driver-github/02-작업공간-규칙-변경.webp" />
+<small>การแก้คำสั่งเริ่มต้นเมื่อ 25 ตุลาคม บรรทัดตรวจพีซีถูกเอาออก แล้ว "พื้นที่ทำงานคือ GitHub เท่านั้น" ก็เข้ามา</small></p>
+<p>แต่เครื่องมือป้อนข้อมูล Naver ยังทำงานแบบเดิม การรันเครื่องมือตัวเก่า (<code>naver_driver.js</code>) ต้องเตรียมบนพีซีแบบนี้</p>
+<table>
+<thead>
+<tr>
+<th>การเตรียม</th>
+<th>เครื่องมือตัวเก่า</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ฉบับร่าง</td>
+<td>อ่านผ่านเซิร์ฟเวอร์ในเครื่องที่เปิดด้วย <code>python -m http.server 8125</code> ในโฟลเดอร์ blog-notes บนพีซี</td>
+</tr>
+<tr>
+<td>รูป</td>
+<td>คัดลอกไปไว้ในโฟลเดอร์พีซีที่ Playwright อนุญาต ตั้งชื่อ <code>up0.webp</code> <code>up1.webp</code></td>
+</tr>
+<tr>
+<td>ตั้งค่า</td>
+<td>คัดลอกเครื่องมือไว้ในโฟลเดอร์เดียวกันชื่อ <code>drv.js</code> แล้วเขียนชื่อฉบับร่างและตำแหน่งเริ่มใน <code>naver_params.json</code></td>
+</tr>
+<tr>
+<td>ใส่รูป</td>
+<td>พอหยุดที่รูป ก็อัปโหลดด้วย <code>browser_file_upload</code> แล้วรันใหม่</td>
+</tr>
+</tbody>
+</table>
+<p>ตามกฎแล้ว ขั้นตอนไหนที่ใช้โฟลเดอร์พีซีก็ทำไม่ได้ทั้งหมด สองวันก่อนตอนเขียนโพสต์รีวิว Coupang หน้าต่างบนคลาวด์ก็อ้อมปัญหานี้ด้วยมือ มันวาดรูปปกบนแคนวาสในเบราว์เซอร์ของพีซี แล้ววางรูปทีละรูปจากที่อยู่สาธารณะบน Kang PD Log</p>
+<h2>ทดสอบด้วยที่อยู่สองแห่งก่อน</h2>
+<p>Claude อัปโหลดฉบับร่างสี่ตอนและรูปปกขึ้นรีโพสิทอรีส่วนตัวบน GitHub ก่อน เพราะวัตถุดิบต้องอยู่ในรีโพสิทอรี ไม่ใช่บนพีซี ถึงจะตรงกับกฎ</p>
+<p>จากนั้นแทนที่จะสร้างเครื่องมือทันที มันทดสอบก่อน Whale ล็อกอินบัญชี GitHub ของผมอยู่ แล้ว Whale จะดึงไฟล์จากรีโพสิทอรีส่วนตัวได้ด้วยไหม มันขอที่อยู่สองแห่งผ่าน Whale คือรูปปกหนึ่งรูปกับฉบับร่างหนึ่งไฟล์ และได้มาทั้งคู่</p>
+<p><strong>การทดสอบครั้งเดียวนั้นทำให้ไม่ต้องใช้โฟลเดอร์พีซีอีกเลย</strong> ฉบับร่างและรูปปกมาจากรีโพสิทอรีส่วนตัว ส่วนรูปในเนื้อหามาจากที่อยู่ของ Kang PD Log ที่เผยแพร่แล้ว ส่วนหัวของฉบับร่างแค่เพิ่มชื่อโฟลเดอร์รูป (<code>imgdir</code>) หนึ่งบรรทัด</p>
+<table>
+<thead>
+<tr>
+<th>วัตถุดิบ</th>
+<th>เครื่องมือใหม่เอามาจากไหน</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ฉบับร่าง</td>
+<td>รีโพสิทอรีส่วนตัว blog-notes <code>네이버/*.md</code></td>
+</tr>
+<tr>
+<td>รูปปก</td>
+<td>รีโพสิทอรีเดียวกัน <code>네이버/썸네일/&lt;slug&gt;.webp</code></td>
+</tr>
+<tr>
+<td>รูปในเนื้อหา</td>
+<td>ที่อยู่สาธารณะของ Kang PD Log <code>images/&lt;imgdir&gt;/</code></td>
+</tr>
+<tr>
+<td>ตัวเครื่องมือเอง</td>
+<td>รีโพสิทอรีเดียวกัน <code>tools/naver_driver_gh.js</code> ล็อกด้วยเลขคอมมิต</td>
+</tr>
+</tbody>
+</table>
+<p>ตัวเครื่องมือเองก็อ่านจาก GitHub วิธีคือบอก Whale ว่า "ไปเอาเครื่องมือป้อนข้อมูลจากคอมมิตนี้แล้วรัน" พอล็อกเลขคอมมิตไว้ ทุกครั้งที่แก้ก็แค่อัปโหลดคอมมิตใหม่แล้วเรียกด้วยเลขใหม่</p>
+<pre><code class="language-js">async (page) =&gt; {
+  const SHA = '&lt;커밋 번호&gt;';
+  const s = await (await page.request.get('https://github.com/kelvin-KangPD/blog-notes/raw/' + SHA + '/tools/naver_driver_gh.js')).text();
+  return await eval(s)(page, { SHA, FILE: '&lt;원고 파일&gt;', PHASE: 'write', START: 0, CLEAR: true });
+}
+</code></pre>
+<p>โค้ด Playwright แต่ละครั้งต้องจบภายใน 60 วินาที เครื่องมือจึงคืนเลขที่หมายถึง "ใส่ถึงตรงนี้แล้ว" เมื่อครบ 40 วินาทีแล้วหยุด เรียกต่อจากเลขนั้นก็ใส่ต่อได้ พอใส่เนื้อหาครบ ก็เรียกขั้นปิดงานแยกต่างหาก เพื่อใช้สไตล์ "ตาราง 2" ปรับขนาดรูป (รูปหลักกว้าง 600 รูปที่ถูกยืดกลับเป็นความกว้างเดิม) ตั้งฟอนต์เนื้อหาเป็น NanumSquare และบันทึกฉบับร่าง</p>
+<h2>ติดที่รูปสองครั้ง</h2>
+<p>พอรันรุ่นแรก สิ่งที่ติดคือรูป ภายในเก้านาทีมีคอมมิตสะสมหกรายการ</p>
+<table>
+<thead>
+<tr>
+<th>เวลา</th>
+<th>สิ่งที่เปลี่ยน</th>
+<th>เหตุผล</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1:03</td>
+<td>รุ่นแรก</td>
+<td>อ่านฉบับร่างและรูปจาก GitHub โดยไม่ใช้โฟลเดอร์พีซีหรือเซิร์ฟเวอร์ในเครื่อง</td>
+</tr>
+<tr>
+<td>1:04</td>
+<td>ใส่รูปผ่านหน้าต่างเลือกไฟล์</td>
+<td>ใส่ไฟล์ลงช่องอินพุตโดยตรงไม่ได้ผล</td>
+</tr>
+<tr>
+<td>1:06</td>
+<td>ใส่รูปด้วยอีเวนต์วาง</td>
+<td>Playwright ดักหน้าต่างเลือกไฟล์ไว้ จึงใช้ไม่ได้</td>
+</tr>
+<tr>
+<td>1:06</td>
+<td>ไม่เปิดซ้ำถ้าอยู่หน้าเขียนอยู่แล้ว</td>
+<td>ทุกครั้งที่เปิดซ้ำจะมีกล่อง "ออกจากหน้านี้ไหม" เด้งขึ้นมา</td>
+</tr>
+<tr>
+<td>1:09</td>
+<td>จับเคอร์เซอร์ก่อนใส่รูปและเช็กตำแหน่ง</td>
+<td>ถัดจากตารางหรือรูปทันที เคอร์เซอร์ไม่ติด รูปเลยไปอยู่บนสุดของโพสต์</td>
+</tr>
+<tr>
+<td>1:12</td>
+<td>ล้างเนื้อหาให้หมดและรอรูปนานขึ้น</td>
+<td>กันไม่ให้เริ่มทั้งที่โพสต์ยังล้างไม่หมด และไม่ไปต่อก่อนรูปเข้าครบ</td>
+</tr>
+</tbody>
+</table>
+<p>วิธีวางนี้เป็นสิ่งที่หน้าต่างแชตอีกหน้าต่างหาเจอเมื่อสองวันก่อนและจดไว้ในสกิล ถ้าสร้างรูปเป็นออบเจกต์ไฟล์ในโปรแกรมแก้ไข แล้วส่งไปพร้อมสัญญาณ "เพิ่งมีการวาง" โปรแกรมแก้ไขของ Naver ก็รับรูปเหมือนคนกด Ctrl+V พอติด Claude ก็หยิบบันทึกนั้นมาใส่ในเครื่องมือ</p>
+<p>ปัญหาเคอร์เซอร์ยังเขียนไว้ในคอมเมนต์ของเครื่องมือ ทันทีที่ใส่ตาราง โปรแกรมแก้ไขย้ายเคอร์เซอร์ออกจากตารางไม่ได้ รูปเลยไปตกอยู่บนสุดของโพสต์ ตอนนี้จับเคอร์เซอร์ด้วยการพิมพ์ตัวอักษรหนึ่งตัวแล้วลบ และหลังใส่รูปจะเช็กว่าบล็อกสุดท้ายเป็นรูปหรือไม่ ถ้าไม่ใช่ก็หยุด</p>
+<h2>สี่โพสต์เข้าไปภายในเจ็ดนาที</h2>
+<p>ด้วยรุ่นที่หก ตอนที่ 1 ถึง 4 เข้าไปทีละตอน ตอนที่ 1 บันทึกตอนตีหนึ่งสิบเอ็ดนาที ตอนที่ 4 ตอนตีหนึ่งสิบแปดนาที</p>
+<p><img alt="รายการฉบับร่างที่บันทึกไว้ในบล็อก Naver: วิดีโองานแต่งตอนที่ 1 ถึง 4 บันทึกระหว่าง 1:11 ถึง 1:18 วันที่ 28 ตุลาคม และมีโพสต์วันที่ 27 ตุลาคมหนึ่งโพสต์อยู่ล่างสุด" src="/images/20261028-naver-driver-github/03-네이버-임시저장-네-편.webp" />
+<small>รายการฉบับร่าง ตอนที่ 1 ถึง 4 เข้าไปต่อกันภายในเจ็ดนาที โพสต์วันที่ 27 ตุลาคมด้านล่างคือฉบับสั้นตัวเก่า</small></p>
+<p><strong>บนพีซีไม่ต้องเตรียมอะไรเลย</strong> ไม่ได้เปิดเซิร์ฟเวอร์ ไม่ได้คัดลอกรูป ขอแค่หน้าต่าง Whale เปิดอยู่และล็อกอิน Naver กับ GitHub ไว้ก็จบ</p>
+<p>พอเสร็จงาน Claude เขียนวิธีใช้เครื่องมือใหม่หนึ่งบรรทัดลงในสกิล แต่ขั้นตอนเก่าของเครื่องมือตัวเก่ายังค้างอยู่ ไม่กี่ชั่วโมงต่อมาอีกหน้าต่างหนึ่งชี้ว่าคำสั่งเริ่มต้นกับสกิลพูดไม่ตรงกัน และพอผมบอกให้จัดการ มันก็เอาขั้นตอนเก่าออก</p>
+<p><img alt="หน้าเปรียบเทียบคอมมิตของ GitHub: ในคำสั่งเริ่มต้น บรรทัด &quot;เซิร์ฟเวอร์ในเครื่อง&quot; ที่สั่งให้เปิดเซิร์ฟเวอร์ถูกลบ แล้วเปลี่ยนเป็น &quot;ไม่จำเป็น&quot;" src="/images/20261028-naver-driver-github/04-시작-지침-정리.webp" />
+<small>คำสั่งเริ่มต้นหลังจัดการแล้ว บรรทัดที่เคยสั่งให้เปิดเซิร์ฟเวอร์ในเครื่องตอนนี้เขียนว่า "ไม่จำเป็น"</small></p>
+<h2>พีซีให้ยืมแค่หน้าต่าง Whale หน้าต่างเดียว</h2>
+<p>ในโครงสร้างตอนนี้ หน้าที่ของพีซีมีแค่เบราว์เซอร์ที่ล็อกอินไว้ งานทำในหน้าต่างบนคลาวด์ และยืม Whale บนพีซีเฉพาะตอนจำเป็น</p>
+<table>
+<thead>
+<tr>
+<th>งาน</th>
+<th>ทำที่ไหน</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ฉบับร่าง รูปปก แปลงรูป เผยแพร่บน Kang PD Log และเว็บหลายภาษา</td>
+<td>หน้าต่างบนคลาวด์ (รีโพสิทอรี GitHub)</td>
+</tr>
+<tr>
+<td>บันทึกฉบับร่าง Naver</td>
+<td>หน้าต่าง Whale บนพีซี (เครื่องมือใหม่อ่านจาก GitHub แล้วใส่)</td>
+</tr>
+<tr>
+<td>จับภาพหน้าจอเว็บ</td>
+<td>ถ่ายในหน้าต่าง Whale บนพีซีแล้วส่งกลับมาที่คลาวด์</td>
+</tr>
+<tr>
+<td>ตอนที่ Whale ปิดอยู่</td>
+<td>ทำแค่ฉบับร่างแล้วใส่คิวไว้ใน <code>네이버/대기열.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>ภาพหน้าจอในโพสต์นี้ก็ได้มาแบบเดียวกัน Whale ถ่ายหน้าจอ GitHub แล้วส่งข้อมูลภาพกลับมาเป็นตัวอักษร จากนั้นฝั่งคลาวด์ก็แปลงกลับเป็นไฟล์รูป ฟอนต์ที่ใช้ทำรูปปกดาวน์โหลดจากคลาวด์ไม่ได้เพราะที่อยู่ถูกบล็อก Whale เลยไปเอามาแล้วส่งให้เป็นสองส่วน</p>
+<p>ตรงจุดที่กฎกับเครื่องมือไม่ตรงกัน มันไม่หยุดและไม่ผิดกฎ แต่เช็กด้วยการทดสอบราคาถูกก่อนว่ามีทางไหม แล้วค่อยแก้ทีละเรื่องจนใส่ครบทั้งสี่โพสต์ งานนี้ Claude ทำได้ดี</p></div><aside class="series-box"><a class="series-name" href="/th/series/ai-orchestration/">ซีรีส์ · สร้างออร์เคสเตรชัน AI</a><ol><li><span>ตอนที่ 1</span><a href="/th/posts/github-brain-for-claude/">เหนื่อยกับการอธิบายใหม่ทุกแชต Claude เลยสร้างสมองของ AI ไว้บน GitHub</a></li><li><span>ตอนที่ 2</span><a href="/th/posts/coupang-review-gemini-orchestration/">อยากเป็นรีวิวเวอร์ Coupang แต่รีวิวค้างเป็นสิบๆ ลองทำแบบนี้</a></li><li class="now"><span>ตอนที่ 3</span>เครื่องมือป้อนข้อมูลบล็อก Naver ของผม เปลี่ยนมาอ่านจาก GitHub โดยไม่ต้องใช้โฟลเดอร์พีซีและเซิร์ฟเวอร์ในเครื่อง</li></ol></aside></article><nav class="pager"><a href="/th/posts/higgsfield-wedding-film/"><span>บทความก่อนหน้า</span>ผมทำวิดีโอสำหรับพิธีแต่งงานของเราด้วย Higgsfield: วิธีอธิบายฉากให้ AI เข้าใจ</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th" class=on>ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin ครีเอเตอร์คอนเทนต์จากเกาหลี · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

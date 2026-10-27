@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alat input blog Naver saya kini membaca dari GitHub, tanpa folder PC dan server lokal · Cutroom Notes</title>
+<meta name="description" content="Saat saya menyerahkan migrasi ke Naver, Claude mengubah alat input yang butuh folder PC dan server lokal menjadi alat yang membaca draf dan foto langsung dari GitHub. Kini PC cukup menyediakan satu jendela browser Whale yang sudah login.">
+<meta property="og:title" content="Alat input blog Naver saya kini membaca dari GitHub, tanpa folder PC dan server lokal · Cutroom Notes">
+<meta property="og:description" content="Saat saya menyerahkan migrasi ke Naver, Claude mengubah alat input yang butuh folder PC dan server lokal menjadi alat yang membaca draf dan foto langsung dari GitHub. Kini PC cukup menyediakan satu jendela browser Whale yang sudah login.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/naver-driver-github/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/naver-driver-github/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/naver-driver-github/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/naver-driver-github/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/naver-driver-github/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/id/posts/naver-driver-github/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/id/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/id/">Cutroom Notes</a>
+    <nav class="top"><a href="/id/">Semua</a><a href="/id/series/">Seri</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-10-28">28 Oktober 2026</time><h1>Alat input blog Naver saya kini membaca dari GitHub, tanpa folder PC dan server lokal</h1><p class="tr-line">Baca juga dalam: <a href="/en/posts/naver-driver-github/" lang="en">English</a> · <a href="/hi/posts/naver-driver-github/" lang="hi">हिन्दी</a> · <a href="/ar/posts/naver-driver-github/" lang="ar">العربية</a> · <a href="/th/posts/naver-driver-github/" lang="th">ไทย</a></p></header><aside class="series-box"><a class="series-name" href="/id/series/ai-orchestration/">Seri · Membangun orkestrasi AI</a><ol><li><span>Bagian 1</span><a href="/id/posts/github-brain-for-claude/">Capek menjelaskan ulang di setiap chat Claude, saya membuat otak AI di GitHub</a></li><li><span>Bagian 2</span><a href="/id/posts/coupang-review-gemini-orchestration/">Ingin ikut program reviewer Coupang tapi review menumpuk puluhan? Coba cara ini</a></li><li class="now"><span>Bagian 3</span>Alat input blog Naver saya kini membaca dari GitHub, tanpa folder PC dan server lokal</li></ol></aside><div class="prose"><p>Saat saya menyerahkan migrasi ke Naver, Claude mengubah alat input yang butuh folder PC dan server lokal menjadi alat yang membaca draf dan foto langsung dari GitHub. Kini PC cukup menyediakan satu jendela browser Whale yang sudah login.</p>
+<p>Dini hari 28 Oktober, saya meminta Claude memindahkan bagian 1 sampai 4 seri video pernikahan saya ke Naver. Sambil menyimpan empat draf, Claude menulis ulang alat input, lalu setelah selesai menyebutkannya dalam satu baris di akhir laporan.</p>
+<p><img alt="Layar riwayat commit GitHub: enam commit yang diawali &quot;Alat input Naver versi GitHub&quot; bertumpuk dari atas ke bawah" src="/images/20261028-naver-driver-github/01-입력기-커밋-여섯-판.webp" />
+<small>Riwayat commit alat input baru. Yang paling bawah adalah versi pertama; setiap commit di atasnya memperbaiki satu bagian lagi yang macet</small></p>
+<p>Alat input adalah skrip yang mengendalikan browser Whale lewat Playwright untuk memasukkan tulisan ke editor Naver. Kalau Playwright adalah tangan, alat input adalah lembar urutan kerja yang dipegang tangan itu. Ia membaca draf dan menentukan urutan memasukkan judul, subjudul bergaya kutipan, tabel, dan foto. Yang berubah kali ini bukan tangannya, melainkan lembar urutan kerjanya.</p>
+<h2>Aturannya hanya GitHub, tapi alatnya terikat ke PC</h2>
+<p>Pada 25 Oktober, saya menetapkan GitHub sebagai satu-satunya ruang kerja blog. Tujuannya agar dari akun, PC, atau ponsel mana pun pekerjaan berlanjut dari keadaan yang sama. Jadi saya menambahkan aturan di instruksi awal: tidak ada yang disimpan ke atau ditarik dari folder PC.</p>
+<p><img alt="Layar perbandingan commit GitHub: di instruksi awal, baris &quot;deteksi PC dan izin&quot; dihapus dengan warna merah dan &quot;ruang kerja hanya GitHub&quot; ditambahkan dengan warna hijau" src="/images/20261028-naver-driver-github/02-작업공간-규칙-변경.webp" />
+<small>Perubahan instruksi awal pada 25 Oktober. Baris deteksi PC keluar, dan "ruang kerja hanya GitHub" masuk</small></p>
+<p>Namun alat input Naver masih bekerja dengan cara lama. Untuk menjalankan alat lama (<code>naver_driver.js</code>), PC perlu persiapan seperti ini.</p>
+<table>
+<thead>
+<tr>
+<th>Persiapan</th>
+<th>Alat input lama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draf</td>
+<td>Dibaca lewat server lokal yang dinyalakan dengan <code>python -m http.server 8125</code> di folder blog-notes pada PC</td>
+</tr>
+<tr>
+<td>Foto</td>
+<td>Disalin ke folder PC yang diizinkan Playwright dengan nama <code>up0.webp</code>, <code>up1.webp</code></td>
+</tr>
+<tr>
+<td>Pengaturan</td>
+<td>Alat disalin ke folder yang sama sebagai <code>drv.js</code>, nama draf dan posisi awal ditulis di <code>naver_params.json</code></td>
+</tr>
+<tr>
+<td>Masukkan foto</td>
+<td>Saat berhenti di foto, unggah dengan <code>browser_file_upload</code> lalu jalankan lagi</td>
+</tr>
+</tbody>
+</table>
+<p>Menurut aturan, semua langkah yang memakai folder PC tidak boleh dilakukan. Dua hari sebelumnya, untuk tulisan ulasan Coupang, sebuah jendela cloud mengakalinya secara manual. Ia menggambar thumbnail di kanvas dalam browser PC dan menempelkan foto satu per satu dari alamat publiknya di Kang PD Log.</p>
+<h2>Diuji dulu dengan dua alamat</h2>
+<p>Claude lebih dulu mengunggah empat draf dan thumbnail ke repositori privat di GitHub. Bahan harus ada di repositori, bukan di PC, agar sesuai aturan.</p>
+<p>Lalu, alih-alih langsung membuat alat, ia menguji dulu. Whale sudah login ke akun GitHub saya. Kalau begitu, bisakah Whale juga mengambil file dari repositori privat? Ia meminta dua alamat lewat Whale, satu thumbnail dan satu draf, dan keduanya berhasil diterima.</p>
+<p><strong>Satu uji itu menghapus kebutuhan akan folder PC.</strong> Draf dan thumbnail diambil dari repositori privat, dan foto isi diambil dari alamat Kang PD Log yang sudah terbit. Bagian depan draf cukup diberi satu baris nama folder foto (<code>imgdir</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Bahan</th>
+<th>Asal yang dipakai alat baru</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draf</td>
+<td>Repositori privat blog-notes, <code>네이버/*.md</code></td>
+</tr>
+<tr>
+<td>Thumbnail</td>
+<td>Repositori yang sama, <code>네이버/썸네일/&lt;slug&gt;.webp</code></td>
+</tr>
+<tr>
+<td>Foto isi</td>
+<td>Alamat publik Kang PD Log <code>images/&lt;imgdir&gt;/</code></td>
+</tr>
+<tr>
+<td>Alat itu sendiri</td>
+<td>Repositori yang sama, <code>tools/naver_driver_gh.js</code>, dikunci dengan commit</td>
+</tr>
+</tbody>
+</table>
+<p>Alatnya sendiri juga dibaca dari GitHub. Caranya dengan memberi tahu Whale, "ambil alat input di commit ini lalu jalankan." Karena commit-nya dikunci, setiap perbaikan cukup dengan mengunggah commit baru lalu memanggilnya lagi dengan nomor baru.</p>
+<pre><code class="language-js">async (page) =&gt; {
+  const SHA = '&lt;커밋 번호&gt;';
+  const s = await (await page.request.get('https://github.com/kelvin-KangPD/blog-notes/raw/' + SHA + '/tools/naver_driver_gh.js')).text();
+  return await eval(s)(page, { SHA, FILE: '&lt;원고 파일&gt;', PHASE: 'write', START: 0, CLEAR: true });
+}
+</code></pre>
+<p>Setiap potongan kode Playwright harus selesai dalam 60 detik. Karena itu setelah 40 detik alat mengembalikan nomor yang berarti "sudah dimasukkan sampai sini" lalu berhenti. Kalau dipanggil lagi dari nomor itu, ia melanjutkan. Setelah isi selesai, tahap penyelesaian dipanggil terpisah untuk menerapkan gaya "Tabel 2", ukuran foto (foto utama lebar 600, foto yang melebar dikembalikan ke lebar aslinya), font isi NanumSquare, dan menyimpan draf.</p>
+<h2>Foto macet dua kali</h2>
+<p>Saat versi pertama dijalankan, yang macet adalah foto. Dalam sembilan menit terkumpul enam commit.</p>
+<table>
+<thead>
+<tr>
+<th>Waktu</th>
+<th>Yang diubah</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.03</td>
+<td>Versi pertama</td>
+<td>Membaca draf dan foto dari GitHub tanpa folder PC atau server lokal</td>
+</tr>
+<tr>
+<td>1.04</td>
+<td>Foto lewat pemilih file</td>
+<td>Memasukkan file langsung ke kolom input tidak berhasil</td>
+</tr>
+<tr>
+<td>1.06</td>
+<td>Foto lewat peristiwa tempel</td>
+<td>Playwright mencegat pemilih file sehingga tidak bisa dipakai</td>
+</tr>
+<tr>
+<td>1.06</td>
+<td>Tidak membuka ulang kalau sudah di layar menulis</td>
+<td>Setiap kali dibuka ulang muncul dialog "tinggalkan halaman ini?"</td>
+</tr>
+<tr>
+<td>1.09</td>
+<td>Tangkap kursor sebelum foto, cek posisi</td>
+<td>Tepat setelah tabel atau foto kursor tidak tertangkap, dan foto masuk ke paling atas tulisan</td>
+</tr>
+<tr>
+<td>1.12</td>
+<td>Kosongkan isi sepenuhnya, tunggu foto lebih lama</td>
+<td>Mencegah mulai dengan tulisan yang belum bersih dan lanjut sebelum foto selesai masuk</td>
+</tr>
+</tbody>
+</table>
+<p>Cara tempel itu ditemukan jendela obrolan lain dua hari sebelumnya dan dicatat di skill. Kalau foto dibuat sebagai objek file di dalam editor lalu dikirim bersama sinyal "baru saja terjadi tempel", editor Naver menerima foto itu seolah orang menekan Ctrl+V. Saat macet, Claude mengambil catatan itu dan memasukkannya ke alat.</p>
+<p>Masalah kursor masih tertulis di komentar alat. Tepat setelah tabel masuk, editor tidak bisa memindahkan kursor keluar dari tabel, sehingga foto mendarat di paling atas tulisan. Kini kursor ditangkap dengan mengetik satu huruf lalu menghapusnya, dan setelah foto masuk alat memeriksa apakah blok terakhir adalah foto, lalu berhenti kalau bukan.</p>
+<h2>Empat tulisan masuk dalam tujuh menit</h2>
+<p>Dengan versi keenam, bagian 1 sampai 4 masuk satu per satu. Bagian 1 tersimpan pukul 1.11 dan bagian 4 pukul 1.18.</p>
+<p><img alt="Daftar draf tersimpan di blog Naver: bagian 1 sampai 4 video pernikahan tersimpan antara pukul 1.11 dan 1.18 tanggal 28 Oktober, dengan satu tulisan 27 Oktober di paling bawah" src="/images/20261028-naver-driver-github/03-네이버-임시저장-네-편.webp" />
+<small>Daftar draf tersimpan. Bagian 1 sampai 4 masuk berurutan dalam tujuh menit. Tulisan 27 Oktober di bawah adalah versi pendek yang lama</small></p>
+<p><strong>Tidak ada persiapan apa pun di PC.</strong> Tidak menyalakan server, tidak menyalin foto. Selama jendela Whale terbuka dan login ke Naver serta GitHub, selesai.</p>
+<p>Setelah selesai, Claude menulis satu baris cara pakai alat baru di skill. Namun prosedur lama untuk alat lama masih tersisa. Beberapa jam kemudian jendela lain menunjukkan bahwa instruksi awal dan skill mengatakan hal berbeda, dan ketika saya menyuruhnya merapikan, ia menghapus prosedur lama itu.</p>
+<p><img alt="Layar perbandingan commit GitHub: di instruksi awal, baris &quot;server lokal&quot; yang menyuruh menyalakan server dihapus dan diganti &quot;tidak perlu&quot;" src="/images/20261028-naver-driver-github/04-시작-지침-정리.webp" />
+<small>Instruksi awal yang sudah dirapikan. Baris yang menyuruh menyalakan server lokal kini berbunyi "tidak perlu"</small></p>
+<h2>PC hanya meminjamkan satu jendela Whale</h2>
+<p>Dalam susunan sekarang, tugas PC hanya menyediakan browser yang sudah login. Pekerjaan berjalan di jendela cloud, dan Whale di PC hanya dipinjam saat diperlukan.</p>
+<table>
+<thead>
+<tr>
+<th>Pekerjaan</th>
+<th>Di mana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draf, thumbnail, konversi foto, terbit di Kang PD Log dan situs multibahasa</td>
+<td>Jendela cloud (repositori GitHub)</td>
+</tr>
+<tr>
+<td>Simpan draf Naver</td>
+<td>Jendela Whale di PC (alat baru membaca dari GitHub lalu memasukkan)</td>
+</tr>
+<tr>
+<td>Tangkapan layar web</td>
+<td>Diambil di jendela Whale PC lalu dibawa ke cloud</td>
+</tr>
+<tr>
+<td>Saat Whale mati</td>
+<td>Hanya draf yang dibuat dan diantrekan di <code>네이버/대기열.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>Tangkapan layar di tulisan ini juga didapat dengan cara yang sama. Whale memotret layar GitHub, mengembalikan data gambar dalam bentuk teks, lalu sisi cloud mengubahnya lagi menjadi file gambar. Font untuk thumbnail tidak bisa diunduh dari cloud karena alamatnya diblokir, jadi Whale yang mengambilnya dan menyerahkannya dalam dua bagian.</p>
+<p>Di titik aturan dan alat tidak cocok, ia tidak berhenti dan tidak melanggar aturan, melainkan mengecek dulu dengan uji murah apakah ada jalan. Lalu ia memperbaiki satu hal demi satu hal sampai keempat tulisan masuk. Untuk yang satu ini, Claude bekerja dengan baik.</p></div><aside class="series-box"><a class="series-name" href="/id/series/ai-orchestration/">Seri · Membangun orkestrasi AI</a><ol><li><span>Bagian 1</span><a href="/id/posts/github-brain-for-claude/">Capek menjelaskan ulang di setiap chat Claude, saya membuat otak AI di GitHub</a></li><li><span>Bagian 2</span><a href="/id/posts/coupang-review-gemini-orchestration/">Ingin ikut program reviewer Coupang tapi review menumpuk puluhan? Coba cara ini</a></li><li class="now"><span>Bagian 3</span>Alat input blog Naver saya kini membaca dari GitHub, tanpa folder PC dan server lokal</li></ol></aside></article><nav class="pager"><a href="/id/posts/higgsfield-wedding-film/"><span>Tulisan sebelumnya</span>Saya membuat film untuk upacara pernikahan kami dengan Higgsfield: cara menjelaskan adegan ke AI</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id" class=on>Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, pembuat konten dari Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>
