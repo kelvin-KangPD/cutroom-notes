@@ -1,6 +1,7 @@
 ---
 title: "Claude membuat alat baru yang tidak pernah saya minta, jadi saya menelusuri alasannya lewat catatan"
 date: 2026-10-28
+draft: true
 summary: "Saat melihat perbaikan yang dibuat Claude tanpa diminta, saya merasa ia berkembang sendiri. Setelah menelusuri catatan ke belakang, ternyata arahnya saya yang menentukan, dan Claude menambal celah tempat arah itu bertabrakan dengan alat yang sudah usang."
 cover: /images/20261028-unasked-fix/01-입력기-커밋-여섯-판.webp
 ---

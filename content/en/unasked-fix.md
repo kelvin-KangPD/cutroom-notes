@@ -1,6 +1,7 @@
 ---
 title: "Claude built a new tool I never asked for, so I traced its reasoning through the logs"
 date: 2026-10-28
+draft: true
 summary: "When I saw an improvement Claude made without being asked, I felt it had evolved on its own. Tracing the logs backward, I found I had set the direction, and Claude had filled the gap where that direction collided with an outdated tool."
 cover: /images/20261028-unasked-fix/01-입력기-커밋-여섯-판.webp
 ---
