@@ -114,13 +114,18 @@ Itulah sebabnya saya bilang cerita ini baru masuk akal kalau Ga-gyeong mati di e
 
 Ga-gyeong mencuri peluru para pejuang kemerdekaan, lalu datang ke markas mereka untuk menjualnya.
 Sambil terang-terangan mengaku dialah yang mencurinya.
-Ia takut ketika moncong pistol diarahkan dari belakang, lalu sekitar menit 59:17 episode 1 malah menantang Yoo So-ran: "Saya akan berteriak dan bikin ribut."
+Sekitar menit 59:17 episode 1 ia bahkan menantang Yoo So-ran: "Saya akan berteriak dan bikin ribut."
 
 ![Adegan saat ia menantang akan berteriak dan bikin ribut](/images/20261103-100days-of-lies-drop/13-가경-난장.webp)
 
 Ada banyak cara untuk menundukkannya tanpa pistol.
+Buktinya, setelah itu, ketika seorang pejuang kemerdekaan mengarahkan moncong pistol dari belakang, barulah ia takut.
 Pencuri kecil yang memegang kendali di depan orang-orang yang mempertaruhkan nyawa demi negara terasa terlalu meremehkan para pejuang kemerdekaan, dan itu membuat saya tidak nyaman.
-Saya paham latar bahwa ada banyak kelompok yang tidak saling berkomunikasi, tapi cara menampilkannya membuat para pejuang kemerdekaan terlihat terlalu bodoh.
+
+Baku tembak sebelumnya juga begitu.
+Yang menembak dan membuat kekacauan di rumah itu adalah mantan suami Yoo So-ran.
+Ia juga pejuang kemerdekaan, tapi tampaknya berasal dari kelompok kemerdekaan lain, bukan kelompok Yoo So-ran.
+Saya paham latar bahwa ada banyak kelompok yang bergerak sendiri-sendiri dan tidak saling berkomunikasi, tapi cara menampilkannya membuat para pejuang kemerdekaan terlihat terlalu bodoh.
 
 ## Standar saya tinggi karena Mr. Sunshine
 
