@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyboard PCB self-repair guide: from a hot-swap key that won&#x27;t register to soldering a ripped copper pad on an AULA · Cutroom Notes</title>
+<meta name="description" content="When one key on a hot-swap keyboard stops working, here is where to look first for each symptom, in the order I actually checked while fixing my AULA F108.">
+<meta property="og:title" content="Keyboard PCB self-repair guide: from a hot-swap key that won&#x27;t register to soldering a ripped copper pad on an AULA · Cutroom Notes">
+<meta property="og:description" content="When one key on a hot-swap keyboard stops working, here is where to look first for each symptom, in the order I actually checked while fixing my AULA F108.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/keyboard-hotswap-repair-guide/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/en/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/en/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/en/">Cutroom Notes</a>
+    <nav class="top"><a href="/en/">All</a><a href="/en/series/">Series</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-11-03">November 3, 2026</time><h1>Keyboard PCB self-repair guide: from a hot-swap key that won&#x27;t register to soldering a ripped copper pad on an AULA</h1><p class="tr-line">Also in: <a href="/id/posts/keyboard-hotswap-repair-guide/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/keyboard-hotswap-repair-guide/" lang="hi">हिन्दी</a> · <a href="/ar/posts/keyboard-hotswap-repair-guide/" lang="ar">العربية</a> · <a href="/th/posts/keyboard-hotswap-repair-guide/" lang="th">ไทย</a></p></header><div class="prose"><p>When one key on a hot-swap keyboard stops working, find your symptom below and jump straight to that number.</p>
+<pre><code>A key won't register
+├ Works with another switch → done
+└ Still dead → step 2
+   ├ Socket is lifted → step 3
+   │  └ Pad is brown → step 4
+   ├ Two keys press together → step 5
+   └ Pad is gone → step 6
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Where I am now</th>
+<th>Jump to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Not sure what the symptom even is</td>
+<td><a href="#s1">1. Sort by symptom first</a></td>
+</tr>
+<tr>
+<td>Swapping the switch didn't help</td>
+<td><a href="#s2">2. Rule out the switch and open the case</a></td>
+</tr>
+<tr>
+<td>The socket on the back is lifted</td>
+<td><a href="#s3">3. Resolder a lifted socket</a></td>
+</tr>
+<tr>
+<td>The socket spot is brown</td>
+<td><a href="#s4">4. Check whether the copper pad is ripped</a></td>
+</tr>
+<tr>
+<td>Two keys press together</td>
+<td><a href="#s5">5. Two keys at once means a line short</a></td>
+</tr>
+<tr>
+<td>The pad is gone and there's nowhere to attach the socket</td>
+<td><a href="#s6">6. No pad? Reroute with a wire</a></td>
+</tr>
+<tr>
+<td>It's fixed but something is still off</td>
+<td><a href="#s7">7. What's left after the fix</a></td>
+</tr>
+</tbody>
+</table>
+<p>This is the actual path I took while fixing the X key on my AULA F108 Pro. It was my first time soldering, and I had no multimeter. How I got here is in the <a href="/en/posts/aula-f108-keyboard-repair/">self-repair log</a>.</p>
+<table>
+<thead>
+<tr>
+<th>What you need</th>
+<th>What I used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Soldering iron and solder</td>
+<td>Bought at Daiso</td>
+</tr>
+<tr>
+<td>Tool to open the case</td>
+<td>Anything hard</td>
+</tr>
+<tr>
+<td>Tool to find the short</td>
+<td>A toothpick and a keyboard test site</td>
+</tr>
+<tr>
+<td>Wire for the detour</td>
+<td>One strand from a LAN cable</td>
+</tr>
+<tr>
+<td>Spare socket</td>
+<td>Taken from an unused key position</td>
+</tr>
+<tr>
+<td>Multimeter</td>
+<td>Not needed</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s1">1. Sort by symptom first</h2>
+<p>Each symptom has a different cause and a different place to fix. Based on what I actually saw, it breaks down like this.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Suspect</th>
+<th>Go to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One key dead, works with a different switch</td>
+<td>The switch</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>One key dead, same with a different switch</td>
+<td>The hot-swap socket on the board</td>
+<td>2 → 3</td>
+</tr>
+<tr>
+<td>One side of the socket sticks up from the board</td>
+<td>Socket solder or copper pad</td>
+<td>3 → 4</td>
+</tr>
+<tr>
+<td>Since soldering, two unrelated keys press together</td>
+<td>Line short</td>
+<td>5</td>
+</tr>
+<tr>
+<td>The pad at the socket spot is empty and brown</td>
+<td>Ripped copper pad</td>
+<td>4 → 6</td>
+</tr>
+</tbody>
+</table>
+<p>Let's settle the names first. The black part the switch plugs into is the hot-swap socket, and the silver plate its legs attach to is the copper pad. The diode is a separate small part next to the socket.</p>
+<h2 id="s2">2. Rule out the switch and open the case</h2>
+<p>The first thing to do is plug a different switch into the dead spot. I swapped all my switches to Peach switches because the keyboard was loud, and then X stopped working. It stayed dead with a different switch, so from there I treated it as a board problem.</p>
+<p>The bottom case opens more easily than you'd think.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Pull only the keycaps around the bottom case's locking slots</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Put a hard tool into the slot and pop it like a lever</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gently pry apart only where needed</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Disconnect the battery as soon as it opens</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Prying the bottom case open with a hard tool in the slot" src="/images/20261102-aula-f108-keyboard-repair/06-지렛대로-하판-열기.webp" />
+<small>The bottom case opened by levering a tool in the slot</small></p>
+<p>I learned that you must disconnect the battery from <a href="https://blog.naver.com/ststeel/224044004123">an AULA F99 repair post</a>. If it's a wireless keyboard, do this first.</p>
+<p><img alt="The inside of the keyboard on first opening, with foam, wiring and the battery cable visible" src="/images/20261102-aula-f108-keyboard-repair/07-첫-오픈-배터리.webp" />
+<small>The battery cable you see when you first open the bottom case</small></p>
+<h2 id="s3">3. Resolder a lifted socket</h2>
+<p>If one side of the socket is sticking up a little on the back of the dead key, you're here. If the solder lifted and the leg came off the pad, you just need to resolder it.</p>
+<p><img alt="The X socket lifted slightly and sticking up from the board" src="/images/20261102-aula-f108-keyboard-repair/09-튀어나온-소켓.webp" />
+<small>The X hot-swap socket with one side lifted from the board</small></p>
+<p>I got the soldering method wrong at first. I just melted solder with the iron and dropped it onto the socket spot, but <strong>the right way is to heat the board first and then press the solder onto it</strong>. The clip below shows the wrong way.</p>
+<p><img alt="The first soldering attempt, melting solder wire and dropping it onto the socket spot" src="/images/20261102-aula-f108-keyboard-repair/움짤1-첫-납땜.webp" />
+<small>The wrong way: dropping melted solder without heating the board</small></p>
+<p>If the socket came off completely, take one from an unused key position. I took mine from F10, and in hindsight I should have used Pause. Pick a key you rarely use.</p>
+<p><img alt="A single black hot-swap socket that fell off, resting on a palm" src="/images/20261102-aula-f108-keyboard-repair/10-떨어진-소켓.webp" />
+<small>A hot-swap socket that came off the board</small></p>
+<p>Before you solder, always check step 4 first. If what lifted was the pad and not the solder, reattaching won't work and only makes things worse.</p>
+<h2 id="s4">4. Check whether the copper pad is ripped</h2>
+<p>Look at the color of the pad where you removed the socket. If every other key's pad is silver and only this spot is brown, the pad is ripped.</p>
+<p><img alt="The back of the X position: the left square pad area is empty and brown, with burn marks around it" src="/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp" />
+<small>The X position showing a brown base instead of a silver pad</small></p>
+<p>I scraped it lightly with a box cutter and nothing came up. That settled it.</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The pad is silver and only the solder came off</td>
+<td>Go back to step 3 and resolder</td>
+</tr>
+<tr>
+<td>The pad spot is brown and scraping shows no metal</td>
+<td>Ripped pad. Step 6</td>
+</tr>
+</tbody>
+</table>
+<p>A copper pad is copper printed onto the board, so you can't take one from somewhere else and stick it on. The socket is the only thing you can transplant; <strong>a missing pad has to be replaced with a wire.</strong></p>
+<h2 id="s5">5. Two keys at once means a line short</h2>
+<p>If two unrelated keys started pressing together in pairs after you soldered, it's a line short. In my case it happened right after the first soldering.</p>
+<p><img alt="Pressing keys around X on the reassembled keyboard prints the wrong letters in Notepad" src="/images/20261102-aula-f108-keyboard-repair/움짤2-첫-결과-메모장.webp" />
+<small>Pressing keys in Notepad after the first soldering</small></p>
+<table>
+<thead>
+<tr>
+<th>Key pressed</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl or Shift</td>
+<td>Both press together</td>
+</tr>
+<tr>
+<td>Alt</td>
+<td>Presses with Z</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Presses with B</td>
+</tr>
+<tr>
+<td>.</td>
+<td>Presses with Fn</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>Presses with ↓</td>
+</tr>
+<tr>
+<td>A·S·D·F·G, C·V·N·M</td>
+<td>Each works fine</td>
+</tr>
+</tbody>
+</table>
+<p>Every pair was one key from the Shift row and the key right below it on the Ctrl row. A keyboard sends a signal down one column at a time and reads the rows, so if two rows are joined, the upper and lower keys in the same column register together (<a href="https://develop-docs.qmk.fm/how_a_matrix_works">QMK docs</a>). C·V·N·M were fine because the row below them is the space bar, so they had no partner.</p>
+<p><img alt="A full board photo with the key pairs that press together marked with orange circles and red lines" src="/images/20261102-aula-f108-keyboard-repair/13-같이-눌리는-짝.webp" />
+<small>A map of the key pairs that press together, marked on the board</small></p>
+<p><img alt="A board photo with the Shift row trace and the Ctrl row trace drawn, joined at one point" src="/images/20261102-aula-f108-keyboard-repair/14-두-줄-쇼트-원리.webp" />
+<small>How a line short works: the Shift row and the Ctrl row touching at one point</small></p>
+<p>You can find the short without a multimeter.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Connect the keyboard and open a keyboard test site</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Hold down one key from a pair (I used Ctrl). Its partner (Shift) lights up on screen too</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Press around the area you worked on, here and there, with a toothpick</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The point where the partner key turns off is the short</td>
+</tr>
+</tbody>
+</table>
+<p>A toothpick doesn't conduct electricity, so it won't muddy the result. While pressing, something went "tick," and Shift started behaving on its own. It looks like the end of a lifted copper trace had been touching the row trace below and then came apart.</p>
+<p><img alt="A close-up of the torn area with the zone to press with a toothpick circled in orange" src="/images/20261102-aula-f108-keyboard-repair/15-이쑤시개로-쇼트-찾기.webp" />
+<small>The zone to press with a toothpick</small></p>
+<p>Here is what I tried before catching the short that didn't help. If your symptoms match, you can skip these.</p>
+<table>
+<thead>
+<tr>
+<th>What I tried</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Removing metal debris on the board with tweezers</td>
+<td>No change</td>
+</tr>
+<tr>
+<td>Wiping burnt flux marks</td>
+<td>No change</td>
+</tr>
+<tr>
+<td>Cleaning up a solder blob</td>
+<td>It wasn't touching nearby traces, so irrelevant</td>
+</tr>
+<tr>
+<td>Pulling the dead key's switch and testing</td>
+<td>No change</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s6">6. No pad? Reroute with a wire</h2>
+<p>Connect the socket leg on the ripped side directly to the line it's supposed to reach, using a wire. Find where to connect it by touching the wire by hand before soldering. This method comes from a <a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">KeebTalk repair case</a>.</p>
+<p><strong>The most important thing is to plug in the switch and hold it down while touching the wire.</strong> The two legs of the socket only connect when the switch is pressed. At first I touched without a switch and spent ages confused because only X wouldn't register.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Solder the socket leg on the side that still has a pad</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Solder one end of a wire to the leg on the ripped side</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Plug in the switch, hold that key down, and touch the other end of the wire to each candidate pad</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Find the pad where that key shows up on the test screen</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Solder the wire to that pad</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="A photo around X with the fixed point and candidates ①–⑦ circled" src="/images/20261102-aula-f108-keyboard-repair/16-X-연결-후보.webp" />
+<small>Seven candidate pads to touch the wire to</small></p>
+<p>For the wire, I pulled one strand out of a LAN cable and stripped both ends. It's thin, so it was easy to fit between pads.</p>
+<p><img alt="A thin wire pulled from a LAN cable with the insulation stripped" src="/images/20261102-aula-f108-keyboard-repair/17-랜선-전선.webp" />
+<small>One strand from a LAN cable with both ends stripped</small></p>
+<p>Once you touch, the result shows up right away. In my case, touching the D49 and D48 pads above printed D. That meant the leg on the ripped side was already connected to the same line as D. Touching the D63 pad right next to it brought up X. It wasn't S, which I'd expected, or D, the next candidate. So <strong>rather than guessing, it's faster to touch every candidate.</strong></p>
+<p><img alt="Soldering a wire from the X socket's left leg onto a neighboring pad" src="/images/20261102-aula-f108-keyboard-repair/움짤3-전선-납땜.webp" />
+<small>Soldering the wire from the socket leg onto the neighboring pad</small></p>
+<p><img alt="The path connecting the D63 pad and the X socket leg drawn as a blue line" src="/images/20261102-aula-f108-keyboard-repair/18-D63-연결.webp" />
+<small>The final path from the X socket leg to the D63 pad</small></p>
+<p>After connecting it, check that it stays quiet when not pressed and registers once when pressed.</p>
+<p><img alt="A keyboard test site showing the X key registered" src="/images/20261102-aula-f108-keyboard-repair/움짤4-X-테스트-완료.webp" />
+<small>X input after the repair, confirmed on a keyboard test site</small></p>
+<h2 id="s7">7. What's left after the fix</h2>
+<p>A key saved with a wire detour isn't exactly like the original. In my case, this is what's left.</p>
+<table>
+<thead>
+<tr>
+<th>What's left</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X and C at the same time</td>
+<td>Doesn't work, because X borrows C's diode. Can be fixed by moving the wire to X's own diode leg</td>
+</tr>
+<tr>
+<td>The key I took the socket from (F10)</td>
+<td>Empty. Move an unused key's socket (Pause, etc.) or remap the key</td>
+</tr>
+<tr>
+<td>The rerouted socket</td>
+<td>Weak, with one pad missing. Support the socket from behind when pulling the switch</td>
+</tr>
+</tbody>
+</table>
+<p>It's fine for everyday typing, so I reassembled it as is.</p>
+<p>Sources</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://blog.naver.com/ststeel/224044004123">AULA F99 key input failure (Korean)</a></td>
+<td>Opening the bottom case, disconnecting the battery</td>
+</tr>
+<tr>
+<td><a href="https://develop-docs.qmk.fm/how_a_matrix_works">QMK: How a Keyboard Matrix Works</a></td>
+<td>Row/column matrix and how diodes work</td>
+</tr>
+<tr>
+<td><a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">KeebTalk: Need help fixing lifted pads Hotswap socket</a></td>
+<td>Rerouting a ripped pad with a wire</td>
+</tr>
+</tbody>
+</table></div></article><nav class="pager"><a href="/en/posts/aula-f108-keyboard-repair/"><span>Previous post</span>AULA F108 keyboard X key not working: a self-repair where Claude and I ruled out guesses one by one and saved a ripped pad</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en" class=on>English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, a content creator from Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

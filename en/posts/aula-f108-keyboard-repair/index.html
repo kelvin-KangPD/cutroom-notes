@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AULA F108 keyboard X key not working: a self-repair where Claude and I ruled out guesses one by one and saved a ripped pad · Cutroom Notes</title>
+<meta name="description" content="The X key on my AULA F108 Pro stopped working, so I picked up a soldering iron, ran into a short and a ripped pad, and fixed it by testing Claude&#x27;s guesses one at a time and running a wire to the next key&#x27;s pad.">
+<meta property="og:title" content="AULA F108 keyboard X key not working: a self-repair where Claude and I ruled out guesses one by one and saved a ripped pad · Cutroom Notes">
+<meta property="og:description" content="The X key on my AULA F108 Pro stopped working, so I picked up a soldering iron, ran into a short and a ripped pad, and fixed it by testing Claude&#x27;s guesses one at a time and running a wire to the next key&#x27;s pad.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/aula-f108-keyboard-repair/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261102-aula-f108-keyboard-repair/01-분해-전-독거미-F108.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/en/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/en/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/en/">Cutroom Notes</a>
+    <nav class="top"><a href="/en/">All</a><a href="/en/series/">Series</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-11-02">November 2, 2026</time><h1>AULA F108 keyboard X key not working: a self-repair where Claude and I ruled out guesses one by one and saved a ripped pad</h1><p class="tr-line">Also in: <a href="/id/posts/aula-f108-keyboard-repair/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/aula-f108-keyboard-repair/" lang="hi">हिन्दी</a> · <a href="/ar/posts/aula-f108-keyboard-repair/" lang="ar">العربية</a> · <a href="/th/posts/aula-f108-keyboard-repair/" lang="th">ไทย</a></p></header><div class="prose"><p>The X key on my AULA F108 Pro stopped working, so I picked up a soldering iron, ran into a short and a ripped pad, and fixed it by testing Claude's guesses one at a time and running a wire to the next key's pad.</p>
+<p>🙋🏻‍♂️ Keyboard soldering? I heard you just touch it with the iron and you're done. 🙋🏻‍♀️ So did I, haha.</p>
+<p><img alt="The AULA F108 keyboard before disassembly, with grey keycaps and a knob in the top right" src="/images/20261102-aula-f108-keyboard-repair/01-분해-전-독거미-F108.webp" />
+<small>The F108 Pro before I opened it, back when I thought fixing one X key would be the end of it</small></p>
+<p>One weekend I was tinkering with keyboards and playing around with Claude. Then my wife said something from the side: "Aren't you typing a bit too hard?" 🤔</p>
+<p>I said I would type more quietly. But the comment stayed with me. Then I saw a pretty keyboard selling cheap on Coupang's overseas direct shipping, and I bought it right away. Up to here it was an ordinary shopping story. 😛</p>
+<p>This post is a repair log that started with that keyboard's X key. It was my first time soldering, and I didn't have a multimeter either. <strong>So why didn't I give up halfway?</strong></p>
+<blockquote>
+<p><strong>Goal</strong> Bring the dead X key back<br>
+<strong>Obstacles</strong> A pad ripped off during soldering, a short that made two rows press together, no measuring tools<br>
+<strong>Result</strong> Short removed, X key restored with a wire detour to the neighboring key's pad</p>
+</blockquote>
+<h2>Box one📦 A noisy keyboard and an X that won't press</h2>
+<p><img alt="A Coupang review screen with a five-star review on the AULA F108 Pro 104-key Caramel Latte switch model" src="/images/20261102-aula-f108-keyboard-repair/02-쿠팡-리뷰.webp" />
+<small>The AULA F108 Pro Caramel Latte I bought through Coupang, and the purchase review written with my Claude automation</small></p>
+<p>The model I bought was the AULA F108 Pro, 104 keys, Caramel Latte switches. I even wrote the review with my Claude automation. I throw in a few keywords and Claude writes the review and clicks the submit button. But once it arrived and I typed a few words, it was louder than I expected. 😫</p>
+<p>I happened to have some Peach switches lying around at home. This keyboard is hot-swappable, so you can pull the switches out and replace them, and I swapped every one. 👀<strong><mark>I bought the keyboard to be quieter, and the real problem started the moment I changed the switches.</mark></strong></p>
+<p><img alt="A keyboard with the keycaps removed and pink Peach switches plugged in here and there" src="/images/20261102-aula-f108-keyboard-repair/03-피치축-교체.webp" />
+<small>The F108 Pro mid-swap, with the stock switches coming out and my spare Peach switches going in</small></p>
+<p>When I tested it, X didn't register. I tried a different switch and a few other things, but nothing changed. I searched on Naver and found a post saying you just open the back board and touch it lightly with a soldering iron. I followed <a href="https://blog.naver.com/ststeel/224044004123">a repair post on AULA F99 key input failure</a>, and that post is also where I learned you must disconnect the battery when you open the bottom case. 🤩</p>
+<p><img alt="A Daiso soldering iron and solder wire, still in the packaging" src="/images/20261102-aula-f108-keyboard-repair/04-다이소-인두기와-납.webp" />
+<small>The soldering iron and solder wire I picked up at Daiso on the way home</small></p>
+<p>I went straight to Daiso, bought an iron and solder, and headed home. It was my first time soldering.</p>
+<p><img alt="The keyboard with only a few keycaps around X pulled out" src="/images/20261102-aula-f108-keyboard-repair/05-홈-주위-키캡-뽑기.webp" />
+<small>Only the keycaps around the bottom case's locking slots pulled out</small></p>
+<p>Disassembly was easier than I thought. Pull only the keycaps around the slots that lock the bottom case, put anything hard into the slot, and pop it open like a lever. If you gently pry only where you need to, it comes apart easily. The first thing I did after opening it was disconnect the battery. 👍</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What I did</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Pulled only the keycaps around the bottom case's locking slots</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Put a hard tool into the slot and popped it like a lever</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gently pried apart only where needed</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Disconnected the battery as soon as it opened</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Prying the bottom case open with a hard tool in the slot" src="/images/20261102-aula-f108-keyboard-repair/06-지렛대로-하판-열기.webp" />
+<small>Opening the bottom case by levering a hard tool in the slot</small></p>
+<p><img alt="The inside of the keyboard on first opening, with foam, wiring and the battery cable visible" src="/images/20261102-aula-f108-keyboard-repair/07-첫-오픈-배터리.webp" />
+<small>The inside of the keyboard on first opening, and the battery cable to disconnect first</small></p>
+<h2>Box two📦 Ruling out guesses one by one with Claude</h2>
+<p><img alt="The soldering iron plugged in and heating up, with solder wire and the keyboard next to it" src="/images/20261102-aula-f108-keyboard-repair/08-인두기-달구기.webp" />
+<small>Heating up the Daiso soldering iron for the first time</small></p>
+<p>I heated the iron and looked at the back of the X position. One side of the socket was sticking up a little. At the time I thought the solder had just lifted. 💥<strong>In fact it wasn't the solder: the copper pad on the board had been torn off entirely.</strong> 🤯</p>
+<p><img alt="The X socket lifted slightly and sticking up from the board" src="/images/20261102-aula-f108-keyboard-repair/09-튀어나온-소켓.webp" />
+<small>The X hot-swap socket sticking up, back when I didn't know the pad was torn</small></p>
+<p><img alt="A single black hot-swap socket that fell off, resting on a palm" src="/images/20261102-aula-f108-keyboard-repair/10-떨어진-소켓.webp" />
+<small>The X socket I was about to reattach without knowing anything</small></p>
+<p>Without knowing any of this, I soldered the socket back on. I took the socket from the unused F10 position. When the first repair was done, I thought I had nailed it. 😎</p>
+<p><img alt="The first soldering attempt, melting solder wire and dropping it onto the socket spot" src="/images/20261102-aula-f108-keyboard-repair/움짤1-첫-납땜.webp" />
+<small>The wrong way: just dropping melted solder without heating the board</small></p>
+<p><img alt="The back of the board after the first soldering" src="/images/20261102-aula-f108-keyboard-repair/11-1차-수리.webp" />
+<small>The first repair, which I thought went well at the time</small></p>
+<p>The result got worse. X still didn't press, and unrelated keys started pressing together in pairs. I pressed them one by one on a keyboard test screen and in Notepad, and here is what I found.</p>
+<p><img alt="Pressing keys around X on the reassembled keyboard prints the wrong letters in Notepad" src="/images/20261102-aula-f108-keyboard-repair/움짤2-첫-결과-메모장.webp" />
+<small>Notepad right after the first repair, when I pressed keys expecting it to just work</small></p>
+<table>
+<thead>
+<tr>
+<th>Key pressed</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl or Shift</td>
+<td>Both press together</td>
+</tr>
+<tr>
+<td>Alt</td>
+<td>Presses with Z</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Presses with B</td>
+</tr>
+<tr>
+<td>.</td>
+<td>Presses with Fn</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>Presses with ↓</td>
+</tr>
+<tr>
+<td>A·S·D·F·G</td>
+<td>Each works fine</td>
+</tr>
+<tr>
+<td>C·V·N·M</td>
+<td>Each works fine</td>
+</tr>
+</tbody>
+</table>
+<p>This is where Claude and I really got going. Claude's very first diagnosis was a <strong>line short</strong> where two rows had stuck together. Every pair was one key from the Shift row and the key right below it on the Ctrl row. 🤔</p>
+<p><img alt="A full board photo with the key pairs that press together marked with orange circles and red lines" src="/images/20261102-aula-f108-keyboard-repair/13-같이-눌리는-짝.webp" />
+<small>A map of the key pairs that press together on the back of the board: every pair is a socket right above or below the other</small></p>
+<p>Of course it didn't look this clean from the start. When I uploaded a photo of the torn spot, the pad area on the left of X was brown, not silver. Scraping it with a box cutter showed nothing. Every other key's pad was silver, so the pad had clearly been ripped off. 😮</p>
+<p><img alt="The back of the X position: the left square pad area is empty and brown, with burn marks around it" src="/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp" />
+<small>The X position with only a brown base left where the pad was torn off, and burnt flux marks around it</small></p>
+<p>What I had been calling "the little plate" was properly called a copper pad. It's a thin metal plate that holds the switch leg, and because it's copper printed onto the board, you can't take one from somewhere else and stick it on. ✔<strong><mark>The socket is the only thing you can transplant; a missing pad has to be replaced with a wire.</mark></strong></p>
+<p>Without a multimeter there was only one way left. Fix one suspicious spot, press the keys again, and cross it off if nothing changes. Claude would suggest a candidate, I would actually try it and report back. Here are the guesses we crossed off that way.</p>
+<table>
+<thead>
+<tr>
+<th>Guess</th>
+<th>What I actually tried</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broke it by plugging in while hot</td>
+<td>Asked Claude. The answer was that at 5V low voltage, heat is very unlikely to damage the chip</td>
+<td>Ruled out</td>
+</tr>
+<tr>
+<td>Metal debris on the board</td>
+<td>Removed it with tweezers</td>
+<td>No change</td>
+</tr>
+<tr>
+<td>Burnt flux marks</td>
+<td>Wiped them off</td>
+<td>No change</td>
+</tr>
+<tr>
+<td>Silver rings around the holes are solder</td>
+<td>Claude saw them as solder, but when I looked they were switch legs</td>
+<td>Claude was wrong, ruled out</td>
+</tr>
+<tr>
+<td>Solder blob</td>
+<td>It was only piled high on the pad, not touching nearby traces</td>
+<td>Irrelevant</td>
+</tr>
+<tr>
+<td>X switch leg touching inside the hole</td>
+<td>Pulled the X switch and tested</td>
+<td>No change</td>
+</tr>
+</tbody>
+</table>
+<p>Claude was wrong too. Seeing the silver rings as solder, and first explaining that "the two whole rows become one," were both wrong. When I asked back whether lots of keys in those rows didn't still work on their own, it corrected the explanation right away. Even with two rows shorted, only <strong>columns that have keys in both the upper and lower row</strong> get tied together. C·V·N·M were fine because the row below them is the space bar, so they had no partner. 😮</p>
+<p><img alt="A board photo with the Shift row trace and the Ctrl row trace drawn, joined at one point" src="/images/20261102-aula-f108-keyboard-repair/14-두-줄-쇼트-원리.webp" />
+<small>A drawing on the board of how the Shift row trace and the Ctrl row trace touch at one point</small></p>
+<p>I also confirmed this explanation by searching. A keyboard sends a signal down one column at a time and reads the rows, so if two rows are joined, the keys above and below register together (<a href="https://develop-docs.qmk.fm/how_a_matrix_works">QMK docs</a>). I also learned that you can't tell a board short from a dead controller chip by the symptoms alone. But since the spot I had worked on sat exactly between the two tied rows, I bet on the board. 😎</p>
+<h2>Box three📦 A toothpick and a detour to the next pad</h2>
+<p>I wondered if I had to go buy a multimeter. I asked Claude to think of a version where I don't buy one. The answer was to use the keyboard tester screen itself as the measuring tool. 🤩</p>
+<p><img alt="A close-up of the torn area with the zone to press with a toothpick circled in orange" src="/images/20261102-aula-f108-keyboard-repair/15-이쑤시개로-쇼트-찾기.webp" />
+<small>The zone to press firmly with a toothpick while holding Ctrl</small></p>
+<p>If you hold Ctrl, Shift lights up on the screen too. In that state, you press around the torn area here and there with a toothpick and look for the point where Shift turns off. A toothpick doesn't conduct electricity, so it won't muddy the result. I kept pressing until something went "tick," and Shift started behaving on its own. 🤯</p>
+<p>It looks like the end of a lifted copper trace had been touching the row trace below and then came apart. 💥<strong><mark>A toothpick caught the short I couldn't find with my eyes.</mark></strong></p>
+<p>That left X. I didn't know where to connect the leg on the torn side. At first Claude thought the S key side was more likely, because most keyboards share columns diagonally like Z-A-Q and X-S-W. The method of touching a wire by hand to check before soldering came from a repair case in the keyboard community (<a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">KeebTalk case</a>). 🤔</p>
+<p><img alt="A photo around X with the fixed point and candidates ①–⑦ circled" src="/images/20261102-aula-f108-keyboard-repair/16-X-연결-후보.webp" />
+<small>Seven candidate spots to touch the wire to, with X's right pad as the fixed point</small></p>
+<p>For the wire, I pulled one strand from a LAN cable and stripped both ends. When I first soldered it in, everything worked except X. It turned out that once the socket is attached, you have to plug in a switch and hold it down while touching the wire. The two legs of the socket only connect when the switch is pressed. 😫</p>
+<p><img alt="A thin wire pulled from a LAN cable with the insulation stripped" src="/images/20261102-aula-f108-keyboard-repair/17-랜선-전선.webp" />
+<small>A single strand pulled from a LAN cable with both ends stripped</small></p>
+<p><img alt="Soldering a wire from the X socket's left leg onto a neighboring pad" src="/images/20261102-aula-f108-keyboard-repair/움짤3-전선-납땜.webp" />
+<small>Soldering the wire on the socket's left leg onto the neighboring pad</small></p>
+<p>With the switch plugged in, I touched again and got answers. Touching the D49 and D48 pads above printed D. That meant the leg on the torn side was already connected to the same line as D. Then I touched the D63 pad right next to it, and X appeared. It wasn't S, which Claude had called most likely, or D, the next candidate. 😮</p>
+<p><img alt="The path connecting the D63 pad and the X socket leg drawn as a blue line" src="/images/20261102-aula-f108-keyboard-repair/18-D63-연결.webp" />
+<small>The wire path connecting the X socket to the D63 pad right next to it</small></p>
+<p>In effect, the connection that used to run to the board above now runs to the pad next door. When not pressed it stays quiet, and when pressed X registers exactly once. ✔<strong><mark>I found the right spot not by guessing but by actually touching the wire.</mark></strong></p>
+<p><img alt="A laptop Notepad screen checking that pressing X types" src="/images/20261102-aula-f108-keyboard-repair/19-메모장-테스트.webp" />
+<small>Checking X input in Notepad after the repair</small></p>
+<p><img alt="A keyboard test site showing the X key registered" src="/images/20261102-aula-f108-keyboard-repair/움짤4-X-테스트-완료.webp" />
+<small>X input confirmed on a keyboard test site after the repair</small></p>
+<p>One limit remains. You can't press X and C at the same time. Each key should have its own diode, and X is now borrowing C's. It makes no difference in everyday chatting, so I left it and reassembled the keyboard. In hindsight, I should have taken the socket from Pause rather than F10. 😛</p>
+<table>
+<thead>
+<tr>
+<th>What's left</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X and C at the same time</td>
+<td>Doesn't work. Can be fixed by moving the wire to X's own diode leg</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>Empty, since I took its socket. Can move the Pause socket over or remap the key</td>
+</tr>
+<tr>
+<td>X socket</td>
+<td>Weak, with one pad missing. Support the socket from behind when pulling the switch</td>
+</tr>
+</tbody>
+</table>
+<h2>I could have given up</h2>
+<p>Honestly, I could have given up halfway. When the short happened, and when I had removed the metal debris, wiped the burn marks and even pulled the switch with no change. But every time Claude and I went back and forth, there was one more thing to try, and I kept feeling it would work. 🤔</p>
+<p>What Claude did wasn't getting the answer right. It heard the symptoms, suggested candidates, crossed them off based on what I tried, and came up with another approach when we got stuck. When I uploaded a photo, it marked right on it where I should look. It made plenty of wrong guesses, but they were crossed off as soon as I checked. 💰<strong><mark>Even when nobody knows the answer, actually checking guesses one by one and crossing them off opens a path.</mark></strong></p>
+<p>Someone soldering for the first time saved a ripped pad without even a multimeter. It made me think this AI era, where things that wouldn't work get made to work, is a good one. Maybe whether you can fix something comes down less to skill and more to whether there's always a next thing to try? 😎</p>
+<p>If you got stuck in a similar way fixing an AULA keyboard or a hot-swap board, feel free to leave a comment.</p>
+<p>Sources</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>What it covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://blog.naver.com/ststeel/224044004123">AULA F99 key input failure (Korean)</a></td>
+<td>Opening the bottom case, disconnecting the battery, reattaching with an iron</td>
+</tr>
+<tr>
+<td><a href="https://develop-docs.qmk.fm/how_a_matrix_works">QMK: How a Keyboard Matrix Works</a></td>
+<td>Row/column matrix and how diodes work</td>
+</tr>
+<tr>
+<td><a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">KeebTalk: Need help fixing lifted pads Hotswap socket</a></td>
+<td>Rerouting a ripped hot-swap pad with a wire, and how to find where to connect</td>
+</tr>
+</tbody>
+</table></div></article><nav class="pager"><a href="/en/posts/naver-driver-github/"><span>Previous post</span>How my Naver blog input tool stopped needing a PC folder and local server and started reading from GitHub</a><a href="/en/posts/keyboard-hotswap-repair-guide/" class="r"><span>Next post</span>Keyboard PCB self-repair guide: from a hot-swap key that won&#x27;t register to soldering a ripped copper pad on an AULA</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en" class=on>English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, a content creator from Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

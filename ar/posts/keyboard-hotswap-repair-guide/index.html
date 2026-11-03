@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل إصلاح لوحة PCB للوحة المفاتيح بنفسك: من مفتاح hot-swap لا يستجيب إلى لحام وسادة نحاسية مقتلعة في AULA · Cutroom Notes</title>
+<meta name="description" content="عندما يتوقف مفتاح واحد في لوحة hot-swap، هذا هو المكان الذي تبدأ منه لكل عَرَض، بالترتيب الذي فحصته فعلًا وأنا أصلح AULA F108.">
+<meta property="og:title" content="دليل إصلاح لوحة PCB للوحة المفاتيح بنفسك: من مفتاح hot-swap لا يستجيب إلى لحام وسادة نحاسية مقتلعة في AULA · Cutroom Notes">
+<meta property="og:description" content="عندما يتوقف مفتاح واحد في لوحة hot-swap، هذا هو المكان الذي تبدأ منه لكل عَرَض، بالترتيب الذي فحصته فعلًا وأنا أصلح AULA F108.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/keyboard-hotswap-repair-guide/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/ar/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/ar/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/ar/">Cutroom Notes</a>
+    <nav class="top"><a href="/ar/">الكل</a><a href="/ar/series/">سلسلة</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-11-03">3 نوفمبر 2026</time><h1>دليل إصلاح لوحة PCB للوحة المفاتيح بنفسك: من مفتاح hot-swap لا يستجيب إلى لحام وسادة نحاسية مقتلعة في AULA</h1><p class="tr-line">اقرأ أيضًا بلغة أخرى: <a href="/en/posts/keyboard-hotswap-repair-guide/" lang="en">English</a> · <a href="/id/posts/keyboard-hotswap-repair-guide/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/keyboard-hotswap-repair-guide/" lang="hi">हिन्दी</a> · <a href="/th/posts/keyboard-hotswap-repair-guide/" lang="th">ไทย</a></p></header><div class="prose"><p>عندما يتوقف مفتاح واحد في لوحة hot-swap، ابحث عن العَرَض الذي لديك في الأسفل وانتقل مباشرة إلى رقمه.</p>
+<pre><code>مفتاح لا يُسجَّل
+├ يعمل بمفتاح آخر ← انتهى
+└ ما زال معطلًا ← الخطوة 2
+   ├ المقبس مرتفع ← الخطوة 3
+   │  └ الوسادة بنية ← الخطوة 4
+   ├ مفتاحان معًا ← الخطوة 5
+   └ الوسادة مفقودة ← الخطوة 6
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>حالتي الآن</th>
+<th>انتقل إلى</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>لا أعرف ما العَرَض أصلًا</td>
+<td><a href="#s1">1. صنّف حسب العَرَض أولًا</a></td>
+</tr>
+<tr>
+<td>تغيير المفتاح لم يفد</td>
+<td><a href="#s2">2. استبعد المفتاح وافتح الغطاء</a></td>
+</tr>
+<tr>
+<td>المقبس في الخلف مرتفع</td>
+<td><a href="#s3">3. أعد لحام المقبس المرتفع</a></td>
+</tr>
+<tr>
+<td>موضع المقبس بني</td>
+<td><a href="#s4">4. تحقق إن كانت الوسادة النحاسية مقتلعة</a></td>
+</tr>
+<tr>
+<td>مفتاحان يُضغطان معًا</td>
+<td><a href="#s5">5. مفتاحان معًا يعني قصرًا في الخطوط</a></td>
+</tr>
+<tr>
+<td>الوسادة مفقودة ولا مكان لتثبيت المقبس</td>
+<td><a href="#s6">6. بلا وسادة؟ حوّل المسار بسلك</a></td>
+</tr>
+<tr>
+<td>أُصلح لكن ما زال هناك شيء غريب</td>
+<td><a href="#s7">7. ما يتبقى بعد الإصلاح</a></td>
+</tr>
+</tbody>
+</table>
+<p>هذا الترتيب هو الطريق الذي سلكته فعلًا وأنا أصلح زر X في AULA F108 Pro. كانت أول مرة ألحم فيها، ولم يكن لدي جهاز قياس. كيف وصلت إلى هنا كتبته منفصلًا في <a href="/ar/posts/aula-f108-keyboard-repair/">سجل الإصلاح الذاتي</a>.</p>
+<table>
+<thead>
+<tr>
+<th>ما تحتاجه</th>
+<th>ما استخدمته</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>كاوية وقصدير</td>
+<td>من Daiso</td>
+</tr>
+<tr>
+<td>أداة لفتح الغطاء</td>
+<td>أي شيء صلب</td>
+</tr>
+<tr>
+<td>أداة لإيجاد القصر</td>
+<td>عود أسنان وموقع اختبار لوحة مفاتيح</td>
+</tr>
+<tr>
+<td>سلك التحويلة</td>
+<td>شعيرة من كابل LAN</td>
+</tr>
+<tr>
+<td>مقبس احتياطي</td>
+<td>مأخوذ من موضع مفتاح غير مستخدم</td>
+</tr>
+<tr>
+<td>جهاز قياس متعدد</td>
+<td>لم أحتج إليه</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s1">1. صنّف حسب العَرَض أولًا</h2>
+<p>لكل عَرَض سبب مختلف ومكان إصلاح مختلف. بحسب ما رأيته فعلًا، يكون التقسيم هكذا.</p>
+<table>
+<thead>
+<tr>
+<th>العَرَض</th>
+<th>المشتبه به</th>
+<th>انتقل إلى</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>مفتاح واحد معطل، ويعمل بمفتاح آخر</td>
+<td>المفتاح نفسه</td>
+<td>انتهى</td>
+</tr>
+<tr>
+<td>مفتاح واحد معطل، والأمر نفسه مع مفتاح آخر</td>
+<td>مقبس hot-swap على اللوحة</td>
+<td>2 ← 3</td>
+</tr>
+<tr>
+<td>أحد جانبي المقبس بارز عن اللوحة</td>
+<td>لحام المقبس أو الوسادة النحاسية</td>
+<td>3 ← 4</td>
+</tr>
+<tr>
+<td>منذ اللحام، مفتاحان لا علاقة بينهما يُضغطان معًا</td>
+<td>قصر في الخطوط</td>
+<td>5</td>
+</tr>
+<tr>
+<td>وسادة موضع المقبس فارغة وبنية</td>
+<td>وسادة نحاسية مقتلعة</td>
+<td>4 ← 6</td>
+</tr>
+</tbody>
+</table>
+<p>لنتفق على الأسماء أولًا. الجزء الأسود الذي يُركَّب فيه المفتاح هو مقبس hot-swap، والصفيحة الفضية التي تُثبَّت عليها ساقاه هي الوسادة النحاسية. والصمام الثنائي جزء صغير منفصل بجانب المقبس.</p>
+<h2 id="s2">2. استبعد المفتاح وافتح الغطاء</h2>
+<p>أول ما تفعله هو تركيب مفتاح آخر في الموضع المعطل. استبدلت كل المفاتيح بمفاتيح Peach لأن اللوحة كانت مزعجة، ثم توقف X. بقي معطلًا مع مفتاح آخر، فاعتبرتها من حينها مشكلة في اللوحة.</p>
+<p>يُفتح الغطاء السفلي بسهولة أكبر مما تظن.</p>
+<table>
+<thead>
+<tr>
+<th>الخطوة</th>
+<th>ما تفعله</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>انزع فقط أغطية المفاتيح حول شقوق تثبيت الغطاء السفلي</td>
+</tr>
+<tr>
+<td>2</td>
+<td>أدخل أداة صلبة في الشق وارفعها كالرافعة</td>
+</tr>
+<tr>
+<td>3</td>
+<td>افصل برفق الأجزاء اللازمة فقط</td>
+</tr>
+<tr>
+<td>4</td>
+<td>افصل البطارية فور الفتح</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="رفع الغطاء السفلي بأداة صلبة داخل الشق" src="/images/20261102-aula-f108-keyboard-repair/06-지렛대로-하판-열기.webp" />
+<small>الغطاء السفلي مفتوحًا باستخدام أداة كرافعة داخل الشق</small></p>
+<p>تعلمت ضرورة فصل البطارية من <a href="https://blog.naver.com/ststeel/224044004123">تدوينة إصلاح AULA F99</a>. إن كانت لوحة لاسلكية، فابدأ بهذا.</p>
+<p><img alt="داخل لوحة المفاتيح عند فتحها أول مرة، يظهر الإسفنج والأسلاك وسلك البطارية" src="/images/20261102-aula-f108-keyboard-repair/07-첫-오픈-배터리.webp" />
+<small>سلك البطارية الذي يظهر عند فتح الغطاء السفلي أول مرة</small></p>
+<h2 id="s3">3. أعد لحام المقبس المرتفع</h2>
+<p>إن كان أحد جانبي المقبس بارزًا قليلًا خلف المفتاح المعطل، فأنت هنا. إن ارتفع القصدير وانفصلت الساق عن الوسادة، يكفي أن تعيد اللحام.</p>
+<p><img alt="مقبس X مرتفع قليلًا وبارز من اللوحة" src="/images/20261102-aula-f108-keyboard-repair/09-튀어나온-소켓.webp" />
+<small>مقبس hot-swap الخاص بـX وأحد جانبيه مرتفع عن اللوحة</small></p>
+<p>أخطأت في طريقة اللحام في البداية. أذبت القصدير بالكاوية وأسقطته على موضع المقبس فقط، بينما <strong>الطريقة الصحيحة هي تسخين اللوحة أولًا ثم ضغط القصدير عليها</strong>. المقطع أدناه هو الطريقة الخاطئة.</p>
+<p><img alt="أول محاولة لحام، إذابة سلك القصدير وإسقاطه على موضع المقبس" src="/images/20261102-aula-f108-keyboard-repair/움짤1-첫-납땜.webp" />
+<small>الطريقة الخاطئة: إسقاط القصدير الذائب دون تسخين اللوحة</small></p>
+<p>إن انفصل المقبس تمامًا، فخذ واحدًا من موضع مفتاح غير مستخدم. أخذته من F10، وبعدها تمنيت لو أخذته من Pause. اختر مفتاحًا نادر الاستخدام.</p>
+<p><img alt="مقبس hot-swap أسود سقط، على كف اليد" src="/images/20261102-aula-f108-keyboard-repair/10-떨어진-소켓.webp" />
+<small>مقبس hot-swap انفصل عن اللوحة</small></p>
+<p>قبل اللحام، افحص الخطوة 4 أولًا دائمًا. إن كان ما ارتفع هو الوسادة لا القصدير، فلن تنفع إعادة التثبيت، بل ستزيد الأمر سوءًا.</p>
+<h2 id="s4">4. تحقق إن كانت الوسادة النحاسية مقتلعة</h2>
+<p>انظر إلى لون الوسادة في الموضع الذي نزعت منه المقبس. إن كانت وسادات المفاتيح الأخرى فضية وهذا الموضع وحده بنيًا، فالوسادة مقتلعة.</p>
+<p><img alt="ظهر موضع X: منطقة الوسادة المربعة اليسرى فارغة وبنية، وحولها آثار احتراق" src="/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp" />
+<small>موضع X يظهر فيه قاع بني بدل الوسادة الفضية</small></p>
+<p>كشطته برفق بالقاطع فلم يظهر شيء. وهذا حسم الأمر.</p>
+<table>
+<thead>
+<tr>
+<th>الفحص</th>
+<th>الحكم</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>الوسادة فضية والقصدير وحده انفصل</td>
+<td>ارجع إلى الخطوة 3 وأعد اللحام</td>
+</tr>
+<tr>
+<td>موضع الوسادة بني ولا معدن عند الكشط</td>
+<td>وسادة مقتلعة. الخطوة 6</td>
+</tr>
+</tbody>
+</table>
+<p>الوسادة النحاسية نحاس مطبوع على اللوحة، فلا يمكن أخذها من مكان آخر ولصقها. المقبس وحده يمكن نقله؛ <strong>أما الوسادة المفقودة فيجب تعويضها بسلك.</strong></p>
+<h2 id="s5">5. مفتاحان معًا يعني قصرًا في الخطوط</h2>
+<p>إن بدأ مفتاحان لا علاقة بينهما يُضغطان معًا في أزواج بعد اللحام، فهذا قصر في الخطوط. حدث لي ذلك مباشرة بعد اللحام الأول.</p>
+<p><img alt="الضغط على مفاتيح حول X في اللوحة المعاد تركيبها يكتب حروفًا خاطئة في Notepad" src="/images/20261102-aula-f108-keyboard-repair/움짤2-첫-결과-메모장.webp" />
+<small>الضغط على المفاتيح في Notepad بعد اللحام الأول</small></p>
+<table>
+<thead>
+<tr>
+<th>المفتاح المضغوط</th>
+<th>النتيجة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl أو Shift</td>
+<td>يُضغطان معًا</td>
+</tr>
+<tr>
+<td>Alt</td>
+<td>يُضغط مع Z</td>
+</tr>
+<tr>
+<td>المسافة</td>
+<td>تُضغط مع B</td>
+</tr>
+<tr>
+<td>.</td>
+<td>يُضغط مع Fn</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>يُضغط مع ↓</td>
+</tr>
+<tr>
+<td>A·S·D·F·G، C·V·N·M</td>
+<td>كل منها يعمل جيدًا</td>
+</tr>
+</tbody>
+</table>
+<p>كل زوج كان مفتاحًا من صف Shift والمفتاح الذي تحته مباشرة في صف Ctrl. ترسل لوحة المفاتيح إشارة إلى عمود واحد في كل مرة وتقرأ الصفوف، فإذا اتصل صفان سُجّل المفتاحان العلوي والسفلي في العمود نفسه معًا (<a href="https://develop-docs.qmk.fm/how_a_matrix_works">وثائق QMK</a>). كانت C·V·N·M سليمة لأن الصف الذي تحتها هو مفتاح المسافة، فلم يكن لها شريك.</p>
+<p><img alt="صورة كاملة للوحة مع أزواج المفاتيح التي تُضغط معًا محددة بدوائر برتقالية وخطوط حمراء" src="/images/20261102-aula-f108-keyboard-repair/13-같이-눌리는-짝.webp" />
+<small>خريطة أزواج المفاتيح التي تُضغط معًا، محددة على اللوحة</small></p>
+<p><img alt="صورة اللوحة مع رسم خط صف Shift وخط صف Ctrl متصلين في نقطة واحدة" src="/images/20261102-aula-f108-keyboard-repair/14-두-줄-쇼트-원리.webp" />
+<small>كيف يحدث قصر الخطوط: صف Shift وصف Ctrl يتلامسان في نقطة واحدة</small></p>
+<p>يمكن إيجاد موضع القصر دون جهاز قياس.</p>
+<table>
+<thead>
+<tr>
+<th>الخطوة</th>
+<th>ما تفعله</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>صِل لوحة المفاتيح وافتح موقع اختبار لوحة مفاتيح</td>
+</tr>
+<tr>
+<td>2</td>
+<td>اضغط باستمرار مفتاحًا من الزوج (استخدمت Ctrl). سيضيء شريكه (Shift) على الشاشة أيضًا</td>
+</tr>
+<tr>
+<td>3</td>
+<td>اضغط حول المنطقة التي عملت عليها هنا وهناك بعود أسنان</td>
+</tr>
+<tr>
+<td>4</td>
+<td>النقطة التي ينطفئ عندها المفتاح الشريك هي موضع القصر</td>
+</tr>
+</tbody>
+</table>
+<p>عود الأسنان لا يوصل الكهرباء، فلا يشوّش النتيجة. أثناء الضغط سمعت "طق"، وبدأ Shift يعمل وحده. يبدو أن طرف خط نحاسي مرتفع كان يلامس خط الصف الذي تحته ثم انفصل.</p>
+<p><img alt="صورة مقربة للموضع المقتلع والمنطقة التي تُضغط بعود الأسنان محاطة بدائرة برتقالية" src="/images/20261102-aula-f108-keyboard-repair/15-이쑤시개로-쇼트-찾기.webp" />
+<small>المنطقة التي تُضغط بعود الأسنان</small></p>
+<p>وهذه أشياء جربتها قبل إيجاد القصر ولم تفد. إن كانت أعراضك مماثلة، يمكنك تخطيها.</p>
+<table>
+<thead>
+<tr>
+<th>ما جربته</th>
+<th>النتيجة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>إزالة شظية معدنية عن اللوحة بالملقط</td>
+<td>لا تغيير</td>
+</tr>
+<tr>
+<td>مسح آثار الفلكس المحترق</td>
+<td>لا تغيير</td>
+</tr>
+<tr>
+<td>ترتيب كتلة القصدير</td>
+<td>لم تكن تلامس الخط المجاور، فلا علاقة لها</td>
+</tr>
+<tr>
+<td>نزع مفتاح الزر المعطل والاختبار</td>
+<td>لا تغيير</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s6">6. بلا وسادة؟ حوّل المسار بسلك</h2>
+<p>صِل ساق المقبس في الجانب المقتلع مباشرة بالخط الذي يجب أن تصل إليه، باستخدام سلك. ابحث عن موضع التوصيل بلمس السلك باليد قبل اللحام. هذه الطريقة مأخوذة من <a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">حالة إصلاح في KeebTalk</a>.</p>
+<p><strong>أهم شيء هو تركيب المفتاح والضغط عليه باستمرار أثناء لمس السلك.</strong> ساقا المقبس لا تتصلان إلا عند ضغط المفتاح. في البداية لمست دون مفتاح وظللت حائرًا طويلًا لأن X وحده لم يُسجَّل.</p>
+<table>
+<thead>
+<tr>
+<th>الخطوة</th>
+<th>ما تفعله</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>الحم ساق المقبس في الجانب الذي ما زالت فيه وسادة</td>
+</tr>
+<tr>
+<td>2</td>
+<td>الحم أحد طرفي السلك بالساق في الجانب المقتلع</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ركّب المفتاح، واضغط ذلك الزر باستمرار، والمس الطرف الآخر للسلك بكل وسادة مرشحة</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ابحث عن الوسادة التي يظهر عندها ذلك الزر على شاشة الاختبار</td>
+</tr>
+<tr>
+<td>5</td>
+<td>الحم السلك بتلك الوسادة</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="صورة حول X مع النقطة الثابتة والمرشحين ①–⑦ محاطين بدوائر" src="/images/20261102-aula-f108-keyboard-repair/16-X-연결-후보.webp" />
+<small>سبع وسادات مرشحة للمس السلك</small></p>
+<p>للسلك، سحبت شعيرة واحدة من كابل LAN وقشرت طرفيها. لأنها رفيعة كان من السهل وضعها بين الوسادات.</p>
+<p><img alt="سلك رفيع مسحوب من كابل LAN ومقشور" src="/images/20261102-aula-f108-keyboard-repair/17-랜선-전선.webp" />
+<small>شعيرة من كابل LAN مقشورة الطرفين</small></p>
+<p>بمجرد اللمس تظهر النتيجة فورًا. في حالتي، لمس الوسادتين D49 وD48 في الأعلى كتب D. أي أن الساق في الجانب المقتلع متصلة أصلًا بنفس خط D. ولمس الوسادة D63 المجاورة مباشرة أظهر X. لم يكن S الذي توقعته، ولا D المرشح التالي. لذلك <strong>بدل التخمين، الأسرع أن تلمس كل المرشحين.</strong></p>
+<p><img alt="لحام سلك من الساق اليسرى لمقبس X على وسادة مجاورة" src="/images/20261102-aula-f108-keyboard-repair/움짤3-전선-납땜.webp" />
+<small>لحام السلك من ساق المقبس على الوسادة المجاورة</small></p>
+<p><img alt="المسار الذي يصل الوسادة D63 بساق مقبس X مرسوم بخط أزرق" src="/images/20261102-aula-f108-keyboard-repair/18-D63-연결.webp" />
+<small>المسار النهائي من ساق مقبس X إلى الوسادة D63</small></p>
+<p>بعد التوصيل، تأكد أنه هادئ عند عدم الضغط ويُسجَّل مرة واحدة عند الضغط.</p>
+<p><img alt="موقع اختبار لوحة المفاتيح يُظهر تسجيل مفتاح X" src="/images/20261102-aula-f108-keyboard-repair/움짤4-X-테스트-완료.webp" />
+<small>إدخال X بعد الإصلاح، مؤكَّد في موقع اختبار لوحة المفاتيح</small></p>
+<h2 id="s7">7. ما يتبقى بعد الإصلاح</h2>
+<p>المفتاح الذي يُنقذ بتحويلة سلك لا يكون مطابقًا للأصل تمامًا. في حالتي، هذا ما تبقى.</p>
+<table>
+<thead>
+<tr>
+<th>ما تبقى</th>
+<th>الحالة</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X وC معًا</td>
+<td>لا يعمل، لأن X يستعير الصمام الثنائي الخاص بـC. يمكن إصلاحه بنقل السلك إلى ساق صمام X الخاص</td>
+</tr>
+<tr>
+<td>المفتاح الذي أُخذ منه المقبس (F10)</td>
+<td>فارغ. انقل مقبس مفتاح غير مستخدم (Pause وغيره) أو أعد تعيين المفتاح</td>
+</tr>
+<tr>
+<td>المقبس المحوَّل</td>
+<td>ضعيف لغياب وسادة. اسند المقبس من الخلف عند نزع المفتاح</td>
+</tr>
+</tbody>
+</table>
+<p>لا مشكلة في الكتابة اليومية، فأعدت تركيبه كما هو.</p>
+<p>المصادر</p>
+<table>
+<thead>
+<tr>
+<th>المصدر</th>
+<th>المحتوى</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://blog.naver.com/ststeel/224044004123">عطل إدخال المفاتيح في AULA F99 (بالكورية)</a></td>
+<td>فتح الغطاء السفلي، فصل البطارية</td>
+</tr>
+<tr>
+<td><a href="https://develop-docs.qmk.fm/how_a_matrix_works">QMK: How a Keyboard Matrix Works</a></td>
+<td>مصفوفة الصفوف والأعمدة وعمل الصمامات الثنائية</td>
+</tr>
+<tr>
+<td><a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">KeebTalk: Need help fixing lifted pads Hotswap socket</a></td>
+<td>توصيل وسادة مقتلعة بسلك</td>
+</tr>
+</tbody>
+</table></div></article><nav class="pager"><a href="/ar/posts/aula-f108-keyboard-repair/"><span>المقال السابق</span>زر X في لوحة مفاتيح AULA F108 لا يعمل: إصلاح بنفسي مع Claude باستبعاد التخمينات واحدًا تلو الآخر حتى أنقذت وسادة مقتلعة</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar" class=on>العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin، صانع محتوى من كوريا. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

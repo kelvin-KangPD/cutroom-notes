@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>คู่มือซ่อมบอร์ด PCB คีย์บอร์ดด้วยตัวเอง: ตั้งแต่ปุ่ม hot-swap กดไม่ติดจนถึงบัดกรีแพดทองแดงของ AULA ที่หลุด · Cutroom Notes</title>
+<meta name="description" content="เมื่อปุ่มหนึ่งบนคีย์บอร์ด hot-swap กดไม่ติด นี่คือจุดที่ควรดูก่อนตามแต่ละอาการ เรียงตามลำดับที่ผมตรวจจริงระหว่างซ่อม AULA F108">
+<meta property="og:title" content="คู่มือซ่อมบอร์ด PCB คีย์บอร์ดด้วยตัวเอง: ตั้งแต่ปุ่ม hot-swap กดไม่ติดจนถึงบัดกรีแพดทองแดงของ AULA ที่หลุด · Cutroom Notes">
+<meta property="og:description" content="เมื่อปุ่มหนึ่งบนคีย์บอร์ด hot-swap กดไม่ติด นี่คือจุดที่ควรดูก่อนตามแต่ละอาการ เรียงตามลำดับที่ผมตรวจจริงระหว่างซ่อม AULA F108">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/keyboard-hotswap-repair-guide/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/th/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/th/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/th/">Cutroom Notes</a>
+    <nav class="top"><a href="/th/">ทั้งหมด</a><a href="/th/series/">ซีรีส์</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-11-03">3 พฤศจิกายน 2026</time><h1>คู่มือซ่อมบอร์ด PCB คีย์บอร์ดด้วยตัวเอง: ตั้งแต่ปุ่ม hot-swap กดไม่ติดจนถึงบัดกรีแพดทองแดงของ AULA ที่หลุด</h1><p class="tr-line">อ่านในภาษาอื่น: <a href="/en/posts/keyboard-hotswap-repair-guide/" lang="en">English</a> · <a href="/id/posts/keyboard-hotswap-repair-guide/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/keyboard-hotswap-repair-guide/" lang="hi">हिन्दी</a> · <a href="/ar/posts/keyboard-hotswap-repair-guide/" lang="ar">العربية</a></p></header><div class="prose"><p>เมื่อปุ่มหนึ่งบนคีย์บอร์ด hot-swap กดไม่ติด ให้หาอาการของคุณด้านล่างแล้วข้ามไปที่หมายเลขนั้นได้เลย</p>
+<pre><code>ปุ่มกดไม่ติด
+├ เปลี่ยนสวิตช์แล้วได้ → จบ
+└ ยังเสีย → ข้อ 2
+   ├ ซ็อกเก็ตยก → ข้อ 3
+   │  └ แพดสีน้ำตาล → ข้อ 4
+   ├ สองปุ่มติดกัน → ข้อ 5
+   └ แพดหาย → ข้อ 6
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>ตอนนี้ผมอยู่ตรงไหน</th>
+<th>ข้ามไปที่</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ยังไม่รู้เลยว่าเป็นอาการอะไร</td>
+<td><a href="#s1">1. แยกตามอาการก่อน</a></td>
+</tr>
+<tr>
+<td>เปลี่ยนสวิตช์แล้วก็ไม่หาย</td>
+<td><a href="#s2">2. ตัดเรื่องสวิตช์ออกแล้วเปิดฝาล่าง</a></td>
+</tr>
+<tr>
+<td>ซ็อกเก็ตด้านหลังยกขึ้น</td>
+<td><a href="#s3">3. บัดกรีซ็อกเก็ตที่ยกใหม่</a></td>
+</tr>
+<tr>
+<td>ตำแหน่งซ็อกเก็ตเป็นสีน้ำตาล</td>
+<td><a href="#s4">4. เช็กว่าแพดทองแดงหลุดหรือไม่</a></td>
+</tr>
+<tr>
+<td>สองปุ่มกดติดพร้อมกัน</td>
+<td><a href="#s5">5. สองปุ่มติดพร้อมกันคือไลน์ช็อต</a></td>
+</tr>
+<tr>
+<td>แพดหาย ไม่มีที่ติดซ็อกเก็ต</td>
+<td><a href="#s6">6. ไม่มีแพดก็เดินสายอ้อม</a></td>
+</tr>
+<tr>
+<td>ซ่อมแล้วแต่ยังมีอะไรแปลก ๆ</td>
+<td><a href="#s7">7. สิ่งที่เหลือหลังซ่อม</a></td>
+</tr>
+</tbody>
+</table>
+<p>ลำดับนี้คือเส้นทางที่ผมเดินจริงระหว่างซ่อมปุ่ม X ของ AULA F108 Pro เป็นครั้งแรกที่ผมบัดกรี และไม่มีมัลติมิเตอร์ ว่ามาถึงตรงนี้ได้อย่างไรผมเขียนแยกไว้ใน<a href="/th/posts/aula-f108-keyboard-repair/">บันทึกการซ่อมเอง</a></p>
+<table>
+<thead>
+<tr>
+<th>ของที่ต้องใช้</th>
+<th>ที่ผมใช้</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>หัวแร้งและตะกั่ว</td>
+<td>ซื้อที่ Daiso</td>
+</tr>
+<tr>
+<td>เครื่องมือเปิดฝา</td>
+<td>อะไรแข็ง ๆ ก็ได้</td>
+</tr>
+<tr>
+<td>เครื่องมือหาไฟช็อต</td>
+<td>ไม้จิ้มฟันกับเว็บทดสอบคีย์บอร์ด</td>
+</tr>
+<tr>
+<td>สายไฟเดินอ้อม</td>
+<td>หนึ่งเส้นจากสาย LAN</td>
+</tr>
+<tr>
+<td>ซ็อกเก็ตสำรอง</td>
+<td>ถอดจากตำแหน่งปุ่มที่ไม่ได้ใช้</td>
+</tr>
+<tr>
+<td>มัลติมิเตอร์</td>
+<td>ไม่จำเป็น</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s1">1. แยกตามอาการก่อน</h2>
+<p>แต่ละอาการมีสาเหตุและจุดที่ต้องซ่อมต่างกัน แบ่งตามที่ผมเห็นจริงได้แบบนี้</p>
+<table>
+<thead>
+<tr>
+<th>อาการ</th>
+<th>จุดที่สงสัย</th>
+<th>ไปที่</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ปุ่มเดียวเสีย เปลี่ยนสวิตช์แล้วใช้ได้</td>
+<td>สวิตช์</td>
+<td>จบ</td>
+</tr>
+<tr>
+<td>ปุ่มเดียวเสีย เปลี่ยนสวิตช์แล้วยังเหมือนเดิม</td>
+<td>ซ็อกเก็ต hot-swap บนบอร์ด</td>
+<td>2 → 3</td>
+</tr>
+<tr>
+<td>ซ็อกเก็ตด้านหนึ่งยื่นออกจากบอร์ด</td>
+<td>ตะกั่วของซ็อกเก็ตหรือแพดทองแดง</td>
+<td>3 → 4</td>
+</tr>
+<tr>
+<td>หลังบัดกรี สองปุ่มที่ไม่เกี่ยวกันกดติดพร้อมกัน</td>
+<td>ไลน์ช็อต</td>
+<td>5</td>
+</tr>
+<tr>
+<td>แพดตรงตำแหน่งซ็อกเก็ตว่างและเป็นสีน้ำตาล</td>
+<td>แพดทองแดงหลุด</td>
+<td>4 → 6</td>
+</tr>
+</tbody>
+</table>
+<p>มาตกลงชื่อเรียกกันก่อน ชิ้นสีดำที่เสียบสวิตช์คือซ็อกเก็ต hot-swap แผ่นสีเงินที่ขาซ็อกเก็ตติดอยู่คือแพดทองแดง ส่วนไดโอดคือชิ้นเล็ก ๆ อีกชิ้นที่อยู่ข้างซ็อกเก็ต</p>
+<h2 id="s2">2. ตัดเรื่องสวิตช์ออกแล้วเปิดฝาล่าง</h2>
+<p>สิ่งแรกที่ต้องทำคือเสียบสวิตช์ตัวอื่นในตำแหน่งที่เสีย ผมเปลี่ยนสวิตช์ทั้งหมดเป็นสวิตช์ Peach เพราะคีย์บอร์ดเสียงดัง แล้ว X ก็กดไม่ติด เปลี่ยนสวิตช์ตัวอื่นก็ยังเสีย ตั้งแต่ตอนนั้นผมเลยมองว่าเป็นปัญหาที่บอร์ด</p>
+<p>ฝาล่างเปิดง่ายกว่าที่คิด</p>
+<table>
+<thead>
+<tr>
+<th>ขั้นตอน</th>
+<th>สิ่งที่ต้องทำ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ถอดเฉพาะปุ่มรอบร่องล็อกฝาล่าง</td>
+</tr>
+<tr>
+<td>2</td>
+<td>สอดเครื่องมือแข็ง ๆ เข้าร่องแล้วงัดเหมือนคานงัด</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ค่อย ๆ แยกเฉพาะส่วนที่จำเป็น</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ถอดสายแบตเตอรี่ทันทีที่เปิดได้</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="งัดฝาล่างด้วยเครื่องมือแข็งที่สอดในร่อง" src="/images/20261102-aula-f108-keyboard-repair/06-지렛대로-하판-열기.webp" />
+<small>ฝาล่างที่เปิดด้วยการใช้เครื่องมืองัดในร่อง</small></p>
+<p>เรื่องต้องถอดแบตเตอรี่ผมรู้จาก<a href="https://blog.naver.com/ststeel/224044004123">โพสต์ซ่อม AULA F99</a> ถ้าเป็นคีย์บอร์ดไร้สายให้ทำข้อนี้ก่อน</p>
+<p><img alt="ด้านในคีย์บอร์ดตอนเปิดครั้งแรก เห็นโฟม สายไฟ และสายแบตเตอรี่" src="/images/20261102-aula-f108-keyboard-repair/07-첫-오픈-배터리.webp" />
+<small>สายแบตเตอรี่ที่เห็นตอนเปิดฝาล่างครั้งแรก</small></p>
+<h2 id="s3">3. บัดกรีซ็อกเก็ตที่ยกใหม่</h2>
+<p>ถ้าดูด้านหลังปุ่มที่เสียแล้วซ็อกเก็ตด้านหนึ่งยื่นขึ้นมานิดหน่อย คุณอยู่ตรงนี้ ถ้าตะกั่วลอยจนขาหลุดจากแพด ก็แค่บัดกรีใหม่</p>
+<p><img alt="ซ็อกเก็ต X ยกขึ้นเล็กน้อยและยื่นออกจากบอร์ด" src="/images/20261102-aula-f108-keyboard-repair/09-튀어나온-소켓.webp" />
+<small>ซ็อกเก็ต hot-swap ของ X ที่ด้านหนึ่งยกขึ้นจากบอร์ด</small></p>
+<p>ตอนแรกผมบัดกรีผิดวิธี แค่ละลายตะกั่วด้วยหัวแร้งแล้วหยดลงตำแหน่งซ็อกเก็ต แต่ <strong>วิธีที่ถูกคือเผาบอร์ดให้ร้อนก่อน แล้วค่อยกดตะกั่วลงไป</strong> คลิปด้านล่างคือวิธีที่ผิด</p>
+<p><img alt="การบัดกรีครั้งแรก ละลายตะกั่วแล้วหยดลงตำแหน่งซ็อกเก็ต" src="/images/20261102-aula-f108-keyboard-repair/움짤1-첫-납땜.webp" />
+<small>วิธีที่ผิด: หยดตะกั่วที่ละลายโดยไม่ได้เผาบอร์ด</small></p>
+<p>ถ้าซ็อกเก็ตหลุดออกมาเลย ให้ถอดจากตำแหน่งปุ่มที่ไม่ได้ใช้ ผมถอดจาก F10 แล้วมาเสียดายทีหลังว่าน่าจะเอาจาก Pause เลือกปุ่มที่ใช้น้อย ๆ</p>
+<p><img alt="ซ็อกเก็ต hot-swap สีดำที่หลุดออกมาวางบนฝ่ามือ" src="/images/20261102-aula-f108-keyboard-repair/10-떨어진-소켓.webp" />
+<small>ซ็อกเก็ต hot-swap ที่หลุดจากบอร์ด</small></p>
+<p>ก่อนบัดกรี ให้ดูข้อ 4 ก่อนเสมอ ถ้าสิ่งที่ยกขึ้นคือแพดไม่ใช่ตะกั่ว ติดใหม่ก็ไม่หาย แถมยิ่งแย่ลง</p>
+<h2 id="s4">4. เช็กว่าแพดทองแดงหลุดหรือไม่</h2>
+<p>ดูสีของแพดตรงที่ถอดซ็อกเก็ตออก ถ้าแพดปุ่มอื่นเป็นสีเงิน แต่ตรงนี้ตรงเดียวเป็นสีน้ำตาล แปลว่าแพดหลุด</p>
+<p><img alt="ด้านหลังตำแหน่ง X: บริเวณแพดสี่เหลี่ยมทางซ้ายว่างและเป็นสีน้ำตาล มีรอยไหม้รอบ ๆ" src="/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp" />
+<small>ตำแหน่ง X ที่เห็นพื้นสีน้ำตาลแทนแพดสีเงิน</small></p>
+<p>ผมลองขูดเบา ๆ ด้วยคัตเตอร์ก็ไม่เจออะไร เลยแน่ใจ</p>
+<table>
+<thead>
+<tr>
+<th>สิ่งที่เช็ก</th>
+<th>สรุป</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>แพดเป็นสีเงิน แค่ตะกั่วหลุด</td>
+<td>กลับไปข้อ 3 แล้วบัดกรีใหม่</td>
+</tr>
+<tr>
+<td>ตำแหน่งแพดเป็นสีน้ำตาล ขูดแล้วไม่เจอโลหะ</td>
+<td>แพดหลุด ข้อ 6</td>
+</tr>
+</tbody>
+</table>
+<p>แพดทองแดงคือทองแดงที่พิมพ์บนบอร์ด จึงเอาจากที่อื่นมาติดไม่ได้ ที่ย้ายมาได้มีแค่ซ็อกเก็ต <strong>ส่วนแพดที่หายไปต้องใช้สายไฟต่อแทน</strong></p>
+<h2 id="s5">5. สองปุ่มติดพร้อมกันคือไลน์ช็อต</h2>
+<p>ถ้าหลังบัดกรีแล้วสองปุ่มที่ไม่เกี่ยวกันเริ่มกดติดพร้อมกันเป็นคู่ นั่นคือไลน์ช็อต ของผมเกิดทันทีหลังบัดกรีครั้งแรก</p>
+<p><img alt="กดปุ่มรอบ X บนคีย์บอร์ดที่ประกอบแล้ว Notepad ขึ้นตัวอักษรผิด" src="/images/20261102-aula-f108-keyboard-repair/움짤2-첫-결과-메모장.webp" />
+<small>กดปุ่มใน Notepad หลังบัดกรีครั้งแรก</small></p>
+<table>
+<thead>
+<tr>
+<th>ปุ่มที่กด</th>
+<th>ผล</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl หรือ Shift</td>
+<td>กดติดพร้อมกันทั้งคู่</td>
+</tr>
+<tr>
+<td>Alt</td>
+<td>ติดพร้อม Z</td>
+</tr>
+<tr>
+<td>Spacebar</td>
+<td>ติดพร้อม B</td>
+</tr>
+<tr>
+<td>.</td>
+<td>ติดพร้อม Fn</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>ติดพร้อม ↓</td>
+</tr>
+<tr>
+<td>A·S·D·F·G, C·V·N·M</td>
+<td>แต่ละปุ่มปกติ</td>
+</tr>
+</tbody>
+</table>
+<p>ทุกคู่คือปุ่มหนึ่งในแถว Shift กับปุ่มที่อยู่ใต้มันพอดีในแถว Ctrl คีย์บอร์ดส่งสัญญาณไปทีละคอลัมน์แล้วอ่านแถว ถ้าสองแถวติดกัน ปุ่มบนล่างในคอลัมน์เดียวกันจะถูกอ่านพร้อมกัน (<a href="https://develop-docs.qmk.fm/how_a_matrix_works">เอกสาร QMK</a>) C·V·N·M ปกติเพราะแถวข้างล่างเป็น Spacebar เลยไม่มีคู่</p>
+<p><img alt="รูปบอร์ดทั้งแผ่นที่วงคู่ปุ่มที่กดติดพร้อมกันด้วยวงสีส้มและเส้นสีแดง" src="/images/20261102-aula-f108-keyboard-repair/13-같이-눌리는-짝.webp" />
+<small>แผนที่คู่ปุ่มที่กดติดพร้อมกัน ทำเครื่องหมายบนบอร์ด</small></p>
+<p><img alt="รูปบอร์ดที่วาดเส้นแถว Shift และเส้นแถว Ctrl มาบรรจบกันที่จุดเดียว" src="/images/20261102-aula-f108-keyboard-repair/14-두-줄-쇼트-원리.webp" />
+<small>หลักการไลน์ช็อต: แถว Shift กับแถว Ctrl มาแตะกันที่จุดเดียว</small></p>
+<p>หาจุดช็อตได้โดยไม่ต้องใช้มัลติมิเตอร์</p>
+<table>
+<thead>
+<tr>
+<th>ขั้นตอน</th>
+<th>สิ่งที่ต้องทำ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ต่อคีย์บอร์ดแล้วเปิดเว็บทดสอบคีย์บอร์ด</td>
+</tr>
+<tr>
+<td>2</td>
+<td>กดปุ่มหนึ่งในคู่ค้างไว้ (ผมใช้ Ctrl) ปุ่มคู่ (Shift) จะติดบนหน้าจอด้วย</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ใช้ไม้จิ้มฟันกดไปทั่วรอบบริเวณที่บัดกรี</td>
+</tr>
+<tr>
+<td>4</td>
+<td>จุดที่ปุ่มคู่ดับคือจุดช็อต</td>
+</tr>
+</tbody>
+</table>
+<p>ไม้จิ้มฟันไม่นำไฟฟ้า เลยไม่ทำให้ผลเพี้ยน ระหว่างกดมีเสียง "แต๊ก" แล้ว Shift ก็เริ่มทำงานแยกกัน ดูเหมือนปลายเส้นทองแดงที่ยกขึ้นไปแตะเส้นแถวข้างล่าง แล้วหลุดออกจากกัน</p>
+<p><img alt="ภาพซูมบริเวณที่หลุด วงสีส้มคือโซนที่ต้องกดด้วยไม้จิ้มฟัน" src="/images/20261102-aula-f108-keyboard-repair/15-이쑤시개로-쇼트-찾기.webp" />
+<small>โซนที่ต้องกดด้วยไม้จิ้มฟัน</small></p>
+<p>นี่คือสิ่งที่ลองก่อนเจอจุดช็อตแต่ไม่ช่วย ถ้าอาการเหมือนกันข้ามไปได้เลย</p>
+<table>
+<thead>
+<tr>
+<th>สิ่งที่ลอง</th>
+<th>ผล</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>คีบเศษโลหะบนบอร์ดออกด้วยแหนบ</td>
+<td>ไม่เปลี่ยน</td>
+</tr>
+<tr>
+<td>เช็ดรอยฟลักซ์ไหม้</td>
+<td>ไม่เปลี่ยน</td>
+</tr>
+<tr>
+<td>เกลี่ยก้อนตะกั่ว</td>
+<td>ไม่ได้แตะเส้นข้าง ๆ เลยไม่เกี่ยว</td>
+</tr>
+<tr>
+<td>ถอดสวิตช์ของปุ่มที่เสียแล้วทดสอบ</td>
+<td>ไม่เปลี่ยน</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s6">6. ไม่มีแพดก็เดินสายอ้อม</h2>
+<p>ต่อขาซ็อกเก็ตฝั่งที่แพดหลุดไปยังเส้นที่มันควรจะไปถึงโดยตรงด้วยสายไฟ หาจุดต่อด้วยการใช้มือแตะสายไฟก่อนบัดกรี วิธีนี้เอามาจาก<a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">เคสซ่อมใน KeebTalk</a></p>
+<p><strong>สิ่งที่สำคัญที่สุดคือต้องเสียบสวิตช์และกดค้างไว้ระหว่างแตะสายไฟ</strong> ขาทั้งสองของซ็อกเก็ตจะต่อกันก็ต่อเมื่อกดสวิตช์เท่านั้น ตอนแรกผมแตะโดยไม่มีสวิตช์ แล้วงงอยู่นานเพราะมีแค่ X ที่ไม่ขึ้น</p>
+<table>
+<thead>
+<tr>
+<th>ขั้นตอน</th>
+<th>สิ่งที่ต้องทำ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>บัดกรีขาซ็อกเก็ตฝั่งที่ยังมีแพดไว้ก่อน</td>
+</tr>
+<tr>
+<td>2</td>
+<td>บัดกรีปลายสายไฟข้างหนึ่งกับขาฝั่งที่แพดหลุด</td>
+</tr>
+<tr>
+<td>3</td>
+<td>เสียบสวิตช์ กดปุ่มนั้นค้างไว้ แล้วแตะปลายสายอีกข้างกับแพดตัวเลือกทีละจุด</td>
+</tr>
+<tr>
+<td>4</td>
+<td>หาแพดที่ทำให้ปุ่มนั้นขึ้นบนหน้าจอทดสอบ</td>
+</tr>
+<tr>
+<td>5</td>
+<td>บัดกรีสายไฟกับแพดนั้น</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="รูปรอบ X ที่วงจุดยึดและตัวเลือก ①–⑦ ไว้" src="/images/20261102-aula-f108-keyboard-repair/16-X-연결-후보.webp" />
+<small>แพดตัวเลือกเจ็ดจุดที่จะลองแตะสายไฟ</small></p>
+<p>สายไฟผมดึงมาจากสาย LAN หนึ่งเส้นแล้วปอกปลายทั้งสองข้าง เส้นเล็กเลยสอดระหว่างแพดได้ง่าย</p>
+<p><img alt="สายไฟเส้นเล็กที่ดึงจากสาย LAN และปอกแล้ว" src="/images/20261102-aula-f108-keyboard-repair/17-랜선-전선.webp" />
+<small>สาย LAN หนึ่งเส้นที่ปอกปลายทั้งสองข้าง</small></p>
+<p>พอแตะแล้วผลขึ้นทันที ของผม แตะแพด D49 และ D48 ด้านบนแล้วขึ้น D แปลว่าขาฝั่งที่หลุดต่ออยู่กับเส้นเดียวกับ D อยู่แล้ว แตะแพด D63 ข้าง ๆ พอดีแล้ว X ขึ้น ไม่ใช่ S ที่ผมคาดไว้ และไม่ใช่ D ตัวเลือกถัดไป เพราะฉะนั้น <strong>แทนที่จะเดา แตะให้ครบทุกตัวเลือกจะเร็วกว่า</strong></p>
+<p><img alt="บัดกรีสายไฟจากขาซ้ายของซ็อกเก็ต X ไปที่แพดข้าง ๆ" src="/images/20261102-aula-f108-keyboard-repair/움짤3-전선-납땜.webp" />
+<small>บัดกรีสายจากขาซ็อกเก็ตไปที่แพดข้าง ๆ</small></p>
+<p><img alt="เส้นทางที่ต่อแพด D63 กับขาซ็อกเก็ต X วาดเป็นเส้นสีน้ำเงิน" src="/images/20261102-aula-f108-keyboard-repair/18-D63-연결.webp" />
+<small>เส้นทางสุดท้ายจากขาซ็อกเก็ต X ไปแพด D63</small></p>
+<p>ต่อเสร็จแล้วให้เช็กว่าตอนไม่กดเงียบ และตอนกดขึ้นแค่ครั้งเดียว</p>
+<p><img alt="เว็บทดสอบคีย์บอร์ดแสดงว่าปุ่ม X ถูกอ่านแล้ว" src="/images/20261102-aula-f108-keyboard-repair/움짤4-X-테스트-완료.webp" />
+<small>การพิมพ์ X หลังซ่อม ยืนยันบนเว็บทดสอบคีย์บอร์ด</small></p>
+<h2 id="s7">7. สิ่งที่เหลือหลังซ่อม</h2>
+<p>ปุ่มที่ช่วยไว้ด้วยการเดินสายอ้อมจะไม่เหมือนของเดิมทุกอย่าง ของผมเหลือแบบนี้</p>
+<table>
+<thead>
+<tr>
+<th>สิ่งที่เหลือ</th>
+<th>สถานะ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X กับ C พร้อมกัน</td>
+<td>ไม่ได้ เพราะ X ยืมไดโอดของ C แก้ได้ด้วยการย้ายสายไปที่ขาไดโอดของ X เอง</td>
+</tr>
+<tr>
+<td>ปุ่มที่ถอดซ็อกเก็ตมา (F10)</td>
+<td>ว่าง ย้ายซ็อกเก็ตจากปุ่มที่ไม่ได้ใช้ (Pause ฯลฯ) หรือตั้งค่าปุ่มใหม่</td>
+</tr>
+<tr>
+<td>ซ็อกเก็ตที่เดินสายอ้อม</td>
+<td>อ่อนแอเพราะไม่มีแพดข้างหนึ่ง เวลาถอดสวิตช์ให้ประคองซ็อกเก็ตจากด้านหลัง</td>
+</tr>
+</tbody>
+</table>
+<p>พิมพ์ทั่วไปไม่มีปัญหา ผมเลยประกอบกลับตามนั้น</p>
+<p>แหล่งอ้างอิง</p>
+<table>
+<thead>
+<tr>
+<th>แหล่งที่มา</th>
+<th>เนื้อหา</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://blog.naver.com/ststeel/224044004123">ปุ่ม AULA F99 กดไม่ติด (ภาษาเกาหลี)</a></td>
+<td>เปิดฝาล่าง ถอดแบตเตอรี่</td>
+</tr>
+<tr>
+<td><a href="https://develop-docs.qmk.fm/how_a_matrix_works">QMK: How a Keyboard Matrix Works</a></td>
+<td>เมทริกซ์แถวและคอลัมน์ และการทำงานของไดโอด</td>
+</tr>
+<tr>
+<td><a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">KeebTalk: Need help fixing lifted pads Hotswap socket</a></td>
+<td>ต่อแพดที่หลุดด้วยสายไฟ</td>
+</tr>
+</tbody>
+</table></div></article><nav class="pager"><a href="/th/posts/aula-f108-keyboard-repair/"><span>บทความก่อนหน้า</span>ปุ่ม X คีย์บอร์ด AULA F108 กดไม่ติด: ซ่อมเองกับ Claude ตัดข้อสันนิษฐานทีละข้อจนช่วยแพดที่หลุดไว้ได้</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th" class=on>ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin ครีเอเตอร์คอนเทนต์จากเกาหลี · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

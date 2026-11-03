@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tombol X keyboard AULA F108 tidak berfungsi: perbaikan sendiri dengan Claude, mencoret tebakan satu per satu sampai pad yang copot terselamatkan · Cutroom Notes</title>
+<meta name="description" content="Tombol X di AULA F108 Pro saya mati, jadi saya mengambil solder, lalu malah bertemu korsleting dan pad yang copot. Saya memperbaikinya dengan menguji tebakan Claude satu per satu dan menyambung kabel ke pad tombol sebelah.">
+<meta property="og:title" content="Tombol X keyboard AULA F108 tidak berfungsi: perbaikan sendiri dengan Claude, mencoret tebakan satu per satu sampai pad yang copot terselamatkan · Cutroom Notes">
+<meta property="og:description" content="Tombol X di AULA F108 Pro saya mati, jadi saya mengambil solder, lalu malah bertemu korsleting dan pad yang copot. Saya memperbaikinya dengan menguji tebakan Claude satu per satu dan menyambung kabel ke pad tombol sebelah.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/aula-f108-keyboard-repair/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261102-aula-f108-keyboard-repair/01-분해-전-독거미-F108.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/id/posts/aula-f108-keyboard-repair/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/id/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/id/">Cutroom Notes</a>
+    <nav class="top"><a href="/id/">Semua</a><a href="/id/series/">Seri</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-11-02">2 November 2026</time><h1>Tombol X keyboard AULA F108 tidak berfungsi: perbaikan sendiri dengan Claude, mencoret tebakan satu per satu sampai pad yang copot terselamatkan</h1><p class="tr-line">Baca juga dalam: <a href="/en/posts/aula-f108-keyboard-repair/" lang="en">English</a> · <a href="/hi/posts/aula-f108-keyboard-repair/" lang="hi">हिन्दी</a> · <a href="/ar/posts/aula-f108-keyboard-repair/" lang="ar">العربية</a> · <a href="/th/posts/aula-f108-keyboard-repair/" lang="th">ไทย</a></p></header><div class="prose"><p>Tombol X di AULA F108 Pro saya mati, jadi saya mengambil solder, lalu malah bertemu korsleting dan pad yang copot. Saya memperbaikinya dengan menguji tebakan Claude satu per satu dan menyambung kabel ke pad tombol sebelah.</p>
+<p>🙋🏻‍♂️ Menyolder keyboard? Katanya tinggal tempel solder sebentar, beres. 🙋🏻‍♀️ Saya juga mengira begitu, haha.</p>
+<p><img alt="Keyboard AULA F108 sebelum dibongkar, dengan keycap abu-abu dan kenop di kanan atas" src="/images/20261102-aula-f108-keyboard-repair/01-분해-전-독거미-F108.webp" />
+<small>F108 Pro sebelum dibongkar, saat saya masih mengira cukup membetulkan satu tombol X</small></p>
+<p>Suatu akhir pekan saya sedang mengutak-atik keyboard sambil bermain dengan Claude. Lalu istri saya berkomentar dari samping: "Bukannya kamu mengetiknya terlalu keras?" 🤔</p>
+<p>Saya bilang akan mengetik lebih pelan. Tapi komentar itu terus terngiang. Lalu saya melihat keyboard cantik dijual murah lewat pengiriman langsung luar negeri di Coupang, dan langsung saya beli. Sampai di sini masih cerita belanja biasa. 😛</p>
+<p>Tulisan ini adalah catatan perbaikan yang bermula dari tombol X keyboard itu. Itu pertama kalinya saya menyolder, dan saya juga tidak punya multimeter. <strong>Lalu kenapa saya tidak menyerah di tengah jalan?</strong></p>
+<blockquote>
+<p><strong>Tujuan</strong> Menghidupkan kembali tombol X yang mati<br>
+<strong>Hambatan</strong> Pad copot saat menyolder, korsleting yang membuat dua baris tertekan bersamaan, tidak ada alat ukur<br>
+<strong>Hasil</strong> Korsleting hilang, tombol X pulih lewat jalur kabel ke pad tombol sebelah</p>
+</blockquote>
+<h2>Kotak pertama📦 Keyboard berisik dan X yang tidak mau ditekan</h2>
+<p><img alt="Layar ulasan Coupang dengan ulasan bintang lima untuk AULA F108 Pro 104 tombol switch Caramel Latte" src="/images/20261102-aula-f108-keyboard-repair/02-쿠팡-리뷰.webp" />
+<small>AULA F108 Pro Caramel Latte yang saya beli lewat Coupang, dan ulasan pembelian yang ditulis dengan otomasi Claude</small></p>
+<p>Yang saya beli adalah AULA F108 Pro, 104 tombol, switch Caramel Latte. Ulasannya pun saya tulis dengan otomasi Claude. Saya cukup memberi beberapa kata kunci, lalu Claude menulis ulasan dan menekan tombol kirim. Tapi begitu barang datang dan saya mengetik beberapa kata, ternyata lebih berisik dari dugaan. 😫</p>
+<p>Kebetulan di rumah ada switch Peach yang menganggur. Keyboard ini hot-swap, jadi switch bisa dicabut dan diganti, dan saya mengganti semuanya. 👀<strong><mark>Saya membeli keyboard ini supaya lebih tenang, dan masalah sebenarnya justru dimulai saat switch diganti.</mark></strong></p>
+<p><img alt="Keyboard tanpa keycap dengan switch Peach merah muda terpasang di beberapa tempat" src="/images/20261102-aula-f108-keyboard-repair/03-피치축-교체.webp" />
+<small>F108 Pro di tengah penggantian, switch bawaan dicabut dan switch Peach dipasang</small></p>
+<p>Saat dites, X tidak terbaca. Saya mencoba switch lain dan beberapa cara lain, tapi tidak berubah. Saya mencari di Naver dan menemukan tulisan bahwa cukup buka papan belakang lalu sentuh sebentar dengan solder. Saya mengikuti <a href="https://blog.naver.com/ststeel/224044004123">tulisan perbaikan tombol AULA F99 yang tidak berfungsi</a>, dan dari situ juga saya tahu baterai wajib dicabut saat membuka casing bawah. 🤩</p>
+<p><img alt="Solder dan timah gulung dari Daiso, masih dalam kemasan" src="/images/20261102-aula-f108-keyboard-repair/04-다이소-인두기와-납.webp" />
+<small>Solder dan timah yang saya beli di Daiso dalam perjalanan pulang</small></p>
+<p>Saya langsung ke Daiso, membeli solder dan timah, lalu pulang. Itu pertama kalinya saya menyolder.</p>
+<p><img alt="Keyboard dengan hanya beberapa keycap di sekitar X yang dicabut" src="/images/20261102-aula-f108-keyboard-repair/05-홈-주위-키캡-뽑기.webp" />
+<small>Hanya keycap di sekitar celah pengunci casing bawah yang dicabut</small></p>
+<p>Membongkarnya ternyata lebih mudah dari dugaan. Cabut hanya keycap di sekitar celah pengunci casing bawah, masukkan benda keras apa saja ke celah itu, lalu congkel seperti tuas. Kalau hanya bagian yang perlu dicongkel pelan-pelan, casing terlepas dengan mudah. Begitu terbuka, yang pertama saya lakukan adalah mencabut baterai. 👍</p>
+<table>
+<thead>
+<tr>
+<th>Langkah</th>
+<th>Yang saya lakukan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mencabut hanya keycap di sekitar celah pengunci casing bawah</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Memasukkan alat keras ke celah dan mencongkelnya seperti tuas</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Melepas pelan-pelan hanya bagian yang perlu</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Mencabut sambungan baterai begitu terbuka</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Mencongkel casing bawah dengan alat keras di celah" src="/images/20261102-aula-f108-keyboard-repair/06-지렛대로-하판-열기.webp" />
+<small>Membuka casing bawah dengan alat keras sebagai tuas di celah</small></p>
+<p><img alt="Bagian dalam keyboard saat pertama dibuka, terlihat busa, kabel, dan kabel baterai" src="/images/20261102-aula-f108-keyboard-repair/07-첫-오픈-배터리.webp" />
+<small>Bagian dalam keyboard saat pertama dibuka, dan kabel baterai yang harus dicabut lebih dulu</small></p>
+<h2>Kotak kedua📦 Mencoret tebakan satu per satu bersama Claude</h2>
+<p><img alt="Solder dicolokkan dan sedang dipanaskan, di sebelahnya timah dan keyboard" src="/images/20261102-aula-f108-keyboard-repair/08-인두기-달구기.webp" />
+<small>Memanaskan solder Daiso untuk pertama kalinya</small></p>
+<p>Saya memanaskan solder dan melihat bagian belakang posisi X. Satu sisi soket sedikit menonjol. Waktu itu saya kira timahnya saja yang terangkat. 💥<strong>Ternyata bukan timahnya: pad tembaga di papan sudah tercabut seluruhnya.</strong> 🤯</p>
+<p><img alt="Soket X sedikit terangkat dan menonjol dari papan" src="/images/20261102-aula-f108-keyboard-repair/09-튀어나온-소켓.webp" />
+<small>Soket hot-swap X yang menonjol, saat saya belum tahu pad-nya copot</small></p>
+<p><img alt="Satu soket hot-swap hitam yang lepas, di atas telapak tangan" src="/images/20261102-aula-f108-keyboard-repair/10-떨어진-소켓.webp" />
+<small>Soket X yang hendak saya pasang lagi tanpa tahu apa-apa</small></p>
+<p>Tanpa tahu apa-apa, saya menyolder soket itu kembali. Soketnya saya ambil dari posisi F10 yang tidak terpakai. Saat perbaikan pertama selesai, saya kira sudah berhasil. 😎</p>
+<p><img alt="Percobaan solder pertama, melelehkan timah dan meneteskannya ke tempat soket" src="/images/20261102-aula-f108-keyboard-repair/움짤1-첫-납땜.webp" />
+<small>Cara yang salah: hanya meneteskan timah leleh tanpa memanaskan papan</small></p>
+<p><img alt="Bagian belakang papan setelah solder pertama" src="/images/20261102-aula-f108-keyboard-repair/11-1차-수리.webp" />
+<small>Perbaikan pertama yang waktu itu saya kira sudah benar</small></p>
+<p>Hasilnya malah lebih buruk. X tetap tidak bisa ditekan, dan tombol-tombol yang tidak berhubungan mulai tertekan berpasangan. Saya menekannya satu per satu di layar tes keyboard dan Notepad, dan hasilnya seperti ini.</p>
+<p><img alt="Menekan tombol di sekitar X pada keyboard yang sudah dirakit memunculkan huruf yang salah di Notepad" src="/images/20261102-aula-f108-keyboard-repair/움짤2-첫-결과-메모장.webp" />
+<small>Notepad tepat setelah perbaikan pertama, saat saya menekan tombol dan berharap langsung beres</small></p>
+<table>
+<thead>
+<tr>
+<th>Tombol ditekan</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl atau Shift</td>
+<td>Keduanya tertekan bersamaan</td>
+</tr>
+<tr>
+<td>Alt</td>
+<td>Tertekan bersama Z</td>
+</tr>
+<tr>
+<td>Spasi</td>
+<td>Tertekan bersama B</td>
+</tr>
+<tr>
+<td>.</td>
+<td>Tertekan bersama Fn</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>Tertekan bersama ↓</td>
+</tr>
+<tr>
+<td>A·S·D·F·G</td>
+<td>Masing-masing normal</td>
+</tr>
+<tr>
+<td>C·V·N·M</td>
+<td>Masing-masing normal</td>
+</tr>
+</tbody>
+</table>
+<p>Dari sinilah saya dan Claude mulai benar-benar berdiskusi. Diagnosis pertama Claude adalah <strong>korsleting jalur</strong>, dua baris yang menempel. Setiap pasangan selalu satu tombol dari baris Shift dan tombol tepat di bawahnya di baris Ctrl. 🤔</p>
+<p><img alt="Foto seluruh papan dengan pasangan tombol yang tertekan bersamaan ditandai lingkaran oranye dan garis merah" src="/images/20261102-aula-f108-keyboard-repair/13-같이-눌리는-짝.webp" />
+<small>Peta pasangan tombol yang tertekan bersamaan di belakang papan, setiap pasangan adalah soket yang tepat berada di atas dan di bawah</small></p>
+<p>Tentu saja dari awal tidak terlihat serapi ini. Saat saya mengunggah foto bagian yang copot, area pad di kiri X berwarna cokelat, bukan perak. Dikerik dengan cutter pun tidak muncul apa-apa. Pad tombol lain semuanya perak, jadi jelas pad-nya tercabut. 😮</p>
+<p><img alt="Bagian belakang posisi X: area pad persegi kiri kosong dan cokelat, dengan bekas terbakar di sekitarnya" src="/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp" />
+<small>Posisi X yang tinggal dasar cokelat karena pad-nya copot, dengan bekas flux terbakar di sekitarnya</small></p>
+<p>Yang selama ini saya sebut "pelat kecil" ternyata nama resminya pad tembaga. Itu pelat logam tipis yang memegang kaki switch, dan karena berupa tembaga yang tercetak di papan, tidak bisa diambil dari tempat lain lalu ditempel. ✔<strong><mark>Yang bisa dipindahkan hanya soket; pad yang hilang harus diganti dengan kabel.</mark></strong></p>
+<p>Tanpa multimeter, hanya tersisa satu cara. Perbaiki satu titik yang dicurigai, tekan lagi, lalu coret kalau tidak berubah. Claude mengusulkan kandidat, saya mencobanya dan melaporkan hasilnya. Inilah tebakan yang kami coret dengan cara itu.</p>
+<table>
+<thead>
+<tr>
+<th>Tebakan</th>
+<th>Yang benar-benar dicoba</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rusak karena dicolok saat masih panas</td>
+<td>Bertanya ke Claude. Jawabannya, dengan tegangan rendah 5V, kecil kemungkinan chip rusak karena panas</td>
+<td>Dicoret</td>
+</tr>
+<tr>
+<td>Serpihan logam di papan</td>
+<td>Diambil dengan pinset</td>
+<td>Tidak berubah</td>
+</tr>
+<tr>
+<td>Bekas flux terbakar</td>
+<td>Dibersihkan</td>
+<td>Tidak berubah</td>
+</tr>
+<tr>
+<td>Lingkaran perak di sekitar lubang adalah timah</td>
+<td>Claude mengira timah, tapi setelah saya lihat itu kaki switch</td>
+<td>Claude salah, dicoret</td>
+</tr>
+<tr>
+<td>Gumpalan timah</td>
+<td>Hanya menumpuk tinggi di pad, tidak menyentuh jalur sebelah</td>
+<td>Tidak relevan</td>
+</tr>
+<tr>
+<td>Kaki switch X menyentuh di dalam lubang</td>
+<td>Mencabut switch X lalu tes</td>
+<td>Tidak berubah</td>
+</tr>
+</tbody>
+</table>
+<p>Claude juga salah. Mengira lingkaran perak itu timah, dan awalnya menjelaskan bahwa "dua baris penuh menjadi satu", keduanya keliru. Saat saya balik bertanya bukankah banyak tombol di baris itu masih normal sendiri-sendiri, Claude langsung memperbaiki penjelasannya. Meski dua baris menempel, hanya <strong>kolom yang punya tombol di baris atas dan bawah</strong> yang ikut terhubung. C·V·N·M normal karena baris di bawahnya adalah spasi, jadi tidak punya pasangan. 😮</p>
+<p><img alt="Foto papan dengan jalur baris Shift dan jalur baris Ctrl digambar, bertemu di satu titik" src="/images/20261102-aula-f108-keyboard-repair/14-두-줄-쇼트-원리.webp" />
+<small>Gambar di atas papan tentang jalur baris Shift dan baris Ctrl yang bersentuhan di satu titik</small></p>
+<p>Penjelasan ini juga saya pastikan lewat pencarian. Keyboard mengirim sinyal ke satu kolom bergantian sambil membaca baris, jadi kalau dua baris tersambung, tombol atas dan bawah terbaca bersamaan (<a href="https://develop-docs.qmk.fm/how_a_matrix_works">dokumentasi QMK</a>). Saya juga jadi tahu bahwa korsleting papan dan chip kontroler yang rusak tidak bisa dibedakan dari gejalanya saja. Tapi karena titik yang saya kerjakan tepat di antara dua baris yang terhubung, saya bertaruh pada papan. 😎</p>
+<h2>Kotak ketiga📦 Sebatang tusuk gigi dan jalan memutar ke pad sebelah</h2>
+<p>Sempat terpikir apakah harus membeli multimeter. Saya meminta Claude memikirkan versi tanpa membeli. Jawabannya: pakai layar tester keyboard itu sendiri sebagai alat ukur. 🤩</p>
+<p><img alt="Foto close-up area yang copot dengan zona yang perlu ditekan tusuk gigi dilingkari oranye" src="/images/20261102-aula-f108-keyboard-repair/15-이쑤시개로-쇼트-찾기.webp" />
+<small>Zona yang ditekan kuat dengan tusuk gigi sambil menahan Ctrl</small></p>
+<p>Kalau Ctrl ditahan, Shift ikut menyala di layar. Dalam keadaan itu, area di sekitar bagian yang copot ditekan-tekan dengan tusuk gigi untuk mencari titik di mana Shift padam. Tusuk gigi tidak menghantarkan listrik, jadi tidak mengacaukan hasil. Saya terus menekan sampai terdengar bunyi "tik", dan Shift mulai bekerja sendiri. 🤯</p>
+<p>Sepertinya ujung jalur tembaga yang terangkat menyentuh jalur baris di bawahnya, lalu terlepas. 💥<strong><mark>Sebatang tusuk gigi menemukan korsleting yang tidak terlihat oleh mata.</mark></strong></p>
+<p>Tinggal X. Saya tidak tahu harus menyambung kaki yang pad-nya copot ke mana. Awalnya Claude menganggap sisi tombol S lebih mungkin, karena kebanyakan keyboard berbagi kolom secara diagonal seperti Z-A-Q dan X-S-W. Cara menempelkan kabel dengan tangan untuk mengecek sebelum menyolder saya ambil dari kasus perbaikan di komunitas keyboard (<a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">kasus KeebTalk</a>). 🤔</p>
+<p><img alt="Foto sekitar X dengan titik tetap dan kandidat ①–⑦ dilingkari" src="/images/20261102-aula-f108-keyboard-repair/16-X-연결-후보.webp" />
+<small>Tujuh kandidat titik untuk ditempel kabel, dengan pad kanan X sebagai titik tetap</small></p>
+<p>Untuk kabel, saya menarik satu helai dari kabel LAN dan mengupas kedua ujungnya. Saat pertama disolder, semua berfungsi kecuali X. Ternyata setelah soket terpasang, switch harus dicolok dan ditekan sambil menempelkan kabel. Dua kaki soket hanya tersambung saat switch ditekan. 😫</p>
+<p><img alt="Kabel tipis dari kabel LAN yang sudah dikupas" src="/images/20261102-aula-f108-keyboard-repair/17-랜선-전선.webp" />
+<small>Sehelai kabel dari kabel LAN dengan kedua ujung dikupas</small></p>
+<p><img alt="Menyolder kabel dari kaki kiri soket X ke pad sebelah" src="/images/20261102-aula-f108-keyboard-repair/움짤3-전선-납땜.webp" />
+<small>Menyolder kabel di kaki kiri soket ke pad papan sebelah</small></p>
+<p>Dengan switch terpasang, saya menempelkan lagi dan jawabannya muncul. Ditempel ke pad D49 dan D48 di atas, muncul D. Artinya kaki di sisi yang copot sudah tersambung ke jalur yang sama dengan D. Lalu saya tempel ke pad D63 tepat di sebelahnya, dan X muncul. Bukan S yang dianggap paling mungkin oleh Claude, dan bukan pula D, kandidat berikutnya. 😮</p>
+<p><img alt="Jalur yang menghubungkan pad D63 dan kaki soket X digambar dengan garis biru" src="/images/20261102-aula-f108-keyboard-repair/18-D63-연결.webp" />
+<small>Jalur kabel yang menghubungkan soket X ke pad D63 tepat di sebelahnya</small></p>
+<p>Intinya, sambungan yang dulu menuju papan di atas kini dibelokkan ke pad sebelah. Saat tidak ditekan tetap diam, dan saat ditekan X terbaca tepat sekali. ✔<strong><mark>Titik yang benar saya temukan bukan dengan menebak, tapi dengan benar-benar menempelkan kabel.</mark></strong></p>
+<p><img alt="Layar Notepad laptop untuk mengecek apakah X bisa diketik" src="/images/20261102-aula-f108-keyboard-repair/19-메모장-테스트.webp" />
+<small>Mengecek input X di Notepad setelah perbaikan</small></p>
+<p><img alt="Situs tes keyboard yang menunjukkan tombol X terbaca" src="/images/20261102-aula-f108-keyboard-repair/움짤4-X-테스트-완료.webp" />
+<small>Input X yang terkonfirmasi di situs tes keyboard setelah perbaikan</small></p>
+<p>Masih ada satu batasan. X dan C tidak bisa ditekan bersamaan. Seharusnya setiap tombol punya dioda sendiri, dan sekarang X meminjam milik C. Untuk chatting sehari-hari sama sekali tidak masalah, jadi saya biarkan dan merakit kembali. Kalau dipikir lagi, harusnya soket saya ambil dari Pause, bukan F10. 😛</p>
+<table>
+<thead>
+<tr>
+<th>Yang tersisa</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X dan C bersamaan</td>
+<td>Tidak bisa. Bisa diperbaiki dengan memindahkan kabel ke kaki dioda milik X sendiri</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>Kosong karena soketnya saya ambil. Bisa memindahkan soket Pause atau mengatur ulang tombol</td>
+</tr>
+<tr>
+<td>Soket X</td>
+<td>Lemah karena satu pad hilang. Topang soket dari belakang saat mencabut switch</td>
+</tr>
+</tbody>
+</table>
+<h2>Sebenarnya saya bisa saja menyerah</h2>
+<p>Jujur, saya bisa saja menyerah di tengah jalan. Saat korsleting terjadi, dan saat serpihan logam sudah diambil, bekas terbakar sudah dibersihkan, bahkan switch sudah dicabut tapi tidak ada yang berubah. Tapi setiap kali berdiskusi dengan Claude, selalu muncul satu hal lagi untuk dicoba, dan saya terus merasa ini akan berhasil. 🤔</p>
+<p>Yang dilakukan Claude bukan menebak jawaban dengan tepat. Ia mendengar gejala, mengusulkan kandidat, mencoretnya berdasarkan hasil percobaan saya, dan menawarkan cara lain saat buntu. Saat saya mengunggah foto, ia menandai langsung di atasnya bagian mana yang harus dilihat. Tebakannya cukup sering salah, tapi langsung tercoret begitu dicek. 💰<strong><mark>Meski tidak ada yang tahu jawabannya, mencoret tebakan satu per satu dengan benar-benar mengeceknya akan membuka jalan.</mark></strong></p>
+<p>Orang yang pertama kali menyolder berhasil menyelamatkan pad yang copot tanpa multimeter. Saya jadi berpikir, era AI yang membuat hal yang tadinya mustahil jadi bisa ini menyenangkan. Mungkin bisa atau tidaknya sesuatu diperbaiki tidak terlalu ditentukan oleh keahlian, tapi oleh apakah selalu ada hal berikutnya untuk dicoba? 😎</p>
+<p>Kalau Anda juga buntu saat memperbaiki keyboard AULA atau papan hot-swap, silakan tinggalkan komentar.</p>
+<p>Sumber</p>
+<table>
+<thead>
+<tr>
+<th>Sumber</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://blog.naver.com/ststeel/224044004123">Tombol AULA F99 tidak berfungsi (bahasa Korea)</a></td>
+<td>Membuka casing bawah, mencabut baterai, menyolder ulang</td>
+</tr>
+<tr>
+<td><a href="https://develop-docs.qmk.fm/how_a_matrix_works">QMK: How a Keyboard Matrix Works</a></td>
+<td>Matriks baris dan kolom serta cara kerja dioda</td>
+</tr>
+<tr>
+<td><a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">KeebTalk: Need help fixing lifted pads Hotswap socket</a></td>
+<td>Menyambung pad hot-swap yang copot dengan kabel dan cara mencari titik sambungan</td>
+</tr>
+</tbody>
+</table></div></article><nav class="pager"><a href="/id/posts/naver-driver-github/"><span>Tulisan sebelumnya</span>Alat input blog Naver saya kini membaca dari GitHub, tanpa folder PC dan server lokal</a><a href="/id/posts/keyboard-hotswap-repair-guide/" class="r"><span>Tulisan berikutnya</span>Panduan perbaikan PCB keyboard sendiri: dari tombol hot-swap yang tidak terbaca sampai menyolder pad tembaga AULA yang copot</a></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id" class=on>Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, pembuat konten dari Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>

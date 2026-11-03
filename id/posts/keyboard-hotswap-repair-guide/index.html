@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panduan perbaikan PCB keyboard sendiri: dari tombol hot-swap yang tidak terbaca sampai menyolder pad tembaga AULA yang copot · Cutroom Notes</title>
+<meta name="description" content="Saat satu tombol di keyboard hot-swap tidak berfungsi, inilah bagian yang perlu dicek dulu untuk tiap gejala, sesuai urutan yang saya periksa sendiri saat memperbaiki AULA F108.">
+<meta property="og:title" content="Panduan perbaikan PCB keyboard sendiri: dari tombol hot-swap yang tidak terbaca sampai menyolder pad tembaga AULA yang copot · Cutroom Notes">
+<meta property="og:description" content="Saat satu tombol di keyboard hot-swap tidak berfungsi, inilah bagian yang perlu dicek dulu untuk tiap gejala, sesuai urutan yang saya periksa sendiri saat memperbaiki AULA F108.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/keyboard-hotswap-repair-guide/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/id/posts/keyboard-hotswap-repair-guide/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/id/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/id/">Cutroom Notes</a>
+    <nav class="top"><a href="/id/">Semua</a><a href="/id/series/">Seri</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-11-03">3 November 2026</time><h1>Panduan perbaikan PCB keyboard sendiri: dari tombol hot-swap yang tidak terbaca sampai menyolder pad tembaga AULA yang copot</h1><p class="tr-line">Baca juga dalam: <a href="/en/posts/keyboard-hotswap-repair-guide/" lang="en">English</a> · <a href="/hi/posts/keyboard-hotswap-repair-guide/" lang="hi">हिन्दी</a> · <a href="/ar/posts/keyboard-hotswap-repair-guide/" lang="ar">العربية</a> · <a href="/th/posts/keyboard-hotswap-repair-guide/" lang="th">ไทย</a></p></header><div class="prose"><p>Saat satu tombol di keyboard hot-swap tidak berfungsi, cari gejala Anda di bawah lalu langsung lompat ke nomornya.</p>
+<pre><code>Tombol tidak terbaca
+├ Switch lain bisa → selesai
+└ Tetap mati → langkah 2
+   ├ Soket terangkat → langkah 3
+   │  └ Pad cokelat → langkah 4
+   ├ Dua tombol ikut → langkah 5
+   └ Pad hilang → langkah 6
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Kondisi saya sekarang</th>
+<th>Lompat ke</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Belum tahu gejalanya apa</td>
+<td><a href="#s1">1. Pilah dulu berdasarkan gejala</a></td>
+</tr>
+<tr>
+<td>Ganti switch tidak membantu</td>
+<td><a href="#s2">2. Singkirkan dugaan switch dan buka casing</a></td>
+</tr>
+<tr>
+<td>Soket di bagian belakang terangkat</td>
+<td><a href="#s3">3. Solder ulang soket yang terangkat</a></td>
+</tr>
+<tr>
+<td>Bekas soket berwarna cokelat</td>
+<td><a href="#s4">4. Cek apakah pad tembaga copot</a></td>
+</tr>
+<tr>
+<td>Dua tombol tertekan bersamaan</td>
+<td><a href="#s5">5. Dua tombol sekaligus berarti korsleting jalur</a></td>
+</tr>
+<tr>
+<td>Pad hilang, tidak ada tempat menempel soket</td>
+<td><a href="#s6">6. Tanpa pad, sambung memutar dengan kabel</a></td>
+</tr>
+<tr>
+<td>Sudah beres tapi masih ada yang janggal</td>
+<td><a href="#s7">7. Yang tersisa setelah diperbaiki</a></td>
+</tr>
+</tbody>
+</table>
+<p>Urutan ini adalah jalan yang benar-benar saya lalui saat memperbaiki tombol X di AULA F108 Pro. Itu pertama kalinya saya menyolder, dan saya tidak punya multimeter. Bagaimana saya sampai di sini saya tulis terpisah di <a href="/id/posts/aula-f108-keyboard-repair/">catatan perbaikan sendiri</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Yang dibutuhkan</th>
+<th>Yang saya pakai</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solder dan timah</td>
+<td>Beli di Daiso</td>
+</tr>
+<tr>
+<td>Alat pembuka casing</td>
+<td>Benda keras apa saja</td>
+</tr>
+<tr>
+<td>Alat pencari korsleting</td>
+<td>Tusuk gigi dan situs tes keyboard</td>
+</tr>
+<tr>
+<td>Kabel jalur memutar</td>
+<td>Sehelai dari kabel LAN</td>
+</tr>
+<tr>
+<td>Soket cadangan</td>
+<td>Diambil dari posisi tombol yang tidak terpakai</td>
+</tr>
+<tr>
+<td>Multimeter</td>
+<td>Tidak perlu</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s1">1. Pilah dulu berdasarkan gejala</h2>
+<p>Tiap gejala punya penyebab dan titik perbaikan yang berbeda. Berdasarkan yang benar-benar saya lihat, pembagiannya seperti ini.</p>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Yang dicurigai</th>
+<th>Ke</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Satu tombol mati, bisa dengan switch lain</td>
+<td>Switch</td>
+<td>Selesai</td>
+</tr>
+<tr>
+<td>Satu tombol mati, tetap sama dengan switch lain</td>
+<td>Soket hot-swap di papan</td>
+<td>2 → 3</td>
+</tr>
+<tr>
+<td>Satu sisi soket menonjol dari papan</td>
+<td>Solderan soket atau pad tembaga</td>
+<td>3 → 4</td>
+</tr>
+<tr>
+<td>Sejak disolder, dua tombol tak terkait tertekan bersamaan</td>
+<td>Korsleting jalur</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Pad di bekas soket kosong dan cokelat</td>
+<td>Pad tembaga copot</td>
+<td>4 → 6</td>
+</tr>
+</tbody>
+</table>
+<p>Kita samakan dulu istilahnya. Bagian hitam tempat switch dicolok adalah soket hot-swap, dan pelat perak tempat kakinya menempel adalah pad tembaga. Dioda adalah komponen kecil terpisah di samping soket.</p>
+<h2 id="s2">2. Singkirkan dugaan switch dan buka casing</h2>
+<p>Yang pertama dilakukan adalah mencolokkan switch lain ke posisi yang mati. Saya mengganti semua switch ke switch Peach karena keyboard-nya berisik, lalu X tidak berfungsi. Dengan switch lain pun tetap mati, jadi sejak itu saya anggap masalahnya di papan.</p>
+<p>Casing bawah lebih mudah dibuka dari dugaan.</p>
+<table>
+<thead>
+<tr>
+<th>Langkah</th>
+<th>Yang dilakukan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Cabut hanya keycap di sekitar celah pengunci casing bawah</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Masukkan alat keras ke celah dan congkel seperti tuas</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Lepas pelan-pelan hanya bagian yang perlu</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Cabut sambungan baterai begitu terbuka</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Mencongkel casing bawah dengan alat keras di celah" src="/images/20261102-aula-f108-keyboard-repair/06-지렛대로-하판-열기.webp" />
+<small>Casing bawah yang dibuka dengan alat sebagai tuas di celah</small></p>
+<p>Bahwa baterai wajib dicabut saya pelajari dari <a href="https://blog.naver.com/ststeel/224044004123">tulisan perbaikan AULA F99</a>. Kalau keyboard nirkabel, lakukan ini lebih dulu.</p>
+<p><img alt="Bagian dalam keyboard saat pertama dibuka, terlihat busa, kabel, dan kabel baterai" src="/images/20261102-aula-f108-keyboard-repair/07-첫-오픈-배터리.webp" />
+<small>Kabel baterai yang terlihat saat casing bawah pertama dibuka</small></p>
+<h2 id="s3">3. Solder ulang soket yang terangkat</h2>
+<p>Kalau di bagian belakang tombol yang mati satu sisi soket sedikit menonjol, Anda ada di sini. Kalau timahnya terangkat dan kaki lepas dari pad, cukup disolder ulang.</p>
+<p><img alt="Soket X sedikit terangkat dan menonjol dari papan" src="/images/20261102-aula-f108-keyboard-repair/09-튀어나온-소켓.webp" />
+<small>Soket hot-swap X dengan satu sisi terangkat dari papan</small></p>
+<p>Awalnya cara menyolder saya salah. Saya hanya melelehkan timah lalu meneteskannya ke tempat soket, padahal <strong>cara yang benar adalah memanaskan papan dulu lalu menekan timah di atasnya</strong>. Klip di bawah ini cara yang salah.</p>
+<p><img alt="Percobaan solder pertama, melelehkan timah dan meneteskannya ke tempat soket" src="/images/20261102-aula-f108-keyboard-repair/움짤1-첫-납땜.webp" />
+<small>Cara yang salah: meneteskan timah leleh tanpa memanaskan papan</small></p>
+<p>Kalau soketnya lepas sama sekali, ambil dari posisi tombol yang tidak terpakai. Saya mengambil dari F10, dan belakangan menyesal kenapa tidak dari Pause. Pilih tombol yang jarang dipakai.</p>
+<p><img alt="Satu soket hot-swap hitam yang lepas, di atas telapak tangan" src="/images/20261102-aula-f108-keyboard-repair/10-떨어진-소켓.webp" />
+<small>Soket hot-swap yang lepas dari papan</small></p>
+<p>Sebelum menyolder, selalu cek langkah 4 dulu. Kalau yang terangkat ternyata pad, bukan timah, menempelkannya lagi tidak akan berhasil dan malah memperparah.</p>
+<h2 id="s4">4. Cek apakah pad tembaga copot</h2>
+<p>Lihat warna pad di bekas soket. Kalau pad tombol lain berwarna perak dan hanya titik ini yang cokelat, pad-nya copot.</p>
+<p><img alt="Bagian belakang posisi X: area pad persegi kiri kosong dan cokelat, dengan bekas terbakar di sekitarnya" src="/images/20261102-aula-f108-keyboard-repair/12-뜯긴-패드-자리.webp" />
+<small>Posisi X yang memperlihatkan dasar cokelat, bukan pad perak</small></p>
+<p>Saya mengeriknya pelan dengan cutter dan tidak muncul apa-apa. Itu memastikannya.</p>
+<table>
+<thead>
+<tr>
+<th>Cek</th>
+<th>Kesimpulan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pad perak dan hanya timahnya yang lepas</td>
+<td>Kembali ke langkah 3 dan solder ulang</td>
+</tr>
+<tr>
+<td>Bekas pad cokelat dan dikerik tidak ada logam</td>
+<td>Pad copot. Langkah 6</td>
+</tr>
+</tbody>
+</table>
+<p>Pad tembaga adalah tembaga yang tercetak di papan, jadi tidak bisa diambil dari tempat lain lalu ditempel. Yang bisa dipindahkan hanya soket; <strong>pad yang hilang harus diganti dengan kabel.</strong></p>
+<h2 id="s5">5. Dua tombol sekaligus berarti korsleting jalur</h2>
+<p>Kalau setelah menyolder dua tombol tak terkait mulai tertekan berpasangan, itu korsleting jalur. Pada saya, ini terjadi tepat setelah solder pertama.</p>
+<p><img alt="Menekan tombol di sekitar X pada keyboard yang sudah dirakit memunculkan huruf yang salah di Notepad" src="/images/20261102-aula-f108-keyboard-repair/움짤2-첫-결과-메모장.webp" />
+<small>Menekan tombol di Notepad setelah solder pertama</small></p>
+<table>
+<thead>
+<tr>
+<th>Tombol ditekan</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl atau Shift</td>
+<td>Keduanya tertekan bersamaan</td>
+</tr>
+<tr>
+<td>Alt</td>
+<td>Tertekan bersama Z</td>
+</tr>
+<tr>
+<td>Spasi</td>
+<td>Tertekan bersama B</td>
+</tr>
+<tr>
+<td>.</td>
+<td>Tertekan bersama Fn</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>Tertekan bersama ↓</td>
+</tr>
+<tr>
+<td>A·S·D·F·G, C·V·N·M</td>
+<td>Masing-masing normal</td>
+</tr>
+</tbody>
+</table>
+<p>Setiap pasangan selalu satu tombol dari baris Shift dan tombol tepat di bawahnya di baris Ctrl. Keyboard mengirim sinyal ke satu kolom bergantian sambil membaca baris, jadi kalau dua baris tersambung, tombol atas dan bawah di kolom yang sama terbaca bersamaan (<a href="https://develop-docs.qmk.fm/how_a_matrix_works">dokumentasi QMK</a>). C·V·N·M normal karena baris di bawahnya adalah spasi, jadi tidak punya pasangan.</p>
+<p><img alt="Foto seluruh papan dengan pasangan tombol yang tertekan bersamaan ditandai lingkaran oranye dan garis merah" src="/images/20261102-aula-f108-keyboard-repair/13-같이-눌리는-짝.webp" />
+<small>Peta pasangan tombol yang tertekan bersamaan, ditandai di papan</small></p>
+<p><img alt="Foto papan dengan jalur baris Shift dan jalur baris Ctrl digambar, bertemu di satu titik" src="/images/20261102-aula-f108-keyboard-repair/14-두-줄-쇼트-원리.webp" />
+<small>Cara kerja korsleting jalur: baris Shift dan baris Ctrl bersentuhan di satu titik</small></p>
+<p>Titik korsleting bisa ditemukan tanpa multimeter.</p>
+<table>
+<thead>
+<tr>
+<th>Langkah</th>
+<th>Yang dilakukan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sambungkan keyboard dan buka situs tes keyboard</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tahan satu tombol dari pasangan (saya pakai Ctrl). Pasangannya (Shift) ikut menyala di layar</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tekan-tekan area yang dikerjakan di sana-sini dengan tusuk gigi</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Titik di mana tombol pasangan padam adalah lokasi korsleting</td>
+</tr>
+</tbody>
+</table>
+<p>Tusuk gigi tidak menghantarkan listrik, jadi tidak mengacaukan hasil. Saat menekan, terdengar bunyi "tik", lalu Shift mulai bekerja sendiri. Sepertinya ujung jalur tembaga yang terangkat menyentuh jalur baris di bawahnya, lalu terlepas.</p>
+<p><img alt="Foto close-up area yang copot dengan zona yang perlu ditekan tusuk gigi dilingkari oranye" src="/images/20261102-aula-f108-keyboard-repair/15-이쑤시개로-쇼트-찾기.webp" />
+<small>Zona yang ditekan dengan tusuk gigi</small></p>
+<p>Ini juga yang sempat saya coba sebelum menemukan korsleting tapi tidak membantu. Kalau gejalanya sama, ini boleh dilewati.</p>
+<table>
+<thead>
+<tr>
+<th>Yang dicoba</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mengambil serpihan logam di papan dengan pinset</td>
+<td>Tidak berubah</td>
+</tr>
+<tr>
+<td>Membersihkan bekas flux terbakar</td>
+<td>Tidak berubah</td>
+</tr>
+<tr>
+<td>Merapikan gumpalan timah</td>
+<td>Tidak menyentuh jalur sebelah, jadi tidak relevan</td>
+</tr>
+<tr>
+<td>Mencabut switch tombol yang mati lalu tes</td>
+<td>Tidak berubah</td>
+</tr>
+</tbody>
+</table>
+<h2 id="s6">6. Tanpa pad, sambung memutar dengan kabel</h2>
+<p>Sambungkan kaki soket di sisi yang copot langsung ke jalur tujuannya dengan kabel. Titik sambungnya dicari dengan menempelkan kabel menggunakan tangan sebelum menyolder. Cara ini saya ambil dari <a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">kasus perbaikan di KeebTalk</a>.</p>
+<p><strong>Yang paling penting adalah mencolokkan switch dan menahannya sambil menempelkan kabel.</strong> Dua kaki soket hanya tersambung saat switch ditekan. Awalnya saya menempel tanpa switch dan lama kebingungan karena hanya X yang tidak terbaca.</p>
+<table>
+<thead>
+<tr>
+<th>Langkah</th>
+<th>Yang dilakukan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Solder kaki soket di sisi yang masih punya pad</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Solder satu ujung kabel ke kaki di sisi yang copot</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Colokkan switch, tahan tombol itu, lalu tempelkan ujung kabel satunya ke tiap kandidat pad</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Cari pad yang membuat tombol itu muncul di layar tes</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Solder kabel ke pad tersebut</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Foto sekitar X dengan titik tetap dan kandidat ①–⑦ dilingkari" src="/images/20261102-aula-f108-keyboard-repair/16-X-연결-후보.webp" />
+<small>Tujuh kandidat pad untuk ditempel kabel</small></p>
+<p>Untuk kabel, saya menarik satu helai dari kabel LAN dan mengupas kedua ujungnya. Karena tipis, mudah diselipkan di antara pad.</p>
+<p><img alt="Kabel tipis dari kabel LAN yang sudah dikupas" src="/images/20261102-aula-f108-keyboard-repair/17-랜선-전선.webp" />
+<small>Sehelai kabel LAN dengan kedua ujung dikupas</small></p>
+<p>Begitu ditempel, hasilnya langsung terlihat. Pada saya, menempel ke pad D49 dan D48 di atas memunculkan D. Artinya kaki di sisi yang copot sudah tersambung ke jalur yang sama dengan D. Menempel ke pad D63 tepat di sebelahnya memunculkan X. Bukan S yang saya duga, bukan pula D, kandidat berikutnya. Jadi <strong>daripada menebak, lebih cepat menempelkan ke semua kandidat.</strong></p>
+<p><img alt="Menyolder kabel dari kaki kiri soket X ke pad sebelah" src="/images/20261102-aula-f108-keyboard-repair/움짤3-전선-납땜.webp" />
+<small>Menyolder kabel dari kaki soket ke pad sebelah</small></p>
+<p><img alt="Jalur yang menghubungkan pad D63 dan kaki soket X digambar dengan garis biru" src="/images/20261102-aula-f108-keyboard-repair/18-D63-연결.webp" />
+<small>Jalur akhir dari kaki soket X ke pad D63</small></p>
+<p>Setelah tersambung, pastikan diam saat tidak ditekan dan terbaca sekali saat ditekan.</p>
+<p><img alt="Situs tes keyboard yang menunjukkan tombol X terbaca" src="/images/20261102-aula-f108-keyboard-repair/움짤4-X-테스트-완료.webp" />
+<small>Input X setelah perbaikan, terkonfirmasi di situs tes keyboard</small></p>
+<h2 id="s7">7. Yang tersisa setelah diperbaiki</h2>
+<p>Tombol yang diselamatkan lewat jalur kabel tidak persis sama seperti aslinya. Pada saya, ini yang tersisa.</p>
+<table>
+<thead>
+<tr>
+<th>Yang tersisa</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X dan C bersamaan</td>
+<td>Tidak bisa, karena X meminjam dioda milik C. Bisa diperbaiki dengan memindahkan kabel ke kaki dioda X sendiri</td>
+</tr>
+<tr>
+<td>Tombol asal soket (F10)</td>
+<td>Kosong. Pindahkan soket tombol yang tak terpakai (Pause dan lain-lain) atau atur ulang tombol</td>
+</tr>
+<tr>
+<td>Soket yang disambung memutar</td>
+<td>Lemah karena satu pad hilang. Topang soket dari belakang saat mencabut switch</td>
+</tr>
+</tbody>
+</table>
+<p>Untuk mengetik sehari-hari tidak masalah, jadi saya rakit apa adanya.</p>
+<p>Sumber</p>
+<table>
+<thead>
+<tr>
+<th>Sumber</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://blog.naver.com/ststeel/224044004123">Tombol AULA F99 tidak berfungsi (bahasa Korea)</a></td>
+<td>Membuka casing bawah, mencabut baterai</td>
+</tr>
+<tr>
+<td><a href="https://develop-docs.qmk.fm/how_a_matrix_works">QMK: How a Keyboard Matrix Works</a></td>
+<td>Matriks baris dan kolom serta cara kerja dioda</td>
+</tr>
+<tr>
+<td><a href="https://www.keebtalk.com/t/need-help-fixing-lifted-pads-hotswap-socket/20075">KeebTalk: Need help fixing lifted pads Hotswap socket</a></td>
+<td>Menyambung pad yang copot dengan kabel</td>
+</tr>
+</tbody>
+</table></div></article><nav class="pager"><a href="/id/posts/aula-f108-keyboard-repair/"><span>Tulisan sebelumnya</span>Tombol X keyboard AULA F108 tidak berfungsi: perbaikan sendiri dengan Claude, mencoret tebakan satu per satu sampai pad yang copot terselamatkan</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en">English</a> · <a href="/id/" lang="id" class=on>Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, pembuat konten dari Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>
