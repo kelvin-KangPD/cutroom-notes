@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I Automated Shorts Production with a Premiere MCP (Korean War 22 Nations Channel) · Cutroom Notes</title>
+<meta name="description" content="Feed it one script and a photo folder, and Claude assembles the Premiere timeline itself, producing a 2-minute-50-second short. Four episodes in three days.">
+<meta property="og:title" content="I Automated Shorts Production with a Premiere MCP (Korean War 22 Nations Channel) · Cutroom Notes">
+<meta property="og:description" content="Feed it one script and a photo folder, and Claude assembles the Premiere timeline itself, producing a 2-minute-50-second short. Four episodes in three days.">
+<meta property="og:site_name" content="Cutroom Notes">
+<link rel="alternate" hreflang="en" href="https://cutroom-notes.pages.dev/en/posts/korea-remembers-automation/">
+<link rel="alternate" hreflang="id" href="https://cutroom-notes.pages.dev/id/posts/korea-remembers-automation/">
+<link rel="alternate" hreflang="hi" href="https://cutroom-notes.pages.dev/hi/posts/korea-remembers-automation/">
+<link rel="alternate" hreflang="ar" href="https://cutroom-notes.pages.dev/ar/posts/korea-remembers-automation/">
+<link rel="alternate" hreflang="th" href="https://cutroom-notes.pages.dev/th/posts/korea-remembers-automation/">
+<meta property="og:image" content="https://cutroom-notes.pages.dev/images/20261109-korea-remembers-automation/01-영상-한-장면.webp">
+<link rel="canonical" href="https://cutroom-notes.pages.dev/en/posts/korea-remembers-automation/">
+<link rel="alternate" type="application/rss+xml" title="Cutroom Notes" href="/en/feed.xml">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23111111'/><rect x='7' y='9' width='18' height='14' rx='2' fill='none' stroke='%23ffffff' stroke-width='2.5'/><path d='M13 13v6l5-3z' fill='%23ffffff'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/en/">Cutroom Notes</a>
+    <nav class="top"><a href="/en/">All</a><a href="/en/series/">Series</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post"><header><time datetime="2026-11-09">November 9, 2026</time><h1>I Automated Shorts Production with a Premiere MCP (Korean War 22 Nations Channel)</h1><p class="tr-line">Also in: <a href="/id/posts/korea-remembers-automation/" lang="id">Bahasa Indonesia</a> · <a href="/hi/posts/korea-remembers-automation/" lang="hi">हिन्दी</a> · <a href="/ar/posts/korea-remembers-automation/" lang="ar">العربية</a> · <a href="/th/posts/korea-remembers-automation/" lang="th">ไทย</a></p></header><div class="prose"><p>Feed it one script and a photo folder, and Claude assembles the Premiere timeline itself. Over three days I built that path and produced four shorts of about two minutes fifty seconds each.</p>
+<p><img alt="One frame of a vertical video. A strip of 22 national flags runs across the top with &quot;EPISODE 04 · UNITED STATES&quot;, and over a black-and-white photo sits &quot;INFANTRY DIVISION&quot; with a smaller Korean line beneath it" src="/images/20261109-korea-remembers-automation/01-영상-한-장면.webp" />
+<small>A finished frame. The flag strip, the large caption, the sub-caption and the photo placement were all positioned by code</small></p>
+<h2>Why 22 nations</h2>
+<p>Twenty-two countries sent troops or medical staff to the Korean War: 16 combat nations and 6 medical support nations. I chose this as channel material for three reasons.</p>
+<table>
+<thead>
+<tr>
+<th>Reason</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Timing</td>
+<td>Modern Warfare 4 launched on 23 October 2026. Its campaign is a Korean peninsula war that opens with a full North Korean invasion, and the protagonist is a South Korean private. Gamers worldwide are searching for Korea right now</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Every nation has units, battles and people to talk about. Twenty-two nations stretch to hundreds of episodes. I have 145 scripts written already</td>
+</tr>
+<tr>
+<td>Market</td>
+<td>Among the participating nations, the United States, Britain, Canada, Australia, New Zealand, the Netherlands, the Nordics and Germany all carry high ad rates</td>
+</tr>
+</tbody>
+</table>
+<p>The third one is really the biggest. Working only in Korean means a market of fifty million, and that gets split further. So I went with <strong>English as the base, with each nation's own episode getting that nation's language subtitles and flag as special treatment</strong>. The play is to make someone who sees their own country highlighted go digging through the profile asking "is my country in here too?". The rest of the languages I leave to YouTube's automatic dubbing. The channel is Korea Remembers, one account, one episode a day.</p>
+<p>The emotion is gratitude, not anger. The fact that a Korean is making it becomes the sincerity by itself.</p>
+<h2>I analyzed references to settle the design</h2>
+<p>I didn't build on instinct. I pulled down videos from the channels I'm aiming at and took them apart. Indonesia's Hystoria (142K subscribers) showed me the structure, and for the visual grammar I downloaded three shorts from Silent Souls Stories (175K subscribers) with yt-dlp and picked them apart frame by frame.</p>
+<table>
+<thead>
+<tr>
+<th>What I found in the references</th>
+<th>What I applied to my videos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Almost no transition effects. Just a cut, plus a slight pull that settles right after the cut</td>
+<td>Each cut pulls from 104% to 100.5%, then pushes slowly to 106%</td>
+</tr>
+<tr>
+<td>Scenes average 2 seconds</td>
+<td>Cuts average about 3 seconds, the opening 1.3 to 1.7</td>
+</tr>
+<tr>
+<td>White flash of 0.6 seconds only on major transitions</td>
+<td>Only once or twice, where the story turns</td>
+</tr>
+<tr>
+<td>Captions are 1 to 3 words in capitals, centered on screen</td>
+<td>A gradient falling from white to yellow, centered</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="A hand-drawn antique-style map. On a paper texture, an ink-drawn west coastline and the dotted 38th parallel, a title box reading &quot;3 TASK FORCE SMITH / 5 July 1950&quot;, a red arrow coming down from Seoul to Osan, and a note box reading &quot;Jukmiryeong, north of Osan&quot;" src="/images/20261109-korea-remembers-automation/02-직접-그린-고지도.webp" />
+<small>The maps aren't borrowed, they're drawn by code. Only the coastline data comes from open sources; everything else is drawn</small></p>
+<p>I added two things of my own. A strip of 22 flags sits at the top of the screen for the whole video, and the instant the narration says "today, the United States" that one flag grows 1.45 times with a gold border while the rest drop to grayscale. And the maps aren't borrowed, I draw them: paper texture, ink coastline, wave lines along the shore, the 38th parallel, numbered title boxes, red movement arrows. Every scene gets a different map.</p>
+<h2>The voice comes in one block, the timing comes from transcription</h2>
+<p>At first I laid down a guide track with the built-in Windows voice. The verdict was one word. Garbage.</p>
+<p>Now I make it in the Gemini AI Studio web app. The important part is <strong>putting the entire script into a single speech block with blank lines between scenes and running it in one go</strong>. Generate it scene by scene and the voice shifts subtly. I use one voice only, Riko. A two-minute-fifty narration comes out as one file.</p>
+<p><img alt="The Gemini AI Studio speech generation screen. Under the heading &quot;Turn text into natural-sounding speech&quot; sits a row of voice example cards, with a Gemini 3.8 Flash TTS model description in the right panel" src="/images/20261109-korea-remembers-automation/03-ai스튜디오-음성.webp" />
+<small>The screen where the narration is made. You have to press "Create new dialog" before a text field appears</small></p>
+<p>Then comes the core. I run the narration wav back through faster-whisper to <strong>pull out the second at which each word is spoken.</strong> That means no hand-matching of captions. If the cut list says "this photo starts on the word 'Hungnam'", the code finds that word's actual time and places the cut. Alignment accuracy comes out at 95 to 98 percent per episode.</p>
+<p>The captions are two lines. The large line is 1 to 3 words in that nation's language, the small line beneath is English. For English-speaking nations the lower line is Korean. The Korean was breaking into fragments that were too small, so I regrouped it by meaning. A fragment under nine characters, or one whose sense hasn't closed, merges with the next, and a line can run to eighteen characters. In one episode that took 139 fragments down to 66.</p>
+<h2>Claude assembles Premiere directly</h2>
+<p>This is where MCP comes in. I use two.</p>
+<table>
+<thead>
+<tr>
+<th>MCP</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Premiere Pro MCP</td>
+<td>Opening and saving projects under a new name, assembling the timeline via <code>execute_extendscript</code>, exporting</td>
+</tr>
+<tr>
+<td>Playwright (Whale, debug port 9222)</td>
+<td>Generating and downloading voice in AI Studio, collecting material from the U.S. National Archives and DigitaltMuseum, scheduling uploads to YouTube and Instagram</td>
+</tr>
+</tbody>
+</table>
+<p>The order goes like this. The Python side (<code>premiere_prep.py</code>) pre-composites the photos at 1080×1920, draws captions, name tags, brush lettering and maps as PNG sequences, and produces a single <code>plan.json</code>. Then one line of ExtendScript goes out through the Premiere MCP. That script reads the plan and fills eight tracks.</p>
+<p><img alt="The Premiere Pro screen. In the program monitor on the left sits the ending card reading &quot;THANK YOU FOR YOUR SERVICE&quot;, and on the right the timeline is packed with purple clips from V1 to V6, with a green narration waveform on A1" src="/images/20261109-korea-remembers-automation/04-프리미어-타임라인.webp" />
+<small>The finished timeline. Nobody drags these clips in one at a time</small></p>
+<p>V1 photos and maps, V2 the flag strip, V3 name tags, arrows and Korean brush lettering, V4 text cards, ending and white flashes, V5 the large captions, V6 the sub-captions, A1 narration, A2 music. One episode holds more than 250 clips and no human places them.</p>
+<p>What I learned while automating is that judgment can be put into code too. Each scene gets an importance score from its narration. Key words like Medal of Honor, first, captured, killed score 3, a large number scores 3, a word of thanks scores 3, and a key word appearing for the first time in that episode scores 2. Only scenes over 6 points may use the yellow brush lettering, and below that the code removes it automatically. I also synthesized the sound effects in Python so no license could catch them: a logo boom, a flash whoosh, card typing, a thud and a brush stroke, five in all.</p>
+<h2>When code can't trust what code collected</h2>
+<p>The material was collected by code as well. It scrapes Wikimedia Commons by nation and sorts licenses into three tiers: free (public domain, CC0), attribution (CC BY), and share-alike (CC BY-SA). Non-commercial and no-derivatives are not taken.</p>
+<p>But when I opened the first collection, all 114 Philippine photos were from between 1992 and 2016. Philippine political events and a papal visit. The cause was that the only subcategory of <code>Philippines in the Korean War</code> was a man who had been a war veteran and became president, and going two levels down from there dragged in APEC footage. I blocked descent into categories shaped like personal names, added a 1949–1956 year filter, and split the verdict into three: take, check, discard.</p>
+<p>The keyword search I added afterwards was the bigger hole. I ran Germany as a search term and got back 110 files: a 2007 U.S. Army photography contest, Brazilian stamps, World Cup appearance maps, a Soviet cartoon.</p>
+<p><img alt="A six-panel photo sheet. A portrait of Mao Zedong, a portrait of Stalin, a world map of World Cup appearances, a 1952 Brazilian Olympic commemorative stamp, an illustration of Little Red Riding Hood, and a desert landscape from a U.S. Army photography contest" src="/images/20261109-korea-remembers-automation/05-걸러낸-사진.webp" />
+<small>What came back from searching "Germany". All 110 were like this</small></p>
+<p>The relevance test was also using the category path the file had been dragged in through, and a search result has the search term written straight into that path, so anything passed. I turned search off by default, and the 704 rejected files, 5.2GB, now sit in a quarantine folder rather than being deleted. I wrote the photo count down from 1,658 to 1,040. Plan on an inflated number and it turns into holes later.</p>
+<h2>Where it stands</h2>
+<p><img alt="The Korea Remembers YouTube channel page. A banner lined with 22 flags reads &quot;22 NATIONS CAME TO HELP KOREA · ONE STORY AT A TIME&quot;, with two shorts thumbnails below" src="/images/20261109-korea-remembers-automation/06-유튜브-채널.webp" />
+<small>The channel has only just opened. The first line of the description reads "Before Modern Warfare 4, there was a real war in Korea."</small></p>
+<p>Full cuts exist from US-01, the SS Meredith Victory at Hungnam, through US-04, Task Force Smith, and they go up to YouTube and Instagram one a day. Episode 1 is <a href="https://youtube.com/shorts/D4IVNaqsKUQ">One Ship, 14,000 Lives — and the Captain Who Gave Up Everything</a>. Next is the story of Hudner and Brown.</p>
+<p>The remaining work is piled up on the human side. Five nations with fewer than ten photos can't be made into videos yet. For Germany and Italy the period photographs exist only as non-digital records at Korea's National Archives, so a copy request requiring identity verification has to be filed. Episodes for non-English nations need their own narration and a native-speaker review.</p></div></article><nav class="pager"><a href="/en/posts/keyboard-hotswap-repair-guide/"><span>Previous post</span>Keyboard PCB self-repair guide: from a hot-swap key that won&#x27;t register to soldering a ripped copper pad on an AULA</a><span></span></nav>
+</main>
+<footer class="site">
+  <div class="wrap"><nav class="langs"><a href="/en/" lang="en" class=on>English</a> · <a href="/id/" lang="id">Bahasa Indonesia</a> · <a href="/hi/" lang="hi">हिन्दी</a> · <a href="/ar/" lang="ar">العربية</a> · <a href="/th/" lang="th">ไทย</a></nav><p>© 2026 Kelvin</p>
+  <p class="about">Kelvin, a content creator from Korea. · <a href="https://kelvin-kangpd.github.io" lang="ko">강PD 로그</a></p></div>
+</footer>
+</body>
+</html>
