@@ -70,6 +70,9 @@ Di After Effects, setelah rig dibuat, expression mengurus sisanya. Sekarang saya
 | Kepala dan badan | Pada no atau not, menggeleng dan condong ke belakang; pada tanda tanya, memiringkan kepala |
 | Lengan | Pada kata seperti this, mine, you, menunjuk ke arah lawan bicara; pada tanda seru, mengangkat tinggi |
 
+![Timeline komposisi rig After Effects, tiap lapisan terhubung ke ROOT atau HEAD](/images/20261114-tiny-tale-troupe-rigging/09-에펙-리깅-타임라인.webp)
+<small>Rig di timeline After Effects. Lapisan lengan, mulut, mata, dan kepala menjadi anak dari HEAD dan ROOT</small>
+
 ![Ringkasan tujuh panel: nenek dan pemuda berganti ekspresi dan pose lengan sepanjang satu dialog](/images/20261114-tiny-tale-troupe-rigging/06-대사-요약판.webp)
 <small>Satu dialog dipotong menjadi tujuh momen. Mata menutup dan membuka, mulut berganti, lengan maju pada kata penunjuk</small>
 

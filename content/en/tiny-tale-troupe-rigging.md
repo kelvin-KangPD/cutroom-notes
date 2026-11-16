@@ -70,6 +70,9 @@ In After Effects, once the rig is built, expressions handle the rest. Now I just
 | Head and body | On no or not, shakes the head and leans back; on a question mark, tilts the head |
 | Arms | On words like this, mine or you, points with the arm toward the other character; on an exclamation mark, raises it high |
 
+![After Effects rig comp timeline with each layer parented to ROOT or HEAD](/images/20261114-tiny-tale-troupe-rigging/09-에펙-리깅-타임라인.webp)
+<small>The rig in the After Effects timeline. Arm, mouth, eye and head layers are parented to HEAD and ROOT</small>
+
 ![A seven-panel summary where a grandmother and a young man change expressions and arm poses over the course of a line](/images/20261114-tiny-tale-troupe-rigging/06-대사-요약판.webp)
 <small>One line sliced into seven moments. Eyes close and open, mouths change, and the arm goes out on a pointing word</small>
 
