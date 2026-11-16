@@ -73,6 +73,9 @@ cover: /images/20261114-tiny-tale-troupe-rigging/07-완성-장면.webp
 ![ไทม์ไลน์คอมป์ริกใน After Effects แต่ละเลเยอร์ผูกกับ ROOT หรือ HEAD](/images/20261114-tiny-tale-troupe-rigging/09-에펙-리깅-타임라인.webp)
 <small>ริกในไทม์ไลน์ After Effects เลเยอร์แขน ปาก ตา และหัวผูกกับ HEAD และ ROOT</small>
 
+![After Effects แสดงหน้าต่าง «กำลังรันสคริปต์ dispatcher.jsx»](/images/20261114-tiny-tale-troupe-rigging/10-에펙-스크립트-실행.webp)
+<small>สคริปต์ที่ Claude ส่งมากำลังทำงานใน After Effects ชิ้นส่วนกำลังถูกใส่ลงคอมป์ tank_rig</small>
+
 ![สรุปเจ็ดช่อง: คุณยายกับชายหนุ่มเปลี่ยนสีหน้าและท่าแขนระหว่างบทพูดหนึ่งบรรทัด](/images/20261114-tiny-tale-troupe-rigging/06-대사-요약판.webp)
 <small>บทพูดหนึ่งบรรทัดตัดเป็นเจ็ดจังหวะ ตาปิดเปิด ปากเปลี่ยน และแขนยื่นออกตอนคำชี้</small>
 

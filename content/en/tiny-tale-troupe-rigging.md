@@ -73,6 +73,9 @@ In After Effects, once the rig is built, expressions handle the rest. Now I just
 ![After Effects rig comp timeline with each layer parented to ROOT or HEAD](/images/20261114-tiny-tale-troupe-rigging/09-에펙-리깅-타임라인.webp)
 <small>The rig in the After Effects timeline. Arm, mouth, eye and head layers are parented to HEAD and ROOT</small>
 
+![After Effects showing a "Running script dispatcher.jsx" dialog](/images/20261114-tiny-tale-troupe-rigging/10-에펙-스크립트-실행.webp)
+<small>A script sent by Claude running inside After Effects. The parts are being loaded into the tank_rig comp</small>
+
 ![A seven-panel summary where a grandmother and a young man change expressions and arm poses over the course of a line](/images/20261114-tiny-tale-troupe-rigging/06-대사-요약판.webp)
 <small>One line sliced into seven moments. Eyes close and open, mouths change, and the arm goes out on a pointing word</small>
 

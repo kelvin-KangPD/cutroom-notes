@@ -73,6 +73,9 @@ After Effects में रिग एक बार बन जाए तो ब�
 ![After Effects रिग कंप की टाइमलाइन, हर लेयर ROOT या HEAD से जुड़ी](/images/20261114-tiny-tale-troupe-rigging/09-에펙-리깅-타임라인.webp)
 <small>After Effects टाइमलाइन में रिग। बाँह, मुँह, आँख और सिर की लेयर HEAD और ROOT से जुड़ी हैं</small>
 
+![After Effects में "dispatcher.jsx स्क्रिप्ट चल रही है" वाली खिड़की](/images/20261114-tiny-tale-troupe-rigging/10-에펙-스크립트-실행.webp)
+<small>Claude की भेजी स्क्रिप्ट After Effects में चल रही है। हिस्से tank_rig कंप में आ रहे हैं</small>
+
 ![सात खानों का सार: एक संवाद के दौरान दादी और युवक के भाव और बाँहों की मुद्रा बदलती है](/images/20261114-tiny-tale-troupe-rigging/06-대사-요약판.webp)
 <small>एक संवाद को सात पलों में काटा। आँखें बंद-खुलती हैं, मुँह बदलता है, इशारे वाले शब्द पर बाँह आगे जाती है</small>
 

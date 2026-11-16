@@ -73,6 +73,9 @@ cover: /images/20261114-tiny-tale-troupe-rigging/07-완성-장면.webp
 ![خط زمن تركيبة التحريك في After Effects، كل طبقة مربوطة بـROOT أو HEAD](/images/20261114-tiny-tale-troupe-rigging/09-에펙-리깅-타임라인.webp)
 <small>الهيكل في خط زمن After Effects. طبقات الذراعين والفم والعينين والرأس مربوطة بـHEAD وROOT</small>
 
+![After Effects تعرض نافذة «تشغيل السكربت dispatcher.jsx»](/images/20261114-tiny-tale-troupe-rigging/10-에펙-스크립트-실행.webp)
+<small>سكربت أرسله Claude يعمل داخل After Effects، والأجزاء تُحمّل في تركيبة tank_rig</small>
+
 ![ملخص من سبع لوحات: الجدة والشاب تتغير تعابيرهما ووضعيات أذرعهما خلال سطر حوار](/images/20261114-tiny-tale-troupe-rigging/06-대사-요약판.webp)
 <small>سطر واحد مقطّع إلى سبع لحظات. العينان تغمضان وتنفتحان، الأفواه تتغير، والذراع تمتد عند كلمة إشارة</small>
 
